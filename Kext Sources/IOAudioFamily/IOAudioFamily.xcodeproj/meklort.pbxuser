@@ -1,0 +1,744 @@
+// !$*UTF8*$!
+{
+	01577ADFFFEC9C1011CA29EB /* IOAudioDefines.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 6104}}";
+			sepNavSelRange = "{937, 0}";
+			sepNavVisRange = "{321, 1036}";
+		};
+	};
+	06F44E0CFFE702AD11CA29EB /* IOAudioDevice.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1878, 17402}}";
+			sepNavSelRange = "{41462, 0}";
+			sepNavVisRange = "{40305, 1539}";
+		};
+	};
+	06F44E0DFFE702AD11CA29EB /* IOAudioEngine.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 31150}}";
+			sepNavSelRange = "{2231, 0}";
+			sepNavVisRange = "{1773, 942}";
+		};
+	};
+	06F44E0FFFE702AD11CA29EB /* IOAudioEngineUserClient.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1980, 31038}}";
+			sepNavSelRange = "{5653, 0}";
+			sepNavVisRange = "{5340, 695}";
+		};
+	};
+	06F44E17FFE702AD11CA29EB /* IOAudioControl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 8386}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1090}";
+		};
+	};
+	06F44E18FFE702AD11CA29EB /* IOAudioControlUserClient.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 1288}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1094}";
+		};
+	};
+	06F44E19FFE702AD11CA29EB /* IOAudioDevice.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 10654}}";
+			sepNavSelRange = "{935, 0}";
+			sepNavVisRange = "{373, 852}";
+		};
+	};
+	06F44E1AFFE702AD11CA29EB /* IOAudioEngine.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 12026}}";
+			sepNavSelRange = "{971, 0}";
+			sepNavVisRange = "{522, 719}";
+		};
+	};
+	06F44E1BFFE702AD11CA29EB /* IOAudioEngineUserClient.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 3766}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1173}";
+		};
+	};
+	06F44E1DFFE702AD11CA29EB /* IOAudioLevelControl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 2982}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1069}";
+		};
+	};
+	06F44E20FFE702AD11CA29EB /* IOAudioPort.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 2716}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1069}";
+		};
+	};
+	06F44E21FFE702AD11CA29EB /* IOAudioStream.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 4130}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1107}";
+		};
+	};
+	06F44E22FFE702AD11CA29EB /* IOAudioTypes.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 7714}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1130}";
+		};
+	};
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Deployment;
+		activeExecutable = 2789B0E70FFAD3F0008C1879 /* InstallHeaders */;
+		activeSDKPreference = macosx10.5;
+		activeTarget = D63C4CC20B20BFAE0047FE0F /* IOAudioFamily */;
+		codeSenseManager = 2789B0F70FFAD3F7008C1879 /* Code sense */;
+		executables = (
+			2789B0E70FFAD3F0008C1879 /* InstallHeaders */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					707,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 268097389;
+			PBXWorkspaceStateSaveDate = 268097389;
+		};
+		perUserProjectItems = {
+			2789B10A0FFAD42A008C1879 = 2789B10A0FFAD42A008C1879 /* PBXTextBookmark */;
+			2789B10C0FFAD42A008C1879 = 2789B10C0FFAD42A008C1879 /* PBXTextBookmark */;
+			2789B1240FFAD5B7008C1879 = 2789B1240FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1250FFAD5B7008C1879 = 2789B1250FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1260FFAD5B7008C1879 = 2789B1260FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1270FFAD5B7008C1879 = 2789B1270FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1280FFAD5B7008C1879 = 2789B1280FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1290FFAD5B7008C1879 = 2789B1290FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B12A0FFAD5B7008C1879 = 2789B12A0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B12B0FFAD5B7008C1879 = 2789B12B0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B12C0FFAD5B7008C1879 = 2789B12C0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B12D0FFAD5B7008C1879 = 2789B12D0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B12F0FFAD5B7008C1879 = 2789B12F0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1330FFAD5B7008C1879 = 2789B1330FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1340FFAD5B7008C1879 = 2789B1340FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1350FFAD5B7008C1879 = 2789B1350FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1360FFAD5B7008C1879 = 2789B1360FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1370FFAD5B7008C1879 = 2789B1370FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1380FFAD5B7008C1879 = 2789B1380FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1390FFAD5B7008C1879 = 2789B1390FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B13A0FFAD5B7008C1879 = 2789B13A0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B13B0FFAD5B7008C1879 = 2789B13B0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B13C0FFAD5B7008C1879 = 2789B13C0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B13D0FFAD5B7008C1879 = 2789B13D0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B13E0FFAD5B7008C1879 = 2789B13E0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B13F0FFAD5B7008C1879 = 2789B13F0FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1400FFAD5B7008C1879 = 2789B1400FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1410FFAD5B7008C1879 = 2789B1410FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1420FFAD5B7008C1879 = 2789B1420FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1430FFAD5B7008C1879 = 2789B1430FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1440FFAD5B7008C1879 = 2789B1440FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1450FFAD5B7008C1879 = 2789B1450FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1460FFAD5B7008C1879 = 2789B1460FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1470FFAD5B7008C1879 = 2789B1470FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1480FFAD5B7008C1879 = 2789B1480FFAD5B7008C1879 /* PBXTextBookmark */;
+			2789B1640FFAD707008C1879 = 2789B1640FFAD707008C1879 /* PBXTextBookmark */;
+			2789B1650FFAD707008C1879 = 2789B1650FFAD707008C1879 /* PBXTextBookmark */;
+			2789B1670FFAD707008C1879 = 2789B1670FFAD707008C1879 /* PBXTextBookmark */;
+			2789B1680FFAD707008C1879 = 2789B1680FFAD707008C1879 /* PBXTextBookmark */;
+			2789B16C0FFAD75B008C1879 = 2789B16C0FFAD75B008C1879 /* PBXTextBookmark */;
+			2789B16D0FFAD75B008C1879 = 2789B16D0FFAD75B008C1879 /* PBXTextBookmark */;
+			2789B16E0FFAD75B008C1879 = 2789B16E0FFAD75B008C1879 /* PBXTextBookmark */;
+			2789B16F0FFAD75B008C1879 = 2789B16F0FFAD75B008C1879 /* PBXTextBookmark */;
+			2789B1700FFAD75B008C1879 = 2789B1700FFAD75B008C1879 /* PBXTextBookmark */;
+			2789B1710FFAD75B008C1879 = 2789B1710FFAD75B008C1879 /* PBXTextBookmark */;
+			2789B17E0FFAD766008C1879 = 2789B17E0FFAD766008C1879 /* PBXTextBookmark */;
+			27CC04CE0FFAD76F00B83EFB /* PBXTextBookmark */ = 27CC04CE0FFAD76F00B83EFB /* PBXTextBookmark */;
+			27CC04D50FFAD78D00B83EFB /* PBXTextBookmark */ = 27CC04D50FFAD78D00B83EFB /* PBXTextBookmark */;
+		};
+		sourceControlManager = 2789B0F60FFAD3F7008C1879 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	15F1CA6BFFEC8F6A11CA29EB /* IOAudioDebug.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 700}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1056}";
+		};
+	};
+	1B71235C00570F9911CA29EB /* IOAudioToggleControl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 1540}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1161}";
+		};
+	};
+	1B71235D00570F9911CA29EB /* IOAudioSelectorControl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 1806}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1090}";
+		};
+	};
+	1B71235E00570F9911CA29EB /* IOAudioToggleControl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {885, 1792}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1105}";
+		};
+	};
+	2789B0E70FFAD3F0008C1879 /* InstallHeaders */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = InstallHeaders;
+		sourceDirectories = (
+		);
+	};
+	2789B0F60FFAD3F7008C1879 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	2789B0F70FFAD3F7008C1879 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	2789B0FA0FFAD405008C1879 /* IOAudioDevice.cpp */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = IOAudioDevice.cpp;
+		path = "/Users/meklort/latest/mydellmini/Kext Sources/IOAudioFamily/IOAudioDevice.cpp";
+		sourceTree = "<absolute>";
+	};
+	2789B10A0FFAD42A008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2789B0FA0FFAD405008C1879 /* IOAudioDevice.cpp */;
+		name = "IOAudioDevice.cpp: 905";
+		rLen = 225;
+		rLoc = 27690;
+		rType = 0;
+		vrLen = 654;
+		vrLoc = 27456;
+	};
+	2789B10C0FFAD42A008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2789B0FA0FFAD405008C1879 /* IOAudioDevice.cpp */;
+		name = "IOAudioDevice.cpp: 905";
+		rLen = 225;
+		rLoc = 27690;
+		rType = 0;
+		vrLen = 654;
+		vrLoc = 27456;
+	};
+	2789B1240FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E17FFE702AD11CA29EB /* IOAudioControl.h */;
+		name = "IOAudioControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 0;
+	};
+	2789B1250FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E18FFE702AD11CA29EB /* IOAudioControlUserClient.h */;
+		name = "IOAudioControlUserClient.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1094;
+		vrLoc = 0;
+	};
+	2789B1260FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15F1CA6BFFEC8F6A11CA29EB /* IOAudioDebug.h */;
+		name = "IOAudioDebug.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1056;
+		vrLoc = 0;
+	};
+	2789B1270FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E22FFE702AD11CA29EB /* IOAudioTypes.h */;
+		name = "IOAudioTypes.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1130;
+		vrLoc = 0;
+	};
+	2789B1280FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1B71235E00570F9911CA29EB /* IOAudioToggleControl.h */;
+		name = "IOAudioToggleControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1105;
+		vrLoc = 0;
+	};
+	2789B1290FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1B71235C00570F9911CA29EB /* IOAudioToggleControl.cpp */;
+		name = "IOAudioToggleControl.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1161;
+		vrLoc = 0;
+	};
+	2789B12A0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E21FFE702AD11CA29EB /* IOAudioStream.h */;
+		name = "IOAudioStream.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1107;
+		vrLoc = 0;
+	};
+	2789B12B0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1B71235D00570F9911CA29EB /* IOAudioSelectorControl.h */;
+		name = "IOAudioSelectorControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 0;
+	};
+	2789B12C0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E20FFE702AD11CA29EB /* IOAudioPort.h */;
+		name = "IOAudioPort.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1069;
+		vrLoc = 0;
+	};
+	2789B12D0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1DFFE702AD11CA29EB /* IOAudioLevelControl.h */;
+		name = "IOAudioLevelControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1069;
+		vrLoc = 0;
+	};
+	2789B12F0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1BFFE702AD11CA29EB /* IOAudioEngineUserClient.h */;
+		name = "IOAudioEngineUserClient.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1173;
+		vrLoc = 0;
+	};
+	2789B1330FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0CFFE702AD11CA29EB /* IOAudioDevice.cpp */;
+		name = "IOAudioDevice.cpp: 1041";
+		rLen = 27;
+		rLoc = 31978;
+		rType = 0;
+		vrLen = 720;
+		vrLoc = 31557;
+	};
+	2789B1340FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E19FFE702AD11CA29EB /* IOAudioDevice.h */;
+		name = "IOAudioDevice.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1034;
+		vrLoc = 0;
+	};
+	2789B1350FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1AFFE702AD11CA29EB /* IOAudioEngine.h */;
+		name = "IOAudioEngine.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1034;
+		vrLoc = 0;
+	};
+	2789B1360FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01577ADFFFEC9C1011CA29EB /* IOAudioDefines.h */;
+		name = "IOAudioDefines.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1182;
+		vrLoc = 0;
+	};
+	2789B1370FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15F1CA6BFFEC8F6A11CA29EB /* IOAudioDebug.h */;
+		name = "IOAudioDebug.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1056;
+		vrLoc = 0;
+	};
+	2789B1380FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E17FFE702AD11CA29EB /* IOAudioControl.h */;
+		name = "IOAudioControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 0;
+	};
+	2789B1390FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E18FFE702AD11CA29EB /* IOAudioControlUserClient.h */;
+		name = "IOAudioControlUserClient.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1094;
+		vrLoc = 0;
+	};
+	2789B13A0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 15F1CA6BFFEC8F6A11CA29EB /* IOAudioDebug.h */;
+		name = "IOAudioDebug.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1056;
+		vrLoc = 0;
+	};
+	2789B13B0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E22FFE702AD11CA29EB /* IOAudioTypes.h */;
+		name = "IOAudioTypes.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1130;
+		vrLoc = 0;
+	};
+	2789B13C0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1B71235E00570F9911CA29EB /* IOAudioToggleControl.h */;
+		name = "IOAudioToggleControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1105;
+		vrLoc = 0;
+	};
+	2789B13D0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1B71235C00570F9911CA29EB /* IOAudioToggleControl.cpp */;
+		name = "IOAudioToggleControl.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1161;
+		vrLoc = 0;
+	};
+	2789B13E0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E21FFE702AD11CA29EB /* IOAudioStream.h */;
+		name = "IOAudioStream.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1107;
+		vrLoc = 0;
+	};
+	2789B13F0FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1B71235D00570F9911CA29EB /* IOAudioSelectorControl.h */;
+		name = "IOAudioSelectorControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 0;
+	};
+	2789B1400FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E20FFE702AD11CA29EB /* IOAudioPort.h */;
+		name = "IOAudioPort.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1069;
+		vrLoc = 0;
+	};
+	2789B1410FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1DFFE702AD11CA29EB /* IOAudioLevelControl.h */;
+		name = "IOAudioLevelControl.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1069;
+		vrLoc = 0;
+	};
+	2789B1420FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1BFFE702AD11CA29EB /* IOAudioEngineUserClient.h */;
+		name = "IOAudioEngineUserClient.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1173;
+		vrLoc = 0;
+	};
+	2789B1430FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1AFFE702AD11CA29EB /* IOAudioEngine.h */;
+		name = "IOAudioEngine.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1034;
+		vrLoc = 0;
+	};
+	2789B1440FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1BFFE702AD11CA29EB /* IOAudioEngineUserClient.h */;
+		name = "IOAudioEngineUserClient.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1173;
+		vrLoc = 0;
+	};
+	2789B1450FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E19FFE702AD11CA29EB /* IOAudioDevice.h */;
+		name = "IOAudioDevice.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1034;
+		vrLoc = 0;
+	};
+	2789B1460FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0CFFE702AD11CA29EB /* IOAudioDevice.cpp */;
+		name = "IOAudioDevice.cpp: 1041";
+		rLen = 27;
+		rLoc = 31978;
+		rType = 0;
+		vrLen = 691;
+		vrLoc = 31675;
+	};
+	2789B1470FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E19FFE702AD11CA29EB /* IOAudioDevice.h */;
+		name = "IOAudioDevice.h: 21";
+		rLen = 0;
+		rLoc = 935;
+		rType = 0;
+		vrLen = 852;
+		vrLoc = 373;
+	};
+	2789B1480FFAD5B7008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01577ADFFFEC9C1011CA29EB /* IOAudioDefines.h */;
+		name = "IOAudioDefines.h: 22";
+		rLen = 0;
+		rLoc = 936;
+		rType = 0;
+		vrLen = 988;
+		vrLoc = 446;
+	};
+	2789B1640FFAD707008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0CFFE702AD11CA29EB /* IOAudioDevice.cpp */;
+		name = "IOAudioDevice.cpp: 1284";
+		rLen = 0;
+		rLoc = 41462;
+		rType = 0;
+		vrLen = 1539;
+		vrLoc = 40305;
+	};
+	2789B1650FFAD707008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01577ADFFFEC9C1011CA29EB /* IOAudioDefines.h */;
+		name = "IOAudioDefines.h: 23";
+		rLen = 0;
+		rLoc = 937;
+		rType = 0;
+		vrLen = 1036;
+		vrLoc = 321;
+	};
+	2789B1670FFAD707008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0CFFE702AD11CA29EB /* IOAudioDevice.cpp */;
+		name = "IOAudioDevice.cpp: 1284";
+		rLen = 0;
+		rLoc = 41462;
+		rType = 0;
+		vrLen = 1539;
+		vrLoc = 40305;
+	};
+	2789B1680FFAD707008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01577ADFFFEC9C1011CA29EB /* IOAudioDefines.h */;
+		name = "IOAudioDefines.h: 23";
+		rLen = 0;
+		rLoc = 937;
+		rType = 0;
+		vrLen = 1036;
+		vrLoc = 321;
+	};
+	2789B16C0FFAD75B008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1AFFE702AD11CA29EB /* IOAudioEngine.h */;
+		name = "IOAudioEngine.h: 27";
+		rLen = 0;
+		rLoc = 971;
+		rType = 0;
+		vrLen = 719;
+		vrLoc = 522;
+	};
+	2789B16D0FFAD75B008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E19FFE702AD11CA29EB /* IOAudioDevice.h */;
+		name = "IOAudioDevice.h: 21";
+		rLen = 0;
+		rLoc = 935;
+		rType = 0;
+		vrLen = 852;
+		vrLoc = 373;
+	};
+	2789B16E0FFAD75B008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0DFFE702AD11CA29EB /* IOAudioEngine.cpp */;
+		name = "IOAudioEngine.cpp: 2021";
+		rLen = 0;
+		rLoc = 64883;
+		rType = 0;
+		vrLen = 678;
+		vrLoc = 61022;
+	};
+	2789B16F0FFAD75B008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E1AFFE702AD11CA29EB /* IOAudioEngine.h */;
+		name = "IOAudioEngine.h: 27";
+		rLen = 0;
+		rLoc = 971;
+		rType = 0;
+		vrLen = 719;
+		vrLoc = 522;
+	};
+	2789B1700FFAD75B008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0DFFE702AD11CA29EB /* IOAudioEngine.cpp */;
+		name = "IOAudioEngine.cpp: 2021";
+		rLen = 0;
+		rLoc = 64883;
+		rType = 0;
+		vrLen = 678;
+		vrLoc = 61022;
+	};
+	2789B1710FFAD75B008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E19FFE702AD11CA29EB /* IOAudioDevice.h */;
+		name = "IOAudioDevice.h: 21";
+		rLen = 0;
+		rLoc = 935;
+		rType = 0;
+		vrLen = 852;
+		vrLoc = 373;
+	};
+	2789B17E0FFAD766008C1879 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0DFFE702AD11CA29EB /* IOAudioEngine.cpp */;
+		name = "IOAudioEngine.cpp: 65";
+		rLen = 0;
+		rLoc = 2231;
+		rType = 0;
+		vrLen = 942;
+		vrLoc = 1773;
+	};
+	27CC04CE0FFAD76F00B83EFB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0DFFE702AD11CA29EB /* IOAudioEngine.cpp */;
+		name = "IOAudioEngine.cpp: 65";
+		rLen = 0;
+		rLoc = 2231;
+		rType = 0;
+		vrLen = 942;
+		vrLoc = 1773;
+	};
+	27CC04D50FFAD78D00B83EFB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 06F44E0DFFE702AD11CA29EB /* IOAudioEngine.cpp */;
+		name = "IOAudioEngine.cpp: 65";
+		rLen = 0;
+		rLoc = 2231;
+		rType = 0;
+		vrLen = 942;
+		vrLoc = 1773;
+	};
+	D63C4CC20B20BFAE0047FE0F /* IOAudioFamily */ = {
+		activeExec = 0;
+	};
+	D63C4CF10B20BFAE0047FE0F /* IOAudioFloatLib */ = {
+		activeExec = 0;
+	};
+	D63C4CFC0B20BFAE0047FE0F /* InstallHeaders */ = {
+		activeExec = 0;
+		executables = (
+			2789B0E70FFAD3F0008C1879 /* InstallHeaders */,
+		);
+	};
+}

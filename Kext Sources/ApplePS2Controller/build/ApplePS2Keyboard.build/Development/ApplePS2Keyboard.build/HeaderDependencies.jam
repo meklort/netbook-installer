@@ -1,0 +1,13 @@
+rule DefineHeaderDependencies
+{
+	INCLUDES "ApplePS2Keyboard.cpp" : "/usr/include/sys/errno.h" ;
+	INCLUDES "ApplePS2Keyboard.cpp" : "/usr/include/sys/kern_event.h" ;
+	INCLUDES "ApplePS2Keyboard.cpp" : "/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOHIDTypes.h" ;
+	INCLUDES "ApplePS2Keyboard.cpp" : "/System/Library/Frameworks/IOKit.framework/Headers/hidsystem/IOLLEvent.h" ;
+	INCLUDES "ApplePS2Keyboard.cpp" : "/System/Library/Frameworks/IOKit.framework/Headers/pwr_mgt/IOPM.h" ;
+	INCLUDES "ApplePS2Keyboard.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/ApplePS2Controller/ApplePS2Keyboard.h" ;
+	INCLUDES "ApplePS2Keyboard.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/ApplePS2Controller/ApplePS2ToADBMap.h" ;
+}
+
+DefineHeaderDependencies "<ApplePS2Keyboard>ApplePS2Keyboard.kext" ;
+

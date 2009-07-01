@@ -1,0 +1,25 @@
+rule DefineHeaderDependencies
+{
+	INCLUDES "AppleIntelPIIXPATA.cpp" : "/System/Library/Frameworks/IOKit.framework/Headers/IOMessage.h" ;
+	INCLUDES "AppleIntelPIIXPATA.cpp" : "/System/Library/Frameworks/IOKit.framework/Headers/IOKitKeys.h" ;
+	INCLUDES "AppleIntelPIIXPATA.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXPATA.h" ;
+	INCLUDES "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXPATA.h" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATATiming.h" ;
+	INCLUDES "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXPATA.h" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAHW.h" ;
+	INCLUDES "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXPATA.h" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAKeys.h" ;
+	INCLUDES "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXPATA.h" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAChannel.h" ;
+	INCLUDES "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATATiming.h" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAHW.h" ;
+	INCLUDES "AppleIntelPIIXATARoot.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATARoot.h" ;
+	INCLUDES "AppleIntelPIIXATARoot.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAChannel.h" ;
+	INCLUDES "AppleIntelPIIXATARoot.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAKeys.h" ;
+	INCLUDES "AppleIntelPIIXATARoot.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAHW.h" ;
+	INCLUDES "AppleIntelPIIXATAChannel.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAChannel.h" ;
+	INCLUDES "AppleIntelPIIXATAChannel.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATARoot.h" ;
+	INCLUDES "AppleIntelPIIXATAChannel.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAKeys.h" ;
+	INCLUDES "AppleIntelPIIXATAChannel.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATAHW.h" ;
+	INCLUDES "AppleIntelICHxSATA.cpp" : "/System/Library/Frameworks/IOKit.framework/Headers/storage/IOStorageProtocolCharacteristics.h" ;
+	INCLUDES "AppleIntelICHxSATA.cpp" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelICHxSATA.h" ;
+	INCLUDES "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelICHxSATA.h" : "/Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXPATA.h" ;
+}
+
+DefineHeaderDependencies "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" ;
+

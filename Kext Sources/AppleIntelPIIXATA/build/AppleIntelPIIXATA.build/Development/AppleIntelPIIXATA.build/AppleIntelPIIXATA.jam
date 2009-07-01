@@ -1,0 +1,121 @@
+# Jamfile for configuration Development of target "AppleIntelPIIXATA" of project "AppleIntelPIIXATA"
+
+
+JAVAC_SOURCE_FILE_ENCODING default = MacRoman ;
+
+# Implicitly computed project-wide settings for project "AppleIntelPIIXATA"
+export deferred ANTICIPATED_BUILT_PRODUCTS_DIR = $(CONFIGURATION_BUILD_DIR) ;
+export deferred ANTICIPATED_TARGET_BUILD_DIR = $(CONFIGURATION_BUILD_DIR) ;
+export deferred BUILD_STYLE = "$(CONFIGURATION)" ;
+export deferred CONFIGURATION = Development ;
+export deferred CONFIGURATION_BUILD_DIR = $(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) ;
+export deferred CONFIGURATION_TEMP_DIR = $(PROJECT_TEMP_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) ;
+export deferred DEVELOPMENT_LANGUAGE = English ;
+export deferred GID = 20 ;
+export deferred GROUP = staff ;
+export deferred MAC_OS_X_VERSION_ACTUAL = 1056 ;
+export deferred MAC_OS_X_VERSION_MAJOR = 1050 ;
+export deferred PROJECT = $(PROJECT_NAME) ;
+export deferred PROJECT_DIR = /Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA ;
+export deferred PROJECT_FILE_PATH = /Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA/AppleIntelPIIXATA.xcodeproj ;
+export deferred PROJECT_NAME = AppleIntelPIIXATA ;
+export deferred PROJECT_TEMP_DIR = $(OBJROOT)/$(PROJECT_NAME).build ;
+export deferred SRCROOT = /Users/moomeklort/mydellmini/Kext Sources/AppleIntelPIIXATA ;
+export deferred TARGET_TEMP_DIR = $(CONFIGURATION_TEMP_DIR)/$(TARGET_NAME).build ;
+export deferred TEMP_DIR = $(TARGET_TEMP_DIR) ;
+export deferred UID = 502 ;
+export deferred USER = moomeklort ;
+export deferred XCODE_VERSION_ACTUAL = 0310 ;
+export deferred XCODE_VERSION_MAJOR = 0300 ;
+
+# Project-wide settings for project "AppleIntelPIIXATA"
+
+# User-defined project-wide settings for project "AppleIntelPIIXATA"
+
+# Build Settings for target "AppleIntelPIIXATA"
+
+export deferred _INFO_PLIST_FILE_PATH = "$(TARGET_TEMP_DIR)/Info.plist" ;
+export deferred _PKGINFO_FILE_PATH = "$(TARGET_TEMP_DIR)/PkgInfo" ;
+export deferred _PBDEVELOPMENT_PLIST_FILE_PATH = "$(TARGET_TEMP_DIR)/pbdevelopment.plist" ;
+
+# Implicitly computed build settings for target "AppleIntelPIIXATA"
+export deferred PFE_FILE_C_DIALECTS = c++ ;
+export deferred PRODUCT_TYPE =  ;
+export deferred TARGETNAME = $(TARGET_NAME) ;
+export deferred TARGET_NAME = AppleIntelPIIXATA ;
+
+# User-defined build settings for target "AppleIntelPIIXATA"
+export deferred COPY_PHASE_STRIP = NO ;
+export deferred FRAMEWORK_SEARCH_PATHS =  ;
+export deferred GCC_DYNAMIC_NO_PIC = NO ;
+export deferred GCC_ENABLE_FIX_AND_CONTINUE = YES ;
+export deferred GCC_GENERATE_DEBUGGING_SYMBOLS = YES ;
+export deferred GCC_OPTIMIZATION_LEVEL = 0 ;
+export deferred HEADER_SEARCH_PATHS =  ;
+export deferred INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/IOATAFamily.kext/Contents/PlugIns" ;
+export deferred KERNEL_MODULE = YES ;
+export deferred LIBRARY_SEARCH_PATHS =  ;
+export deferred MODULE_IOKIT = YES ;
+export deferred MODULE_NAME = com.apple.driver.AppleIntelPIIXATA ;
+export deferred MODULE_VERSION = 2.0.0 ;
+export deferred OTHER_CFLAGS =  ;
+export deferred OTHER_LDFLAGS =  ;
+export deferred OTHER_REZFLAGS =  ;
+export deferred PRODUCT_NAME = AppleIntelPIIXATA ;
+export deferred SECTORDER_FLAGS =  ;
+export deferred VALID_ARCHS = i386 ;
+export deferred WARNING_CFLAGS = -Wmost -Wno-four-char-constants -Wno-unknown-pragmas ;
+export deferred WRAPPER_EXTENSION = kext ;
+export deferred ZERO_LINK = YES ;
+
+# Target "AppleIntelPIIXATA"
+
+ConditionalDefinitions _ ;
+commitdeferred ;
+
+
+BeginBundle "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" ;
+
+# Script Build Phase Files
+SCRIPT_BUILD_PHASE_FILES = "$(TARGET_TEMP_DIR)/BPTag000-script.sh" ;
+ProcessScriptBuildPhaseFiles "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(SCRIPT_BUILD_PHASE_FILES)" : "" : BPTag000 ;
+
+# Headers
+HEADERS =
+	AppleIntelPIIXPATA.h
+	AppleIntelPIIXATAKeys.h
+	AppleIntelPIIXATATiming.h
+	AppleIntelPIIXATAHW.h
+	AppleIntelPIIXATARoot.h
+	AppleIntelPIIXATAChannel.h
+	AppleIntelICHxSATA.h ;
+ProcessHeaders "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(HEADERS)" : BPTag000 : BPTag001 ;
+
+# Resources
+RESOURCES = ;
+ProcessResources "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(RESOURCES)" : BPTag001 : BPTag002 ;
+
+# Sources
+AppleIntelPIIXPATA.cpp_ATTRIBUTES = ;
+SOURCES =
+	AppleIntelPIIXPATA.cpp
+	AppleIntelPIIXATARoot.cpp
+	AppleIntelPIIXATAChannel.cpp
+	AppleIntelICHxSATA.cpp ;
+ProcessSources "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(SOURCES)" : BPTag002 : BPTag003 ;
+
+# Frameworks & Libraries
+FRAMEWORKS_AND_LIBRARIES = ;
+ProcessFrameworksAndLibraries "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(FRAMEWORKS_AND_LIBRARIES)" : BPTag003 : BPTag004 ;
+
+# Rez Files
+REZ_FILES = ;
+ProcessRezFiles "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(REZ_FILES)" : BPTag004 : BPTag005 ;
+
+# Script Build Phase Files
+SCRIPT_BUILD_PHASE_FILES = "$(TARGET_TEMP_DIR)/BPTag006-script.sh" ;
+ProcessScriptBuildPhaseFiles "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" : "$(SCRIPT_BUILD_PHASE_FILES)" : BPTag005 : BPTag006 ;
+
+include $(TARGET_TEMP_DIR)/HeaderDependencies.jam ;
+EndBundle "<AppleIntelPIIXATA>AppleIntelPIIXATA.kext" ;
+

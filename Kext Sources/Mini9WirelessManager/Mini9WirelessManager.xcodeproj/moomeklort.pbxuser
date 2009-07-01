@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeTarget = 32D94FC30562CBF700B6AF17 /* Mini9WirelessManager */;
+		addToTargets = (
+			32D94FC30562CBF700B6AF17 /* Mini9WirelessManager */,
+		);
+		breakpoints = (
+			66E261DF0F87E7F6005A3EC3 /* Mini9WirelessManager.cpp:91 */,
+		);
+		codeSenseManager = 66DCD3BD0F84A77800902DA0 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					758,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					718,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 261271686;
+			PBXWorkspaceStateSaveDate = 261271686;
+		};
+		perUserProjectItems = {
+			661F4EE80F92B09000E46E11 /* PBXTextBookmark */ = 661F4EE80F92B09000E46E11 /* PBXTextBookmark */;
+			661F4EEC0F92B0E200E46E11 /* PBXTextBookmark */ = 661F4EEC0F92B0E200E46E11 /* PBXTextBookmark */;
+			661F4EEF0F92B11800E46E11 /* PBXTextBookmark */ = 661F4EEF0F92B11800E46E11 /* PBXTextBookmark */;
+			661F4EF00F92B11800E46E11 /* PBXTextBookmark */ = 661F4EF00F92B11800E46E11 /* PBXTextBookmark */;
+			661F4EF10F92B11800E46E11 /* PBXTextBookmark */ = 661F4EF10F92B11800E46E11 /* PBXTextBookmark */;
+			661F4EF20F92B11800E46E11 /* PBXTextBookmark */ = 661F4EF20F92B11800E46E11 /* PBXTextBookmark */;
+			661F4EF30F92B11800E46E11 /* PBXTextBookmark */ = 661F4EF30F92B11800E46E11 /* PBXTextBookmark */;
+			661F4EFB0F92B18C00E46E11 /* PBXTextBookmark */ = 661F4EFB0F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4EFC0F92B18C00E46E11 /* PBXTextBookmark */ = 661F4EFC0F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4EFD0F92B18C00E46E11 /* PBXTextBookmark */ = 661F4EFD0F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4EFE0F92B18C00E46E11 /* PBXTextBookmark */ = 661F4EFE0F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4EFF0F92B18C00E46E11 /* PBXTextBookmark */ = 661F4EFF0F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4F000F92B18C00E46E11 /* PBXTextBookmark */ = 661F4F000F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4F010F92B18C00E46E11 /* PBXTextBookmark */ = 661F4F010F92B18C00E46E11 /* PBXTextBookmark */;
+			661F4F030F92B1B100E46E11 /* PBXTextBookmark */ = 661F4F030F92B1B100E46E11 /* PBXTextBookmark */;
+			661F4F0B0F92B23D00E46E11 /* PBXTextBookmark */ = 661F4F0B0F92B23D00E46E11 /* PBXTextBookmark */;
+			661F4F120F92B28F00E46E11 /* PBXTextBookmark */ = 661F4F120F92B28F00E46E11 /* PBXTextBookmark */;
+			662C3CD30F89374900A1D16C = 662C3CD30F89374900A1D16C /* PBXTextBookmark */;
+			662C3CEA0F896D2800A1D16C = 662C3CEA0F896D2800A1D16C /* PBXTextBookmark */;
+			669FB5E90F884FD1003C6902 = 669FB5E90F884FD1003C6902 /* PBXTextBookmark */;
+			669FB6000F8850D1003C6902 = 669FB6000F8850D1003C6902 /* PBXTextBookmark */;
+			669FB6090F886331003C6902 = 669FB6090F886331003C6902 /* PBXTextBookmark */;
+			66DCD3B50F84A77800902DA0 = 66DCD3B50F84A77800902DA0 /* PBXTextBookmark */;
+			66DCD3B60F84A77800902DA0 = 66DCD3B60F84A77800902DA0 /* PBXTextBookmark */;
+			66E262530F880565005A3EC3 = 66E262530F880565005A3EC3 /* PlistBookmark */;
+			66E2627A0F880B6C005A3EC3 = 66E2627A0F880B6C005A3EC3 /* PlistBookmark */;
+		};
+		sourceControlManager = 66DCD3BC0F84A77800902DA0 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	089C167EFE841241C02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {936, 449}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 45}";
+		};
+	};
+	1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {936, 896}}";
+			sepNavSelRange = "{924, 37}";
+			sepNavVisRange = "{572, 653}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {936, 2940}}";
+			sepNavSelRange = "{126, 0}";
+			sepNavVisRange = "{0, 814}";
+		};
+	};
+	32D94FC30562CBF700B6AF17 /* Mini9WirelessManager */ = {
+		activeExec = 0;
+	};
+	661F4EE80F92B09000E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 7";
+		rLen = 0;
+		rLoc = 126;
+		rType = 0;
+		vrLen = 839;
+		vrLoc = 379;
+	};
+	661F4EEC0F92B0E200E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 36";
+		rLen = 0;
+		rLoc = 521;
+		rType = 0;
+		vrLen = 795;
+		vrLoc = 379;
+	};
+	661F4EEF0F92B11800E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 42";
+		rLen = 0;
+		rLoc = 961;
+		rType = 0;
+		vrLen = 609;
+		vrLoc = 619;
+	};
+	661F4EF00F92B11800E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 36";
+		rLen = 0;
+		rLoc = 521;
+		rType = 0;
+		vrLen = 795;
+		vrLoc = 379;
+	};
+	661F4EF10F92B11800E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 36";
+		rLen = 0;
+		rLoc = 521;
+		rType = 0;
+		vrLen = 795;
+		vrLoc = 379;
+	};
+	661F4EF20F92B11800E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 42";
+		rLen = 0;
+		rLoc = 961;
+		rType = 0;
+		vrLen = 609;
+		vrLoc = 619;
+	};
+	661F4EF30F92B11800E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 42";
+		rLen = 0;
+		rLoc = 556;
+		rType = 0;
+		vrLen = 696;
+		vrLoc = 662;
+	};
+	661F4EFB0F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 42";
+		rLen = 37;
+		rLoc = 924;
+		rType = 0;
+		vrLen = 653;
+		vrLoc = 572;
+	};
+	661F4EFC0F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 84";
+		rLen = 0;
+		rLoc = 1598;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 503;
+	};
+	661F4EFD0F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 84";
+		rLen = 0;
+		rLoc = 1598;
+		rType = 0;
+		vrLen = 610;
+		vrLoc = 1095;
+	};
+	661F4EFE0F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 42";
+		rLen = 0;
+		rLoc = 961;
+		rType = 0;
+		vrLen = 608;
+		vrLoc = 619;
+	};
+	661F4EFF0F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 84";
+		rLen = 0;
+		rLoc = 1598;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 503;
+	};
+	661F4F000F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 42";
+		rLen = 37;
+		rLoc = 924;
+		rType = 0;
+		vrLen = 653;
+		vrLoc = 572;
+	};
+	661F4F010F92B18C00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 6";
+		rLen = 0;
+		rLoc = 126;
+		rType = 0;
+		vrLen = 829;
+		vrLoc = 0;
+	};
+	661F4F030F92B1B100E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 34";
+		rLen = 0;
+		rLoc = 521;
+		rType = 0;
+		vrLen = 781;
+		vrLoc = 488;
+	};
+	661F4F0B0F92B23D00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 145";
+		rLen = 0;
+		rLoc = 3461;
+		rType = 0;
+		vrLen = 821;
+		vrLoc = 1629;
+	};
+	661F4F120F92B28F00E46E11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 6";
+		rLen = 0;
+		rLoc = 126;
+		rType = 0;
+		vrLen = 814;
+		vrLoc = 0;
+	};
+	662C3CD30F89374900A1D16C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'inb' was not declared in this scope";
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		rLen = 1;
+		rLoc = 63;
+		rType = 1;
+	};
+	662C3CEA0F896D2800A1D16C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 7";
+		rLen = 0;
+		rLoc = 126;
+		rType = 0;
+		vrLen = 728;
+		vrLoc = 0;
+	};
+	669FB5E90F884FD1003C6902 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 669FB5EA0F884FD1003C6902 /* airplanemode.c */;
+		name = "airplanemode.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 533;
+		vrLoc = 657;
+	};
+	669FB5EA0F884FD1003C6902 /* airplanemode.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = airplanemode.c;
+		path = /Users/moomeklort/Downloads/airplanemode.c;
+		sourceTree = "<absolute>";
+	};
+	669FB5EE0F884FD1003C6902 /* airplanemode.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = airplanemode.c;
+		path = /Users/moomeklort/Downloads/airplanemode.c;
+		sourceTree = "<absolute>";
+	};
+	669FB6000F8850D1003C6902 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 669FB5EE0F884FD1003C6902 /* airplanemode.c */;
+		name = "airplanemode.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 524;
+		vrLoc = 700;
+	};
+	669FB6090F886331003C6902 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 51";
+		rLen = 0;
+		rLoc = 1066;
+		rType = 0;
+		vrLen = 584;
+		vrLoc = 509;
+	};
+	66DCD3B50F84A77800902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		name = "Mini9WirelessManager.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 25;
+		vrLoc = 0;
+	};
+	66DCD3B60F84A77800902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* Mini9WirelessManager.h */;
+		name = "Mini9WirelessManager.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 25;
+		vrLoc = 0;
+	};
+	66DCD3BC0F84A77800902DA0 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	66DCD3BD0F84A77800902DA0 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	66E261DF0F87E7F6005A3EC3 /* Mini9WirelessManager.cpp:91 */ = {
+		isa = PBXFileBreakpoint;
+		actions = (
+		);
+		breakpointStyle = 0;
+		continueAfterActions = 0;
+		countType = 0;
+		delayBeforeContinue = 0;
+		fileReference = 1A224C3FFF42367911CA2CB7 /* Mini9WirelessManager.cpp */;
+		hitCount = 0;
+		ignoreCount = 0;
+		lineNumber = 91;
+		modificationTime = 260564983.032718;
+		state = 2;
+	};
+	66E262530F880565005A3EC3 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleInfoDictionaryVersion,
+		);
+		name = "/Users/moomeklort/mydellmini/Kext Sources/Mini9WirelessManager/Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	66E2627A0F880B6C005A3EC3 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleInfoDictionaryVersion,
+		);
+		name = "/Users/moomeklort/mydellmini/Kext Sources/Mini9WirelessManager/Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+}
