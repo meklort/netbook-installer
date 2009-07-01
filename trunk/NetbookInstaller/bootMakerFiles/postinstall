@@ -1,0 +1,52 @@
+#!/bin/sh
+
+"./Tools/SetHidden" "$3" \
+"./hidden_MacOS9" &>/dev/null
+
+if [ -e "$3/System/Library/Caches/com.apple.kernelcaches" ]; then
+/bin/rm -rf "$3/System/Library/Caches/com.apple.kernelcaches"
+fi
+
+if [ "x$CF_USER_DATA_STRING" != "x" ]; then 
+echo "$CF_USER_DATA_STRING" > "$3/var/root/.CFUserTextEncoding";
+"$3/usr/sbin/chown" -f root:wheel "$3/var/root/.CFUserTextEncoding";
+"$3/bin/chmod" -f 644 "$3/var/root/.CFUserTextEncoding";
+fi
+
+if [ -e "./SetNVRamForDebug" ] ; then
+"./SetNVRamForDebug" "$1" "$2" "$3" "$4"
+fi
+
+if [ -e "./Tools/notice.txt" ]; then
+cp ./Tools/notice.txt "$3"/tmp/ImportantInformation.txt
+fi
+
+logger -p install.info "Running NetbookInstaller"
+/Applications/NetbookInstallerCLI.app/Contents/MacOS/NetbookInstallerCLI "$3"
+
+logger -p install.info "Running kextcache -k $3/System/Library/Extensions"
+/usr/bin/touch "$3/System/Library/Extensions"
+/usr/sbin/kextcache -k "$3/System/Library/Extensions"
+
+logger -p install.info "Running ifcstart"
+chroot "$3" "/usr/libexec/ifcstart"
+
+logger -p install.info "Running update_dyld_shared_cache"
+/usr/bin/update_dyld_shared_cache -root "$3"
+
+#SYSCTL="/usr/sbin/sysctl"
+#BOOTCACHE_CMD="/usr/sbin/BootCacheControl"
+#
+#BYTE_ORDER=`$SYSCTL -n hw.byteorder`;
+#if [ $BYTE_ORDER = "1234" ]; then
+#	BOOTCACHE_FILE="./Tools/BootCache_playlist_in_i386";
+#fi
+#
+#if [ $BYTE_ORDER = "4321" ]; then
+#	BOOTCACHE_FILE="./Tools/BootCache_playlist_in_ppc";
+#fi
+#
+#$BOOTCACHE_CMD -b 4096 -f "$3"/var/db/BootCache.playlist generate "$3" < $BOOTCACHE_FILE
+
+exit 0
+

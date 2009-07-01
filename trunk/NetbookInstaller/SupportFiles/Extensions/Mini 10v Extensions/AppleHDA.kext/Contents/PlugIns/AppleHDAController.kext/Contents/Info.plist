@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>AppleHDAController</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.3.3a1, Copyright Apple Inc. 2005-2007</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.driver.AppleHDAController</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>HDA Controller Driver</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.3.3</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.3.3a1</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>Intel ICH7 HDA</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleHDAController</string>
+			<key>HDAConfigDefault</key>
+			<array>
+				<dict>
+					<key>CodecID</key>
+					<integer>283902578</integer>
+					<key>ConfigData</key>
+					<data>
+					ARcc8AEXHREBFx4RARcfQQEnHPABJx0RASce
+					EQEnH0EBNxzwATcdEQE3HhEBNx9BAUccEAFH
+					HQEBRx4TAUcfmQFXHPABVx0RAVceEQFXH0EB
+					ZxzwAWcdEQFnHhEBZx9BAXcc8AF3HREBdx4R
+					AXcfQQGHHCABhx2YAYceoQGHHwEBlxwvAZcd
+					CQGXHqMBlx+ZAacc8AGnHREBpx4RAacfQQG3
+					HPABtx0RAbceEQG3H0EB1xwNAdcdjgHXHhYB
+					1x9AAecc8AHnHREB5x4RAecfQQIXHB8CFx1A
+					AhceIQIXHwE=
+					</data>
+					<key>FuncGroup</key>
+					<integer>1</integer>
+					<key>LayoutID</key>
+					<integer>12</integer>
+				</dict>
+			</array>
+			<key>IOClass</key>
+			<string>AppleHDAController</string>
+			<key>IOPCIPrimaryMatch</key>
+			<string>0x793a1002 0x437a1002 0x43831002 0x269a8086 0x26688086 0x27d88086 0x284b8086 0x293e8086 0x026c10de 0x037110de 0x75021039 0x546110b9 0x32881106 0x026c10de 0x03e410de 0x03f010de 0x044a10de 0x044b10de</string>
+			<key>IOProviderClass</key>
+			<string>IOPCIDevice</string>
+		</dict>
+	</dict>
+	<key>OSBundleCompatibleVersion</key>
+	<string>1.0.0d1</string>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IOHDAFamily</key>
+		<string>1.0.0d1</string>
+		<key>com.apple.iokit.IOPCIFamily</key>
+		<string>1.1</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.mach</key>
+		<string>8.0.0b3</string>
+	</dict>
+</dict>
+</plist>
