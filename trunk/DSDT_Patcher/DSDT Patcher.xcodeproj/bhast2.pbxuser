@@ -1,0 +1,90 @@
+// !$*UTF8*$!
+{
+	08FB7793FE84155DC02AAC07 /* Project object */ = {
+		activeArchitecture = i386;
+		activeBuildConfigurationName = Release;
+		activeExecutable = E10DDE1F0EEDFABB003308DF /* DSDT Patcher */;
+		activeTarget = 8DD76FA90486AB0100D96B5E /* DSDT Patcher */;
+		codeSenseManager = E10DDE260EEDFABD003308DF /* Code sense */;
+		executables = (
+			E10DDE1F0EEDFABB003308DF /* DSDT Patcher */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					243,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 250477243;
+			PBXWorkspaceStateSaveDate = 250477243;
+		};
+		sourceControlManager = E10DDE250EEDFABD003308DF /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	08FB7796FE84155DC02AAC07 /* main.c */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {5840, 8750}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1775}";
+			sepNavWindowFrame = "{{38, 294}, {750, 558}}";
+		};
+	};
+	8DD76FA90486AB0100D96B5E /* DSDT Patcher */ = {
+		activeExec = 0;
+		executables = (
+			E10DDE1F0EEDFABB003308DF /* DSDT Patcher */,
+		);
+	};
+	E10DDE1F0EEDFABB003308DF /* DSDT Patcher */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "DSDT Patcher";
+		sourceDirectories = (
+		);
+	};
+	E10DDE250EEDFABD003308DF /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	E10DDE260EEDFABD003308DF /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}
