@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'PS2PreferencePane' target in the 'PS2PrefrencePane' project.
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <AppKit/AppKit.h>
+#endif
