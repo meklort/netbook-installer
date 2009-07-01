@@ -18,6 +18,7 @@
 	
 	IBOutlet NSProgressIndicator*	progressBar;
 	IBOutlet NSTextField*	statusLabel;
+	IBOutlet NSButton* prepareButton;
 	
 	BOOL installing;
 	

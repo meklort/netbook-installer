@@ -41,6 +41,8 @@
 		[progressBar setHidden:false];
 		[progressBar startAnimation: sender];
 		
+		[prepareButton setEnabled:false];
+		
 		[NSThread detachNewThreadSelector:@selector(patchUSBDrive) toTarget: self withObject: nil];
 
 //		[self patchUSBDrive];
@@ -318,6 +320,8 @@
 	[progressBar setHidden:true];
 	[progressBar startAnimation: self];
 	
+	[prepareButton setEnabled:true];
+	
 	installing = NO;
 	
 	NSAlert *alert = [[[NSAlert alloc] init] autorelease];
@@ -337,6 +341,8 @@
 //	[installButton setEnabled:true];
 	[progressBar setHidden:true];
 	[progressBar startAnimation: self];
+	
+	[prepareButton setEnabled:true];
 	
 	NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 	[alert addButtonWithTitle:NSLocalizedString(@"Continue", nil)];
