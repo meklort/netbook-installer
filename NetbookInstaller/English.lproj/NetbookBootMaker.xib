@@ -233,11 +233,11 @@
 				<string key="NSName">_NSMainMenu</string>
 			</object>
 			<object class="NSWindowTemplate" id="513744381">
-				<int key="NSWindowStyleMask">15</int>
+				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 372}, {277, 158}}</string>
+				<string key="NSWindowRect">{{196, 384}, {393, 146}}</string>
 				<int key="NSWTFlags">603979776</int>
-				<string key="NSWindowTitle">Window</string>
+				<string key="NSWindowTitle">Netbook Boot Maker</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
@@ -249,7 +249,7 @@
 						<object class="NSPopUpButton" id="329033704">
 							<reference key="NSNextResponder" ref="414427165"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{134, 100}, {100, 26}}</string>
+							<string key="NSFrame">{{152, 102}, {224, 26}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPopUpButtonCell" key="NSCell" id="1031949847">
@@ -318,13 +318,13 @@
 						<object class="NSTextField" id="326534780">
 							<reference key="NSNextResponder" ref="414427165"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{43, 105}, {89, 17}}</string>
+							<string key="NSFrame">{{20, 108}, {130, 17}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="420196938">
 								<int key="NSCellFlags">68288064</int>
 								<int key="NSCellFlags2">272630784</int>
-								<string key="NSContents">USB Partition:</string>
+								<string key="NSContents">Select USB Partition:</string>
 								<reference key="NSSupport" ref="117813959"/>
 								<reference key="NSControlView" ref="326534780"/>
 								<object class="NSColor" key="NSBackgroundColor" id="816428782">
@@ -350,7 +350,7 @@
 						<object class="NSButton" id="346522381">
 							<reference key="NSNextResponder" ref="414427165"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{60, 56}, {157, 32}}</string>
+							<string key="NSFrame">{{119, 60}, {157, 32}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="397261529">
@@ -371,7 +371,7 @@
 							<reference key="NSNextResponder" ref="414427165"/>
 							<int key="NSvFlags">-2147482356</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
-							<string key="NSFrame">{{21, 16}, {235, 20}}</string>
+							<string key="NSFrame">{{21, 16}, {354, 20}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<int key="NSpiFlags">16392</int>
 							<double key="NSMaxValue">1.000000e+02</double>
@@ -379,7 +379,7 @@
 						<object class="NSTextField" id="585869736">
 							<reference key="NSNextResponder" ref="414427165"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{20, 36}, {106, 17}}</string>
+							<string key="NSFrame">{{20, 42}, {106, 17}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="766126308">
@@ -399,7 +399,7 @@
 						<object class="NSTextField" id="77836555">
 							<reference key="NSNextResponder" ref="414427165"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{128, 39}, {129, 14}}</string>
+							<string key="NSFrame">{{128, 45}, {248, 14}}</string>
 							<reference key="NSSuperview" ref="414427165"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="1004940857">
@@ -413,7 +413,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{277, 158}</string>
+					<string key="NSFrameSize">{393, 146}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
@@ -731,12 +731,12 @@
 						<reference key="object" ref="414427165"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="329033704"/>
 							<reference ref="326534780"/>
-							<reference ref="346522381"/>
-							<reference ref="694101047"/>
 							<reference ref="585869736"/>
+							<reference ref="694101047"/>
 							<reference ref="77836555"/>
+							<reference ref="329033704"/>
+							<reference ref="346522381"/>
 						</object>
 						<reference key="parent" ref="513744381"/>
 					</object>
@@ -952,7 +952,7 @@
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1" id="9"/>
-					<string>{{396, 629}, {248, 23}}</string>
+					<string>{{354, 629}, {248, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{596, 852}, {216, 23}}</string>
@@ -993,8 +993,8 @@
 					<reference ref="9"/>
 					<string>{74, 862}</string>
 					<string>{{11, 977}, {478, 20}}</string>
-					<string>{{360, 79}, {277, 158}}</string>
-					<string>{{360, 79}, {277, 158}}</string>
+					<string>{{273, 433}, {393, 146}}</string>
+					<string>{{273, 433}, {393, 146}}</string>
 					<reference ref="9"/>
 					<string>{{11, 666}, {480, 270}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
