@@ -1,0 +1,555 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0107A3BF008BB6FE7F000001 /* ApplePS2Mouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */; };
+		0107A3C0008BB6FE7F000001 /* ApplePS2Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */; };
+		661372440F4A9A5900415899 /* ApplePS2Mouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */; };
+		661372470F4A9A5900415899 /* ApplePS2Mouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBundleTarget section */
+		089C1673FE841209C02AAC07 /* ApplePS2Mouse */ = {
+			isa = PBXBundleTarget;
+			buildConfigurationList = A7462AE60E390186002AD9D8 /* Build configuration list for PBXBundleTarget "ApplePS2Mouse" */;
+			buildPhases = (
+				06AA1267FFB2110C11CA28AA /* ShellScript */,
+				089C1674FE841209C02AAC07 /* Headers */,
+				089C1675FE841209C02AAC07 /* Resources */,
+				089C1676FE841209C02AAC07 /* Sources */,
+				089C1677FE841209C02AAC07 /* Frameworks */,
+				089C1679FE841209C02AAC07 /* Rez */,
+				06AA1264FFB2107B11CA28AA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = ApplePS2Mouse;
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+			productName = ApplePS2Mouse;
+			productReference = 0B81C263FFB7832611CA28AA /* ApplePS2Mouse.kext */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>ApplePS2Mouse</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.2.0, Copyright Apple Computer, Inc. 2000-2004</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.driver.ApplePS2Mouse</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Apple PS/2 Mouse</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.2.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.2.0</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>ApplePS2Mouse</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.ApplePS2Mouse</string>
+			<key>IOClass</key>
+			<string>ApplePS2Mouse</string>
+			<key>IOProviderClass</key>
+			<string>ApplePS2MouseDevice</string>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright Apple Computer, Inc. 2000-2003</string>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.driver.ApplePS2Controller</key>
+		<string>1.1</string>
+		<key>com.apple.iokit.IOHIDSystem</key>
+		<string>1.1</string>
+		<key>com.apple.kernel.iokit</key>
+		<string>1.1</string>
+		<key>com.apple.kernel.libkern</key>
+		<string>1.1</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Safe Boot</string>
+</dict>
+</plist>
+";
+		};
+/* End PBXBundleTarget section */
+
+/* Begin PBXFileReference section */
+		0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ApplePS2Mouse.cpp; sourceTree = "<group>"; };
+		0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ApplePS2Mouse.h; sourceTree = "<group>"; };
+		0B81C263FFB7832611CA28AA /* ApplePS2Mouse.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ApplePS2Mouse.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		6613724F0F4A9A5900415899 /* Info.ApplePs2Mouse.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.ApplePs2Mouse.plist; sourceTree = "<group>"; };
+		661372500F4A9A5900415899 /* ApplePS2Mouse.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplePS2Mouse.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		089C1677FE841209C02AAC07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372480F4A9A5900415899 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* ApplePS2Mouse */ = {
+			isa = PBXGroup;
+			children = (
+				247142CAFF3F8F9811CA285C /* Source */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+				6613724F0F4A9A5900415899 /* Info.ApplePs2Mouse.plist */,
+			);
+			name = ApplePS2Mouse;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B81C263FFB7832611CA28AA /* ApplePS2Mouse.kext */,
+				661372500F4A9A5900415899 /* ApplePS2Mouse.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247142CAFF3F8F9811CA285C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */,
+				0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		089C1674FE841209C02AAC07 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0107A3BF008BB6FE7F000001 /* ApplePS2Mouse.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372430F4A9A5900415899 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				661372440F4A9A5900415899 /* ApplePS2Mouse.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		661372410F4A9A5900415899 /* ApplePS2Mouse (Upgraded) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6613724B0F4A9A5900415899 /* Build configuration list for PBXNativeTarget "ApplePS2Mouse (Upgraded)" */;
+			buildPhases = (
+				661372420F4A9A5900415899 /* ShellScript */,
+				661372430F4A9A5900415899 /* Headers */,
+				661372450F4A9A5900415899 /* Resources */,
+				661372460F4A9A5900415899 /* Sources */,
+				661372480F4A9A5900415899 /* Frameworks */,
+				661372490F4A9A5900415899 /* Rez */,
+				6613724A0F4A9A5900415899 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ApplePS2Mouse (Upgraded)";
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+			productName = ApplePS2Mouse;
+			productReference = 661372500F4A9A5900415899 /* ApplePS2Mouse.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A7462AE50E390186002AD9D8 /* Build configuration list for PBXProject "ApplePS2Mouse" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* ApplePS2Mouse */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				661372410F4A9A5900415899 /* ApplePS2Mouse (Upgraded) */,
+				089C1673FE841209C02AAC07 /* ApplePS2Mouse */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		089C1675FE841209C02AAC07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372450F4A9A5900415899 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		089C1679FE841209C02AAC07 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372490F4A9A5900415899 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06AA1264FFB2107B11CA28AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		06AA1267FFB2110C11CA28AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		661372420F4A9A5900415899 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		6613724A0F4A9A5900415899 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		089C1676FE841209C02AAC07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0107A3C0008BB6FE7F000001 /* ApplePS2Mouse.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372460F4A9A5900415899 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				661372470F4A9A5900415899 /* ApplePS2Mouse.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6613724C0F4A9A5900415899 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.ApplePs2Mouse.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Mouse;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Mouse;
+				SECTORDER_FLAGS = "";
+				STRIP_INSTALLED_PRODUCT = YES;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		6613724D0F4A9A5900415899 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.ApplePs2Mouse.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Mouse;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Mouse;
+				SECTORDER_FLAGS = "";
+				STRIP_INSTALLED_PRODUCT = YES;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		6613724E0F4A9A5900415899 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = Info.ApplePs2Mouse.plist;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Mouse;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Mouse;
+				SECTORDER_FLAGS = "";
+				STRIP_INSTALLED_PRODUCT = YES;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+		A7462ADF0E390186002AD9D8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Development;
+		};
+		A7462AE00E390186002AD9D8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Deployment;
+		};
+		A7462AE10E390186002AD9D8 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Default;
+		};
+		A7462AE20E390186002AD9D8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Mouse;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Mouse;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		A7462AE30E390186002AD9D8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Mouse;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Mouse;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		A7462AE40E390186002AD9D8 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Mouse;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Mouse;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6613724B0F4A9A5900415899 /* Build configuration list for PBXNativeTarget "ApplePS2Mouse (Upgraded)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6613724C0F4A9A5900415899 /* Development */,
+				6613724D0F4A9A5900415899 /* Deployment */,
+				6613724E0F4A9A5900415899 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		A7462AE50E390186002AD9D8 /* Build configuration list for PBXProject "ApplePS2Mouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7462ADF0E390186002AD9D8 /* Development */,
+				A7462AE00E390186002AD9D8 /* Deployment */,
+				A7462AE10E390186002AD9D8 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		A7462AE60E390186002AD9D8 /* Build configuration list for PBXBundleTarget "ApplePS2Mouse" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7462AE20E390186002AD9D8 /* Development */,
+				A7462AE30E390186002AD9D8 /* Deployment */,
+				A7462AE40E390186002AD9D8 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

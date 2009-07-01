@@ -1,0 +1,214 @@
+// !$*UTF8*$!
+{
+	0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {859, 10682}}";
+			sepNavSelRange = "{12571, 24}";
+			sepNavVisRange = "{12354, 948}";
+		};
+	};
+	0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {859, 1288}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{1598, 1266}";
+		};
+	};
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Deployment;
+		activeTarget = 661372410F4A9A5900415899 /* ApplePS2Mouse (Upgraded) */;
+		codeSenseManager = 661372530F4A9A5A00415899 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXBookmarksDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBookmarksDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					200,
+					57.58349609375,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBookmarksDataSource_LocationID,
+					PBXBookmarksDataSource_NameID,
+					PBXBookmarksDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					135,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					133,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					681,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFindDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFindDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					355,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFindDataSource_MessageID,
+					PBXFindDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					205,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 264626797;
+			PBXWorkspaceStateSaveDate = 264626797;
+		};
+		perUserProjectItems = {
+			6641CBE60F4B11A400546D6A /* PlistBookmark */ = 6641CBE60F4B11A400546D6A /* PlistBookmark */;
+			6641CBE90F4B11A400546D6A /* PlistBookmark */ = 6641CBE90F4B11A400546D6A /* PlistBookmark */;
+			66C3CE280F631E5800C13CC9 /* PBXTextBookmark */ = 66C3CE280F631E5800C13CC9 /* PBXTextBookmark */;
+			66C3CE2B0F631E5800C13CC9 /* PBXTextBookmark */ = 66C3CE2B0F631E5800C13CC9 /* PBXTextBookmark */;
+			66FA23DD0FC5E21A00415FCD /* PBXTextBookmark */ = 66FA23DD0FC5E21A00415FCD /* PBXTextBookmark */;
+			66FA23FA0FC5E27200415FCD /* PBXTextBookmark */ = 66FA23FA0FC5E27200415FCD /* PBXTextBookmark */;
+		};
+		sourceControlManager = 661372520F4A9A5A00415899 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	089C1673FE841209C02AAC07 /* ApplePS2Mouse */ = {
+		activeExec = 0;
+	};
+	661372410F4A9A5900415899 /* ApplePS2Mouse (Upgraded) */ = {
+		activeExec = 0;
+	};
+	661372520F4A9A5A00415899 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	661372530F4A9A5A00415899 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	6641CBE60F4B11A400546D6A /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6613724F0F4A9A5900415899 /* Info.ApplePs2Mouse.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/moomeklort/mydellmini/Kext Sources/ApplePS2Controller/Info.ApplePs2Mouse.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	6641CBE90F4B11A400546D6A /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6613724F0F4A9A5900415899 /* Info.ApplePs2Mouse.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/moomeklort/mydellmini/Kext Sources/ApplePS2Controller/Info.ApplePs2Mouse.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	66C3CE280F631E5800C13CC9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */;
+		name = "ApplePS2Mouse.cpp: 425";
+		rLen = 24;
+		rLoc = 12571;
+		rType = 0;
+		vrLen = 948;
+		vrLoc = 12354;
+	};
+	66C3CE2B0F631E5800C13CC9 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0107A3BD008BB6FE7F000001 /* ApplePS2Mouse.cpp */;
+		name = "ApplePS2Mouse.cpp: 425";
+		rLen = 24;
+		rLoc = 12571;
+		rType = 0;
+		vrLen = 948;
+		vrLoc = 12354;
+	};
+	66FA23DD0FC5E21A00415FCD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */;
+		name = "ApplePS2Mouse.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1266;
+		vrLoc = 1598;
+	};
+	66FA23FA0FC5E27200415FCD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 0107A3BE008BB6FE7F000001 /* ApplePS2Mouse.h */;
+		name = "ApplePS2Mouse.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1266;
+		vrLoc = 1598;
+	};
+}

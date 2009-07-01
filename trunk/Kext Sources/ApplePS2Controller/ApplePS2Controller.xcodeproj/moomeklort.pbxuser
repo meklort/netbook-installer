@@ -1,0 +1,304 @@
+// !$*UTF8*$!
+{
+	01ABC0ED00973EA311CA2928 /* ApplePS2Controller.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {955, 21336}}";
+			sepNavSelRange = "{1605, 0}";
+			sepNavVisRange = "{995, 711}";
+		};
+	};
+	01ABC0EE00973EA311CA2928 /* ApplePS2Controller.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {955, 3864}}";
+			sepNavSelRange = "{10798, 0}";
+			sepNavVisRange = "{9548, 1290}";
+		};
+	};
+	01ABC0EF00973EA311CA2928 /* ApplePS2KeyboardDevice.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {955, 1750}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{2140, 1060}";
+		};
+	};
+	01ABC0F000973EA311CA2928 /* ApplePS2MouseDevice.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {955, 1736}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1304}";
+		};
+	};
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Deployment;
+		activeExecutable = 661371FD0F4A996500415899 /* ApplePS2Controller Headers (Upgraded) */;
+		activeTarget = 661371D80F4A996500415899 /* ApplePS2Controller (Upgraded) */;
+		addToTargets = (
+			661371D80F4A996500415899 /* ApplePS2Controller (Upgraded) */,
+		);
+		codeSenseManager = 66245B930F4A98AF00BA2A61 /* Code sense */;
+		executables = (
+			66245B840F4A988900BA2A61 /* ApplePS2Controller Headers */,
+			661371FD0F4A996500415899 /* ApplePS2Controller Headers (Upgraded) */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					777,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 264626814;
+			PBXWorkspaceStateSaveDate = 264626814;
+		};
+		perUserProjectItems = {
+			663520550F4B14F8003F1AF7 /* PBXTextBookmark */ = 663520550F4B14F8003F1AF7 /* PBXTextBookmark */;
+			6675782F0F7359EB0010C52C /* PBXTextBookmark */ = 6675782F0F7359EB0010C52C /* PBXTextBookmark */;
+			6699B2640F77003600BCE3CC /* PlistBookmark */ = 6699B2640F77003600BCE3CC /* PlistBookmark */;
+			6699B2660F77003600BCE3CC /* PlistBookmark */ = 6699B2660F77003600BCE3CC /* PlistBookmark */;
+			66DCD2ED0F82F32C00902DA0 /* PBXTextBookmark */ = 66DCD2ED0F82F32C00902DA0 /* PBXTextBookmark */;
+			66DCD2EE0F82F32C00902DA0 /* PBXTextBookmark */ = 66DCD2EE0F82F32C00902DA0 /* PBXTextBookmark */;
+			66DCD2EF0F82F32C00902DA0 /* PBXTextBookmark */ = 66DCD2EF0F82F32C00902DA0 /* PBXTextBookmark */;
+			66DCD2F20F82F32C00902DA0 /* PBXTextBookmark */ = 66DCD2F20F82F32C00902DA0 /* PBXTextBookmark */;
+			66DCD2F40F82F32C00902DA0 /* PBXTextBookmark */ = 66DCD2F40F82F32C00902DA0 /* PBXTextBookmark */;
+			66DCD2F70F82F32C00902DA0 /* PBXTextBookmark */ = 66DCD2F70F82F32C00902DA0 /* PBXTextBookmark */;
+			66E262950F884976005A3EC3 /* PBXTextBookmark */ = 66E262950F884976005A3EC3 /* PBXTextBookmark */;
+			66FA23DA0FC5E21800415FCD /* PBXTextBookmark */ = 66FA23DA0FC5E21800415FCD /* PBXTextBookmark */;
+			66FA24070FC5E28800415FCD /* PBXTextBookmark */ = 66FA24070FC5E28800415FCD /* PBXTextBookmark */;
+		};
+		sourceControlManager = 66245B920F4A98AF00BA2A61 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	089C1673FE841209C02AAC07 /* ApplePS2Controller */ = {
+		activeExec = 0;
+	};
+	406B474300AB14E90ACA2928 /* ApplePS2Device.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {955, 4760}}";
+			sepNavSelRange = "{1560, 0}";
+			sepNavVisRange = "{939, 1110}";
+		};
+	};
+	406B474A00AB15080ACA2928 /* ApplePS2Controller Headers */ = {
+		activeExec = 0;
+		executables = (
+			66245B840F4A988900BA2A61 /* ApplePS2Controller Headers */,
+		);
+	};
+	661371D80F4A996500415899 /* ApplePS2Controller (Upgraded) */ = {
+		activeExec = 0;
+	};
+	661371EF0F4A996500415899 /* ApplePS2Controller Headers (Upgraded) */ = {
+		activeExec = 0;
+		executables = (
+			661371FD0F4A996500415899 /* ApplePS2Controller Headers (Upgraded) */,
+		);
+	};
+	661371FD0F4A996500415899 /* ApplePS2Controller Headers (Upgraded) */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "ApplePS2Controller Headers (Upgraded)";
+		sourceDirectories = (
+		);
+	};
+	66245B840F4A988900BA2A61 /* ApplePS2Controller Headers */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = "ApplePS2Controller Headers";
+		sourceDirectories = (
+		);
+	};
+	66245B920F4A98AF00BA2A61 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	66245B930F4A98AF00BA2A61 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	663520550F4B14F8003F1AF7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0ED00973EA311CA2928 /* ApplePS2Controller.cpp */;
+		name = "ApplePS2Controller.cpp: 36";
+		rLen = 69;
+		rLoc = 1224;
+		rType = 0;
+		vrLen = 1203;
+		vrLoc = 2937;
+	};
+	6675782F0F7359EB0010C52C /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0EF00973EA311CA2928 /* ApplePS2KeyboardDevice.cpp */;
+		name = "ApplePS2KeyboardDevice.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1117;
+		vrLoc = 1713;
+	};
+	6699B2640F77003600BCE3CC /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 661371ED0F4A996500415899 /* Info-ApplePS2Controller__Upgraded_-1.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = "/Users/moomeklort/mydellmini/Kext Sources/ApplePS2Controller/Info-ApplePS2Controller__Upgraded_-1.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	6699B2660F77003600BCE3CC /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 661371ED0F4A996500415899 /* Info-ApplePS2Controller__Upgraded_-1.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = "/Users/moomeklort/mydellmini/Kext Sources/ApplePS2Controller/Info-ApplePS2Controller__Upgraded_-1.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	66DCD2ED0F82F32C00902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 406B474300AB14E90ACA2928 /* ApplePS2Device.h */;
+		name = "ApplePS2Device.h: 42";
+		rLen = 0;
+		rLoc = 1560;
+		rType = 0;
+		vrLen = 1110;
+		vrLoc = 939;
+	};
+	66DCD2EE0F82F32C00902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0F000973EA311CA2928 /* ApplePS2MouseDevice.cpp */;
+		name = "ApplePS2MouseDevice.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1304;
+		vrLoc = 0;
+	};
+	66DCD2EF0F82F32C00902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0EF00973EA311CA2928 /* ApplePS2KeyboardDevice.cpp */;
+		name = "ApplePS2KeyboardDevice.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1060;
+		vrLoc = 2140;
+	};
+	66DCD2F20F82F32C00902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 406B474300AB14E90ACA2928 /* ApplePS2Device.h */;
+		name = "ApplePS2Device.h: 42";
+		rLen = 0;
+		rLoc = 1560;
+		rType = 0;
+		vrLen = 1110;
+		vrLoc = 939;
+	};
+	66DCD2F40F82F32C00902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0F000973EA311CA2928 /* ApplePS2MouseDevice.cpp */;
+		name = "ApplePS2MouseDevice.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1304;
+		vrLoc = 0;
+	};
+	66DCD2F70F82F32C00902DA0 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0EE00973EA311CA2928 /* ApplePS2Controller.h */;
+		name = "ApplePS2Controller.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1306;
+		vrLoc = 8577;
+	};
+	66E262950F884976005A3EC3 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0EE00973EA311CA2928 /* ApplePS2Controller.h */;
+		name = "ApplePS2Controller.h: 266";
+		rLen = 0;
+		rLoc = 10798;
+		rType = 0;
+		vrLen = 1290;
+		vrLoc = 9548;
+	};
+	66FA23DA0FC5E21800415FCD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0ED00973EA311CA2928 /* ApplePS2Controller.cpp */;
+		name = "ApplePS2Controller.cpp: 47";
+		rLen = 0;
+		rLoc = 1605;
+		rType = 0;
+		vrLen = 732;
+		vrLoc = 1177;
+	};
+	66FA24070FC5E28800415FCD /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 01ABC0ED00973EA311CA2928 /* ApplePS2Controller.cpp */;
+		name = "ApplePS2Controller.cpp: 47";
+		rLen = 0;
+		rLoc = 1605;
+		rType = 0;
+		vrLen = 711;
+		vrLoc = 995;
+	};
+}

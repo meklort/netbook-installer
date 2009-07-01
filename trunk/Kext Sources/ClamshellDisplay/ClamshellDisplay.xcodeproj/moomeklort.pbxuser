@@ -1,0 +1,43 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeTarget = 32D94FC30562CBF700B6AF17 /* ClamshellDisplay */;
+		codeSenseManager = 6622AFEC0F4CDA95005456C9 /* Code sense */;
+		perUserDictionary = {
+			PBXPerProjectTemplateStateSaveDate = 256694903;
+			PBXWorkspaceStateSaveDate = 256694903;
+		};
+		sourceControlManager = 6622AFEB0F4CDA95005456C9 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	1A224C3EFF42367911CA2CB7 /* ClamshellDisplay.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {963, 472}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 329}";
+		};
+	};
+	1A224C3FFF42367911CA2CB7 /* ClamshellDisplay.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {963, 490}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{57, 499}";
+		};
+	};
+	32D94FC30562CBF700B6AF17 /* ClamshellDisplay */ = {
+		activeExec = 0;
+	};
+	6622AFEB0F4CDA95005456C9 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	6622AFEC0F4CDA95005456C9 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+}

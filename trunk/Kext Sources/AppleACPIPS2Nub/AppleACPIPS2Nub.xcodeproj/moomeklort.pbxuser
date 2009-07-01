@@ -1,0 +1,106 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeSDKPreference = macosx10.5;
+		activeTarget = 32D94FC30562CBF700B6AF17 /* AppleACPIPS2Nub */;
+		codeSenseManager = 66245B7B0F4A7C7F00BA2A61 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					777,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 258697849;
+			PBXWorkspaceStateSaveDate = 258697849;
+		};
+		perUserProjectItems = {
+			664A170B0F6B6FA400821AEE /* PBXTextBookmark */ = 664A170B0F6B6FA400821AEE /* PBXTextBookmark */;
+			664A170C0F6B6FA400821AEE /* PBXBookmark */ = 664A170C0F6B6FA400821AEE /* PBXBookmark */;
+			664A170D0F6B6FA400821AEE /* PBXTextBookmark */ = 664A170D0F6B6FA400821AEE /* PBXTextBookmark */;
+			664A170E0F6B6FA400821AEE /* PBXTextBookmark */ = 664A170E0F6B6FA400821AEE /* PBXTextBookmark */;
+		};
+		sourceControlManager = 66245B7A0F4A7C7F00BA2A61 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	1A224C3EFF42367911CA2CB7 /* AppleACPIPS2Nub.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {519, 1974}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 941}";
+		};
+	};
+	1A224C3FFF42367911CA2CB7 /* AppleACPIPS2Nub.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {955, 2954}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 1319}";
+		};
+	};
+	32D94FC30562CBF700B6AF17 /* AppleACPIPS2Nub */ = {
+		activeExec = 0;
+	};
+	66245B7A0F4A7C7F00BA2A61 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	66245B7B0F4A7C7F00BA2A61 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	664A170B0F6B6FA400821AEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* AppleACPIPS2Nub.h */;
+		name = "AppleACPIPS2Nub.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 941;
+		vrLoc = 0;
+	};
+	664A170C0F6B6FA400821AEE /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* AppleACPIPS2Nub.cpp */;
+	};
+	664A170D0F6B6FA400821AEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* AppleACPIPS2Nub.h */;
+		name = "AppleACPIPS2Nub.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 941;
+		vrLoc = 0;
+	};
+	664A170E0F6B6FA400821AEE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* AppleACPIPS2Nub.cpp */;
+		name = "AppleACPIPS2Nub.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1319;
+		vrLoc = 0;
+	};
+}

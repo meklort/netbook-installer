@@ -1,0 +1,179 @@
+--- IOAudioDevice.cpp.orig	2009-01-06 02:37:09.000000000 +0900
++++ IOAudioDevice.cpp	2009-01-06 02:31:24.000000000 +0900
+@@ -20,6 +20,7 @@
+  * @APPLE_LICENSE_HEADER_END@
+  */
+ 
++#include "../xnu-1228.9.59/libkern/libkern/OSBase.h"
+ #include <IOKit/audio/IOAudioDebug.h>
+ #include <IOKit/audio/IOAudioDevice.h>
+ #include <IOKit/audio/IOAudioEngine.h>
+@@ -166,10 +167,10 @@
+ 		if (reserved->idleSleepDelayTime != kNoIdleAudioPowerDown) {
+ 			// If the driver wants to know about idle sleep after a specific amount of time, then set the timer to tell them at that time.
+ 			// If idleSleepDelayTime == 0xffffffff then don't ever tell the driver about going idle
+-			clock_get_uptime(&fireTime);
+-			absolutetime_to_nanoseconds(fireTime, &nanos);
++			clock_get_uptime(__OSAbsoluteTimePtr(&fireTime));
++			absolutetime_to_nanoseconds(AbsoluteTime_to_scalar(&fireTime), &nanos);
+ 			nanos += reserved->idleSleepDelayTime;
+-			nanoseconds_to_absolutetime(nanos, &fireTime);
++			nanoseconds_to_absolutetime(nanos, __OSAbsoluteTimePtr(&fireTime));
+ 			reserved->idleTimer->wakeAtTime(fireTime);		// will call idleAudioSleepHandlerTimer
+ 		}
+ 	}
+@@ -627,7 +628,7 @@
+         // If we're waking, we fire off the timers and resync them
+         // Then restart the audio engines that were running before the sleep
+         if (currentPowerState == kIOAudioDeviceSleep) {	
+-            clock_get_uptime(&previousTimerFire);
++            clock_get_uptime(__OSAbsoluteTimePtr(&previousTimerFire));
+             SUB_ABSOLUTETIME(&previousTimerFire, &minimumInterval);
+             
+             if (timerEvents && (timerEvents->getCount() > 0)) {
+@@ -792,6 +793,103 @@
+     return activateAudioEngine(audioEngine, true);
+ }
+ 
++class Mini9MuteControl : public IOAudioToggleControl
++{
++	OSDeclareDefaultStructors(Mini9MuteControl);
++	
++	IOMemoryDescriptor *ioreg_;
++	bool mute_;
++	static const IOPMPowerState kPowerStates[2];
++	
++public:
++	virtual bool start(IOService *provider) {
++		IOAudioToggleControl::start(provider);
++		// init power manager
++		PMinit();
++		registerPowerDriver(this, const_cast<IOPMPowerState*>(kPowerStates), sizeof(kPowerStates) / sizeof(kPowerStates[0]));
++		provider->joinPMtree(this);
++		return true;
++	}
++	virtual void stop(IOService *provider) {
++		PMstop();
++		IOAudioToggleControl::stop(provider);
++	}
++	virtual IOReturn setPowerState(unsigned long state, IOService *) {
++		if (state != 0 && ! mute_) {
++			::IODelay(100000); // nasty wait so that all initialization would finish before adjusting mute control
++			updateMuteControl();
++		}
++		return kIOPMAckImplied;
++	}
++	virtual IOReturn performValueChange(OSObject *newValue) {
++		OSNumber *v = OSDynamicCast(OSNumber, newValue);
++		if (v == NULL) {
++			IOLog("Mini9MuteControl: cast failure\n");
++			return kIOReturnError;
++		}
++		mute_ = v->unsigned32BitValue() != 0;
++		updateMuteControl();
++		return kIOReturnSuccess;
++	}
++	static Mini9MuteControl *create() {
++		Mini9MuteControl *control = new Mini9MuteControl;
++		control->init();
++		return control;
++	}
++	bool init() {
++		mute_ = false;
++		if (! IOAudioToggleControl::init(mute_, kIOAudioControlChannelIDAll, kIOAudioControlChannelNameAll, 0,
++				kIOAudioToggleControlSubTypeMute, kIOAudioControlUsageOutput)) {
++			return false;
++		}
++		ioreg_ = NULL;
++		return true;
++	}
++	void startUpdate() {
++		IORegistryEntry *hdaDeviceEntry = IORegistryEntry::fromPath("IOService:/AppleACPIPlatformExpert/PCI0@0/AppleACPIPCI/HDEF");
++		if (hdaDeviceEntry != NULL) {
++			IOService *service = OSDynamicCast(IOService, hdaDeviceEntry);
++			if (service != NULL && service->getDeviceMemoryCount() != 0) {
++				ioreg_ = service->getDeviceMemoryWithIndex(0);
++			}
++			hdaDeviceEntry->release();
++		}
++		//updateMuteControl();
++	}
++	void updateMuteControl() {
++		if (ioreg_ == NULL) {
++			return;
++		}
++		IOLog("Mini9MuteControl: setting to %d\n", mute_ ? 1 : 0);
++		// write the command
++		UInt32 cmd = 0x01470c00 | (mute_ ? 0x0 : 0x2);
++		ioreg_->writeBytes(0x60, &cmd, sizeof(cmd));
++		UInt16 status = 1;
++		ioreg_->writeBytes(0x68, &status, sizeof(status));
++		// wait for response
++		for (int i = 0; i < 1000; i++) {
++			::IODelay(100);
++			ioreg_->readBytes(0x68, &status, sizeof(status));
++			if (status & 0x2) {
++				goto Success;
++			}
++		}
++		// timeout
++		IOLog("Mini9MuteControl: request to change EAPD status timed out.\n");
++	Success:
++		// clear Immediate Result Valid flag
++		status = 0x2;
++		ioreg_->writeBytes(0x68, &status, sizeof(status));
++		IOLog("Mini9MuteControl: done\n");
++	}
++};
++
++OSDefineMetaClassAndStructors(Mini9MuteControl, IOAudioToggleControl)
++const IOPMPowerState Mini9MuteControl::kPowerStates[] = {
++	{ kIOPMPowerStateVersion1 },
++	{ kIOPMPowerStateVersion1, kIOPMDeviceUsable, IOPMPowerOn, IOPMPowerOn },
++};
++
+ IOReturn IOAudioDevice::activateAudioEngine(IOAudioEngine *audioEngine, bool shouldStartAudioEngine)
+ {
+     audioDebugIOLog(3, "IOAudioDevice[%p]::activateAudioEngine(%p, %d)", this, audioEngine, shouldStartAudioEngine);
+@@ -800,6 +898,12 @@
+         return kIOReturnBadArgument;
+     }
+ 
++	Mini9MuteControl *mmc = NULL;
++	if (::strcmp(audioEngine->getMetaClass()->getClassName(), "AppleHDAEngineOutput") == 0) {
++		mmc = Mini9MuteControl::create();
++		audioEngine->addDefaultAudioControl(mmc);
++	}
++	
+     if (!audioEngine->attach(this)) {
+         return kIOReturnError;
+     }
+@@ -818,6 +922,10 @@
+     
+     audioEngine->registerService();
+     
++	if (mmc != NULL) {
++		mmc->startUpdate();
++	}
++	
+     return kIOReturnSuccess;
+ }
+ 
+@@ -967,7 +1075,7 @@
+ 
+         assert(timerEventSource);
+ 
+-        clock_get_uptime(&previousTimerFire);
++        clock_get_uptime(__OSAbsoluteTimePtr(&previousTimerFire));
+         
+         nextTimerFire = previousTimerFire;
+         ADD_ABSOLUTETIME(&nextTimerFire, &minimumInterval);
+@@ -988,7 +1096,7 @@
+     } else if (CMP_ABSOLUTETIME(&interval, &minimumInterval) < 0) {
+         AbsoluteTime currentNextFire, desiredNextFire;
+         
+-        clock_get_uptime(&desiredNextFire);
++        clock_get_uptime(__OSAbsoluteTimePtr(&desiredNextFire));
+         ADD_ABSOLUTETIME(&desiredNextFire, &interval);
+ 
+         currentNextFire = previousTimerFire;

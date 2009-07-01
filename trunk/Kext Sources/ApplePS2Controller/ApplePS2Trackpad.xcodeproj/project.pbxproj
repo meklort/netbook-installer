@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A224C40FF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */; };
+		1A224C41FF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */; settings = {ATTRIBUTES = (); }; };
+		219BA5CB05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */; };
+		219BA5CC05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */; };
+		6613721F0F4A9A0F00415899 /* ApplePS2SynapticsTouchPad.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */; };
+		661372200F4A9A0F00415899 /* ApplePS2ALPSGlidePoint.h in Headers */ = {isa = PBXBuildFile; fileRef = 219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */; };
+		661372230F4A9A0F00415899 /* ApplePS2SynapticsTouchPad.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */; settings = {ATTRIBUTES = (); }; };
+		661372240F4A9A0F00415899 /* ApplePS2ALPSGlidePoint.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBundleTarget section */
+		089C1673FE841209C02AAC07 /* ApplePS2Trackpad */ = {
+			isa = PBXBundleTarget;
+			buildConfigurationList = A7462B000E390312002AD9D8 /* Build configuration list for PBXBundleTarget "ApplePS2Trackpad" */;
+			buildPhases = (
+				06AA1267FFB2110C11CA28AA /* ShellScript */,
+				089C1674FE841209C02AAC07 /* Headers */,
+				089C1675FE841209C02AAC07 /* Resources */,
+				089C1676FE841209C02AAC07 /* Sources */,
+				089C1677FE841209C02AAC07 /* Frameworks */,
+				089C1679FE841209C02AAC07 /* Rez */,
+				06AA1264FFB2107B11CA28AA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = ApplePS2Trackpad;
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+			productName = ApplePS2Trackpad;
+			productReference = 0B81C263FFB7832611CA28AA /* ApplePS2Trackpad.kext */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>ApplePS2Trackpad</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.1.0, Copyright Apple Computer, Inc. 2002-2003</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.driver.ApplePS2Trackpad</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Apple PS/2 Trackpad</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.1.0</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>ALPS GlidePoint</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.ApplePS2Trackpad</string>
+			<key>IOClass</key>
+			<string>ApplePS2ALPSGlidePoint</string>
+			<key>IOProbeScore</key>
+			<integer>1000</integer>
+			<key>IOProviderClass</key>
+			<string>ApplePS2MouseDevice</string>
+		</dict>
+		<key>Synaptics TouchPad</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.ApplePS2Trackpad</string>
+			<key>IOClass</key>
+			<string>ApplePS2SynapticsTouchPad</string>
+			<key>IOProbeScore</key>
+			<integer>5000</integer>
+			<key>IOProviderClass</key>
+			<string>ApplePS2MouseDevice</string>
+		</dict>
+	</dict>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.driver.ApplePS2Controller</key>
+		<string>1.1</string>
+		<key>com.apple.iokit.IOHIDSystem</key>
+		<string>1.1</string>
+		<key>com.apple.kernel.iokit</key>
+		<string>1.1</string>
+		<key>com.apple.kernel.libkern</key>
+		<string>1.1</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Safe Boot</string>
+</dict>
+</plist>
+";
+		};
+/* End PBXBundleTarget section */
+
+/* Begin PBXFileReference section */
+		0B81C263FFB7832611CA28AA /* ApplePS2Trackpad.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ApplePS2Trackpad.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ApplePS2SynapticsTouchPad.h; sourceTree = "<group>"; };
+		1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ApplePS2SynapticsTouchPad.cpp; sourceTree = "<group>"; };
+		219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ApplePS2ALPSGlidePoint.cpp; sourceTree = "<group>"; };
+		219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ApplePS2ALPSGlidePoint.h; sourceTree = "<group>"; };
+		2720E3EA0FDA29C3004784F8 /* IOHIDFamily */ = {isa = PBXFileReference; lastKnownFileType = folder; path = IOHIDFamily; sourceTree = "<group>"; };
+		6613722C0F4A9A0F00415899 /* Info-ApplePS2Trackpad__Upgraded_.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-ApplePS2Trackpad__Upgraded_.plist"; sourceTree = "<group>"; };
+		6613722D0F4A9A0F00415899 /* ApplePS2Trackpad.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplePS2Trackpad.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		6652F71A0FC7902A0017FBBE /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		089C1677FE841209C02AAC07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372250F4A9A0F00415899 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* ApplePS2Trackpad */ = {
+			isa = PBXGroup;
+			children = (
+				247142CAFF3F8F9811CA285C /* Source */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+				6613722C0F4A9A0F00415899 /* Info-ApplePS2Trackpad__Upgraded_.plist */,
+				6652F7BE0FC7932A0017FBBE /* Frameworks and Libraries */,
+			);
+			name = ApplePS2Trackpad;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B81C263FFB7832611CA28AA /* ApplePS2Trackpad.kext */,
+				6613722D0F4A9A0F00415899 /* ApplePS2Trackpad.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247142CAFF3F8F9811CA285C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2720E3EA0FDA29C3004784F8 /* IOHIDFamily */,
+				219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */,
+				219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */,
+				1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */,
+				1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		6652F7BE0FC7932A0017FBBE /* Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6652F71A0FC7902A0017FBBE /* Kernel.framework */,
+			);
+			name = "Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		089C1674FE841209C02AAC07 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A224C40FF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h in Headers */,
+				219BA5CC05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6613721E0F4A9A0F00415899 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6613721F0F4A9A0F00415899 /* ApplePS2SynapticsTouchPad.h in Headers */,
+				661372200F4A9A0F00415899 /* ApplePS2ALPSGlidePoint.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6613721C0F4A9A0F00415899 /* ApplePS2Trackpad (Upgraded) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 661372280F4A9A0F00415899 /* Build configuration list for PBXNativeTarget "ApplePS2Trackpad (Upgraded)" */;
+			buildPhases = (
+				6613721D0F4A9A0F00415899 /* ShellScript */,
+				6613721E0F4A9A0F00415899 /* Headers */,
+				661372210F4A9A0F00415899 /* Resources */,
+				661372220F4A9A0F00415899 /* Sources */,
+				661372250F4A9A0F00415899 /* Frameworks */,
+				661372260F4A9A0F00415899 /* Rez */,
+				661372270F4A9A0F00415899 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ApplePS2Trackpad (Upgraded)";
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+			productName = ApplePS2Trackpad;
+			productReference = 6613722D0F4A9A0F00415899 /* ApplePS2Trackpad.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A7462AFF0E390312002AD9D8 /* Build configuration list for PBXProject "ApplePS2Trackpad" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* ApplePS2Trackpad */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6613721C0F4A9A0F00415899 /* ApplePS2Trackpad (Upgraded) */,
+				089C1673FE841209C02AAC07 /* ApplePS2Trackpad */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		089C1675FE841209C02AAC07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372210F4A9A0F00415899 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		089C1679FE841209C02AAC07 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372260F4A9A0F00415899 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06AA1264FFB2107B11CA28AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		06AA1267FFB2110C11CA28AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		6613721D0F4A9A0F00415899 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		661372270F4A9A0F00415899 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		089C1676FE841209C02AAC07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A224C41FF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp in Sources */,
+				219BA5CB05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		661372220F4A9A0F00415899 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				661372230F4A9A0F00415899 /* ApplePS2SynapticsTouchPad.cpp in Sources */,
+				661372240F4A9A0F00415899 /* ApplePS2ALPSGlidePoint.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		661372290F4A9A0F00415899 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-ApplePS2Trackpad__Upgraded_.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Trackpad;
+				MODULE_VERSION = 1.1.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Trackpad;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		6613722A0F4A9A0F00415899 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-ApplePS2Trackpad__Upgraded_.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Trackpad;
+				MODULE_VERSION = 1.1.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Trackpad;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		6613722B0F4A9A0F00415899 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = "";
+				INFOPLIST_FILE = "Info-ApplePS2Trackpad__Upgraded_.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Trackpad;
+				MODULE_VERSION = 1.1.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Trackpad;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+		A7462AF90E390312002AD9D8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Development;
+		};
+		A7462AFA0E390312002AD9D8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Deployment;
+		};
+		A7462AFB0E390312002AD9D8 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Default;
+		};
+		A7462AFC0E390312002AD9D8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Trackpad;
+				MODULE_VERSION = 1.1.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Trackpad;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		A7462AFD0E390312002AD9D8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Trackpad;
+				MODULE_VERSION = 1.1.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Trackpad;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		A7462AFE0E390312002AD9D8 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Trackpad;
+				MODULE_VERSION = 1.1.0;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Trackpad;
+				SECTORDER_FLAGS = "";
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		661372280F4A9A0F00415899 /* Build configuration list for PBXNativeTarget "ApplePS2Trackpad (Upgraded)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				661372290F4A9A0F00415899 /* Development */,
+				6613722A0F4A9A0F00415899 /* Deployment */,
+				6613722B0F4A9A0F00415899 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		A7462AFF0E390312002AD9D8 /* Build configuration list for PBXProject "ApplePS2Trackpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7462AF90E390312002AD9D8 /* Development */,
+				A7462AFA0E390312002AD9D8 /* Deployment */,
+				A7462AFB0E390312002AD9D8 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		A7462B000E390312002AD9D8 /* Build configuration list for PBXBundleTarget "ApplePS2Trackpad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7462AFC0E390312002AD9D8 /* Development */,
+				A7462AFD0E390312002AD9D8 /* Deployment */,
+				A7462AFE0E390312002AD9D8 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

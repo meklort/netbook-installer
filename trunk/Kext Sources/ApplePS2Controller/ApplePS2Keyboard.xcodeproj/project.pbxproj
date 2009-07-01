@@ -1,0 +1,556 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0107A3C3008BB9B17F000001 /* ApplePS2Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 0107A3C2008BB9B17F000001 /* ApplePS2Keyboard.h */; };
+		0107A3C4008BB9B17F000001 /* ApplePS2Keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0107A3C1008BB9B17F000001 /* ApplePS2Keyboard.cpp */; };
+		663520390F4B14EF003F1AF7 /* ApplePS2Keyboard.h in Headers */ = {isa = PBXBuildFile; fileRef = 0107A3C2008BB9B17F000001 /* ApplePS2Keyboard.h */; };
+		6635203A0F4B14EF003F1AF7 /* ApplePS2ToADBMap.h in Headers */ = {isa = PBXBuildFile; fileRef = B9BA1F6101988D1E08CA29FD /* ApplePS2ToADBMap.h */; };
+		6635203D0F4B14EF003F1AF7 /* ApplePS2Keyboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0107A3C1008BB9B17F000001 /* ApplePS2Keyboard.cpp */; };
+		B9BA1F6201988D1E08CA29FD /* ApplePS2ToADBMap.h in Headers */ = {isa = PBXBuildFile; fileRef = B9BA1F6101988D1E08CA29FD /* ApplePS2ToADBMap.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBundleTarget section */
+		089C1673FE841209C02AAC07 /* ApplePS2Keyboard */ = {
+			isa = PBXBundleTarget;
+			buildConfigurationList = A7462ABD0E38FE8A002AD9D8 /* Build configuration list for PBXBundleTarget "ApplePS2Keyboard" */;
+			buildPhases = (
+				06AA1267FFB2110C11CA28AA /* ShellScript */,
+				089C1674FE841209C02AAC07 /* Headers */,
+				089C1675FE841209C02AAC07 /* Resources */,
+				089C1676FE841209C02AAC07 /* Sources */,
+				089C1677FE841209C02AAC07 /* Frameworks */,
+				089C1679FE841209C02AAC07 /* Rez */,
+				06AA1264FFB2107B11CA28AA /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = ApplePS2Keyboard;
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+			productName = ApplePS2Keyboard;
+			productReference = 0B81C263FFB7832611CA28AA /* ApplePS2Keyboard.kext */;
+			productSettingsXML = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">
+<plist version=\"1.0\">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>ApplePS2Keyboard</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.2.0, Copyright Apple Computer, Inc. 2000-2003</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.driver.ApplePS2Keyboard</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Apple PS/2 Keyboard</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.2.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.2.0</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>ApplePS2Keyboard</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.ApplePS2Keyboard</string>
+			<key>IOClass</key>
+			<string>ApplePS2Keyboard</string>
+			<key>IOProviderClass</key>
+			<string>ApplePS2KeyboardDevice</string>
+			<key>Make capslock into control</key>
+			<false/>
+			<key>Swap alt and windows key</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>NSHumanReadableCopyright</key>
+	<string>Copyright Apple Computer, Inc. 2000-2003</string>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.driver.ApplePS2Controller</key>
+		<string>1.1</string>
+		<key>com.apple.iokit.IOHIDSystem</key>
+		<string>1.1</string>
+		<key>com.apple.kernel.iokit</key>
+		<string>1.1</string>
+		<key>com.apple.kernel.libkern</key>
+		<string>1.1</string>
+	</dict>
+	<key>OSBundleRequired</key>
+	<string>Console</string>
+</dict>
+</plist>
+";
+		};
+/* End PBXBundleTarget section */
+
+/* Begin PBXFileReference section */
+		0107A3C1008BB9B17F000001 /* ApplePS2Keyboard.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ApplePS2Keyboard.cpp; sourceTree = "<group>"; };
+		0107A3C2008BB9B17F000001 /* ApplePS2Keyboard.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ApplePS2Keyboard.h; sourceTree = "<group>"; };
+		0B81C263FFB7832611CA28AA /* ApplePS2Keyboard.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = ApplePS2Keyboard.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		663520450F4B14EF003F1AF7 /* Info-ApplePS2Keyboard__Upgraded_.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-ApplePS2Keyboard__Upgraded_.plist"; sourceTree = "<group>"; };
+		663520460F4B14F0003F1AF7 /* ApplePS2Keyboard.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApplePS2Keyboard.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9BA1F6101988D1E08CA29FD /* ApplePS2ToADBMap.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ApplePS2ToADBMap.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		089C1677FE841209C02AAC07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6635203E0F4B14EF003F1AF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* ApplePS2Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				247142CAFF3F8F9811CA285C /* Source */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+				663520450F4B14EF003F1AF7 /* Info-ApplePS2Keyboard__Upgraded_.plist */,
+			);
+			name = ApplePS2Keyboard;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0B81C263FFB7832611CA28AA /* ApplePS2Keyboard.kext */,
+				663520460F4B14F0003F1AF7 /* ApplePS2Keyboard.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247142CAFF3F8F9811CA285C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				0107A3C1008BB9B17F000001 /* ApplePS2Keyboard.cpp */,
+				0107A3C2008BB9B17F000001 /* ApplePS2Keyboard.h */,
+				B9BA1F6101988D1E08CA29FD /* ApplePS2ToADBMap.h */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		089C1674FE841209C02AAC07 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0107A3C3008BB9B17F000001 /* ApplePS2Keyboard.h in Headers */,
+				B9BA1F6201988D1E08CA29FD /* ApplePS2ToADBMap.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663520380F4B14EF003F1AF7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663520390F4B14EF003F1AF7 /* ApplePS2Keyboard.h in Headers */,
+				6635203A0F4B14EF003F1AF7 /* ApplePS2ToADBMap.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		663520360F4B14EF003F1AF7 /* ApplePS2Keyboard (Upgraded) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 663520410F4B14EF003F1AF7 /* Build configuration list for PBXNativeTarget "ApplePS2Keyboard (Upgraded)" */;
+			buildPhases = (
+				663520370F4B14EF003F1AF7 /* ShellScript */,
+				663520380F4B14EF003F1AF7 /* Headers */,
+				6635203B0F4B14EF003F1AF7 /* Resources */,
+				6635203C0F4B14EF003F1AF7 /* Sources */,
+				6635203E0F4B14EF003F1AF7 /* Frameworks */,
+				6635203F0F4B14EF003F1AF7 /* Rez */,
+				663520400F4B14EF003F1AF7 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ApplePS2Keyboard (Upgraded)";
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+			productName = ApplePS2Keyboard;
+			productReference = 663520460F4B14F0003F1AF7 /* ApplePS2Keyboard.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = A7462ABC0E38FE8A002AD9D8 /* Build configuration list for PBXProject "ApplePS2Keyboard" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* ApplePS2Keyboard */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				663520360F4B14EF003F1AF7 /* ApplePS2Keyboard (Upgraded) */,
+				089C1673FE841209C02AAC07 /* ApplePS2Keyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		089C1675FE841209C02AAC07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6635203B0F4B14EF003F1AF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		089C1679FE841209C02AAC07 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6635203F0F4B14EF003F1AF7 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06AA1264FFB2107B11CA28AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		06AA1267FFB2110C11CA28AA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		663520370F4B14EF003F1AF7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPreprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+		663520400F4B14EF003F1AF7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "script=\"${SYSTEM_DEVELOPER_DIR}/ProjectBuilder Extras/Kernel Extension Support/KEXTPostprocess\";\nif [ -x \"$script\" ]; then\n    . \"$script\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		089C1676FE841209C02AAC07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0107A3C4008BB9B17F000001 /* ApplePS2Keyboard.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6635203C0F4B14EF003F1AF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6635203D0F4B14EF003F1AF7 /* ApplePS2Keyboard.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		663520420F4B14EF003F1AF7 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = include;
+				INFOPLIST_FILE = "Info-ApplePS2Keyboard__Upgraded_.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Keyboard;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Keyboard;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		663520430F4B14EF003F1AF7 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = include;
+				INFOPLIST_FILE = "Info-ApplePS2Keyboard__Upgraded_.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Keyboard;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Keyboard;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		663520440F4B14EF003F1AF7 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = include;
+				INFOPLIST_FILE = "Info-ApplePS2Keyboard__Upgraded_.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Keyboard;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Keyboard;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+		A7462AB60E38FE8A002AD9D8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Development;
+		};
+		A7462AB70E38FE8A002AD9D8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Deployment;
+		};
+		A7462AB80E38FE8A002AD9D8 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ONLY_ACTIVE_ARCH_PRE_XCODE_3_1)";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)/ApplePS2Controller.kext/Contents/PlugIns";
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				ONLY_ACTIVE_ARCH_PRE_XCODE_3_1 = "$(NATIVE_ARCH)";
+				SDKROOT = /Developer/SDKs/MacOSX10.5.sdk;
+				VALID_ARCHS = i386;
+			};
+			name = Default;
+		};
+		A7462AB90E38FE8A002AD9D8 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Keyboard;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Keyboard;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		A7462ABA0E38FE8A002AD9D8 /* Deployment */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Keyboard;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Keyboard;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Deployment;
+		};
+		A7462ABB0E38FE8A002AD9D8 /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions/ApplePS2Controller.kext/Contents/PlugIns";
+				KERNEL_MODULE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MODULE_IOKIT = YES;
+				MODULE_NAME = com.apple.driver.ApplePS2Keyboard;
+				MODULE_VERSION = 1.2.0;
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ApplePS2Keyboard;
+				VALID_ARCHS = i386;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+				);
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		663520410F4B14EF003F1AF7 /* Build configuration list for PBXNativeTarget "ApplePS2Keyboard (Upgraded)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663520420F4B14EF003F1AF7 /* Development */,
+				663520430F4B14EF003F1AF7 /* Deployment */,
+				663520440F4B14EF003F1AF7 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		A7462ABC0E38FE8A002AD9D8 /* Build configuration list for PBXProject "ApplePS2Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7462AB60E38FE8A002AD9D8 /* Development */,
+				A7462AB70E38FE8A002AD9D8 /* Deployment */,
+				A7462AB80E38FE8A002AD9D8 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+		A7462ABD0E38FE8A002AD9D8 /* Build configuration list for PBXBundleTarget "ApplePS2Keyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7462AB90E38FE8A002AD9D8 /* Development */,
+				A7462ABA0E38FE8A002AD9D8 /* Deployment */,
+				A7462ABB0E38FE8A002AD9D8 /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
