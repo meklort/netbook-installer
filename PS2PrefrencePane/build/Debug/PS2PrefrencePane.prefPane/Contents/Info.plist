@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>PS2PrefrencePane</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.meklort.PS2PrefrencePane</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>PS2PrefrencePane</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>MEKL</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>NSMainNibFile</key>
+	<string>PS2PrefrencePanePref</string>
+	<key>NSPrefPaneIconFile</key>
+	<string>PS2PrefrencePanePref.tiff</string>
+	<key>NSPrefPaneIconLabel</key>
+	<string>PS2PrefrencePane</string>
+	<key>NSPrincipalClass</key>
+	<string>PS2PrefrencePanePref</string>
+</dict>
+</plist>
