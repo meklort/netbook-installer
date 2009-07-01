@@ -1,0 +1,1170 @@
+// !$*UTF8*$!
+{
+	089C165DFE840E0CC02AAC07 /* English */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 472}}";
+			sepNavSelRange = "{0, 0}";
+			sepNavVisRange = "{0, 45}";
+		};
+	};
+	29B97313FDCFA39411CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = 668FF6C60FC0D004007E4E75 /* LenovoInstaller */;
+		activeSDKPreference = macosx10.5;
+		activeTarget = 668FF6C40FC0D004007E4E75 /* LenovoInstaller */;
+		addToTargets = (
+			668FF6C40FC0D004007E4E75 /* LenovoInstaller */,
+			8D1107260486CEB800E47090 /* NetbookInstaller */,
+			66E5B5F40FC040CD000F2A93 /* DellEFI */,
+		);
+		codeSenseManager = 661B35C40FBE019D004007B6 /* Code sense */;
+		executables = (
+			661B35BC0FBE0198004007B6 /* NetbookInstaller */,
+			66E5B5F60FC040CD000F2A93 /* DellEFI */,
+			668FF6C60FC0D004007E4E75 /* LenovoInstaller */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXBookmarksDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXBookmarksDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					200,
+					200,
+					221,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXBookmarksDataSource_LocationID,
+					PBXBookmarksDataSource_NameID,
+					PBXBookmarksDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXErrorsWarningsDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXErrorsWarningsDataSource_LocationID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					300,
+					448,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXErrorsWarningsDataSource_TypeID,
+					PBXErrorsWarningsDataSource_MessageID,
+					PBXErrorsWarningsDataSource_LocationID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXExecutablesDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXExecutablesDataSource_NameID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					22,
+					300,
+					446,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXExecutablesDataSource_ActiveFlagID,
+					PBXExecutablesDataSource_NameID,
+					PBXExecutablesDataSource_CommentsID,
+				);
+			};
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					558,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					518,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 264462740;
+			PBXWorkspaceStateSaveDate = 264462740;
+		};
+		perUserProjectItems = {
+			661B35F50FBE0554004007B6 /* PBXTextBookmark */ = 661B35F50FBE0554004007B6 /* PBXTextBookmark */;
+			661B35F60FBE0554004007B6 /* PBXTextBookmark */ = 661B35F60FBE0554004007B6 /* PBXTextBookmark */;
+			661B35F80FBE0554004007B6 /* PBXTextBookmark */ = 661B35F80FBE0554004007B6 /* PBXTextBookmark */;
+			661B35FC0FBE0554004007B6 /* PBXTextBookmark */ = 661B35FC0FBE0554004007B6 /* PBXTextBookmark */;
+			661B36360FBE09AB004007B6 /* PBXTextBookmark */ = 661B36360FBE09AB004007B6 /* PBXTextBookmark */;
+			661B363A0FBE09AB004007B6 /* PBXTextBookmark */ = 661B363A0FBE09AB004007B6 /* PBXTextBookmark */;
+			661B36750FBE29BA004007B6 /* PBXTextBookmark */ = 661B36750FBE29BA004007B6 /* PBXTextBookmark */;
+			661B36C00FBE2CA1004007B6 /* PBXTextBookmark */ = 661B36C00FBE2CA1004007B6 /* PBXTextBookmark */;
+			661B36C60FBE2CA1004007B6 /* PBXTextBookmark */ = 661B36C60FBE2CA1004007B6 /* PBXTextBookmark */;
+			661B383F0FBE51B3004007B6 /* PBXTextBookmark */ = 661B383F0FBE51B3004007B6 /* PBXTextBookmark */;
+			661B38450FBE51B3004007B6 /* PBXTextBookmark */ = 661B38450FBE51B3004007B6 /* PBXTextBookmark */;
+			661B38A30FBE6980004007B6 /* PBXBookmark */ = 661B38A30FBE6980004007B6 /* PBXBookmark */;
+			661B38A80FBE6A3A004007B6 /* PlistBookmark */ = 661B38A80FBE6A3A004007B6 /* PlistBookmark */;
+			661B38F60FBE7B37004007B6 /* PBXTextBookmark */ = 661B38F60FBE7B37004007B6 /* PBXTextBookmark */;
+			66363E310FC3627500BF0516 /* PBXTextBookmark */ = 66363E310FC3627500BF0516 /* PBXTextBookmark */;
+			66363E320FC3627500BF0516 /* PBXTextBookmark */ = 66363E320FC3627500BF0516 /* PBXTextBookmark */;
+			66363E370FC362F100BF0516 /* PBXTextBookmark */ = 66363E370FC362F100BF0516 /* PBXTextBookmark */;
+			66363E380FC362F100BF0516 /* PBXTextBookmark */ = 66363E380FC362F100BF0516 /* PBXTextBookmark */;
+			66363E3F0FC363C400BF0516 /* PBXTextBookmark */ = 66363E3F0FC363C400BF0516 /* PBXTextBookmark */;
+			66363E440FC3645F00BF0516 /* PBXTextBookmark */ = 66363E440FC3645F00BF0516 /* PBXTextBookmark */;
+			66363E550FC3950900BF0516 /* PBXTextBookmark */ = 66363E550FC3950900BF0516 /* PBXTextBookmark */;
+			66363E560FC3950900BF0516 /* PBXTextBookmark */ = 66363E560FC3950900BF0516 /* PBXTextBookmark */;
+			66363E570FC3950900BF0516 /* PBXTextBookmark */ = 66363E570FC3950900BF0516 /* PBXTextBookmark */;
+			66363E580FC3950900BF0516 /* PBXTextBookmark */ = 66363E580FC3950900BF0516 /* PBXTextBookmark */;
+			66363E590FC3950900BF0516 /* PBXTextBookmark */ = 66363E590FC3950900BF0516 /* PBXTextBookmark */;
+			66363E5A0FC3950900BF0516 /* PBXTextBookmark */ = 66363E5A0FC3950900BF0516 /* PBXTextBookmark */;
+			66363E5B0FC3950900BF0516 /* PBXTextBookmark */ = 66363E5B0FC3950900BF0516 /* PBXTextBookmark */;
+			66363E5C0FC3950900BF0516 /* PBXTextBookmark */ = 66363E5C0FC3950900BF0516 /* PBXTextBookmark */;
+			66363E5D0FC3950900BF0516 /* PBXTextBookmark */ = 66363E5D0FC3950900BF0516 /* PBXTextBookmark */;
+			66363E760FC3A50600BF0516 /* PBXTextBookmark */ = 66363E760FC3A50600BF0516 /* PBXTextBookmark */;
+			66363E770FC3A50600BF0516 /* PBXTextBookmark */ = 66363E770FC3A50600BF0516 /* PBXTextBookmark */;
+			66363FF00FC3A92800BF0516 /* PBXTextBookmark */ = 66363FF00FC3A92800BF0516 /* PBXTextBookmark */;
+			66363FF10FC3A92800BF0516 /* PBXTextBookmark */ = 66363FF10FC3A92800BF0516 /* PBXTextBookmark */;
+			66363FF20FC3A92800BF0516 /* PBXTextBookmark */ = 66363FF20FC3A92800BF0516 /* PBXTextBookmark */;
+			6636401D0FC3AF0500BF0516 /* PBXTextBookmark */ = 6636401D0FC3AF0500BF0516 /* PBXTextBookmark */;
+			6636401E0FC3AF0500BF0516 /* PBXTextBookmark */ = 6636401E0FC3AF0500BF0516 /* PBXTextBookmark */;
+			6636401F0FC3AF0500BF0516 /* PBXTextBookmark */ = 6636401F0FC3AF0500BF0516 /* PBXTextBookmark */;
+			663640AC0FC3B04A00BF0516 /* PBXTextBookmark */ = 663640AC0FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640AE0FC3B04A00BF0516 /* PBXTextBookmark */ = 663640AE0FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640AF0FC3B04A00BF0516 /* PBXTextBookmark */ = 663640AF0FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640B00FC3B04A00BF0516 /* PBXTextBookmark */ = 663640B00FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640B10FC3B04A00BF0516 /* PBXTextBookmark */ = 663640B10FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640B20FC3B04A00BF0516 /* PBXTextBookmark */ = 663640B20FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640B30FC3B04A00BF0516 /* PBXTextBookmark */ = 663640B30FC3B04A00BF0516 /* PBXTextBookmark */;
+			663640B70FC3B09500BF0516 /* PBXBookmark */ = 663640B70FC3B09500BF0516 /* PBXBookmark */;
+			663640B80FC3B09500BF0516 /* PBXBookmark */ = 663640B80FC3B09500BF0516 /* PBXBookmark */;
+			663640C50FC3B17300BF0516 /* PBXTextBookmark */ = 663640C50FC3B17300BF0516 /* PBXTextBookmark */;
+			663640C60FC3B17300BF0516 /* PBXTextBookmark */ = 663640C60FC3B17300BF0516 /* PBXTextBookmark */;
+			663640C70FC3B17300BF0516 /* PBXTextBookmark */ = 663640C70FC3B17300BF0516 /* PBXTextBookmark */;
+			663640CA0FC3B76B00BF0516 /* PlistBookmark */ = 663640CA0FC3B76B00BF0516 /* PlistBookmark */;
+			663640CB0FC3B76B00BF0516 /* PBXTextBookmark */ = 663640CB0FC3B76B00BF0516 /* PBXTextBookmark */;
+			663640CD0FC3B76B00BF0516 /* PlistBookmark */ = 663640CD0FC3B76B00BF0516 /* PlistBookmark */;
+			663640CE0FC3B76B00BF0516 /* PBXTextBookmark */ = 663640CE0FC3B76B00BF0516 /* PBXTextBookmark */;
+			663640CF0FC3B76B00BF0516 /* PBXTextBookmark */ = 663640CF0FC3B76B00BF0516 /* PBXTextBookmark */;
+			663640D10FC3BDAF00BF0516 /* PBXTextBookmark */ = 663640D10FC3BDAF00BF0516 /* PBXTextBookmark */;
+			663640D20FC3BDAF00BF0516 /* PBXTextBookmark */ = 663640D20FC3BDAF00BF0516 /* PBXTextBookmark */;
+			663640D30FC3BDAF00BF0516 /* PBXTextBookmark */ = 663640D30FC3BDAF00BF0516 /* PBXTextBookmark */;
+			663640D40FC3BDAF00BF0516 /* PBXTextBookmark */ = 663640D40FC3BDAF00BF0516 /* PBXTextBookmark */;
+			663640D50FC3BDAF00BF0516 /* PBXTextBookmark */ = 663640D50FC3BDAF00BF0516 /* PBXTextBookmark */;
+			6636E5B10FC347ED00AAA73E /* PBXTextBookmark */ = 6636E5B10FC347ED00AAA73E /* PBXTextBookmark */;
+			6636E5D50FC34B0400AAA73E /* PBXTextBookmark */ = 6636E5D50FC34B0400AAA73E /* PBXTextBookmark */;
+			668FF7B00FC0D091007E4E75 /* PBXTextBookmark */ = 668FF7B00FC0D091007E4E75 /* PBXTextBookmark */;
+			668FF7B10FC0D091007E4E75 /* PBXBookmark */ = 668FF7B10FC0D091007E4E75 /* PBXBookmark */;
+			668FF7C70FC0D114007E4E75 /* PlistBookmark */ = 668FF7C70FC0D114007E4E75 /* PlistBookmark */;
+			668FF7E60FC0D44A007E4E75 /* PBXTextBookmark */ = 668FF7E60FC0D44A007E4E75 /* PBXTextBookmark */;
+			668FFC410FC13ADF007E4E75 /* PBXTextBookmark */ = 668FFC410FC13ADF007E4E75 /* PBXTextBookmark */;
+			668FFC420FC13ADF007E4E75 /* PBXTextBookmark */ = 668FFC420FC13ADF007E4E75 /* PBXTextBookmark */;
+			668FFD150FC28178007E4E75 /* PlistBookmark */ = 668FFD150FC28178007E4E75 /* PlistBookmark */;
+			668FFD170FC28178007E4E75 /* PBXTextBookmark */ = 668FFD170FC28178007E4E75 /* PBXTextBookmark */;
+			668FFD180FC28178007E4E75 /* PlistBookmark */ = 668FFD180FC28178007E4E75 /* PlistBookmark */;
+			668FFD190FC28178007E4E75 /* PBXBookmark */ = 668FFD190FC28178007E4E75 /* PBXBookmark */;
+			668FFD1C0FC28178007E4E75 /* PBXTextBookmark */ = 668FFD1C0FC28178007E4E75 /* PBXTextBookmark */;
+			668FFD1E0FC28178007E4E75 /* PBXTextBookmark */ = 668FFD1E0FC28178007E4E75 /* PBXTextBookmark */;
+			66E5B65E0FC04260000F2A93 /* PlistBookmark */ = 66E5B65E0FC04260000F2A93 /* PlistBookmark */;
+			66EC096A0FBF67F000D3B55B /* PBXTextBookmark */ = 66EC096A0FBF67F000D3B55B /* PBXTextBookmark */;
+			66EC09720FBF67F000D3B55B /* PBXTextBookmark */ = 66EC09720FBF67F000D3B55B /* PBXTextBookmark */;
+			66EC09760FBF67F000D3B55B /* PBXTextBookmark */ = 66EC09760FBF67F000D3B55B /* PBXTextBookmark */;
+		};
+		sourceControlManager = 661B35C30FBE019D004007B6 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	29B97316FDCFA39411CA2CEA /* main.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {589, 449}}";
+			sepNavSelRange = "{227, 17}";
+			sepNavVisRange = "{0, 277}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 472}}";
+			sepNavSelRange = "{162, 0}";
+			sepNavVisRange = "{0, 198}";
+		};
+	};
+	661B35BC0FBE0198004007B6 /* NetbookInstaller */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		dylibVariantSuffix = "";
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = NetbookInstaller;
+		savedGlobals = {
+		};
+		sourceDirectories = (
+		);
+	};
+	661B35C30FBE019D004007B6 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	661B35C40FBE019D004007B6 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	661B35C70FBE01E5004007B6 /* SystemInformation.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 980}}";
+			sepNavSelRange = "{1232, 0}";
+			sepNavVisRange = "{699, 805}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	661B35C80FBE01E5004007B6 /* SystemInformation.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {936, 3724}}";
+			sepNavSelRange = "{2274, 13}";
+			sepNavVisRange = "{349, 565}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	661B35F50FBE0554004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 250;
+		vrLoc = 0;
+	};
+	661B35F60FBE0554004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */;
+		name = "NetbookInstaller_Prefix.pch: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 163;
+		vrLoc = 0;
+	};
+	661B35F80FBE0554004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 12";
+		rLen = 0;
+		rLoc = 775;
+		rType = 0;
+		vrLen = 277;
+		vrLoc = 0;
+	};
+	661B35FC0FBE0554004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 15";
+		rLen = 0;
+		rLoc = 306;
+		rType = 0;
+		vrLen = 255;
+		vrLoc = 0;
+	};
+	661B36360FBE09AB004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B36370FBE09AB004007B6 /* sysctl.h */;
+		name = "sysctl.h: 542";
+		rLen = 8;
+		rLoc = 20639;
+		rType = 0;
+		vrLen = 1372;
+		vrLoc = 20380;
+	};
+	661B36370FBE09AB004007B6 /* sysctl.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = sysctl.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/usr/include/sys/sysctl.h;
+		sourceTree = "<absolute>";
+	};
+	661B363A0FBE09AB004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B363B0FBE09AB004007B6 /* sysctl.h */;
+		name = "sysctl.h: 542";
+		rLen = 8;
+		rLoc = 20639;
+		rType = 0;
+		vrLen = 1372;
+		vrLoc = 20380;
+	};
+	661B363B0FBE09AB004007B6 /* sysctl.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = sysctl.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/usr/include/sys/sysctl.h;
+		sourceTree = "<absolute>";
+	};
+	661B36690FBE28D0004007B6 /* checksum.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {589, 449}}";
+			sepNavSelRange = "{160, 0}";
+			sepNavVisRange = "{0, 287}";
+		};
+	};
+	661B36750FBE29BA004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B36690FBE28D0004007B6 /* checksum.h */;
+		name = "checksum.h: 10";
+		rLen = 0;
+		rLoc = 160;
+		rType = 0;
+		vrLen = 287;
+		vrLoc = 0;
+	};
+	661B36C00FBE2CA1004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B36C10FBE2CA1004007B6 /* CFPropertyList.h */;
+		name = "CFPropertyList.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1204;
+		vrLoc = 0;
+	};
+	661B36C10FBE2CA1004007B6 /* CFPropertyList.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CFPropertyList.h;
+		path = /System/Library/Frameworks/CoreFoundation.framework/Headers/CFPropertyList.h;
+		sourceTree = "<absolute>";
+	};
+	661B36C60FBE2CA1004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B36C70FBE2CA1004007B6 /* CFPropertyList.h */;
+		name = "CFPropertyList.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1204;
+		vrLoc = 0;
+	};
+	661B36C70FBE2CA1004007B6 /* CFPropertyList.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = CFPropertyList.h;
+		path = /System/Library/Frameworks/CoreFoundation.framework/Headers/CFPropertyList.h;
+		sourceTree = "<absolute>";
+	};
+	661B38270FBE5091004007B6 /* NetbookInstallerController.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 1162}}";
+			sepNavSelRange = "{1089, 0}";
+			sepNavVisRange = "{151, 947}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	661B38280FBE5091004007B6 /* NetbookInstallerController.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {960, 4060}}";
+			sepNavSelRange = "{6107, 60}";
+			sepNavVisRange = "{5550, 1087}";
+		};
+	};
+	661B383F0FBE51B3004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38270FBE5091004007B6 /* NetbookInstallerController.h */;
+		name = "NetbookInstallerController.h: 14";
+		rLen = 0;
+		rLoc = 1095;
+		rType = 0;
+		vrLen = 264;
+		vrLoc = 0;
+	};
+	661B38450FBE51B3004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 14";
+		rLen = 0;
+		rLoc = 8587;
+		rType = 0;
+		vrLen = 266;
+		vrLoc = 0;
+	};
+	661B38A30FBE6980004007B6 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 661B389A0FBE6957004007B6 /* DellMini9.png */;
+	};
+	661B38A80FBE6A3A004007B6 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = /Users/moomeklort/mydellmini/NetbookInstaller/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	661B38F60FBE7B37004007B6 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
+		name = "main.m: 14";
+		rLen = 17;
+		rLoc = 227;
+		rType = 0;
+		vrLen = 277;
+		vrLoc = 0;
+	};
+	66363E310FC3627500BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 216";
+		rLen = 0;
+		rLoc = 6101;
+		rType = 0;
+		vrLen = 578;
+		vrLoc = 781;
+	};
+	66363E320FC3627500BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 85";
+		rLen = 0;
+		rLoc = 2953;
+		rType = 0;
+		vrLen = 961;
+		vrLoc = 1910;
+	};
+	66363E370FC362F100BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 216";
+		rLen = 0;
+		rLoc = 6101;
+		rType = 0;
+		vrLen = 838;
+		vrLoc = 3865;
+	};
+	66363E380FC362F100BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 72";
+		rLen = 20;
+		rLoc = 2693;
+		rType = 0;
+		vrLen = 796;
+		vrLoc = 2281;
+	};
+	66363E3F0FC363C400BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 216";
+		rLen = 0;
+		rLoc = 5993;
+		rType = 0;
+		vrLen = 1028;
+		vrLoc = 3886;
+	};
+	66363E440FC3645F00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 72";
+		rLen = 20;
+		rLoc = 2693;
+		rType = 0;
+		vrLen = 1046;
+		vrLoc = 1632;
+	};
+	66363E550FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 110";
+		rLen = 16;
+		rLoc = 2705;
+		rType = 0;
+		vrLen = 946;
+		vrLoc = 1221;
+	};
+	66363E560FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 43";
+		rLen = 16;
+		rLoc = 938;
+		rType = 0;
+		vrLen = 788;
+		vrLoc = 633;
+	};
+	66363E570FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
+		name = "DSDTPatcher.m: 823";
+		rLen = 0;
+		rLoc = 24947;
+		rType = 0;
+		vrLen = 562;
+		vrLoc = 16299;
+	};
+	66363E580FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 72";
+		rLen = 20;
+		rLoc = 2693;
+		rType = 0;
+		vrLen = 1246;
+		vrLoc = 0;
+	};
+	66363E590FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 34";
+		rLen = 13;
+		rLoc = 759;
+		rType = 0;
+		vrLen = 764;
+		vrLoc = 448;
+	};
+	66363E5A0FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 95";
+		rLen = 0;
+		rLoc = 1499;
+		rType = 0;
+		vrLen = 617;
+		vrLoc = 995;
+	};
+	66363E5B0FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 34";
+		rLen = 13;
+		rLoc = 759;
+		rType = 0;
+		vrLen = 731;
+		vrLoc = 448;
+	};
+	66363E5C0FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 95";
+		rLen = 0;
+		rLoc = 1499;
+		rType = 0;
+		vrLen = 617;
+		vrLoc = 995;
+	};
+	66363E5D0FC3950900BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 34";
+		rLen = 13;
+		rLoc = 759;
+		rType = 0;
+		vrLen = 736;
+		vrLoc = 448;
+	};
+	66363E760FC3A50600BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 101";
+		rLen = 0;
+		rLoc = 1503;
+		rType = 0;
+		vrLen = 668;
+		vrLoc = 1334;
+	};
+	66363E770FC3A50600BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 42";
+		rLen = 0;
+		rLoc = 922;
+		rType = 0;
+		vrLen = 741;
+		vrLoc = 448;
+	};
+	66363FF00FC3A92800BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 119";
+		rLen = 0;
+		rLoc = 1503;
+		rType = 0;
+		vrLen = 625;
+		vrLoc = 1373;
+	};
+	66363FF10FC3A92800BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 11";
+		rLen = 0;
+		rLoc = 200;
+		rType = 0;
+		vrLen = 710;
+		vrLoc = 92;
+	};
+	66363FF20FC3A92800BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 72";
+		rLen = 20;
+		rLoc = 2693;
+		rType = 0;
+		vrLen = 1246;
+		vrLoc = 0;
+	};
+	6636401D0FC3AF0500BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 57";
+		rLen = 0;
+		rLoc = 1232;
+		rType = 0;
+		vrLen = 805;
+		vrLoc = 699;
+	};
+	6636401E0FC3AF0500BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 82";
+		rLen = 0;
+		rLoc = 1101;
+		rType = 0;
+		vrLen = 790;
+		vrLoc = 1101;
+	};
+	6636401F0FC3AF0500BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
+		name = "SystemInformation.h: 57";
+		rLen = 0;
+		rLoc = 1232;
+		rType = 0;
+		vrLen = 805;
+		vrLoc = 699;
+	};
+	663640AC0FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38270FBE5091004007B6 /* NetbookInstallerController.h */;
+		name = "NetbookInstallerController.h: 39";
+		rLen = 0;
+		rLoc = 1089;
+		rType = 0;
+		vrLen = 947;
+		vrLoc = 151;
+	};
+	663640AE0FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */;
+		name = "DSDTPatcher.h: 13";
+		rLen = 0;
+		rLoc = 203;
+		rType = 0;
+		vrLen = 492;
+		vrLoc = 0;
+	};
+	663640AF0FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 131";
+		rLen = 13;
+		rLoc = 2274;
+		rType = 0;
+		vrLen = 713;
+		vrLoc = 1925;
+	};
+	663640B00FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 86";
+		rLen = 0;
+		rLoc = 3073;
+		rType = 0;
+		vrLen = 880;
+		vrLoc = 2383;
+	};
+	663640B10FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38270FBE5091004007B6 /* NetbookInstallerController.h */;
+		name = "NetbookInstallerController.h: 39";
+		rLen = 0;
+		rLoc = 1089;
+		rType = 0;
+		vrLen = 947;
+		vrLoc = 151;
+	};
+	663640B20FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 86";
+		rLen = 0;
+		rLoc = 3073;
+		rType = 0;
+		vrLen = 936;
+		vrLoc = 2383;
+	};
+	663640B30FC3B04A00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */;
+		name = "DSDTPatcher.h: 13";
+		rLen = 0;
+		rLoc = 203;
+		rType = 0;
+		vrLen = 492;
+		vrLoc = 0;
+	};
+	663640B70FC3B09500BF0516 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */;
+	};
+	663640B80FC3B09500BF0516 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */;
+	};
+	663640C50FC3B17300BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 86";
+		rLen = 0;
+		rLoc = 3045;
+		rType = 0;
+		vrLen = 1256;
+		vrLoc = 0;
+	};
+	663640C60FC3B17300BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
+		name = "DSDTPatcher.m: 823";
+		rLen = 0;
+		rLoc = 24947;
+		rType = 0;
+		vrLen = 805;
+		vrLoc = 0;
+	};
+	663640C70FC3B17300BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 86";
+		rLen = 0;
+		rLoc = 3045;
+		rType = 0;
+		vrLen = 1253;
+		vrLoc = 3;
+	};
+	663640CA0FC3B76B00BF0516 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = "/Users/moomeklort/mydellmini/NetbookInstaller/DellEFI-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	663640CB0FC3B76B00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 131";
+		rLen = 13;
+		rLoc = 2274;
+		rType = 0;
+		vrLen = 1135;
+		vrLoc = 4975;
+	};
+	663640CD0FC3B76B00BF0516 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = "/Users/moomeklort/mydellmini/NetbookInstaller/DellEFI-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	663640CE0FC3B76B00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 86";
+		rLen = 0;
+		rLoc = 3045;
+		rType = 0;
+		vrLen = 988;
+		vrLoc = 2542;
+	};
+	663640CF0FC3B76B00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 131";
+		rLen = 13;
+		rLoc = 2274;
+		rType = 0;
+		vrLen = 1135;
+		vrLoc = 4975;
+	};
+	663640D10FC3BDAF00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 198";
+		rLen = 60;
+		rLoc = 6107;
+		rType = 0;
+		vrLen = 1087;
+		vrLoc = 5550;
+	};
+	663640D20FC3BDAF00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
+		name = "DSDTPatcher.m: 823";
+		rLen = 0;
+		rLoc = 24947;
+		rType = 0;
+		vrLen = 1482;
+		vrLoc = 0;
+	};
+	663640D30FC3BDAF00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
+		name = "NetbookInstallerController.m: 198";
+		rLen = 60;
+		rLoc = 6107;
+		rType = 0;
+		vrLen = 1087;
+		vrLoc = 5550;
+	};
+	663640D40FC3BDAF00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
+		name = "DSDTPatcher.m: 823";
+		rLen = 0;
+		rLoc = 24947;
+		rType = 0;
+		vrLen = 1482;
+		vrLoc = 0;
+	};
+	663640D50FC3BDAF00BF0516 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
+		name = "SystemInformation.m: 131";
+		rLen = 13;
+		rLoc = 2274;
+		rType = 0;
+		vrLen = 565;
+		vrLoc = 349;
+	};
+	6636E5B10FC347ED00AAA73E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
+		name = "Installer.h: 33";
+		rLen = 0;
+		rLoc = 810;
+		rType = 0;
+		vrLen = 811;
+		vrLoc = 3;
+	};
+	6636E5D50FC34B0400AAA73E /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
+		name = "Installer.m: 142";
+		rLen = 117;
+		rLoc = 3474;
+		rType = 0;
+		vrLen = 1005;
+		vrLoc = 3873;
+	};
+	668FF6C40FC0D004007E4E75 /* LenovoInstaller */ = {
+		activeExec = 0;
+		executables = (
+			668FF6C60FC0D004007E4E75 /* LenovoInstaller */,
+		);
+	};
+	668FF6C60FC0D004007E4E75 /* LenovoInstaller */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = LenovoInstaller;
+		sourceDirectories = (
+		);
+	};
+	668FF7B00FC0D091007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "InfoPlist.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 45;
+		vrLoc = 0;
+	};
+	668FF7B10FC0D091007E4E75 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */;
+	};
+	668FF7C70FC0D114007E4E75 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 668FF6C70FC0D004007E4E75 /* LenovoInstaller-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/moomeklort/mydellmini/NetbookInstaller/LenovoInstaller-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	668FF7E60FC0D44A007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */;
+		name = "NetbookInstaller_Prefix.pch: 6";
+		rLen = 0;
+		rLoc = 162;
+		rType = 0;
+		vrLen = 198;
+		vrLoc = 0;
+	};
+	668FFB9C0FC136EE007E4E75 /* NSObjCRuntime.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = NSObjCRuntime.h;
+		path = /Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h;
+		sourceTree = "<absolute>";
+	};
+	668FFC410FC13ADF007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFB9C0FC136EE007E4E75 /* NSObjCRuntime.h */;
+		name = "NSObjCRuntime.h: 124";
+		rLen = 27;
+		rLoc = 3897;
+		rType = 0;
+		vrLen = 1271;
+		vrLoc = 3411;
+	};
+	668FFC420FC13ADF007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFB9C0FC136EE007E4E75 /* NSObjCRuntime.h */;
+		name = "NSObjCRuntime.h: 124";
+		rLen = 27;
+		rLoc = 3897;
+		rType = 0;
+		vrLen = 1271;
+		vrLoc = 3411;
+	};
+	668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 472}}";
+			sepNavSelRange = "{203, 0}";
+			sepNavVisRange = "{0, 492}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1152, 11970}}";
+			sepNavSelRange = "{16711, 5}";
+			sepNavVisRange = "{16522, 241}";
+		};
+	};
+	668FFD150FC28178007E4E75 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 668FF6C70FC0D004007E4E75 /* LenovoInstaller-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIconFile,
+		);
+		name = "/Users/moomeklort/mydellmini/NetbookInstaller/LenovoInstaller-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	668FFD170FC28178007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 089C165DFE840E0CC02AAC07 /* English */;
+		name = "InfoPlist.strings: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 45;
+		vrLoc = 0;
+	};
+	668FFD180FC28178007E4E75 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			CFBundleIdentifier,
+		);
+		name = /Users/moomeklort/mydellmini/NetbookInstaller/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	668FFD190FC28178007E4E75 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 661B389A0FBE6957004007B6 /* DellMini9.png */;
+	};
+	668FFD1C0FC28178007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */;
+		name = "DSDTPatcher.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 202;
+		vrLoc = 0;
+	};
+	668FFD1E0FC28178007E4E75 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
+		name = "DSDTPatcher.m: 6";
+		rLen = 0;
+		rLoc = 104;
+		rType = 0;
+		vrLen = 191;
+		vrLoc = 0;
+	};
+	66E5B5F40FC040CD000F2A93 /* DellEFI */ = {
+		activeExec = 0;
+		executables = (
+			66E5B5F60FC040CD000F2A93 /* DellEFI */,
+		);
+	};
+	66E5B5F60FC040CD000F2A93 /* DellEFI */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 1;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = DellEFI;
+		sourceDirectories = (
+		);
+	};
+	66E5B65E0FC04260000F2A93 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+		);
+		name = "/Users/moomeklort/mydellmini/NetbookInstaller/DellEFI-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	66EC09520FBF3E9C00D3B55B /* Installer.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {736, 980}}";
+			sepNavSelRange = "{810, 0}";
+			sepNavVisRange = "{3, 811}";
+		};
+	};
+	66EC09530FBF3E9C00D3B55B /* Installer.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {960, 4718}}";
+			sepNavSelRange = "{5255, 0}";
+			sepNavVisRange = "{5681, 240}";
+			sepNavWindowFrame = "{{15, -5}, {1095, 778}}";
+		};
+	};
+	66EC096A0FBF67F000D3B55B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 661B36690FBE28D0004007B6 /* checksum.h */;
+		name = "checksum.h: 10";
+		rLen = 0;
+		rLoc = 160;
+		rType = 0;
+		vrLen = 287;
+		vrLoc = 0;
+	};
+	66EC09720FBF67F000D3B55B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
+		name = "Installer.h: 16";
+		rLen = 0;
+		rLoc = 1698;
+		rType = 0;
+		vrLen = 244;
+		vrLoc = 0;
+	};
+	66EC09760FBF67F000D3B55B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
+		name = "Installer.m: 17";
+		rLen = 0;
+		rLoc = 7326;
+		rType = 0;
+		vrLen = 247;
+		vrLoc = 0;
+	};
+	8D1107260486CEB800E47090 /* NetbookInstaller */ = {
+		activeExec = 0;
+		executables = (
+			661B35BC0FBE0198004007B6 /* NetbookInstaller */,
+		);
+	};
+}

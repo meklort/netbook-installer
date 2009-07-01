@@ -1,0 +1,26 @@
+        Device (LID0)
+        {
+            Name (_HID, EisaId ("PNP0C0D"))
+            Name (LID9, One)
+            Method (_LID, 0, NotSerialized)
+            {
+                Store (^^PCI0.LPCB.EC0.LIDW, LID9)
+                XOr (LID9, One, Local0)
+                If (Local0)
+                {
+                    Notify (SLPB, 0x80)
+                }
+
+                Return (LPOL)
+            }
+
+            Name (_PRW, Package (0x02)
+            {
+                0x1D, 
+                0x03
+            })
+            Method (_PSW, 1, NotSerialized)
+            {
+                Store (Arg0, SLID)
+            }
+        }

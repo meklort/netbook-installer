@@ -1,0 +1,25 @@
+//
+// Prefix header for all source files of the 'NetbookInstaller' target in the 'NetbookInstaller' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+    #import <Cocoa/Cocoa.h>
+#endif
+
+
+#define NUM_SUPPORTED_BOOTLOADERS		3
+
+extern const char *bootLoaderName[];
+
+
+#define KERNEL_VERSION_NONE		-2
+#define KERNEL_VERSION_UNKNOWN		-1
+#define KERNEL_VERSION_10_5_0		0
+#define KERNEL_VERSION_10_5_1		1
+#define KERNEL_VERSION_10_5_2		2
+#define KERNEL_VERSION_10_5_3		3
+#define KERNEL_VERSION_10_5_4		4
+#define KERNEL_VERSION_10_5_5		5
+#define KERNEL_VERSION_10_5_6		6
+#define KERNEL_VERSION_10_5_7		7

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kernel</key>
+	<string>mach_kernel</string>
+	<key>Kernel Flags</key>
+	<string></string>
+	<key>Timeout</key>
+	<string>5</string>
+	<key>device-properties</key>
+	<string>c60000000100000002000000610000000200000002010c00d041030a000000000101060000027fff0400100000006d006f00640065006c0000000b000000474d4120393530200000004100410050004c002c00480061007300500061006e0065006c0000000800000001000000590000000200000002010c00d041030a0000000001010600001b7fff0400180000006c00610079006f00750074002d00690064000000080000000c000000160000006200750069006c0074002d0069006e0000000500000001</string>
+	<key>Boot Graphics</key>
+	<string>Yes</string>
+	<key>SMBIOSdefaults</key>
+	<string>No</string>
+</dict>
+</plist>
