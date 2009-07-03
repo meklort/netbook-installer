@@ -248,16 +248,10 @@
 - (void) mountChange:(NSNotification *)notification 
 {
 	[self updateVolumeMenu];
-	// TOOD: update the volume list.
-		NSString *devicePath = 
-		[[notification userInfo] objectForKey:@"NSDevicePath"];
+	NSString *devicePath = [[notification userInfo] objectForKey:@"NSDevicePath"];
 	
 	
-		NSLog(@"Device did mount: %@", devicePath);
-		/* DVD volumes have a VIDEO_TS media folder at the root level 
-		NSString *mediaPath = [devicePath stringByAppendingString:@"/VIDEO_TS"];
-		
-		[self openMedia:mediaPath isVolume:YES];*/
+	NSLog(@"Device did mount: %@", devicePath);
 }
 
 

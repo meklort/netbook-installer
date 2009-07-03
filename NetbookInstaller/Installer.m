@@ -487,7 +487,7 @@
 	switch(bootloaderType)
 	{
 		case CHAMELEON_R431:
-			bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/`2/"];
+			bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/chameleon2/"];
 			break;
 		case PCEFIV9:
 			bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/pcefiv9/"];
@@ -506,10 +506,11 @@
 	[nsargs addObject: @"-u"];
 	[nsargs addObject: @"-y"];
 	
+	//FIXME: This breask when the partition number is multi digits.
 	//[[@"/dev/r" stringByAppendingString: [[systemInfo bootPartition] substringToIndex:[[systemInfo bootPartition] length] - 2]]
 	[nsargs addObject:[@"/dev/r" stringByAppendingString: [[systemInfo bootPartition] substringToIndex:[[systemInfo bootPartition] length] - 2]]];
 
-	
+	// TODO: Fdisk is included w/ OS X, it can be removed from the file and run from /usr/sbin/fdisk
 	[self runCMD:(char*)[[bootPath stringByAppendingString: @"/fdisk"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs];
 
 
@@ -1091,7 +1092,7 @@
 	[sender performSelectorOnMainThread:@selector(updateStatus:) withObject: status waitUntilDone:NO];
 	//[statusLabel setStringValue:status];
 	return YES;
-}	
+}
 
 
 @end

@@ -70,16 +70,6 @@
 		sourceDirectories = (
 		);
 	};
-	2725E6780FED8A19005869F8 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */;
-		name = "DSDTPatcher.h: 14";
-		rLen = 36;
-		rLoc = 188;
-		rType = 0;
-		vrLen = 560;
-		vrLoc = 0;
-	};
 	2725E68E0FED8A19005869F8 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 2725E3D80FED88A8005869F8 /* main_bootmake.pch */;
@@ -121,9 +111,9 @@
 	};
 	2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1518, 5404}}";
-			sepNavSelRange = "{4562, 0}";
-			sepNavVisRange = "{3759, 2052}";
+			sepNavIntBoundsRect = "{{0, 0}, {1518, 4984}}";
+			sepNavSelRange = "{10370, 9}";
+			sepNavVisRange = "{9227, 1215}";
 		};
 	};
 	2725E7450FED98AF005869F8 /* PBXTextBookmark */ = {
@@ -160,26 +150,6 @@
 		vrLen = 1196;
 		vrLoc = 0;
 	};
-	272EA9120FF5D04800274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B36690FBE28D0004007B6 /* checksum.h */;
-		name = "checksum.h: 34";
-		rLen = 61;
-		rLoc = 919;
-		rType = 0;
-		vrLen = 862;
-		vrLoc = 131;
-	};
-	272EA9130FF5D04800274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */;
-		name = "NetbookInstaller_Prefix.pch: 22";
-		rLen = 21;
-		rLoc = 484;
-		rType = 0;
-		vrLen = 608;
-		vrLoc = 0;
-	};
 	272EAB2D0FF6997C00274B67 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
@@ -189,16 +159,6 @@
 		rType = 0;
 		vrLen = 778;
 		vrLoc = 9560;
-	};
-	272EAB9A0FF6C71E00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
-		name = "SystemInformation.h: 71";
-		rLen = 8;
-		rLoc = 1540;
-		rType = 0;
-		vrLen = 697;
-		vrLoc = 746;
 	};
 	272EABDA0FF6D6AE00274B67 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -303,26 +263,6 @@
 		vrLen = 397;
 		vrLoc = 0;
 	};
-	272EADB30FF80A6C00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
-		name = "main_cli.m: 45";
-		rLen = 153;
-		rLoc = 1106;
-		rType = 0;
-		vrLen = 726;
-		vrLoc = 947;
-	};
-	272EADC10FF80B2E00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
-		name = "DSDTPatcher.m: 8";
-		rLen = 0;
-		rLoc = 130;
-		rType = 0;
-		vrLen = 823;
-		vrLoc = 0;
-	};
 	272EAE1A0FF823D100274B67 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 27848F230FF1ADCB00BF23A5 /* main_updateextra.m */;
@@ -343,88 +283,6 @@
 		vrLen = 270;
 		vrLoc = 0;
 	};
-	272EAE260FF826EF00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */;
-		name = "UpdateExtraController.m: 31";
-		rLen = 0;
-		rLoc = 752;
-		rType = 0;
-		vrLen = 1093;
-		vrLoc = 339;
-	};
-	272EAE3E0FF9341400274B67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 668FF6C70FC0D004007E4E75 /* LenovoInstaller-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSHumanReadableCopyright,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/LenovoInstaller-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	272EAE3F0FF9341400274B67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSHumanReadableCopyright,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/DellEFI-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	272EAE400FF9341400274B67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSHumanReadableCopyright,
-		);
-		name = /Users/meklort/latest/mydellmini/NetbookInstaller/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	272EAE410FF9341400274B67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 2725E3E80FED88C0005869F8 /* NetbookBootMaker-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSMainNibFile,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/NetbookBootMaker-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	272EAE420FF9341400274B67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSMainNibFile,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/UpdateExtra-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	272EAE430FF9341400274B67 /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSHumanReadableCopyright,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/NetbookInstallerCLI-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
 	272EAE660FF935AC00274B67 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 29B97316FDCFA39411CA2CEA /* main.m */;
@@ -433,46 +291,6 @@
 		rLoc = 251;
 		rType = 0;
 		vrLen = 387;
-		vrLoc = 0;
-	};
-	272EAE960FF937AF00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
-		name = "Installer.h: 88";
-		rLen = 36;
-		rLoc = 2357;
-		rType = 0;
-		vrLen = 659;
-		vrLoc = 1949;
-	};
-	272EAF000FF9945D00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
-		name = "InstallerCLI.m: 17";
-		rLen = 926;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 777;
-		vrLoc = 0;
-	};
-	272EAF060FF99BE800274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
-		name = "SystemInformation.m: 230";
-		rLen = 16;
-		rLoc = 4208;
-		rType = 0;
-		vrLen = 738;
-		vrLoc = 4779;
-	};
-	272EAF250FF9A2ED00274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */;
-		name = "AboutWindowController.m: 25";
-		rLen = 0;
-		rLoc = 562;
-		rType = 0;
-		vrLen = 690;
 		vrLoc = 0;
 	};
 	272EAF310FF9A3B400274B67 /* PBXTextBookmark */ = {
@@ -494,26 +312,6 @@
 		rType = 0;
 		vrLen = 798;
 		vrLoc = 188;
-	};
-	272EAF6D0FF9B05700274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */;
-		name = "HexEditor.m: 5";
-		rLen = 0;
-		rLoc = 71;
-		rType = 0;
-		vrLen = 727;
-		vrLoc = 222;
-	};
-	272EAF810FF9B5D700274B67 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
-		name = "NetbookInstallerController.m: 253";
-		rLen = 156;
-		rLoc = 7953;
-		rType = 0;
-		vrLen = 1039;
-		vrLoc = 8332;
 	};
 	2748C14B0FEB028A000F22B8 /* PBXBookmarkGroup */ = {
 		isa = PBXBookmarkGroup;
@@ -558,8 +356,8 @@
 	2748C4A50FEB03C0000F22B8 /* main_cli.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {955, 1372}}";
-			sepNavSelRange = "{1652, 0}";
-			sepNavVisRange = "{947, 730}";
+			sepNavSelRange = "{197, 0}";
+			sepNavVisRange = "{0, 822}";
 		};
 	};
 	2748C4C60FEB0410000F22B8 /* PlistBookmark */ = {
@@ -578,7 +376,7 @@
 		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
 		name = "main_cli.m: 1";
 		rLen = 0;
-		rLoc = 2460;
+		rLoc = 2451;
 		rType = 0;
 		vrLen = 0;
 		vrLoc = 0;
@@ -590,8 +388,8 @@
 	2748C58B0FEB0DF1000F22B8 /* main_cli.pch */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {955, 442}}";
-			sepNavSelRange = "{0, 185}";
-			sepNavVisRange = "{0, 185}";
+			sepNavSelRange = "{172, 0}";
+			sepNavVisRange = "{0, 172}";
 		};
 	};
 	2748C5980FEB0E33000F22B8 /* PBXTextBookmark */ = {
@@ -599,12 +397,18 @@
 		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
 		name = "main_cli.pch: 10";
 		rLen = 0;
-		rLoc = 182;
+		rLoc = 172;
 		rType = 0;
 		vrLen = 163;
 		vrLoc = 0;
 	};
 	2748C5AF0FEB0EA0000F22B8 /* InstallerCLI.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = InstallerCLI.h;
+		path = "/Users/meklort/netbook-installer/NetbookInstaller/InstallerCLI.h";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {955, 442}}";
 			sepNavSelRange = "{284, 0}";
@@ -613,6 +417,12 @@
 		};
 	};
 	2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.objc;
+		name = InstallerCLI.m;
+		path = "/Users/meklort/netbook-installer/NetbookInstaller/InstallerCLI.m";
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {955, 868}}";
 			sepNavSelRange = "{378, 926}";
@@ -646,6 +456,282 @@
 	274B11EF0FF458D9009BFF80 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = 27848F1E0FF1AD8B00BF23A5 /* UpdateExtra.icns */;
+	};
+	275B58A10FFBB2D400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 140";
+		rLen = 0;
+		rLoc = 4562;
+		rType = 0;
+		vrLen = 1806;
+		vrLoc = 4108;
+	};
+	275B58A20FFBB2D400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 251";
+		rLen = 0;
+		rLoc = 10148;
+		rType = 0;
+		vrLen = 1296;
+		vrLoc = 9146;
+	};
+	275B59A00FFE430100B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 251";
+		rLen = 0;
+		rLoc = 10148;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 9227;
+	};
+	275B59A40FFE431400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 254";
+		rLen = 0;
+		rLoc = 10260;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 9227;
+	};
+	275B59A50FFE431400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
+		name = "Installer.m: 490";
+		rLen = 0;
+		rLoc = 13050;
+		rType = 0;
+		vrLen = 900;
+		vrLoc = 12657;
+	};
+	275B59A60FFE431400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 254";
+		rLen = 0;
+		rLoc = 10260;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 9227;
+	};
+	275B59A70FFE431400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
+		name = "Installer.m: 490";
+		rLen = 0;
+		rLoc = 13050;
+		rType = 0;
+		vrLen = 1206;
+		vrLoc = 12661;
+	};
+	275B59AC0FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
+		name = "Installer.m: 1092";
+		rLen = 27;
+		rLoc = 39042;
+		rType = 0;
+		vrLen = 944;
+		vrLoc = 38251;
+	};
+	275B59AD0FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
+		name = "InstallerCLI.m: 17";
+		rLen = 926;
+		rLoc = 378;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 0;
+	};
+	275B59AE0FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */;
+		name = "AboutWindowController.m: 25";
+		rLen = 0;
+		rLoc = 562;
+		rType = 0;
+		vrLen = 690;
+		vrLoc = 0;
+	};
+	275B59AF0FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 263";
+		rLen = 9;
+		rLoc = 10370;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 9227;
+	};
+	275B59B00FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
+		name = "main_cli.m: 68";
+		rLen = 0;
+		rLoc = 1643;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 947;
+	};
+	275B59B10FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
+		name = "Installer.m: 1092";
+		rLen = 27;
+		rLoc = 39042;
+		rType = 0;
+		vrLen = 944;
+		vrLoc = 38251;
+	};
+	275B59B20FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
+		name = "InstallerCLI.m: 17";
+		rLen = 926;
+		rLoc = 378;
+		rType = 0;
+		vrLen = 777;
+		vrLoc = 0;
+	};
+	275B59B30FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */;
+		name = "AboutWindowController.m: 25";
+		rLen = 0;
+		rLoc = 562;
+		rType = 0;
+		vrLen = 690;
+		vrLoc = 0;
+	};
+	275B59B40FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
+		name = "NetbookBootMakerController.m: 263";
+		rLen = 9;
+		rLoc = 10370;
+		rType = 0;
+		vrLen = 1215;
+		vrLoc = 9227;
+	};
+	275B59B50FFE966B00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
+		name = "main_cli.m: 21";
+		rLen = 0;
+		rLoc = 495;
+		rType = 0;
+		vrLen = 871;
+		vrLoc = 38;
+	};
+	275B59B60FFECB8400B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
+		name = "main_cli.m: 68";
+		rLen = 18;
+		rLoc = 1625;
+		rType = 0;
+		vrLen = 825;
+		vrLoc = 0;
+	};
+	275B59BE0FFECBEC00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: InstallerCLI.h: No such file or directory";
+		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
+		rLen = 1;
+		rLoc = 101;
+		rType = 1;
+	};
+	275B59BF0FFECBEC00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
+		name = "Installer.h: 102";
+		rLen = 0;
+		rLoc = 2615;
+		rType = 0;
+		vrLen = 223;
+		vrLoc = 2393;
+	};
+	275B59C00FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
+		name = "main_cli.pch: 10";
+		rLen = 0;
+		rLoc = 172;
+		rType = 0;
+		vrLen = 172;
+		vrLoc = 0;
+	};
+	275B59C10FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
+		name = "main_cli.m: 12";
+		rLen = 0;
+		rLoc = 197;
+		rType = 0;
+		vrLen = 701;
+		vrLoc = 0;
+	};
+	275B59C20FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: InstallerCLI.h: No such file or directory";
+		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
+		rLen = 1;
+		rLoc = 101;
+		rType = 1;
+	};
+	275B59C30FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
+		name = "main_cli.m: 12";
+		rLen = 0;
+		rLoc = 197;
+		rType = 0;
+		vrLen = 648;
+		vrLoc = 0;
+	};
+	275B59C40FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
+		name = "main_cli.pch: 10";
+		rLen = 0;
+		rLoc = 172;
+		rType = 0;
+		vrLen = 172;
+		vrLoc = 0;
+	};
+	275B59C50FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
+		name = "main_cli.pch: 10";
+		rLen = 0;
+		rLoc = 172;
+		rType = 0;
+		vrLen = 172;
+		vrLoc = 0;
+	};
+	275B59C60FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
+		name = "main_cli.m: 12";
+		rLen = 0;
+		rLoc = 197;
+		rType = 0;
+		vrLen = 701;
+		vrLoc = 0;
+	};
+	275B59C70FFECBEF00B47822 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
+		name = "Installer.h: 102";
+		rLen = 0;
+		rLoc = 2615;
+		rType = 0;
+		vrLen = 601;
+		vrLoc = 2015;
 	};
 	2775FDAB0FD1B3A0006D79DE /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -783,16 +869,6 @@
 		vrLen = 240;
 		vrLoc = 0;
 	};
-	278490950FF1B0A500BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 089C165DFE840E0CC02AAC07 /* English */;
-		name = "InfoPlist.strings: 2";
-		rLen = 0;
-		rLoc = 44;
-		rType = 0;
-		vrLen = 44;
-		vrLoc = 0;
-	};
 	278490B00FF1B0A500BF23A5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */;
@@ -801,16 +877,6 @@
 		rLoc = 1435;
 		rType = 0;
 		vrLen = 574;
-		vrLoc = 0;
-	};
-	278491D10FF2920B00BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
-		name = "main_cli.pch: 1";
-		rLen = 185;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 185;
 		vrLoc = 0;
 	};
 	278491F60FF2974F00BF23A5 /* PBXTextBookmark */ = {
@@ -830,29 +896,9 @@
 		path = /Users/meklort/latest/mydellmini/NetbookInstaller/bootMakerFiles/postinstall;
 		sourceTree = "<absolute>";
 	};
-	2784920A0FF298F300BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27CA34290FD47303006E14C4 /* HexEditor.h */;
-		name = "HexEditor.h: 5";
-		rLen = 0;
-		rLoc = 71;
-		rType = 0;
-		vrLen = 355;
-		vrLoc = 0;
-	};
 	278492290FF29A9100BF23A5 /* PBXBookmark */ = {
 		isa = PBXBookmark;
 		fRef = 661B389A0FBE6957004007B6 /* DellMini9.png */;
-	};
-	2784922B0FF29A9100BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5AF0FEB0EA0000F22B8 /* InstallerCLI.h */;
-		name = "InstallerCLI.h: 19";
-		rLen = 0;
-		rLoc = 284;
-		rType = 0;
-		vrLen = 290;
-		vrLoc = 0;
 	};
 	278492530FF29BFD00BF23A5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -874,16 +920,6 @@
 		vrLen = 1056;
 		vrLoc = 200;
 	};
-	2789B1750FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 363";
-		rLen = 0;
-		rLoc = 9823;
-		rType = 0;
-		vrLen = 749;
-		vrLoc = 9242;
-	};
 	2789B1760FFAD766008C1879 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 27848F220FF1ADCB00BF23A5 /* main_updateextra.pch */;
@@ -893,66 +929,6 @@
 		rType = 0;
 		vrLen = 185;
 		vrLoc = 0;
-	};
-	2789B1770FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
-		name = "NetbookBootMakerController.m: 335";
-		rLen = 13;
-		rLoc = 12226;
-		rType = 0;
-		vrLen = 994;
-		vrLoc = 12039;
-	};
-	2789B1780FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */;
-		name = "kext_whitelist: 27";
-		rLen = 0;
-		rLoc = 593;
-		rType = 0;
-		vrLen = 704;
-		vrLoc = 405;
-	};
-	2789B1790FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 363";
-		rLen = 0;
-		rLoc = 9823;
-		rType = 0;
-		vrLen = 749;
-		vrLoc = 9242;
-	};
-	2789B17A0FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27848F220FF1ADCB00BF23A5 /* main_updateextra.pch */;
-		name = "main_updateextra.pch: 1";
-		rLen = 185;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 185;
-		vrLoc = 0;
-	};
-	2789B17B0FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
-		name = "NetbookBootMakerController.m: 335";
-		rLen = 13;
-		rLoc = 12226;
-		rType = 0;
-		vrLen = 994;
-		vrLoc = 12039;
-	};
-	2789B17C0FFAD766008C1879 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */;
-		name = "kext_whitelist: 27";
-		rLen = 0;
-		rLoc = 593;
-		rType = 0;
-		vrLen = 704;
-		vrLoc = 405;
 	};
 	278ABF8C0FD4B8D200454E1F /* PlistBookmark */ = {
 		isa = PlistBookmark;
@@ -1064,16 +1040,6 @@
 		path = /System/Library/Frameworks/Foundation.framework/Versions/C/Headers/NSData.h;
 		sourceTree = "<absolute>";
 	};
-	27CC05720FFAD82C00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */;
-		name = "kext_whitelist: 36";
-		rLen = 0;
-		rLoc = 801;
-		rType = 0;
-		vrLen = 724;
-		vrLoc = 423;
-	};
 	27CC05770FFAD92300B83EFB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */;
@@ -1083,46 +1049,6 @@
 		rType = 0;
 		vrLen = 724;
 		vrLoc = 423;
-	};
-	27CC05780FFAD92300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 363";
-		rLen = 0;
-		rLoc = 9823;
-		rType = 0;
-		vrLen = 749;
-		vrLoc = 9242;
-	};
-	27CC05790FFAD92300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */;
-		name = "kext_whitelist: 36";
-		rLen = 0;
-		rLoc = 801;
-		rType = 0;
-		vrLen = 724;
-		vrLoc = 423;
-	};
-	27CC057A0FFAD92300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 363";
-		rLen = 0;
-		rLoc = 9793;
-		rType = 0;
-		vrLen = 670;
-		vrLoc = 9230;
-	};
-	27CC057E0FFAE9A100B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 190";
-		rLen = 1;
-		rLoc = 5343;
-		rType = 0;
-		vrLen = 879;
-		vrLoc = 4586;
 	};
 	27CC057F0FFAE9A100B83EFB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1194,122 +1120,6 @@
 		rLen = 0;
 		rLoc = 2147483647;
 	};
-	27CC05850FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSMainNibFile,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/UpdateExtra-Info.plist";
-		rLen = 11;
-		rLoc = 0;
-	};
-	27CC05860FFAE9A100B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 190";
-		rLen = 1;
-		rLoc = 5343;
-		rType = 0;
-		vrLen = 879;
-		vrLoc = 4586;
-	};
-	27CC05870FFAE9A100B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 089C165DFE840E0CC02AAC07 /* English */;
-		name = "InfoPlist.strings: 2";
-		rLen = 0;
-		rLoc = 44;
-		rType = 0;
-		vrLen = 44;
-		vrLoc = 0;
-	};
-	27CC05880FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 8D1107310486CEB800E47090 /* Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = /Users/meklort/latest/mydellmini/NetbookInstaller/Info.plist;
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC05890FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			NSHumanReadableCopyright,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/DellEFI-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC058A0FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 668FF6C70FC0D004007E4E75 /* LenovoInstaller-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/LenovoInstaller-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC058B0FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/NetbookInstallerCLI-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC058C0FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 2725E3E80FED88C0005869F8 /* NetbookBootMaker-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/NetbookBootMaker-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC058D0FFAE9A100B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/UpdateExtra-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC058F0FFAE9B700B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-			CFBundleVersion,
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/UpdateExtra-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
 	27CC05950FFAF44B00B83EFB /* PlistBookmark */ = {
 		isa = PlistBookmark;
 		fRef = 27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */;
@@ -1325,7 +1135,7 @@
 		isa = PBXTextBookmark;
 		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
 		name = "main_cli.pch: 1";
-		rLen = 185;
+		rLen = 172;
 		rLoc = 0;
 		rType = 0;
 		vrLen = 185;
@@ -1381,16 +1191,6 @@
 		vrLen = 290;
 		vrLoc = 0;
 	};
-	27CC059C0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
-		name = "SystemInformation.h: 30";
-		rLen = 8;
-		rLoc = 663;
-		rType = 0;
-		vrLen = 708;
-		vrLoc = 48;
-	};
 	27CC059D0FFAF44B00B83EFB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
@@ -1400,16 +1200,6 @@
 		rType = 0;
 		vrLen = 722;
 		vrLoc = 0;
-	};
-	27CC059E0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 492";
-		rLen = 7;
-		rLoc = 13065;
-		rType = 0;
-		vrLen = 908;
-		vrLoc = 12657;
 	};
 	27CC059F0FFAF44B00B83EFB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1430,16 +1220,6 @@
 		rType = 0;
 		vrLen = 727;
 		vrLoc = 222;
-	};
-	27CC05A10FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
-		name = "InstallerCLI.m: 17";
-		rLen = 926;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 777;
-		vrLoc = 0;
 	};
 	27CC05A20FFAF44B00B83EFB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -1481,257 +1261,6 @@
 		vrLen = 1093;
 		vrLoc = 339;
 	};
-	27CC05A60FFAF44B00B83EFB /* PlistBookmark */ = {
-		isa = PlistBookmark;
-		fRef = 27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */;
-		fallbackIsa = PBXBookmark;
-		isK = 0;
-		kPath = (
-		);
-		name = "/Users/meklort/latest/mydellmini/NetbookInstaller/UpdateExtra-Info.plist";
-		rLen = 0;
-		rLoc = 2147483647;
-	};
-	27CC05A70FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B36690FBE28D0004007B6 /* checksum.h */;
-		name = "checksum.h: 11";
-		rLen = 0;
-		rLoc = 169;
-		rType = 0;
-		vrLen = 918;
-		vrLoc = 127;
-	};
-	27CC05A80FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 190";
-		rLen = 1;
-		rLoc = 5343;
-		rType = 0;
-		vrLen = 879;
-		vrLoc = 4586;
-	};
-	27CC05A90FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B36690FBE28D0004007B6 /* checksum.h */;
-		name = "checksum.h: 11";
-		rLen = 0;
-		rLoc = 169;
-		rType = 0;
-		vrLen = 736;
-		vrLoc = 0;
-	};
-	27CC05AA0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C58B0FEB0DF1000F22B8 /* main_cli.pch */;
-		name = "main_cli.pch: 1";
-		rLen = 185;
-		rLoc = 0;
-		rType = 0;
-		vrLen = 185;
-		vrLoc = 0;
-	};
-	27CC05AB0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B36690FBE28D0004007B6 /* checksum.h */;
-		name = "checksum.h: 11";
-		rLen = 0;
-		rLoc = 169;
-		rType = 0;
-		vrLen = 736;
-		vrLoc = 0;
-	};
-	27CC05AC0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */;
-		name = "NetbookInstaller_Prefix.pch: 11";
-		rLen = 0;
-		rLoc = 236;
-		rType = 0;
-		vrLen = 608;
-		vrLoc = 0;
-	};
-	27CC05AD0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 492";
-		rLen = 7;
-		rLoc = 13065;
-		rType = 0;
-		vrLen = 931;
-		vrLoc = 12657;
-	};
-	27CC05AE0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
-		name = "Installer.h: 88";
-		rLen = 36;
-		rLoc = 2357;
-		rType = 0;
-		vrLen = 722;
-		vrLoc = 0;
-	};
-	27CC05AF0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
-		name = "DSDTPatcher.m: 8";
-		rLen = 0;
-		rLoc = 130;
-		rType = 0;
-		vrLen = 823;
-		vrLoc = 0;
-	};
-	27CC05B00FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
-		name = "Installer.h: 88";
-		rLen = 36;
-		rLoc = 2357;
-		rType = 0;
-		vrLen = 722;
-		vrLoc = 0;
-	};
-	27CC05B10FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */;
-		name = "DSDTPatcher.h: 14";
-		rLen = 36;
-		rLoc = 188;
-		rType = 0;
-		vrLen = 560;
-		vrLoc = 0;
-	};
-	27CC05B20FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27CA34290FD47303006E14C4 /* HexEditor.h */;
-		name = "HexEditor.h: 5";
-		rLen = 0;
-		rLoc = 71;
-		rType = 0;
-		vrLen = 355;
-		vrLoc = 0;
-	};
-	27CC05B30FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5AF0FEB0EA0000F22B8 /* InstallerCLI.h */;
-		name = "InstallerCLI.h: 18";
-		rLen = 0;
-		rLoc = 284;
-		rType = 0;
-		vrLen = 290;
-		vrLoc = 0;
-	};
-	27CC05B40FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
-		name = "SystemInformation.h: 30";
-		rLen = 8;
-		rLoc = 663;
-		rType = 0;
-		vrLen = 708;
-		vrLoc = 48;
-	};
-	27CC05B50FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09520FBF3E9C00D3B55B /* Installer.h */;
-		name = "Installer.h: 88";
-		rLen = 36;
-		rLoc = 2357;
-		rType = 0;
-		vrLen = 722;
-		vrLoc = 0;
-	};
-	27CC05B60FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 492";
-		rLen = 7;
-		rLoc = 13065;
-		rType = 0;
-		vrLen = 908;
-		vrLoc = 12657;
-	};
-	27CC05B70FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */;
-		name = "DSDTPatcher.m: 8";
-		rLen = 0;
-		rLoc = 130;
-		rType = 0;
-		vrLen = 823;
-		vrLoc = 0;
-	};
-	27CC05B80FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */;
-		name = "HexEditor.m: 5";
-		rLen = 0;
-		rLoc = 71;
-		rType = 0;
-		vrLen = 727;
-		vrLoc = 222;
-	};
-	27CC05B90FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
-		name = "InstallerCLI.m: 17";
-		rLen = 926;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 777;
-		vrLoc = 0;
-	};
-	27CC05BA0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */;
-		name = "SystemInformation.m: 230";
-		rLen = 16;
-		rLoc = 4208;
-		rType = 0;
-		vrLen = 738;
-		vrLoc = 4779;
-	};
-	27CC05BB0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */;
-		name = "NetbookInstallerController.m: 253";
-		rLen = 156;
-		rLoc = 7953;
-		rType = 0;
-		vrLen = 1039;
-		vrLoc = 8332;
-	};
-	27CC05BC0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */;
-		name = "AboutWindowController.m: 25";
-		rLen = 0;
-		rLoc = 562;
-		rType = 0;
-		vrLen = 690;
-		vrLoc = 0;
-	};
-	27CC05BD0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */;
-		name = "UpdateExtraController.m: 31";
-		rLen = 0;
-		rLoc = 752;
-		rType = 0;
-		vrLen = 1093;
-		vrLoc = 339;
-	};
-	27CC05BE0FFAF44B00B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
-		name = "NetbookBootMakerController.m: 335";
-		rLen = 13;
-		rLoc = 12226;
-		rType = 0;
-		vrLen = 993;
-		vrLoc = 12039;
-	};
 	27CC05C10FFAF4B300B83EFB /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
@@ -1747,7 +1276,7 @@
 		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
 		name = "Installer.m: 490";
 		rLen = 0;
-		rLoc = 13042;
+		rLoc = 13050;
 		rType = 0;
 		vrLen = 900;
 		vrLoc = 12657;
@@ -1757,7 +1286,7 @@
 		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
 		name = "main_cli.m: 68";
 		rLen = 0;
-		rLoc = 1652;
+		rLoc = 1643;
 		rType = 0;
 		vrLen = 730;
 		vrLoc = 947;
@@ -1771,86 +1300,6 @@
 		rType = 0;
 		vrLen = 777;
 		vrLoc = 0;
-	};
-	27CC05C50FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
-		name = "NetbookBootMakerController.m: 335";
-		rLen = 13;
-		rLoc = 12226;
-		rType = 0;
-		vrLen = 993;
-		vrLoc = 12039;
-	};
-	27CC05C60FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
-		name = "NetbookBootMakerController.m: 335";
-		rLen = 13;
-		rLoc = 12226;
-		rType = 0;
-		vrLen = 993;
-		vrLoc = 12039;
-	};
-	27CC05C70FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 661B35C70FBE01E5004007B6 /* SystemInformation.h */;
-		name = "SystemInformation.h: 29";
-		rLen = 9;
-		rLoc = 539;
-		rType = 0;
-		vrLen = 683;
-		vrLoc = 48;
-	};
-	27CC05C80FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */;
-		name = "Installer.m: 490";
-		rLen = 0;
-		rLoc = 13042;
-		rType = 0;
-		vrLen = 900;
-		vrLoc = 12657;
-	};
-	27CC05C90FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
-		name = "InstallerCLI.m: 17";
-		rLen = 926;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 777;
-		vrLoc = 0;
-	};
-	27CC05CA0FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */;
-		name = "main_cli.m: 68";
-		rLen = 0;
-		rLoc = 1652;
-		rType = 0;
-		vrLen = 730;
-		vrLoc = 947;
-	};
-	27CC05CB0FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */;
-		name = "InstallerCLI.m: 17";
-		rLen = 926;
-		rLoc = 378;
-		rType = 0;
-		vrLen = 777;
-		vrLoc = 0;
-	};
-	27CC05CC0FFAF4B300B83EFB /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */;
-		name = "NetbookBootMakerController.m: 138";
-		rLen = 0;
-		rLoc = 4562;
-		rType = 0;
-		vrLen = 2052;
-		vrLoc = 3759;
 	};
 	27E292430FD18238001C4076 /* NetbookInstaller */ = {
 		isa = PBXExecutable;
@@ -2204,12 +1653,11 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 268097574;
-			PBXWorkspaceStateSaveDate = 268097574;
+			PBXPerProjectTemplateStateSaveDate = 268321534;
+			PBXWorkspaceStateSaveDate = 268321534;
 		};
 		perUserProjectItems = {
 			270AF2EB0FF443FA0085AD97 = 270AF2EB0FF443FA0085AD97 /* PBXTextBookmark */;
-			2725E6780FED8A19005869F8 = 2725E6780FED8A19005869F8 /* PBXTextBookmark */;
 			2725E68E0FED8A19005869F8 = 2725E68E0FED8A19005869F8 /* PBXTextBookmark */;
 			2725E68F0FED8A19005869F8 = 2725E68F0FED8A19005869F8 /* PBXTextBookmark */;
 			2725E7270FED96F4005869F8 = 2725E7270FED96F4005869F8 /* PlistBookmark */;
@@ -2217,36 +1665,18 @@
 			2725E7660FEDA08A005869F8 = 2725E7660FEDA08A005869F8 /* PBXTextBookmark */;
 			2725E7B30FEDAF7E005869F8 = 2725E7B30FEDAF7E005869F8 /* PBXBookmark */;
 			2725E8510FEDB86B005869F8 = 2725E8510FEDB86B005869F8 /* PBXTextBookmark */;
-			272EA9120FF5D04800274B67 = 272EA9120FF5D04800274B67 /* PBXTextBookmark */;
-			272EA9130FF5D04800274B67 = 272EA9130FF5D04800274B67 /* PBXTextBookmark */;
 			272EAB2D0FF6997C00274B67 = 272EAB2D0FF6997C00274B67 /* PBXTextBookmark */;
-			272EAB9A0FF6C71E00274B67 = 272EAB9A0FF6C71E00274B67 /* PBXTextBookmark */;
 			272EABDA0FF6D6AE00274B67 = 272EABDA0FF6D6AE00274B67 /* PBXTextBookmark */;
 			272EAC7F0FF7148D00274B67 = 272EAC7F0FF7148D00274B67 /* PBXTextBookmark */;
 			272EAD610FF7FDF600274B67 = 272EAD610FF7FDF600274B67 /* PBXTextBookmark */;
 			272EAD660FF7FDF600274B67 = 272EAD660FF7FDF600274B67 /* PBXTextBookmark */;
 			272EAD670FF7FDF600274B67 = 272EAD670FF7FDF600274B67 /* PBXTextBookmark */;
 			272EAD890FF802CD00274B67 = 272EAD890FF802CD00274B67 /* PBXTextBookmark */;
-			272EADB30FF80A6C00274B67 = 272EADB30FF80A6C00274B67 /* PBXTextBookmark */;
-			272EADC10FF80B2E00274B67 = 272EADC10FF80B2E00274B67 /* PBXTextBookmark */;
 			272EAE1A0FF823D100274B67 = 272EAE1A0FF823D100274B67 /* PBXTextBookmark */;
 			272EAE250FF826EF00274B67 = 272EAE250FF826EF00274B67 /* PBXTextBookmark */;
-			272EAE260FF826EF00274B67 = 272EAE260FF826EF00274B67 /* PBXTextBookmark */;
-			272EAE3E0FF9341400274B67 = 272EAE3E0FF9341400274B67 /* PlistBookmark */;
-			272EAE3F0FF9341400274B67 = 272EAE3F0FF9341400274B67 /* PlistBookmark */;
-			272EAE400FF9341400274B67 = 272EAE400FF9341400274B67 /* PlistBookmark */;
-			272EAE410FF9341400274B67 = 272EAE410FF9341400274B67 /* PlistBookmark */;
-			272EAE420FF9341400274B67 = 272EAE420FF9341400274B67 /* PlistBookmark */;
-			272EAE430FF9341400274B67 = 272EAE430FF9341400274B67 /* PlistBookmark */;
 			272EAE660FF935AC00274B67 = 272EAE660FF935AC00274B67 /* PBXTextBookmark */;
-			272EAE960FF937AF00274B67 = 272EAE960FF937AF00274B67 /* PBXTextBookmark */;
-			272EAF000FF9945D00274B67 = 272EAF000FF9945D00274B67 /* PBXTextBookmark */;
-			272EAF060FF99BE800274B67 = 272EAF060FF99BE800274B67 /* PBXTextBookmark */;
-			272EAF250FF9A2ED00274B67 = 272EAF250FF9A2ED00274B67 /* PBXTextBookmark */;
 			272EAF310FF9A3B400274B67 = 272EAF310FF9A3B400274B67 /* PBXTextBookmark */;
 			272EAF660FF9A85B00274B67 = 272EAF660FF9A85B00274B67 /* PBXTextBookmark */;
-			272EAF6D0FF9B05700274B67 = 272EAF6D0FF9B05700274B67 /* PBXTextBookmark */;
-			272EAF810FF9B5D700274B67 = 272EAF810FF9B5D700274B67 /* PBXTextBookmark */;
 			2748C4C60FEB0410000F22B8 = 2748C4C60FEB0410000F22B8 /* PlistBookmark */;
 			2748C4CE0FEB0410000F22B8 = 2748C4CE0FEB0410000F22B8 /* PBXTextBookmark */;
 			2748C5980FEB0E33000F22B8 = 2748C5980FEB0E33000F22B8 /* PBXTextBookmark */;
@@ -2254,6 +1684,34 @@
 			2748C5CC0FEB0FB9000F22B8 = 2748C5CC0FEB0FB9000F22B8 /* PBXTextBookmark */;
 			274B11EA0FF458D9009BFF80 = 274B11EA0FF458D9009BFF80 /* PBXBookmark */;
 			274B11EF0FF458D9009BFF80 = 274B11EF0FF458D9009BFF80 /* PBXBookmark */;
+			275B58A10FFBB2D400B47822 = 275B58A10FFBB2D400B47822 /* PBXTextBookmark */;
+			275B58A20FFBB2D400B47822 = 275B58A20FFBB2D400B47822 /* PBXTextBookmark */;
+			275B59A00FFE430100B47822 /* PBXTextBookmark */ = 275B59A00FFE430100B47822 /* PBXTextBookmark */;
+			275B59A40FFE431400B47822 /* PBXTextBookmark */ = 275B59A40FFE431400B47822 /* PBXTextBookmark */;
+			275B59A50FFE431400B47822 /* PBXTextBookmark */ = 275B59A50FFE431400B47822 /* PBXTextBookmark */;
+			275B59A60FFE431400B47822 /* PBXTextBookmark */ = 275B59A60FFE431400B47822 /* PBXTextBookmark */;
+			275B59A70FFE431400B47822 /* PBXTextBookmark */ = 275B59A70FFE431400B47822 /* PBXTextBookmark */;
+			275B59AC0FFE966B00B47822 /* PBXTextBookmark */ = 275B59AC0FFE966B00B47822 /* PBXTextBookmark */;
+			275B59AD0FFE966B00B47822 /* PBXTextBookmark */ = 275B59AD0FFE966B00B47822 /* PBXTextBookmark */;
+			275B59AE0FFE966B00B47822 /* PBXTextBookmark */ = 275B59AE0FFE966B00B47822 /* PBXTextBookmark */;
+			275B59AF0FFE966B00B47822 /* PBXTextBookmark */ = 275B59AF0FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B00FFE966B00B47822 /* PBXTextBookmark */ = 275B59B00FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B10FFE966B00B47822 /* PBXTextBookmark */ = 275B59B10FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B20FFE966B00B47822 /* PBXTextBookmark */ = 275B59B20FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B30FFE966B00B47822 /* PBXTextBookmark */ = 275B59B30FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B40FFE966B00B47822 /* PBXTextBookmark */ = 275B59B40FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B50FFE966B00B47822 /* PBXTextBookmark */ = 275B59B50FFE966B00B47822 /* PBXTextBookmark */;
+			275B59B60FFECB8400B47822 /* PBXTextBookmark */ = 275B59B60FFECB8400B47822 /* PBXTextBookmark */;
+			275B59BE0FFECBEC00B47822 /* PBXTextBookmark */ = 275B59BE0FFECBEC00B47822 /* PBXTextBookmark */;
+			275B59BF0FFECBEC00B47822 /* PBXTextBookmark */ = 275B59BF0FFECBEC00B47822 /* PBXTextBookmark */;
+			275B59C00FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C00FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C10FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C10FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C20FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C20FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C30FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C30FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C40FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C40FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C50FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C50FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C60FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C60FFECBEF00B47822 /* PBXTextBookmark */;
+			275B59C70FFECBEF00B47822 /* PBXTextBookmark */ = 275B59C70FFECBEF00B47822 /* PBXTextBookmark */;
 			2775FDAB0FD1B3A0006D79DE = 2775FDAB0FD1B3A0006D79DE /* PBXTextBookmark */;
 			2775FDBF0FD1B3A0006D79DE = 2775FDBF0FD1B3A0006D79DE /* PlistBookmark */;
 			2775FDC00FD1B3A0006D79DE = 2775FDC00FD1B3A0006D79DE /* PBXBookmark */;
@@ -2261,23 +1719,12 @@
 			27848F3B0FF1AE2F00BF23A5 = 27848F3B0FF1AE2F00BF23A5 /* PBXTextBookmark */;
 			27848F3E0FF1AE2F00BF23A5 = 27848F3E0FF1AE2F00BF23A5 /* PBXTextBookmark */;
 			27848F550FF1AF6F00BF23A5 = 27848F550FF1AF6F00BF23A5 /* PBXTextBookmark */;
-			278490950FF1B0A500BF23A5 = 278490950FF1B0A500BF23A5 /* PBXTextBookmark */;
 			278490B00FF1B0A500BF23A5 = 278490B00FF1B0A500BF23A5 /* PBXTextBookmark */;
-			278491D10FF2920B00BF23A5 = 278491D10FF2920B00BF23A5 /* PBXTextBookmark */;
 			278491F60FF2974F00BF23A5 = 278491F60FF2974F00BF23A5 /* PBXTextBookmark */;
-			2784920A0FF298F300BF23A5 = 2784920A0FF298F300BF23A5 /* PBXTextBookmark */;
 			278492290FF29A9100BF23A5 = 278492290FF29A9100BF23A5 /* PBXBookmark */;
-			2784922B0FF29A9100BF23A5 = 2784922B0FF29A9100BF23A5 /* PBXTextBookmark */;
 			278492530FF29BFD00BF23A5 = 278492530FF29BFD00BF23A5 /* PBXTextBookmark */;
 			278493220FF2EE3E00BF23A5 = 278493220FF2EE3E00BF23A5 /* PBXTextBookmark */;
-			2789B1750FFAD766008C1879 = 2789B1750FFAD766008C1879 /* PBXTextBookmark */;
 			2789B1760FFAD766008C1879 = 2789B1760FFAD766008C1879 /* PBXTextBookmark */;
-			2789B1770FFAD766008C1879 = 2789B1770FFAD766008C1879 /* PBXTextBookmark */;
-			2789B1780FFAD766008C1879 = 2789B1780FFAD766008C1879 /* PBXTextBookmark */;
-			2789B1790FFAD766008C1879 = 2789B1790FFAD766008C1879 /* PBXTextBookmark */;
-			2789B17A0FFAD766008C1879 = 2789B17A0FFAD766008C1879 /* PBXTextBookmark */;
-			2789B17B0FFAD766008C1879 = 2789B17B0FFAD766008C1879 /* PBXTextBookmark */;
-			2789B17C0FFAD766008C1879 = 2789B17C0FFAD766008C1879 /* PBXTextBookmark */;
 			278ABF8C0FD4B8D200454E1F = 278ABF8C0FD4B8D200454E1F /* PlistBookmark */;
 			278ABF8D0FD4B8D200454E1F = 278ABF8D0FD4B8D200454E1F /* PlistBookmark */;
 			278ABF9A0FD4B8D200454E1F = 278ABF9A0FD4B8D200454E1F /* PBXTextBookmark */;
@@ -2286,82 +1733,31 @@
 			27CA34660FD473C5006E14C4 = 27CA34660FD473C5006E14C4 /* PBXTextBookmark */;
 			27CA352B0FD47B8D006E14C4 = 27CA352B0FD47B8D006E14C4 /* PBXTextBookmark */;
 			27CA35330FD47B8D006E14C4 = 27CA35330FD47B8D006E14C4 /* PBXTextBookmark */;
-			27CC05720FFAD82C00B83EFB /* PBXTextBookmark */ = 27CC05720FFAD82C00B83EFB /* PBXTextBookmark */;
-			27CC05770FFAD92300B83EFB /* PBXTextBookmark */ = 27CC05770FFAD92300B83EFB /* PBXTextBookmark */;
-			27CC05780FFAD92300B83EFB /* PBXTextBookmark */ = 27CC05780FFAD92300B83EFB /* PBXTextBookmark */;
-			27CC05790FFAD92300B83EFB /* PBXTextBookmark */ = 27CC05790FFAD92300B83EFB /* PBXTextBookmark */;
-			27CC057A0FFAD92300B83EFB /* PBXTextBookmark */ = 27CC057A0FFAD92300B83EFB /* PBXTextBookmark */;
-			27CC057E0FFAE9A100B83EFB /* PBXTextBookmark */ = 27CC057E0FFAE9A100B83EFB /* PBXTextBookmark */;
-			27CC057F0FFAE9A100B83EFB /* PBXTextBookmark */ = 27CC057F0FFAE9A100B83EFB /* PBXTextBookmark */;
-			27CC05800FFAE9A100B83EFB /* PlistBookmark */ = 27CC05800FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05810FFAE9A100B83EFB /* PlistBookmark */ = 27CC05810FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05820FFAE9A100B83EFB /* PlistBookmark */ = 27CC05820FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05830FFAE9A100B83EFB /* PlistBookmark */ = 27CC05830FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05840FFAE9A100B83EFB /* PlistBookmark */ = 27CC05840FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05850FFAE9A100B83EFB /* PlistBookmark */ = 27CC05850FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05860FFAE9A100B83EFB /* PBXTextBookmark */ = 27CC05860FFAE9A100B83EFB /* PBXTextBookmark */;
-			27CC05870FFAE9A100B83EFB /* PBXTextBookmark */ = 27CC05870FFAE9A100B83EFB /* PBXTextBookmark */;
-			27CC05880FFAE9A100B83EFB /* PlistBookmark */ = 27CC05880FFAE9A100B83EFB /* PlistBookmark */;
-			27CC05890FFAE9A100B83EFB /* PlistBookmark */ = 27CC05890FFAE9A100B83EFB /* PlistBookmark */;
-			27CC058A0FFAE9A100B83EFB /* PlistBookmark */ = 27CC058A0FFAE9A100B83EFB /* PlistBookmark */;
-			27CC058B0FFAE9A100B83EFB /* PlistBookmark */ = 27CC058B0FFAE9A100B83EFB /* PlistBookmark */;
-			27CC058C0FFAE9A100B83EFB /* PlistBookmark */ = 27CC058C0FFAE9A100B83EFB /* PlistBookmark */;
-			27CC058D0FFAE9A100B83EFB /* PlistBookmark */ = 27CC058D0FFAE9A100B83EFB /* PlistBookmark */;
-			27CC058F0FFAE9B700B83EFB /* PlistBookmark */ = 27CC058F0FFAE9B700B83EFB /* PlistBookmark */;
-			27CC05950FFAF44B00B83EFB /* PlistBookmark */ = 27CC05950FFAF44B00B83EFB /* PlistBookmark */;
-			27CC05960FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05960FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05970FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05970FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05980FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05980FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05990FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05990FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC059A0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC059A0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC059B0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC059B0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC059C0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC059C0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC059D0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC059D0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC059E0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC059E0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC059F0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC059F0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A00FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A00FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A10FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A10FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A20FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A20FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A30FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A30FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A40FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A40FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A50FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A50FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A60FFAF44B00B83EFB /* PlistBookmark */ = 27CC05A60FFAF44B00B83EFB /* PlistBookmark */;
-			27CC05A70FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A70FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A80FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A80FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05A90FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05A90FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05AA0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05AA0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05AB0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05AB0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05AC0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05AC0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05AD0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05AD0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05AE0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05AE0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05AF0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05AF0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B00FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B00FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B10FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B10FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B20FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B20FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B30FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B30FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B40FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B40FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B50FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B50FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B60FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B60FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B70FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B70FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B80FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B80FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05B90FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05B90FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05BA0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05BA0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05BB0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05BB0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05BC0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05BC0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05BD0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05BD0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05BE0FFAF44B00B83EFB /* PBXTextBookmark */ = 27CC05BE0FFAF44B00B83EFB /* PBXTextBookmark */;
-			27CC05C10FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C10FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C20FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C20FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C30FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C30FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C40FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C40FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C50FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C50FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C60FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C60FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C70FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C70FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C80FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C80FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05C90FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05C90FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05CA0FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05CA0FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05CB0FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05CB0FFAF4B300B83EFB /* PBXTextBookmark */;
-			27CC05CC0FFAF4B300B83EFB /* PBXTextBookmark */ = 27CC05CC0FFAF4B300B83EFB /* PBXTextBookmark */;
+			27CC05770FFAD92300B83EFB = 27CC05770FFAD92300B83EFB /* PBXTextBookmark */;
+			27CC057F0FFAE9A100B83EFB = 27CC057F0FFAE9A100B83EFB /* PBXTextBookmark */;
+			27CC05800FFAE9A100B83EFB = 27CC05800FFAE9A100B83EFB /* PlistBookmark */;
+			27CC05810FFAE9A100B83EFB = 27CC05810FFAE9A100B83EFB /* PlistBookmark */;
+			27CC05820FFAE9A100B83EFB = 27CC05820FFAE9A100B83EFB /* PlistBookmark */;
+			27CC05830FFAE9A100B83EFB = 27CC05830FFAE9A100B83EFB /* PlistBookmark */;
+			27CC05840FFAE9A100B83EFB = 27CC05840FFAE9A100B83EFB /* PlistBookmark */;
+			27CC05950FFAF44B00B83EFB = 27CC05950FFAF44B00B83EFB /* PlistBookmark */;
+			27CC05960FFAF44B00B83EFB = 27CC05960FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05970FFAF44B00B83EFB = 27CC05970FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05980FFAF44B00B83EFB = 27CC05980FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05990FFAF44B00B83EFB = 27CC05990FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC059A0FFAF44B00B83EFB = 27CC059A0FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC059B0FFAF44B00B83EFB = 27CC059B0FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC059D0FFAF44B00B83EFB = 27CC059D0FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC059F0FFAF44B00B83EFB = 27CC059F0FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05A00FFAF44B00B83EFB = 27CC05A00FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05A20FFAF44B00B83EFB = 27CC05A20FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05A30FFAF44B00B83EFB = 27CC05A30FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05A40FFAF44B00B83EFB = 27CC05A40FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05A50FFAF44B00B83EFB = 27CC05A50FFAF44B00B83EFB /* PBXTextBookmark */;
+			27CC05C10FFAF4B300B83EFB = 27CC05C10FFAF4B300B83EFB /* PBXTextBookmark */;
+			27CC05C20FFAF4B300B83EFB = 27CC05C20FFAF4B300B83EFB /* PBXTextBookmark */;
+			27CC05C30FFAF4B300B83EFB = 27CC05C30FFAF4B300B83EFB /* PBXTextBookmark */;
+			27CC05C40FFAF4B300B83EFB = 27CC05C40FFAF4B300B83EFB /* PBXTextBookmark */;
 			27E294F10FD19BB5001C4076 = 27E294F10FD19BB5001C4076 /* PBXTextBookmark */;
 			27E294F20FD19BB5001C4076 = 27E294F20FD19BB5001C4076 /* PBXTextBookmark */;
 			27E294F30FD19BB5001C4076 = 27E294F30FD19BB5001C4076 /* PBXTextBookmark */;
@@ -2460,17 +1856,17 @@
 	};
 	66EC09520FBF3E9C00D3B55B /* Installer.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {955, 1456}}";
-			sepNavSelRange = "{2357, 36}";
-			sepNavVisRange = "{0, 722}";
+			sepNavIntBoundsRect = "{{0, 0}, {955, 1442}}";
+			sepNavSelRange = "{2615, 0}";
+			sepNavVisRange = "{2015, 601}";
 			sepNavWindowFrame = "{{38, 194}, {750, 558}}";
 		};
 	};
 	66EC09530FBF3E9C00D3B55B /* Installer.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {990, 15638}}";
-			sepNavSelRange = "{13042, 0}";
-			sepNavVisRange = "{12657, 900}";
+			sepNavIntBoundsRect = "{{0, 0}, {1614, 14000}}";
+			sepNavSelRange = "{39042, 27}";
+			sepNavVisRange = "{38251, 944}";
 			sepNavWindowFrame = "{{61, 173}, {750, 558}}";
 		};
 	};
