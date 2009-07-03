@@ -8,5 +8,3 @@
  */
 
 #include "NetbookInstaller_Prefix.pch"
-
-#define CLI

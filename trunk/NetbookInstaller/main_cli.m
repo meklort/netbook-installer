@@ -9,7 +9,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SystemInformation.h"
-#import "InstallerCLI.h"
+#import "Installer.h"
 
 int main(int argc, char *argv[])
 {	
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSDictionary* infoDict;
 	SystemInformation* systemInfo = [[SystemInformation alloc] init];
-	InstallerCLI*	installer	= [[InstallerCLI alloc] init];
+	Installer*	installer	= [[Installer alloc] init];
 
 	[installer mountRamDisk];
 	infoDict = [[NSBundle mainBundle] infoDictionary];

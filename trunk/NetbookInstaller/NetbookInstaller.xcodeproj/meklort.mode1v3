@@ -230,6 +230,8 @@
 			<key>Layout</key>
 			<array>
 				<dict>
+					<key>BecomeActive</key>
+					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -277,8 +279,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
+									<integer>23</integer>
 									<integer>19</integer>
-									<integer>11</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -313,14 +315,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>NetbookBootMakerController.m</string>
+								<string>Installer.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -328,11 +328,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>NetbookBootMakerController.m</string>
+										<string>Installer.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>27CC05CC0FFAF4B300B83EFB</string>
+										<string>275B59C70FFECBEF00B47822</string>
 										<key>history</key>
 										<array>
 											<string>27CA352B0FD47B8D006E14C4</string>
@@ -360,24 +360,23 @@
 											<string>27CC05830FFAE9A100B83EFB</string>
 											<string>27CC05840FFAE9A100B83EFB</string>
 											<string>27CC05950FFAF44B00B83EFB</string>
-											<string>27CC05960FFAF44B00B83EFB</string>
 											<string>27CC05970FFAF44B00B83EFB</string>
 											<string>27CC05980FFAF44B00B83EFB</string>
 											<string>27CC05990FFAF44B00B83EFB</string>
 											<string>27CC059A0FFAF44B00B83EFB</string>
 											<string>27CC059B0FFAF44B00B83EFB</string>
-											<string>27CC059D0FFAF44B00B83EFB</string>
 											<string>27CC059F0FFAF44B00B83EFB</string>
 											<string>27CC05A00FFAF44B00B83EFB</string>
 											<string>27CC05A20FFAF44B00B83EFB</string>
 											<string>27CC05A30FFAF44B00B83EFB</string>
-											<string>27CC05A40FFAF44B00B83EFB</string>
 											<string>27CC05A50FFAF44B00B83EFB</string>
 											<string>27CC05C10FFAF4B300B83EFB</string>
-											<string>27CC05C20FFAF4B300B83EFB</string>
-											<string>27CC05C30FFAF4B300B83EFB</string>
-											<string>27CC05C40FFAF4B300B83EFB</string>
-											<string>27CC05C50FFAF4B300B83EFB</string>
+											<string>275B59AC0FFE966B00B47822</string>
+											<string>275B59AE0FFE966B00B47822</string>
+											<string>275B59AF0FFE966B00B47822</string>
+											<string>275B59C00FFECBEF00B47822</string>
+											<string>275B59C10FFECBEF00B47822</string>
+											<string>275B59C20FFECBEF00B47822</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -407,7 +406,6 @@
 											<string>2748C4CE0FEB0410000F22B8</string>
 											<string>2748C5980FEB0E33000F22B8</string>
 											<string>2748C5CB0FEB0FB9000F22B8</string>
-											<string>2748C5CC0FEB0FB9000F22B8</string>
 											<string>2725E68E0FED8A19005869F8</string>
 											<string>2725E68F0FED8A19005869F8</string>
 											<string>2725E7270FED96F4005869F8</string>
@@ -424,44 +422,14 @@
 											<string>272EAB2D0FF6997C00274B67</string>
 											<string>272EAD660FF7FDF600274B67</string>
 											<string>272EAD670FF7FDF600274B67</string>
-											<string>27CC05790FFAD92300B83EFB</string>
-											<string>27CC05860FFAE9A100B83EFB</string>
-											<string>27CC05870FFAE9A100B83EFB</string>
-											<string>27CC05880FFAE9A100B83EFB</string>
-											<string>27CC05890FFAE9A100B83EFB</string>
-											<string>27CC058A0FFAE9A100B83EFB</string>
-											<string>27CC058B0FFAE9A100B83EFB</string>
-											<string>27CC058C0FFAE9A100B83EFB</string>
-											<string>27CC05A60FFAF44B00B83EFB</string>
-											<string>27CC05A70FFAF44B00B83EFB</string>
-											<string>27CC05A80FFAF44B00B83EFB</string>
-											<string>27CC05A90FFAF44B00B83EFB</string>
-											<string>27CC05AA0FFAF44B00B83EFB</string>
-											<string>27CC05AB0FFAF44B00B83EFB</string>
-											<string>27CC05AC0FFAF44B00B83EFB</string>
-											<string>27CC05AD0FFAF44B00B83EFB</string>
-											<string>27CC05AE0FFAF44B00B83EFB</string>
-											<string>27CC05AF0FFAF44B00B83EFB</string>
-											<string>27CC05B00FFAF44B00B83EFB</string>
-											<string>27CC05B10FFAF44B00B83EFB</string>
-											<string>27CC05B20FFAF44B00B83EFB</string>
-											<string>27CC05B30FFAF44B00B83EFB</string>
-											<string>27CC05B40FFAF44B00B83EFB</string>
-											<string>27CC05B50FFAF44B00B83EFB</string>
-											<string>27CC05B60FFAF44B00B83EFB</string>
-											<string>27CC05B70FFAF44B00B83EFB</string>
-											<string>27CC05B80FFAF44B00B83EFB</string>
-											<string>27CC05B90FFAF44B00B83EFB</string>
-											<string>27CC05BA0FFAF44B00B83EFB</string>
-											<string>27CC05BB0FFAF44B00B83EFB</string>
-											<string>27CC05BC0FFAF44B00B83EFB</string>
-											<string>27CC05BD0FFAF44B00B83EFB</string>
-											<string>27CC05C60FFAF4B300B83EFB</string>
-											<string>27CC05C70FFAF4B300B83EFB</string>
-											<string>27CC05C80FFAF4B300B83EFB</string>
-											<string>27CC05C90FFAF4B300B83EFB</string>
-											<string>27CC05CA0FFAF4B300B83EFB</string>
-											<string>27CC05CB0FFAF4B300B83EFB</string>
+											<string>275B59A60FFE431400B47822</string>
+											<string>275B59B10FFE966B00B47822</string>
+											<string>275B59B30FFE966B00B47822</string>
+											<string>275B59B40FFE966B00B47822</string>
+											<string>275B59C30FFECBEF00B47822</string>
+											<string>275B59C40FFECBEF00B47822</string>
+											<string>275B59C50FFECBEF00B47822</string>
+											<string>275B59C60FFECBEF00B47822</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -519,9 +487,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>27CC05730FFAD82C00B83EFB</string>
+				<string>275B59A10FFE430100B47822</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>27CC05740FFAD82C00B83EFB</string>
+				<string>275B59A20FFE430100B47822</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -655,8 +623,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>275B59C80FFECBEF00B47822</string>
 		<string>27E292E10FD18250001C4076</string>
-		<string>/Users/meklort/latest/mydellmini/NetbookInstaller/NetbookInstaller.xcodeproj</string>
+		<string>/Users/meklort/netbook-installer/NetbookInstaller/NetbookInstaller.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>-1 55 1224 723 0 0 1280 778 </string>
@@ -680,7 +649,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>Installer.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -738,7 +707,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>27E292E10FD18250001C4076</string>
-				<string>27CC05750FFAD82C00B83EFB</string>
+				<string>275B59A80FFE431400B47822</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -749,7 +718,7 @@
 			<key>WindowToolGUID</key>
 			<string>27E292E10FD18250001C4076</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
