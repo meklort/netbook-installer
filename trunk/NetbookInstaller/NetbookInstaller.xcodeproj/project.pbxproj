@@ -131,6 +131,7 @@
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		A1544D2F0FFEEBBE004B05AB /* bootmaker.icns in Resources */ = {isa = PBXBuildFile; fileRef = A1544D2E0FFEEBBE004B05AB /* bootmaker.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 		66EC09530FBF3E9C00D3B55B /* Installer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installer.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* NetbookInstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookInstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1544D2E0FFEEBBE004B05AB /* bootmaker.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = bootmaker.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A1544D2E0FFEEBBE004B05AB /* bootmaker.icns */,
 				2725E7B00FEDAF56005869F8 /* bootMakerFiles */,
 				661B38990FBE6957004007B6 /* dell_mini_icon.icns */,
 				27848F1E0FF1AD8B00BF23A5 /* UpdateExtra.icns */,
@@ -605,6 +608,7 @@
 				2725E66A0FED89D3005869F8 /* Localizable.strings in Resources */,
 				2725E7B20FEDAF56005869F8 /* bootMakerFiles in Resources */,
 				270AF2E00FF443640085AD97 /* kext_whitelist in Resources */,
+				A1544D2F0FFEEBBE004B05AB /* bootmaker.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
