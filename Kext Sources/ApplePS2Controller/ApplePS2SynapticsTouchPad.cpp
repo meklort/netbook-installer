@@ -106,6 +106,8 @@ bool ApplePS2SynapticsTouchPad::init( OSDictionary * properties )
 	_prefTrackSpeed				= 1.6;
 	_prefClickDelay				= 280000;
 	_prefReleaseDelay			= 400000;
+	_prevDX = 0;
+	_prevDY = 0;
 	
 	
 	_keyboard = NULL;
@@ -495,6 +497,17 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 	UInt8	prevEvent = _event;
 	UInt8	numFingers;
 	uint32_t currentTime, second;
+	
+    // the values we need to properly calculate averages - required for jump prevention.
+	SInt32  xavg, yavg, xsensitivity, ysensitivity, sensitivity = 0;
+
+    // these are related to low-speed jitter on the trackpad.  They could be
+	// tunable, but these are pretty solid defaults and they cancel out
+	// the jitters.
+	UInt32 low_speed_threshold = 20;
+	UInt8  squelch_level = 3;
+	UInt8  min_movement = 2;
+
 
 	clock_get_system_microtime(&second, &currentTime);
 	
@@ -514,25 +527,142 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 	if(W_MODE) Wvalue = ((packet[3] & 0x4) >> 2) | ((packet[0] & 0x30) >> 2) | ((packet[0] & 0x4) >> 1);	// (max value = 15)
 	else Wvalue = W_FINGER_MIN;
 
+	// Averate the dx values, this is an exponential decaying average
+	SInt32 dx = (absX - _prevX);
+	SInt32 dy = (absY - _prevY);	// Y is negative for ps2 (according to synaptics)
 	
-	SInt32 dx = absX - _prevX;
-	SInt32 dy = absY - _prevY;	// Y is negative for ps2 (according to synaptics)
 	
-	dy /= _scaleFactor;
+	// Begin JayK modifications
 
-	// Scale dx and dy bassed on the type of movement. This does not need to happen after event calculation because IF the event changes, dx and dy are reset to 0
-	if((_event & (SCROLLING | VERTICAL_SCROLLING | HORIZONTAL_SCROLLING)) == 0) {
-		dx *= _prefTrackSpeed;
-		dy *= _prefTrackSpeed;
-	} else {
-		dx = (dx << 1) * _prefScrollSpeed;
-		dy *= _prefScrollSpeed;
+	/*
+	 IOLog("abs: %d,%d,\tdiff: %d,%d, avg: %d,%d\n", absX, absY, dx, dy, _xaverage,_yaverage);
+	 if (ABS(dx) > 550 || ABS(dy) > 550) {
+	 IOLog("Over Max Jump Threshold\n");
+	 }*/
+	
+	// Jump prevention code - by Jay Kuri (jayk@cpan.org) 
+	//
+	// If distance spikes, the trackpad thinks we are zooming across the pad.  
+	// This is probably NOT what we want. So if we get a change in any direction 
+	// higher than 550 and it is significantly faster acceleration than our 
+	// previous average, we kill the position and pretend like we've been 
+	// here all along.  This smooths out our crazy pointer jumps.
+
+	/*
+	if ( 
+		(ABS(dx) > 600 || ABS(dy) > 600) &&
+		((ABS(dx - _xaverage) > 300) ||
+		 (ABS(dy - _yaverage) > 300))) {
+		
+		IOLog("ApplePS@Trackpad: Acceleration: %ld, %ld", (ABS(dx - _xaverage)), (ABS(dy - _yaverage)));
+		if(
+		   (_prevX != 0 && _prevY != 0) &&
+		   (absX != 0 && absY != 0)
+			) IOLog("ApplePS2Trackpad: Jump detected, squashing. old: %ld,%ld \tnew: %ld,%ld\n",_prevX,_prevY, absX,absY);
+
+		_xaverage = dx;
+		_yaverage = dy;
+		dx = 0;
+		dy = 0;
 	}
 
+    // Compute averages of x and y movement.  This helps us figure out 
+	// if we just accelerated off the chart which is how we detect the trackpad jump
+	if (_xaverage == 0) {
+        _xaverage = dx;
+	}
+	if (_yaverage == 0) {
+		_yaverage = dy;
+	}
+	
+	//xavg = _xaverage;
+	//yavg = _yaverage;
+	
+	dx = _xaverage = (_xaverage + 2 * dx) /3;
+	dy = _yaverage = (_yaverage + 2 * dy) /3;
+	
+	//xsensitivity = ABS(_xaverage - (_xaverage + dx) /2);
 
-	// Handel Acceleration	
-	if(ABS(dx) < ACCELERATION_TABLE_SIZE) ABS(dx) == dx ? dx = accelerationTable[ABS(dx)] : dx = -1 * accelerationTable[ABS(dx)];
-	if(ABS(dy) < ACCELERATION_TABLE_SIZE) ABS(dy) == dy ? dy = accelerationTable[ABS(dy)] : dy = -1 * accelerationTable[ABS(dy)];
+	//ysensitivity = ABS(_yaverage - yavg);
+
+	/* 
+	 * The sensitivity level is higher the faster the finger
+	 * is moving. It also tends to be higher in the middle
+	 * of a touchpad motion than on either end
+	 *
+	 * Note - sensitivity gets to 0 when moving slowly - so
+	 * we add 1 to it to give it a meaningful value in that case.
+	 */
+	//sensitivity = (xsensitivity & ysensitivity)+1;
+
+	/* 
+	 * If either our x or y change is greater than our
+	 * hi/low speed threshold - we do the high-speed
+	 * absolute to relative calculation otherwise we
+	 * do the low-speed calculation.
+	 */
+	/*if (ABS(dx) > ABS(low_speed_threshold) ||
+		ABS(dy) > ABS(low_speed_threshold)) {
+	*/	
+		dy /= _scaleFactor;
+		
+		// Scale dx and dy bassed on the type of movement. This does not need to happen after event calculation because IF the event changes, dx and dy are reset to 0
+		if((_event & (SCROLLING | VERTICAL_SCROLLING | HORIZONTAL_SCROLLING)) == 0) {
+			dx *= _prefTrackSpeed;
+			dy *= _prefTrackSpeed;
+		} else {
+			dx = 2 * dx * _prefScrollSpeed;
+			dy = 2 * dy * _prefScrollSpeed;
+		}
+		if(ABS(dx) < ACCELERATION_TABLE_SIZE) ABS(dx) == dx ? dx = accelerationTable[ABS(dx)] : dx = -accelerationTable[ABS(dx)];
+		if(ABS(dy) < ACCELERATION_TABLE_SIZE) ABS(dy) == dy ? dy = accelerationTable[ABS(dy)] : dy = -accelerationTable[ABS(dy)];
+
+	/*} else {
+		*//* 
+		 * This is the low speed calculation.
+		 * We simply check to see if our movement
+		 * is more than our minimum movement threshold
+		 * and if it is - set the movement to 1 in the
+		 * correct direction.
+		 * NOTE - Normally this would result in pointer
+		 * movement that was WAY too fast.  This works
+		 * due to the movement squelch we do later.
+		 */
+		/*if (dx < -min_movement)
+			dx = -1;
+		else if (dx > min_movement)
+			dx = 1;
+		else
+			dx = 0;
+		if (dy < -min_movement)
+			dy = -1;
+		else if (dy > min_movement)
+			dy = 1;
+		else
+			dy = 0;
+	}*/
+	
+	/* 
+	 * ok - the squelch process.  Take our sensitivity value
+	 * and add it to the current squelch value - if squelch
+	 * is less than our squelch threshold we kill the movement,
+	 * otherwise we reset squelch and pass the movement through.
+	 * Since squelch is cumulative - when mouse movement is slow
+	 * (around sensitivity 1) the net result is that only
+	 * 1 out of every squelch_level packets is
+	 * delivered, effectively slowing down the movement.
+	 */
+	
+/*	_squelch += sensitivity;
+	if (_squelch < squelch_level) {
+		IOLog("Squelch");
+		dx = 0;
+		dy = 0;
+	} else {
+		_squelch = 0;
+    }
+*/
+	// End jayk jump modifications
 	
 	_streamdx += dx;
 	_streamdy += dy;
@@ -552,13 +682,15 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 	{
 		// Yay for hysterisys (only for going from a larger number to smaller.
 		
+		// If a button is pressed, assume one finger is on the touchpad only.
+		
 		if(_prevNumFingers == 0)
 		{
 			if(pressureZ < _prefOneFingerThreshold)											numFingers = 0;
 			else
 			{
 //				if(_dragging) _dragTimeout->cancelTimeout();
-				     if(((Wvalue * pressureZ) < _prefTwoFingerThreshold))						numFingers = 1;
+				     if(((Wvalue * pressureZ) < _prefTwoFingerThreshold)  || buttons)						numFingers = 1;
 				else if(((Wvalue * pressureZ) < _prefThreeFingerThreshold))						numFingers = 2;
 				else																			numFingers = 3;
 			}
@@ -566,7 +698,7 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 		else if (_prevNumFingers == 1)
 		{
 			if(pressureZ < (_prefOneFingerThreshold * (1 - _prefHysteresis)))				numFingers = 0;
-			else if(((Wvalue * pressureZ) < _prefTwoFingerThreshold))						numFingers = 1;
+			else if(((Wvalue * pressureZ) < _prefTwoFingerThreshold)  || buttons)						numFingers = 1;
 			else if(((Wvalue * pressureZ) < _prefThreeFingerThreshold))						numFingers = 2;
 			else																			numFingers = 3;
 			
@@ -574,14 +706,14 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 		else if (_prevNumFingers == 2)
 		{
 			if(pressureZ < (_prefOneFingerThreshold * (1 - _prefHysteresis)))						numFingers = 0;
-			else if(((Wvalue * pressureZ) < (_prefTwoFingerThreshold  * (1 - _prefHysteresis))))	numFingers = 1;
+			else if(((Wvalue * pressureZ) < (_prefTwoFingerThreshold  * (1 - _prefHysteresis)))  || buttons)	numFingers = 1;
 			else if(((Wvalue * pressureZ) < _prefThreeFingerThreshold))				numFingers = 2;
 			else																					numFingers = 3;
 		}
 		else if (_prevNumFingers == 3) 
 		{
 			if(pressureZ < (_prefOneFingerThreshold * (1 - _prefHysteresis)))						numFingers = 0;
-			else if(((Wvalue * pressureZ) < (_prefTwoFingerThreshold  * (1 - _prefHysteresis))))	numFingers = 1;
+			else if(((Wvalue * pressureZ) < (_prefTwoFingerThreshold  * (1 - _prefHysteresis)))  || buttons)	numFingers = 1;
 			else if((Wvalue < 12) || (pressureZ * Wvalue < (_prefThreeFingerThreshold * (1 - _prefHysteresis))))				numFingers = 2;
 			else																					numFingers = 3;
 			
@@ -624,7 +756,6 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 		_event = DEFAULT_EVENT;	// We reset dx and dy untill it is a reliable number (Z MUST be larger than 8 for it to be reliable)
 	}
 	else if(_event & (VERTICAL_SCROLLING | HORIZONTAL_SCROLLING | DRAGGING));	// These are events that are persistant
-	else if(W_MODE && !(CAP_MULTIFINGER) && (Wvalue < W_RESERVED));	// Dont change events, firmware is not reporting a reliable value		_event = SCROLLING;	// our touchpad doesnt support anything below W_RESERVED so keep on scrolling, actual it should be scroling anyway...
 	else
 	{
 			switch(numFingers)
@@ -680,6 +811,8 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 				if(_event != SCROLLING) {
 					dy = 0;
 					dx = 0;
+					_prevDX = 0;
+					_prevDY = 0;
 				}
 				_streamdt = 0;
 				if(_dragging) {
@@ -892,6 +1025,8 @@ dispatchRelativePointerEventWithAbsolutePacket( UInt8 * packet,
 	
 	_prevX = absX;
 	_prevY = absY;
+	_prevDX = dx;
+	_prevDY = dy;
 	_prevNumFingers = numFingers;
 	_prevPacketSecond = second;
 	_prevPacketTime = currentTime;
