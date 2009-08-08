@@ -423,9 +423,15 @@ private:
 	
 	UInt32				  _prevX;
 	UInt32				  _prevY;
+	SInt32				  _prevDX;
+	SInt32				  _prevDY;
 	UInt8				  _prevButtons;
 	UInt8				  _prevNumFingers;
 	
+	SInt32                _xaverage;
+	SInt32                _yaverage;
+	UInt32                _squelch;
+
 	uint32_t			  _prevPacketTime;
 	uint32_t			  _prevPacketSecond;
 	uint64_t			  _streamdt;

@@ -3,6 +3,9 @@
 	089C1669FE841209C02AAC07 /* Project object */ = {
 		activeBuildConfigurationName = Deployment;
 		activeTarget = 6613721C0F4A9A0F00415899 /* ApplePS2Trackpad (Upgraded) */;
+		addToTargets = (
+			6613721C0F4A9A0F00415899 /* ApplePS2Trackpad (Upgraded) */,
+		);
 		codeSenseManager = 27848ECB0FF0678B00BF23A5 /* Code sense */;
 		perUserDictionary = {
 			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
@@ -10,9 +13,9 @@
 				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
 				PBXFileTableDataSourceColumnWidthsKey = (
 					20,
-					783,
+					508,
 					20,
-					48.16259765625,
+					48,
 					43,
 					43,
 					20,
@@ -27,17 +30,67 @@
 					PBXFileDataSource_Target_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 267413357;
-			PBXWorkspaceStateSaveDate = 267413357;
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					468,
+					60,
+					20,
+					48.16259765625,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 271382684;
+			PBXWorkspaceStateSaveDate = 271382684;
 		};
 		perUserProjectItems = {
-			27848ED00FF067D100BF23A5 /* PBXTextBookmark */ = 27848ED00FF067D100BF23A5 /* PBXTextBookmark */;
-			27848ED10FF067D100BF23A5 /* PBXTextBookmark */ = 27848ED10FF067D100BF23A5 /* PBXTextBookmark */;
+			271C953E101BD9A100741717 /* PBXTextBookmark */ = 271C953E101BD9A100741717 /* PBXTextBookmark */;
+			271C9540101BD9A100741717 /* PBXTextBookmark */ = 271C9540101BD9A100741717 /* PBXTextBookmark */;
+			271C9547101BD9A100741717 /* PBXTextBookmark */ = 271C9547101BD9A100741717 /* PBXTextBookmark */;
+			271C9551101BD9A100741717 /* PBXTextBookmark */ = 271C9551101BD9A100741717 /* PBXTextBookmark */;
+			271C9552101BD9A100741717 /* PBXTextBookmark */ = 271C9552101BD9A100741717 /* PBXTextBookmark */;
+			271C9554101BD9A100741717 /* PBXTextBookmark */ = 271C9554101BD9A100741717 /* PBXTextBookmark */;
+			271C9557101BD9A100741717 /* PBXTextBookmark */ = 271C9557101BD9A100741717 /* PBXTextBookmark */;
+			271C9558101BD9A100741717 /* PBXTextBookmark */ = 271C9558101BD9A100741717 /* PBXTextBookmark */;
+			271C9563101BD9A100741717 /* PBXTextBookmark */ = 271C9563101BD9A100741717 /* PBXTextBookmark */;
+			271C9574101BD9A100741717 /* PBXTextBookmark */ = 271C9574101BD9A100741717 /* PBXTextBookmark */;
+			271C9576101BD9A100741717 /* PBXTextBookmark */ = 271C9576101BD9A100741717 /* PBXTextBookmark */;
+			271C957A101BD9A100741717 /* PBXTextBookmark */ = 271C957A101BD9A100741717 /* PBXTextBookmark */;
+			271C962B1020133400741717 /* PBXTextBookmark */ = 271C962B1020133400741717 /* PBXTextBookmark */;
+			271C96371020133400741717 /* PBXTextBookmark */ = 271C96371020133400741717 /* PBXTextBookmark */;
+			271C998C1020B61C00741717 /* PBXTextBookmark */ = 271C998C1020B61C00741717 /* PBXTextBookmark */;
+			271C9A5310214ECC00741717 /* PBXTextBookmark */ = 271C9A5310214ECC00741717 /* PBXTextBookmark */;
+			271C9A771021573F00741717 /* PBXTextBookmark */ = 271C9A771021573F00741717 /* PBXTextBookmark */;
+			271C9A7C1021573F00741717 /* PBXTextBookmark */ = 271C9A7C1021573F00741717 /* PBXTextBookmark */;
+			276015F51022853D00C8A3E5 /* PBXTextBookmark */ = 276015F51022853D00C8A3E5 /* PBXTextBookmark */;
+			276015F81022853D00C8A3E5 /* PBXTextBookmark */ = 276015F81022853D00C8A3E5 /* PBXTextBookmark */;
+			276015FE102285BC00C8A3E5 /* PBXTextBookmark */ = 276015FE102285BC00C8A3E5 /* PBXTextBookmark */;
+			276015FF102285BC00C8A3E5 /* PBXTextBookmark */ = 276015FF102285BC00C8A3E5 /* PBXTextBookmark */;
+			276016191022A0C500C8A3E5 /* PBXTextBookmark */ = 276016191022A0C500C8A3E5 /* PBXTextBookmark */;
+			2768340C10178DD900F0386E /* PlistBookmark */ = 2768340C10178DD900F0386E /* PlistBookmark */;
 			27848ED20FF067D100BF23A5 /* PBXTextBookmark */ = 27848ED20FF067D100BF23A5 /* PBXTextBookmark */;
 			27848ED30FF067D100BF23A5 /* PBXTextBookmark */ = 27848ED30FF067D100BF23A5 /* PBXTextBookmark */;
-			27848ED40FF067D100BF23A5 /* PBXTextBookmark */ = 27848ED40FF067D100BF23A5 /* PBXTextBookmark */;
-			27848ED50FF067D100BF23A5 /* PBXTextBookmark */ = 27848ED50FF067D100BF23A5 /* PBXTextBookmark */;
-			278491760FF1E33000BF23A5 /* PBXTextBookmark */ = 278491760FF1E33000BF23A5 /* PBXTextBookmark */;
+			27CBADC2102CF8D3006E9320 /* PlistBookmark */ = 27CBADC2102CF8D3006E9320 /* PlistBookmark */;
+			27CBADC3102CF8D3006E9320 /* PBXTextBookmark */ = 27CBADC3102CF8D3006E9320 /* PBXTextBookmark */;
+			27CBADC4102CF8D3006E9320 /* PBXTextBookmark */ = 27CBADC4102CF8D3006E9320 /* PBXTextBookmark */;
+			27CBADC5102CF8D3006E9320 /* PBXTextBookmark */ = 27CBADC5102CF8D3006E9320 /* PBXTextBookmark */;
+			27CBADC6102CF8D3006E9320 /* PlistBookmark */ = 27CBADC6102CF8D3006E9320 /* PlistBookmark */;
+			27CBADC7102CF8D3006E9320 /* PBXTextBookmark */ = 27CBADC7102CF8D3006E9320 /* PBXTextBookmark */;
+			27CBADC8102CF8D3006E9320 /* PBXTextBookmark */ = 27CBADC8102CF8D3006E9320 /* PBXTextBookmark */;
+			27CBADCE102CF90F006E9320 /* PBXTextBookmark */ = 27CBADCE102CF90F006E9320 /* PBXTextBookmark */;
+			27E6EBF7102CEC81008D9E93 /* PBXTextBookmark */ = 27E6EBF7102CEC81008D9E93 /* PBXTextBookmark */;
 		};
 		sourceControlManager = 27848ECA0FF0678B00BF23A5 /* Source Control */;
 		userBuildSettings = {
@@ -48,17 +101,379 @@
 	};
 	1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {961, 7952}}";
-			sepNavSelRange = "{9451, 7}";
-			sepNavVisRange = "{8606, 1025}";
+			sepNavIntBoundsRect = "{{0, 0}, {961, 7798}}";
+			sepNavSelRange = "{4864, 0}";
+			sepNavVisRange = "{1223, 1005}";
 		};
 	};
 	1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {961, 20636}}";
-			sepNavSelRange = "{2838, 0}";
-			sepNavVisRange = "{2264, 1051}";
+			sepNavIntBoundsRect = "{{0, 0}, {1008, 22008}}";
+			sepNavSelRange = "{15710, 46}";
+			sepNavVisRange = "{22185, 797}";
 		};
+	};
+	219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {961, 8988}}";
+			sepNavSelRange = "{2423, 5}";
+			sepNavVisRange = "{2292, 1432}";
+		};
+	};
+	219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {961, 1162}}";
+			sepNavSelRange = "{0, 2987}";
+			sepNavVisRange = "{0, 1269}";
+		};
+	};
+	271C951E101A353F00741717 /* ApplePS2ElantechTouchpad.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {686, 2366}}";
+			sepNavSelRange = "{2863, 0}";
+			sepNavVisRange = "{2389, 1174}";
+		};
+	};
+	271C951F101A353F00741717 /* ApplePS2ElantechTouchpad.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {840, 9674}}";
+			sepNavSelRange = "{8562, 38}";
+			sepNavVisRange = "{7372, 930}";
+		};
+	};
+	271C953E101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C953F101BD9A100741717 /* bootstrap.c */;
+		name = "bootstrap.c: 67";
+		rLen = 0;
+		rLoc = 1554;
+		rType = 0;
+		vrLen = 1158;
+		vrLoc = 1551;
+	};
+	271C953F101BD9A100741717 /* bootstrap.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = bootstrap.c;
+		path = "/Users/meklort/openbios-devel/kernel/bootstrap.c";
+		sourceTree = "<absolute>";
+	};
+	271C9540101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9541101BD9A100741717 /* dict.c */;
+		name = "dict.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 794;
+		vrLoc = 3288;
+	};
+	271C9541101BD9A100741717 /* dict.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = dict.c;
+		path = "/Users/meklort/openbios-devel/kernel/dict.c";
+		sourceTree = "<absolute>";
+	};
+	271C9547101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9548101BD9A100741717 /* trackpoint.h */;
+		name = "trackpoint.h: 16";
+		rLen = 0;
+		rLoc = 430;
+		rType = 0;
+		vrLen = 998;
+		vrLoc = 0;
+	};
+	271C9548101BD9A100741717 /* trackpoint.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = trackpoint.h;
+		path = "/Users/meklort/Downloads/linux-2.6.30.2/drivers/input/mouse/trackpoint.h";
+		sourceTree = "<absolute>";
+	};
+	271C9551101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */;
+		name = "ApplePS2ALPSGlidePoint.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 974;
+		vrLoc = 1066;
+	};
+	271C9552101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9553101BD9A100741717 /* bootstrap.c */;
+		name = "bootstrap.c: 67";
+		rLen = 0;
+		rLoc = 1554;
+		rType = 0;
+		vrLen = 1158;
+		vrLoc = 1551;
+	};
+	271C9553101BD9A100741717 /* bootstrap.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = bootstrap.c;
+		path = "/Users/meklort/openbios-devel/kernel/bootstrap.c";
+		sourceTree = "<absolute>";
+	};
+	271C9554101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9555101BD9A100741717 /* dict.c */;
+		name = "dict.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 794;
+		vrLoc = 3288;
+	};
+	271C9555101BD9A100741717 /* dict.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = dict.c;
+		path = "/Users/meklort/openbios-devel/kernel/dict.c";
+		sourceTree = "<absolute>";
+	};
+	271C9557101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C951E101A353F00741717 /* ApplePS2ElantechTouchpad.h */;
+		name = "ApplePS2ElantechTouchpad.h: 6";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 148;
+		vrLoc = 0;
+	};
+	271C9558101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C951F101A353F00741717 /* ApplePS2ElantechTouchpad.cpp */;
+		name = "ApplePS2ElantechTouchpad.cpp: 6";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 189;
+		vrLoc = 0;
+	};
+	271C9563101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */;
+		name = "ApplePS2ALPSGlidePoint.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1269;
+		vrLoc = 0;
+	};
+	271C9574101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9575101BD9A100741717 /* elantech.c */;
+		name = "elantech.c: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 924;
+		vrLoc = 0;
+	};
+	271C9575101BD9A100741717 /* elantech.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = elantech.c;
+		path = "/Users/meklort/Downloads/linux-2.6.30.2/drivers/input/mouse/elantech.c";
+		sourceTree = "<absolute>";
+	};
+	271C9576101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9577101BD9A100741717 /* trackpoint.h */;
+		name = "trackpoint.h: 16";
+		rLen = 0;
+		rLoc = 430;
+		rType = 0;
+		vrLen = 998;
+		vrLoc = 0;
+	};
+	271C9577101BD9A100741717 /* trackpoint.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = trackpoint.h;
+		path = "/Users/meklort/Downloads/linux-2.6.30.2/drivers/input/mouse/trackpoint.h";
+		sourceTree = "<absolute>";
+	};
+	271C957A101BD9A100741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C957B101BD9A100741717 /* elantech.h */;
+		name = "elantech.h: 1";
+		rLen = 3185;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 845;
+		vrLoc = 36;
+	};
+	271C957B101BD9A100741717 /* elantech.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = elantech.h;
+		path = "/Users/meklort/Downloads/linux-2.6.30.2/drivers/input/mouse/elantech.h";
+		sourceTree = "<absolute>";
+	};
+	271C962B1020133400741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C962C1020133400741717 /* graphics.c */;
+		name = "graphics.c: 1136";
+		rLen = 0;
+		rLoc = 32502;
+		rType = 0;
+		vrLen = 917;
+		vrLoc = 31913;
+	};
+	271C962C1020133400741717 /* graphics.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = graphics.c;
+		path = "/Users/meklort/Downloads/Chameleon-2.0-RC2-r640-src/i386/boot2/graphics.c";
+		sourceTree = "<absolute>";
+	};
+	271C96371020133400741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C96381020133400741717 /* graphics.c */;
+		name = "graphics.c: 1136";
+		rLen = 0;
+		rLoc = 32502;
+		rType = 0;
+		vrLen = 917;
+		vrLoc = 31913;
+	};
+	271C96381020133400741717 /* graphics.c */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.c;
+		name = graphics.c;
+		path = "/Users/meklort/Downloads/Chameleon-2.0-RC2-r640-src/i386/boot2/graphics.c";
+		sourceTree = "<absolute>";
+	};
+	271C998C1020B61C00741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 219BA5CA05EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.h */;
+		name = "ApplePS2ALPSGlidePoint.h: 1";
+		rLen = 2987;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1269;
+		vrLoc = 0;
+	};
+	271C9A5310214ECC00741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 219BA5C905EE680D00AA3E64 /* ApplePS2ALPSGlidePoint.cpp */;
+		name = "ApplePS2ALPSGlidePoint.cpp: 74";
+		rLen = 5;
+		rLoc = 2423;
+		rType = 0;
+		vrLen = 1432;
+		vrLoc = 2292;
+	};
+	271C9A771021573F00741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9A781021573F00741717 /* IOHIDEvent.h */;
+		name = "IOHIDEvent.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2052;
+		vrLoc = 2016;
+	};
+	271C9A781021573F00741717 /* IOHIDEvent.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = IOHIDEvent.h;
+		path = "/Users/meklort/Downloads/IOHIDFamily-258.10/IOHIDFamily/IOHIDEvent.h";
+		sourceTree = "<absolute>";
+	};
+	271C9A7C1021573F00741717 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9A7D1021573F00741717 /* IOHIDEvent.h */;
+		name = "IOHIDEvent.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 2052;
+		vrLoc = 2016;
+	};
+	271C9A7D1021573F00741717 /* IOHIDEvent.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = IOHIDEvent.h;
+		path = "/Users/meklort/Downloads/IOHIDFamily-258.10/IOHIDFamily/IOHIDEvent.h";
+		sourceTree = "<absolute>";
+	};
+	271C9A7F1021573F00741717 /* IOHIDEventData.h */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.h;
+		name = IOHIDEventData.h;
+		path = "/Users/meklort/Downloads/IOHIDFamily-258.10/IOHIDFamily/IOHIDEventData.h";
+		sourceTree = "<absolute>";
+	};
+	276015F51022853D00C8A3E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9A7F1021573F00741717 /* IOHIDEventData.h */;
+		name = "IOHIDEventData.h: 977";
+		rLen = 0;
+		rLoc = 59959;
+		rType = 0;
+		vrLen = 1534;
+		vrLoc = 9599;
+	};
+	276015F81022853D00C8A3E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9A7F1021573F00741717 /* IOHIDEventData.h */;
+		name = "IOHIDEventData.h: 977";
+		rLen = 0;
+		rLoc = 59959;
+		rType = 0;
+		vrLen = 1534;
+		vrLoc = 9599;
+	};
+	276015FE102285BC00C8A3E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C9575101BD9A100741717 /* elantech.c */;
+		name = "elantech.c: 556";
+		rLen = 1574;
+		rLoc = 15154;
+		rType = 0;
+		vrLen = 915;
+		vrLoc = 16035;
+	};
+	276015FF102285BC00C8A3E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C957B101BD9A100741717 /* elantech.h */;
+		name = "elantech.h: 1";
+		rLen = 3185;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 810;
+		vrLoc = 36;
+	};
+	276016191022A0C500C8A3E5 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */;
+		name = "ApplePS2SynapticsTouchPad.h: 130";
+		rLen = 0;
+		rLoc = 4864;
+		rType = 0;
+		vrLen = 1005;
+		vrLoc = 1223;
+	};
+	2768340C10178DD900F0386E /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6613722C0F4A9A0F00415899 /* Info-ApplePS2Trackpad__Upgraded_.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			IOKitPersonalities,
+			"ALPS GlidePoint",
+		);
+		name = "/Users/meklort/netbook-installer/Kext Sources/ApplePS2Controller/Info-ApplePS2Trackpad__Upgraded_.plist";
+		rLen = 0;
+		rLoc = 2147483647;
 	};
 	27848ECA0FF0678B00BF23A5 /* Source Control */ = {
 		isa = PBXSourceControlManager;
@@ -70,26 +485,6 @@
 	27848ECB0FF0678B00BF23A5 /* Code sense */ = {
 		isa = PBXCodeSenseManager;
 		indexTemplatePath = "";
-	};
-	27848ED00FF067D100BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */;
-		name = "ApplePS2SynapticsTouchPad.h: 277";
-		rLen = 7;
-		rLoc = 9451;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 8606;
-	};
-	27848ED10FF067D100BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */;
-		name = "ApplePS2SynapticsTouchPad.cpp: 89";
-		rLen = 15;
-		rLoc = 2807;
-		rType = 0;
-		vrLen = 1051;
-		vrLoc = 2264;
 	};
 	27848ED20FF067D100BF23A5 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
@@ -111,35 +506,99 @@
 		vrLen = 1025;
 		vrLoc = 8607;
 	};
-	27848ED40FF067D100BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */;
-		name = "ApplePS2SynapticsTouchPad.cpp: 89";
-		rLen = 15;
-		rLoc = 2807;
-		rType = 0;
-		vrLen = 1051;
-		vrLoc = 2264;
-	};
-	27848ED50FF067D100BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3EFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.h */;
-		name = "ApplePS2SynapticsTouchPad.h: 277";
-		rLen = 7;
-		rLoc = 9451;
-		rType = 0;
-		vrLen = 1025;
-		vrLoc = 8606;
-	};
-	278491760FF1E33000BF23A5 /* PBXTextBookmark */ = {
-		isa = PBXTextBookmark;
-		fRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */;
-		name = "ApplePS2SynapticsTouchPad.cpp: 89";
+	27CBADC2102CF8D3006E9320 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6613722C0F4A9A0F00415899 /* Info-ApplePS2Trackpad__Upgraded_.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			IOKitPersonalities,
+		);
+		name = "/Users/meklort/netbook-installer/Kext Sources/ApplePS2Controller/Info-ApplePS2Trackpad__Upgraded_.plist";
 		rLen = 0;
-		rLoc = 2838;
+		rLoc = 2147483647;
+	};
+	27CBADC3102CF8D3006E9320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */;
+		name = "ApplePS2SynapticsTouchPad.cpp: 470";
+		rLen = 46;
+		rLoc = 15710;
 		rType = 0;
-		vrLen = 1051;
-		vrLoc = 2264;
+		vrLen = 797;
+		vrLoc = 22185;
+	};
+	27CBADC4102CF8D3006E9320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C951F101A353F00741717 /* ApplePS2ElantechTouchpad.cpp */;
+		name = "ApplePS2ElantechTouchpad.cpp: 296";
+		rLen = 38;
+		rLoc = 8562;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 7372;
+	};
+	27CBADC5102CF8D3006E9320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */;
+		name = "ApplePS2SynapticsTouchPad.cpp: 470";
+		rLen = 46;
+		rLoc = 15710;
+		rType = 0;
+		vrLen = 797;
+		vrLoc = 22185;
+	};
+	27CBADC6102CF8D3006E9320 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 6613722C0F4A9A0F00415899 /* Info-ApplePS2Trackpad__Upgraded_.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			IOKitPersonalities,
+		);
+		name = "/Users/meklort/netbook-installer/Kext Sources/ApplePS2Controller/Info-ApplePS2Trackpad__Upgraded_.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27CBADC7102CF8D3006E9320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* ApplePS2SynapticsTouchPad.cpp */;
+		name = "ApplePS2SynapticsTouchPad.cpp: 470";
+		rLen = 46;
+		rLoc = 15710;
+		rType = 0;
+		vrLen = 797;
+		vrLoc = 22185;
+	};
+	27CBADC8102CF8D3006E9320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C951F101A353F00741717 /* ApplePS2ElantechTouchpad.cpp */;
+		name = "ApplePS2ElantechTouchpad.cpp: 296";
+		rLen = 38;
+		rLoc = 8562;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 7372;
+	};
+	27CBADCE102CF90F006E9320 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C951E101A353F00741717 /* ApplePS2ElantechTouchpad.h */;
+		name = "ApplePS2ElantechTouchpad.h: 120";
+		rLen = 0;
+		rLoc = 2863;
+		rType = 0;
+		vrLen = 1174;
+		vrLoc = 2389;
+	};
+	27E6EBF7102CEC81008D9E93 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 271C951E101A353F00741717 /* ApplePS2ElantechTouchpad.h */;
+		name = "ApplePS2ElantechTouchpad.h: 120";
+		rLen = 0;
+		rLoc = 2863;
+		rType = 0;
+		vrLen = 1174;
+		vrLoc = 2389;
 	};
 	6613721C0F4A9A0F00415899 /* ApplePS2Trackpad (Upgraded) */ = {
 		activeExec = 0;
