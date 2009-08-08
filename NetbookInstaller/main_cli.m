@@ -43,6 +43,7 @@ int main(int argc, char *argv[])
 	[installer makeDir: [systemInfo extensionsFolder]];
 		
 	[installer installExtensions];
+	[installer installLocalExtensions];
 	[installer patchGMAkext];
 	[installer patchFramebufferKext];
 	[installer patchIO80211kext];
@@ -65,13 +66,13 @@ int main(int argc, char *argv[])
 	[installer dissableHibernation:	YES];
 
 	//	[installer setRemoteCD:			YES]; // This is not possilbe when running as root.
-	[installer installBootloader: DEFAULT_BOOTLOADER];
+	[installer installBootloader: [[systemInfo bootloaderDict] objectForKey:[[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
 	
 	// Install the gui
 	[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 
 	
-	if([systemInfo targetOS] < KERNEL_VERSION_10_5_6)	// Less than Mac OS X 10.5.4
+	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
 	{
 		// This is ONLY going to be run from the install dvd, so we can copy these from the /
 		[installer copyFrom:@"/Extra/Extensions.mkext" toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/"]];

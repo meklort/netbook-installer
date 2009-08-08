@@ -7,6 +7,4 @@
  *
  */
 
-#include "NetbookInstaller_Prefix.pch"
-
-#define CLI
+//#include "NetbookInstaller_Prefix.pch"

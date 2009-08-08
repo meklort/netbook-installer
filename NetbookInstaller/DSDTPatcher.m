@@ -11,9 +11,9 @@
 @implementation DSDTPatcher
 - (BOOL) applyPatchFiles
 {
-	NSArray* configFile;
-	NSString* patchDir;
-	
+/*	NSArray* configFile;
+	NSString* patchDir;*/
+	/*
 	
 	
 	switch(machineType) {
@@ -70,7 +70,8 @@
 	
 	//[patchedDSDT rangeOfString
 	
-	return YES;
+	return YES;*/
+	return NO;
 	
 }
 

@@ -18,7 +18,7 @@
 	NSMutableData* compiledPatchedDSDT;
 	NSData* compiledOriginalDSDT;
 	
-	enum machine machineType;
+	//enum machine machineType;
 }
 
 - (BOOL) applyPatchFiles;

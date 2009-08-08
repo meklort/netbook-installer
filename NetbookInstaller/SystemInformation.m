@@ -24,28 +24,25 @@
 	return dsdtInstalled;
 	
 }
+- (NSDictionary*) bootloaderDict
+{
+	return [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
+
+	//return bootloaderDict;
+//	return [[NSDictionary alloc]initWithDictionary: bootloaderDict copyItems: NO];
+}
+- (NSString*) extensionsFolder
+{
+	return [[installPath stringByAppendingString: @"/Extra/"] stringByAppendingString:[machineInfo objectForKey:@"Extensions Directory"]];
+}
 
 - (NSString*) getMachineString
 {
-	
-	switch(machineType)
-	{
-		case MINI9:
-			return @"Mini 9";
-			break;
-		case VOSTRO_A90:
-			return @"Vostro A9-";
-			break;
-		case MINI10V:
-			return @"Mini 10v";
-			break;
-		case LENOVO_S10:
-			return @"Lenovo S10";
-			break;
-		default:
-			return @"Generic";
-			break;
-	}
+//	NSLog(@"%@", [self extensionsFolder]);
+
+//	NSLog(@"%@", [machineInfo objectForKey:@"Long Name"]);
+	//NSString* name = [machineInfo objectForKey:@"Long Name"];//	
+	return [machineInfo objectForKey:@"Long Name"];
 }
 
 - (bool) keyboardPrefPaneInstalled
@@ -61,6 +58,10 @@
 - (bool) hibernationDissabled
 {
 	return hibernationDissabled;
+}
+- (NSDictionary*) machineInfo
+{
+	return machineInfo;
 }
 
 - (NSString*) bootPartition
@@ -79,11 +80,6 @@
 {
 }
 
-- (NSString*) extensionsFolder
-{
-	return extensionsFolder;
-}
-
 - (bool) quietBoot
 {
 	return quietBoot;
@@ -94,7 +90,7 @@
 	return bluetoothPatched;
 }
 
-- (bool) mirrorFriendlyGMA
+- (BOOL) mirrorFriendlyGMA
 {
 	return mirrorFriendlyGMA;
 }
@@ -103,17 +99,17 @@
 {
 	return efiHidden;
 }
-- (enum machine) machineType
+/*- (enum machine) machineType
 {
 	return machineType;
-}
+}*/
 
-- (void) machineType: (enum machine) newMachineType
+/*- (void) machineType: (enum machine) newMachineType
 {
 	machineType = newMachineType;
-}
+}*/
 
-- (enum bootloader) installedBootloader
+- (NSDictionary*) installedBootloader
 {
 	return installedBootloader;
 }
@@ -130,7 +126,7 @@
 
 - (void) determineInstallState;
 {
-	
+	bootloaderDict = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
 	[self determinebootPartition];
 	[self determineMachineType];
 	
@@ -144,6 +140,8 @@
 	[self determineHiddenState];
 	[self determineGMAVersion];
 	[self determinekeyboardPrefPaneInstalled];
+
+	//	NSLog(@"state");
 	
 }
 
@@ -181,7 +179,7 @@
 	
 	FSGetVolumeParms(actualVolume, buffer, *size);
 	
-	NSLog(@"Root Device: %s\n", (const char*)(*buffer).vMDeviceID);
+//	NSLog(@"Root Device: %s\n", (const char*)(*buffer).vMDeviceID);
 	
 	bootPartition = [[NSString alloc] initWithCString:((const char*)(*buffer).vMDeviceID)];
 	
@@ -229,12 +227,13 @@
 	
 	FSGetVolumeParms(actualVolume, buffer, *size);
 	
-	NSLog(@"Root Device: %s\n", (const char*)(*buffer).vMDeviceID);
+//	NSLog(@"Root Device: %s\n", (const char*)(*buffer).vMDeviceID);
 	
 	bootPartition = [[NSString alloc] initWithCString:((const char*)(*buffer).vMDeviceID)];
 	installPath = [[NSString alloc] initWithString:path];
 	
 	[self determineTargetOS];
+
 	[self determineBootloader];
 
 	[self determineMachineType];
@@ -242,13 +241,12 @@
 	[self determineRemoteCDState];
 	[self determineBluetoothState];
 	
-	
 	[self determineHibernateState];
 	[self determineQuiteBootState];
 	[self determineHiddenState];
 	[self determineGMAVersion];
 	[self determinekeyboardPrefPaneInstalled];
-	
+
 	free(size);
 	free(buffer);
 
@@ -257,8 +255,11 @@
 
 - (void) determineMachineType
 {
-	extensionsFolder = [NSString alloc];
-	// Get the model
+//	NSLog(@"machine type");
+	NSDictionary*	machineplist= [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]];	
+	NSEnumerator *enumerator = [machineplist objectEnumerator];
+	NSDictionary* currentModel;
+	
 	int mib[2];
 	char* model;
 	size_t len;
@@ -268,30 +269,30 @@
 	sysctl(mib, 2, NULL, &len, NULL, 0);
 	model = malloc(len);
 	sysctl(mib, 2, model, &len, NULL, 0);
-
-	if(strcmp(model,"Inspiron 910") == 0)	{
-		machineType = MINI9;
-		extensionsFolder = [extensionsFolder initWithString:@"/Extra/Mini9Ext"];
-		
-	} else if(strcmp(model,"Vostro A90") == 0)	{
-		machineType = VOSTRO_A90;
-		extensionsFolder = [extensionsFolder initWithString:@"/Extra/VostroA90Ext"];
 	
-	} else if(strcmp(model,"Inspiron 1011") == 0)	{
-		machineType = MINI10V;
-		extensionsFolder = [extensionsFolder initWithString:@"/Extra/Mini10vExt"];
-		
-	} else if(strncmp(model, "Lenovo", strlen("Lenovo")) == 0)	{	// Bug in the S10 adds junk after "Lenovo"
-		machineType = LENOVO_S10;
-		extensionsFolder = [extensionsFolder initWithString:@"/Extra/LenovoS10Ext"];
-
-	} else {
-		machineType = UNKNOWN;
-		extensionsFolder = [extensionsFolder initWithString:@"/Extra/CustomExtensions"];
+	machineInfo = nil;
+	NSLog(@"Searching for %@", [NSString stringWithCString: model]);
+	
+	while ((currentModel = [enumerator nextObject])) {
+		if([[currentModel objectForKey:@"Model Name"] isEqualToString:[NSString stringWithCString: model]])
+		{
+			machineInfo = [[NSDictionary alloc] initWithDictionary:currentModel copyItems:YES];
+			break;
+		}
 	}
 	
-	extensionsFolder = [[NSString alloc] initWithString:[installPath stringByAppendingString: extensionsFolder]];
-	NSLog(@"Extensions Directory: %@", extensionsFolder);
+	if(!machineInfo)
+	{
+		machineInfo = [[NSDictionary alloc] initWithDictionary:[machineplist objectForKey:@"General"] copyItems:YES];
+	}
+	
+	if(!machineInfo) {
+		NSLog(@"Unable to determine machine information, failing");
+		exit(-1);	// ALERT / FAIL
+	} else {
+		NSLog(@"%@", machineInfo);
+	}
+
 	free(model);
 }
 
@@ -301,6 +302,7 @@
 	fileManager = [NSFileManager defaultManager];
 
 	dsdtInstalled = [fileManager fileExistsAtPath: [installPath stringByAppendingString: @"/Extra/DSDT.aml"]];
+//	NSLog(@"DSDT");
 }
 
 - (void) determineRemoteCDState
@@ -319,6 +321,11 @@
 - (void) determineHibernateState
 {
 	NSDictionary*	propertyList= [NSDictionary dictionaryWithContentsOfFile:[installPath stringByAppendingString: @"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]];
+	
+	if(!propertyList) {
+		hibernationDissabled = false;
+		return;
+	}
 	
 	NSDictionary* powerStates = [propertyList objectForKey:@"Custom Profile"];
 	NSDictionary* acPowerState = [powerStates objectForKey:@"AC Power"];
@@ -355,7 +362,7 @@
 - (void) determineGMAVersion
 {
 	// MD5?
-	NSBundle*	gmaFramebuffer = [[NSBundle alloc] initWithPath:[extensionsFolder stringByAppendingString:@"/AppleIntelIntegratedFramebuffer.kext/"]];
+	NSBundle*	gmaFramebuffer = [[NSBundle alloc] initWithPath:[installPath stringByAppendingString:[@"/Extra/" stringByAppendingString:[[machineInfo objectForKey:@"Extensions Directory"] stringByAppendingString:@"/AppleIntelIntegratedFramebuffer.kext/"]]]];
 	mirrorFriendlyGMA = [[[gmaFramebuffer infoDictionary] valueForKey:@"CFBundleVersion"] isEqualToString:@"5.3.0"];
 }
 
@@ -366,28 +373,8 @@
 	
 	bluetoothPatched = [fileManager fileExistsAtPath: [installPath stringByAppendingString: @"/Library/Preferences/com.apple.Bluetooth.plist"]] ? false : true;
 	
-	switch(machineType)
-	{
-		case MINI9:
-		case VOSTRO_A90:
-			bluetoothVendorId = MINI9_BLUETOOTH_VENDOR;
-			bluetoothDeviceId = MINI9_BLUETOOTH_DEVICE;
-			break;
-		case MINI10V:
-			bluetoothVendorId = MINI10V_BLUETOOTH_VENDOR;
-			bluetoothDeviceId = MINI10V_BLUETOOTH_DEVICE;
-			break;
-		case LENOVO_S10:
-			bluetoothVendorId = S10_BLUETOOTH_VENDOR;
-			bluetoothDeviceId = S10_BLUETOOTH_DEVICE;
-			break;
-		default:
-			bluetoothVendorId = 0;
-			bluetoothDeviceId = 0;
-			break;
-	}
-	
-	
+	bluetoothVendorId = [[machineInfo objectForKey:@"Bluetooth Vendor ID"] intValue];
+	bluetoothDeviceId = [[machineInfo objectForKey:@"Bluetooth Device ID"] intValue];
 	
 }
 
@@ -407,21 +394,46 @@
 	keyboardPrefPaneInstalled = [[propertyList valueForKey:@"SourceVersion"] isEqualToString:@"1020000"];
 }
 
+- (NSArray*) supportedBootloaders
+{
+	NSDictionary* bootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
+	NSDictionary* loader;
+	NSEnumerator* enumerator = [bootloaders keyEnumerator];
+	NSMutableArray* returnArray = [[NSMutableArray alloc] init];
+	
+	// Only return installable AND latest version
+	while(loader = [enumerator nextObject])
+	{
+		// TODO: possibly copy array instead of including a refrence to the variable
+		if([[[bootloaders objectForKey:loader] objectForKey:@"Installable"] isEqualToNumber:[NSNumber numberWithBool:YES]]) [returnArray addObject:[bootloaders objectForKey:loader]];
+
+	}
+	
+	return returnArray;
+}
 
 - (void) determineBootloader
 {
-	// TODO: fixme This is causing a problem.
-	NSData* bootloader = [[NSData alloc] initWithContentsOfFile:[installPath stringByAppendingString:@"/boot"]];
-	unsigned char *digest;
-	installedBootloader = NONE;
-	UInt8 i = 0;
-	UInt8 bootIndex = 0;
-	
-	struct uint128 knownMD5;
-	NSRange replaceByte;
+	// TODO: fix bug with bootloaderDict.
+//	if(!bootloaderDict) 
+		bootloaderDict = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
 
+	NSLog(@"%@", bootloaderDict);
+	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
+	NSLog(@"%@", installPath);
+
+	NSDictionary* booter;
+	NSEnumerator* bootloaders = [allbootloaders keyEnumerator];
+
+	NSData* bootloader = [[NSData alloc] initWithContentsOfFile:[installPath stringByAppendingString:@"/boot"]];
+	NSRange replaceByte;
 	NSMutableData* md5 =			[[NSMutableData alloc] initWithLength:16];
-	NSData* bootmd5;
+//	NSData* bootmd5;
+
+	
+	unsigned char *digest;
+	UInt8 i = 0;
+	installedBootloader = nil;
 
 
 	
@@ -441,22 +453,16 @@
 		i++;
 	}
 
+	NSLog(@"%@", md5);
 
-	// Determine which bootloader, these values are in checksum.h as well as SystemInformation.h
-	while(installedBootloader == NONE && bootIndex < NUM_SUPPORTED_BOOTLOADERS)
+	while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
 	{
-		knownMD5.lower = bootLoaderMD5[bootIndex][0];
-		knownMD5.upper = bootLoaderMD5[bootIndex][1];
-
-		bootmd5 = [[NSData alloc] initWithBytes:(const void *)&knownMD5 length:16];
-		
-		//[bootmd5 release];
-		if([md5 isEqualToData:bootmd5]) installedBootloader = bootIndex;
-		bootIndex++;
-
+		if([md5 isEqualToData:[[[bootloaderDict objectForKey:@"Bootloaders"] objectForKey:booter] objectForKey:@"MD5"]]) installedBootloader = [[NSDictionary alloc] initWithDictionary:booter copyItems:YES];
 	}
+	
+	
 	[bootloader release];
-	[bootmd5 release];
+//	[bootmd5 release];
 	[md5 release];
 	
 }
@@ -467,8 +473,18 @@
 }
 - (BOOL) determineTargetOS
 {
-	installedKernel = [self getKernelVersion:[installPath stringByAppendingString:@"/mach_kernel"]];
+	// Use the following for / detection only
+/*	gestaltSystemVersionMajor
+	gestaltSystemVersionMinor
+	gestaltSystemVersionBugFix*/
+	
+	installedKernel = [self getKernelVersion: installPath];
 	return YES;
+	
+//	NSLog(@"Determining OS Version");
+	// TODO: read value from SystemVersion.plist instead
+//	installedKernel = [self getKernelVersion:[installPath stringByAppendingString:@"/mach_kernel"]];
+//	return YES;
 }
 
 - (NSArray*) installableVolumes: (int) minVersions
@@ -504,9 +520,39 @@
 	
 }
 	
-- (int) getKernelVersion: (NSString*) path
+- (int) getKernelVersion: (NSString*) kernelPath
 {
-	// Verify the target os version
+	NSString* path = [kernelPath stringByReplacingOccurrencesOfString:@"/mach_kernel" withString:@"/"];
+
+	int majorVersion, minorVersion, bugfixVersion;
+	NSScanner* scanner;
+	NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingString:@"/System/Library/CoreServices/SystemVersion.plist"]];
+	NSString* versionString = [systemVersion objectForKey:@"ProductVersion"];
+	if(!versionString) return 0;
+	//if(!versionString) return 10 << 4 | 5 << 2 | 8;
+	versionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@" "];
+	//NSLog(@"%@", versionString);
+	scanner = [NSScanner scannerWithString:versionString];
+	
+	[scanner scanInt:&majorVersion];
+	[scanner scanInt:&minorVersion];
+	[scanner scanInt:&bugfixVersion];
+	// Use the following for / detection only
+	/*	gestaltSystemVersionMajor
+	 gestaltSystemVersionMinor
+	 gestaltSystemVersionBugFix*/
+	NSLog(@"Kernel: %d", KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion));
+	return KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion);
+	
+	// TODO: do the following if SystemVersion.plist doesnt exist (aka, the boot partition)
+	
+	/*// Find last / and use it as the root, if we cant find SystemVersion, fall back to the md5
+	//NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
+	//NSString* versionString = [systemVersion objectForKey:@"ProductVersion"];
+
+	
+	
+	// Verify the target os version (possibly use SystemVersion here, falling back to md5
 	NSData* kernel = [[NSData alloc] initWithContentsOfFile:path];
 	unsigned char *digest;
 	SInt8 returnVal = -2;
@@ -561,7 +607,7 @@
 	//NSLog(@"Kernel at %@ is 10.5.%d", path, returnVal);
 
 	return returnVal;
-	
+	*/
 }
 
 @end

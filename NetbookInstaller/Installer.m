@@ -16,6 +16,9 @@
 	return self;
 }
 
+
+
+
 - (void)remountTargetWithPermissions
 {
 	if([[systemInfo installPath] isEqualToString:@"/"]) return;
@@ -107,13 +110,10 @@
 	
 	systemInfo = sysInfo;
 	
-	if([self isKindOfClass:[Installer class]])
+	if(![self getAuthRef]) 
 	{
-		if(![self getAuthRef]) 
-		{
-			return NO;
-			[sender performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
-		}
+		[sender performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
+		return NO;
 	}
 	
 
@@ -128,12 +128,17 @@
 
 
 
-	// FIXME: [self updateBlah] doesnt seam to hapen. The gui needs to be in a seperate thread than the installer so that it can update the user interface and be responsive
-	if([self installExtensions]) [self removePrevExtra];
+	//[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles//UpdateExtra.app"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+
 	[self updatePorgressBar: 0];
-	
 	[self updateStatus:NSLocalizedString(@"Creating /Extra", nil)];
-	[self installExtraFiles];
+	if([sender installExtensions]) 
+	{
+		[self removePrevExtra];
+	} else
+	{
+		[self installExtraFiles];
+	}
 	[self updatePorgressBar: 3];
 	
 
@@ -151,15 +156,19 @@
 	[self installSystemConfiguration];
 	[self updatePorgressBar: 1];
 	
-	if([sender regenerateDSDT] && !([sender installExtensions])) [self installDSDT];
+	if([sender regenerateDSDT] && ![sysInfo dsdtInstalled]) {
+		[self installDSDT];
+	} else if([sender regenerateDSDT]) {
+		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/dsdt.dsl"]];
+	}
 
 	
 	if([sender installExtensions]){
-		[self makeDir:@"/Volumes/ramdisk/Extensions"];
+		//[self makeDir:@"/Volumes/ramdisk/Extensions"];
 		[self updateStatus:NSLocalizedString(@"Copying Dependencies", nil)];
 		[self copyDependencies];
 		NSLog(@"extensionsFolder: %@", [systemInfo extensionsFolder]);
-		[self makeDir: [systemInfo extensionsFolder]];
+		[self makeDir: [systemInfo extensionsFolder]];	// This shoudl already be done
 		
 		[self updatePorgressBar: 5];
 		
@@ -194,7 +203,7 @@
 		[self generateExtensionsCache];
 		[self useSystemKernel];
 		
-		[self installDSDT];
+		//[self installDSDT]; already copied in TODO: verify this
 
 		
 
@@ -206,14 +215,16 @@
 	
 	[self updateStatus:NSLocalizedString(@"Verifying Hibernation state", nil)];
 	[self dissableHibernation:	[sender dissableHibernation]];
-	
+
 	[self updateStatus:NSLocalizedString(@"Verifying RemoteCD State", nil)];
-	[self setRemoteCD:			[sender enableRemoteCD]]; // TODO: code this
+	[self setRemoteCD:			[sender enableRemoteCD]];
 	[self updatePorgressBar: 5];
 
 	[self updateStatus:NSLocalizedString(@"Verifying Bootloader", nil)];
-	if([sender bootloaderType] != NONE) [self installBootloader: [sender bootloaderType]];
+	NSLog(@"Installing bootloader %@", [sender bootloaderType]);
+	[self installBootloader: [[NSDictionary alloc] initWithDictionary:[sender bootloaderType] copyItems:YES]];
 	[self updatePorgressBar: 10];
+
 
 	// These funcitons have not been coded yet
 	if([sender hideFiles]) {
@@ -360,7 +371,7 @@
 		
 		i++;
 	}
-	NSLog(@"Executing: %@", run);
+	//NSLog(@"Executing: %@", run);
 	system([run cStringUsingEncoding:NSASCIIStringEncoding]);	
 	return YES;
 }
@@ -372,7 +383,7 @@
 	int i = 0;
 	OSStatus status;
 	
-	NSLog(@"Running %s", command);
+	//NSLog(@"Running %s", command);
 	while(i < [nsargs count])
 	{
 		args[i] = (char*)[[nsargs objectAtIndex:i] cStringUsingEncoding:NSASCIIStringEncoding];
@@ -386,7 +397,7 @@
 	if(status == 0) while(fgets(string, 10, pipe) != NULL);	// Block untill command has completed
 
 	fclose(pipe);
-	NSLog(@"Done running %s", command);
+	//NSLog(@"Done running %s", command);
 
 	
 	if(status == 0) return YES;
@@ -478,27 +489,20 @@
 
 
 // Installer Options
-- (BOOL) installBootloader: (enum bootloader) bootloaderType
+- (BOOL) installBootloader: (NSDictionary*) bootloaderType
 {
-	
-	NSString* bootPath;
-	if([systemInfo installedBootloader] == bootloaderType) NSLog(@"Bootloader already installed, insatlling anyways");
-	
-	switch(bootloaderType)
-	{
-		case CHAMELEON_R431:
-			bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/chameleon2/"];
-			break;
-		case PCEFIV9:
-			bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/pcefiv9/"];
-			break;
-		case PCEFIV10:
-			bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/pcefiv10/"];
-		default:
-			return YES;
+	if(!bootloaderType) {
+		NSLog(@"Unable to install bootlaoder: no value passed");
+		return NO;
+	} else {
+		NSLog(@"Installing booter");
 	}
+	NSString* bootPath;
+	if([[systemInfo installedBootloader] isEqualToDictionary:bootloaderType]) NSLog(@"Bootloader already installed, insatlling anyways");
 	
-									
+	bootPath = [[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/bootloader/"] stringByAppendingString:[bootloaderType objectForKey:@"Visible Name"]];
+	
+	bootPath = [bootPath stringByAppendingString:@"/"];
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
 	[nsargs addObject: @"-f"];
@@ -534,37 +538,14 @@
 {
 	BOOL status = YES;
 	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] initWithCapacity: 10];
-	NSString* destinationExtensions =  [systemInfo extensionsFolder];
+	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
 
-	// Install Extensions
-	switch([systemInfo machineType]) {
-		case MINI9:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/Mini 9 Extensions/"]];
+	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Extensions/"]];
 
-			break;
-			
-		case VOSTRO_A90:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/Mini 9 Extensions/"]];
-			break;
-			
-		case MINI10V:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/Mini 10v Extensions/"]];
-			break;
-			
-		case LENOVO_S10:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/S10 Extensions/"]];
-			break;
-			
-		default:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/Extensions/General/"]];			
-			break;
-	}
+	[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Extensions/"]];
 	
 	
+		// An iterator could hav ebeen used too
 	while([sourceExtensions count] > 0) {
 		NSString* current = [sourceExtensions objectAtIndex: 0];
 		[sourceExtensions removeObjectAtIndex: 0];
@@ -595,9 +576,30 @@
 	// TODO: make the dsdt compile / decompiler into a framework / dylib
 
 	[self makeDir: @"/Volumes/ramdisk/dsdt/"];
+	[self makeDir: @"/Volumes/ramdisk/dsdt/patches"];
 	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/DSDTPatcher/"] toDir: @"/Volumes/ramdisk/dsdt/"];
+	[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
+	NSDictionary* patches = [[systemInfo machineInfo] objectForKey:@"DSDT Patches"];
+	NSMutableString* configFile = [[NSMutableString alloc] initWithString:@""];
+	NSEnumerator* keys = [patches keyEnumerator];
+	NSString* key;
+	NSError* error;
 	
+	while(key = [keys nextObject])
+	{
+		[configFile appendString:@":"];
+		[configFile appendString:key];
+		[configFile appendString:@":"];
+		[configFile appendString:[patches objectForKey:key]];
+		[configFile appendString:@":\r\n"];
+	}
 	
+//	[configFile writeToFile:@"/Volumes/ramdisk/dsdt/config" atomically:NO];
+	[configFile writeToFile:@"/tmp/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
+	[self copyFrom:@"/tmp/config" toDir:@"/Volumes/ramdisk/dsdt/"];
+	// TODO: Create the patch config file
+	//NSLog(@"DSDT Error %@", error);
+
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
 	//[nsargs addObject: @"PWD=/Volumes/ramdisk/dsdt/"];
@@ -614,6 +616,7 @@
 // FIXME: This will not work when run as root
 - (BOOL) setRemoteCD: (BOOL) remoteCD
 {
+
 	NSMutableDictionary *dict;
 	NSDictionary* save;		// TOOD: test as it may not be needed
 
@@ -638,6 +641,7 @@
 							  CFSTR("com.apple.NetworkBrowser"),
 							  kCFPreferencesCurrentUser,
 							  kCFPreferencesAnyHost);
+
 	return YES;
 }
 
@@ -646,14 +650,15 @@
 	UInt8 state;
 	NSFileManager* manager = [[NSFileManager alloc] init];
 	
-	
 	// If the preference plist doesnt exist, copy a default one in.
 	if(![manager fileExistsAtPath:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]])
 	{
-		[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
+		[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
+		[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
+
 	}
 	
-	
+
 	
 	
 	
@@ -672,7 +677,7 @@
 		[acPowerState   setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
 		[battPowerState setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
 
-		
+
 		
 		[powerStates setObject: acPowerState forKey: @"AC Power"];
 		[powerStates setObject: battPowerState forKey: @"Battery Power"];
@@ -689,7 +694,10 @@
 
 - (BOOL) setQuietBoot: (BOOL) quietBoot
 {
-	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/ExtraFiles/com.apple.Boot.plist"]];
+	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/com.apple.Boot.plist"]];
+	if(!bootSettings) {
+		bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
+	}
 	NSString* setting = [bootSettings objectForKey: @"Quiet Boot"];
 	
 	if([setting isEqualToString: @"Yes"] && quietBoot == false)
@@ -713,46 +721,51 @@
 	return [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Library/Preferences/com.apple.Bluetooth.plist"]];
 }
 
+- (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination
+{
+//	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]])NSLog(@"Copying from %@", [[ [ [NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/"] stringByAppendingString:source]);
+//	NSLog(@"Copying from %@", [ [ [ [ [ [NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/"] stringByAppendingString:source]);
 
+//	NSLog(@"Copying to   %@", [[systemInfo installPath] stringByAppendingString: destination]);
+	// First install general files
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [self copyFrom: [[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
+	return [self copyFrom: [[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
+
+	
+//	return YES;
+}
 
 
 // Support Files
 - (BOOL) installExtraFiles
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/ExtraFiles/"];
-	//	[self makeDir: @"/Extra/"];
-	return [self copyFrom: source toDir: [[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	// TODO: remove all of these functions, have been replaced by copyMachineFilesFrom: toDir:
+	return [self copyMachineFilesFrom: @"ExtraFiles/" toDir: @"/Extra/"];
 }
 
 - (BOOL) installDisplayProfile
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/DisplayProfiles/"];
-	return [self copyFrom: source toDir: [[systemInfo installPath] stringByAppendingString: @"/Library/ColorSync/Profiles/"]];
+	return [self copyMachineFilesFrom: @"DisplayProfiles/" toDir: @"/Library/ColorSync/Profiles/"];
 }
 
 - (BOOL) installSystemConfiguration
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/SystemConfiguration/"];
-	return [self copyFrom: source toDir: [[systemInfo installPath] stringByAppendingString: @"/System/Library/SystemConfiguration/"]];
+	return [self copyMachineFilesFrom: @"SystemConfiguration/" toDir: @"/System/Library/SystemConfiguration/"];
 }
 
 - (BOOL) installPrefPanes
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/3rdPartyPrefPanes/"];
-	return [self copyFrom: source toDir: [[systemInfo installPath] stringByAppendingString: @"/Library/PreferencePanes/"]];
+	return [self copyMachineFilesFrom: @"3rdPartyPrefPanes/" toDir: @"/Library/PreferencePanes/"];
 }
 
 - (BOOL) installSystemPrefPanes
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/PrefPanes/"];
-	return [self copyFrom: source toDir: [[systemInfo installPath] stringByAppendingString: @"/System/Library/PreferencePanes/"]];
-	
+	return [self copyMachineFilesFrom: @"PrefPanes/" toDir: @"/System/Library/PreferencePanes/"];
 }
 
 - (BOOL) installLaunchAgents
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LaunchAgents/"];
-	return [self copyFrom: source toDir: [[systemInfo installPath] stringByAppendingString: @"/Library/LaunchAgents/"]];
+	return [self copyMachineFilesFrom: @"LaunchAgents/" toDir: @"/Library/LaunchAgents/"];
 }
 
 
@@ -923,40 +936,18 @@
 {
 	BOOL status = YES;
 	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] initWithCapacity: 10];
+	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
 	
-	// Install Extensions
-	switch([systemInfo machineType]) {
-		case MINI9:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/Mini 9 Extensions/"]];
-			
-			break;
-			
-		case VOSTRO_A90:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/Mini 9 Extensions/"]];
-			break;
-			
-		case MINI10V:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/Mini 10v Extensions/"]];
-			break;
-			
-		case LENOVO_S10:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/General/"]];			
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/S10 Extensions/"]];
-			break;
-			
-		default:
-			[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/LocalExtensions/General/"]];			
-			break;
-	}
+	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/LocalExtensions/"]];
+	
+	[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
 	
 	
+	// An iterator could hav ebeen used too
 	while([sourceExtensions count] > 0) {
 		NSString* current = [sourceExtensions objectAtIndex: 0];
 		[sourceExtensions removeObjectAtIndex: 0];
-		if(![self copyFrom: current toDir: [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]]) status = NO;
+		if(![self copyFrom: current toDir: destinationExtensions]) status = NO;
 	}
 	
 	
@@ -974,7 +965,7 @@
 	int i = 0;
 	while(i < [whitelist count])
 	{
-		[self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"]];
+		if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"]];
 		i++;
 	}
 
@@ -1054,7 +1045,7 @@
 
 - (BOOL) useLatestKernel
 {
-	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/ExtraFiles/com.apple.Boot.plist"]];
+	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
 	
 	[bootSettings setObject: @"mach_kernel.10.5.6" forKey: @"Kernel"];
 	
@@ -1064,7 +1055,7 @@
 
 - (BOOL) useSystemKernel
 {
-	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/ExtraFiles/com.apple.Boot.plist"]];
+	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
 	
 	[bootSettings setObject: @"mach_kernel" forKey: @"Kernel"];
 	
@@ -1074,7 +1065,18 @@
 
 - (BOOL) removePrevExtra
 {
-	return [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	[self makeDir:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/"]];
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra/"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak"]];
+	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	[self installExtraFiles];
+	[self makeDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	// Copy old files in
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/dsdt.aml"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/com.apple.Boot.plist"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/Extensions.mkext"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+
+
+	return YES;
 }
 
 

@@ -17,28 +17,17 @@ struct uint128 {
 	UInt64 lower;
 };
 
-#define MINI9_BLUETOOTH_VENDOR			16700
-#define MINI9_BLUETOOTH_DEVICE			668
 
-#define MINI10V_BLUETOOTH_VENDOR		0
-#define MINI10V_BLUETOOTH_DEVICE		0
-
-#define S10_BLUETOOTH_VENDOR			0
-#define S10_BLUETOOTH_DEVICE			0
-
-#define DEFAULT_BOOTLOADER				CHAMELEON_R431
-
-enum machine { MINI9, VOSTRO_A90, MINI10V, LENOVO_S10, UNKNOWN};
-enum bootloader { CHAMELEON_R431, PCEFIV9, PCEFIV10, NONE};
 enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 
 
 
 @interface SystemInformation : NSObject {
-	enum machine		machineType;
+	//enum machine		machineType;
 	enum scrollMethod	twoFingerScrolling;
-	enum bootloader		installedBootloader;
-	SInt8 installedKernel;
+	NSDictionary*		installedBootloader;
+	NSDictionary*		bootloaderDict;
+	UInt32 installedKernel;
 
 	
 	int		efiVersion;
@@ -56,32 +45,39 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 	bool		mirrorFriendlyGMA;
 	bool		efiHidden;
 	
-	NSString*	extensionsFolder;
+//	NSString*	extensionsFolder;
 	NSString*	bootPartition;
 	NSString*	installPath;
+	
+	NSDictionary* machineInfo;
 
 }
 
 - (bool) dsdtInstalled;
+- (NSDictionary*) bootloaderDict;
+- (NSArray*) supportedBootloaders;
 - (NSString*) getMachineString;
 - (int) targetOS;
 - (bool) keyboardPrefPaneInstalled;
 - (bool) remoteCDEnabled;
 - (bool) hibernationDissabled;
 - (NSString*) bootPartition;
+- (NSDictionary*) machineInfo;
 - (NSString*) extensionsFolder;
 - (void) installPath: (NSString*) path;
 - (NSString*) installPath;
 - (bool) quietBoot;
 - (bool) bluetoothPatched;
-- (bool) mirrorFriendlyGMA;
+- (BOOL) mirrorFriendlyGMA;
 - (bool) efiHidden;
-- (enum bootloader) installedBootloader;
-- (enum machine) machineType;
-- (void) machineType: (enum machine) newMachineType;
+- (NSDictionary*) installedBootloader;
+//- (enum machine) machineType;
+//- (void) machineType: (enum machine) newMachineType;
 
 - (NSUInteger) bluetoothVendorId;
 - (NSUInteger) bluetoothDeviceId;
+
+- (int) getKernelVersion: (NSString*) kernelPath;
 
 - (void) determineInstallState;
 - (void) determineMachineType;

@@ -56,7 +56,7 @@
 - (BOOL) setOwner: (NSString*) owner andGroup: (NSString*) group onPath: (NSString*) path recursivly: (BOOL) recursiv;
 
 // Installer Options
-- (BOOL) installBootloader: (enum bootloader) bootloaderType;
+- (BOOL) installBootloader: (NSDictionary*) bootloaderType;
 - (BOOL) installExtensions;
 - (BOOL) hideFiles;
 - (BOOL) showFiles;
@@ -95,6 +95,8 @@
 - (BOOL) useLatestKernel;
 
 - (BOOL) removePrevExtra;
+
+- (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination;
 
 
 @end
