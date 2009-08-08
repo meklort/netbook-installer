@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>AppleAzaliaAudio</string>
+	<key>CFBundleGetInfoString</key>
+	<string>1.0.0, Copyright Apple Computer, Inc. 2005</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.apple.driver.AppleAzaliaAudio</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Apple Azalia Audio Driver</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0d1</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>Azalia Audio Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleAzaliaAudio</string>
+			<key>IOClass</key>
+			<string>AppleAzaliaAudioDriver</string>
+			<key>IOProviderClass</key>
+			<string>AppleAzaliaAudioCodec</string>
+			<key>InputSampleLatency</key>
+			<integer>30</integer>
+			<key>OutputSampleLatency</key>
+			<integer>30</integer>
+			<key>SampleOffsetPad</key>
+			<integer>0</integer>
+		</dict>
+		<key>Azalia Generic Codec Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleAzaliaAudio</string>
+			<key>IOClass</key>
+			<string>AppleAzaliaAudioCodecGeneric</string>
+			<key>IOHDAudioCodecFunctionGroupType</key>
+			<integer>1</integer>
+			<key>IOProviderClass</key>
+			<string>IOHDAudioCodecFunction</string>
+		</dict>
+		<key>Realtek ALC880/ALC860 Codec Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.apple.driver.AppleAzaliaAudio</string>
+			<key>IOClass</key>
+			<string>AppleAzaliaAudioCodecALC880</string>
+			<key>IOHDAudioCodecVendorID</key>
+			<string>0x10ecffff 0x14f1ffff 0x11d4ffff 0x434dffff 0x8384ffff</string>
+			<key>IOProbeScore</key>
+			<integer>10000</integer>
+			<key>IOProviderClass</key>
+			<string>IOHDAudioCodecDevice</string>
+		</dict>
+	</dict>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.iokit.IOAudioFamily</key>
+		<string>1.1d25</string>
+		<key>com.apple.iokit.IOHDAudioFamily</key>
+		<string>1.0.0d1</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.mach</key>
+		<string>8.0.0b3</string>
+	</dict>
+</dict>
+</plist>

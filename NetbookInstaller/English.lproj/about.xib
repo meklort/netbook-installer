@@ -38,7 +38,7 @@
 			<object class="NSWindowTemplate" id="369215161">
 				<int key="NSWindowStyleMask">3</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 283}, {425, 227}}</string>
+				<string key="NSWindowRect">{{196, 250}, {425, 260}}</string>
 				<int key="NSWTFlags">603979776</int>
 				<string key="NSWindowTitle">About</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -52,16 +52,18 @@
 						<object class="NSTextField" id="552571267">
 							<reference key="NSNextResponder" ref="196151359"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 60}, {391, 147}}</string>
+							<string key="NSFrame">{{17, 53}, {391, 187}}</string>
 							<reference key="NSSuperview" ref="196151359"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="507408797">
 								<int key="NSCellFlags">67239424</int>
 								<int key="NSCellFlags2">138674176</int>
-								<string type="base64-UTF8" key="NSContents">VGhhbmtzIHRvIFR5cGUxMSBmb3IgYWxsIGhpcyBoYXJkIHdvcmsgbGVhZGluZyB0byB0aGlzIGFwcGxp
-Y2F0aW9uIeKAqOKAqFRoYW5rcyB0byBrbTkgYW5kIE1la2xvcnQgZm9yIGFsbCB0aGUgaGFyZCB3b3Jr
-IG9uIHRob3NlIGtlcm5lbCBleHRlbnNpb25zIGFuZCBkc2R0IHBhdGNoIeKAqOKAqFRoYW5rcyB0byB0
-aGUgY29tdW5pdHkgaW4gZ2VuZXJhbCBmb3IgYWxsIHRoZSBmZWVkYmFjayBhbmQgZGVidWdpbmchA</string>
+								<string type="base64-UTF8" key="NSContents">VGhhbmtzIHRvIFR5cGUxMSBmb3IgYWxsIGhpcyBoYXJkIHdvcmsgbGVhZGluZyB0byBEZWxsRUZJIGJ5
+IEJNYWx0YWlzIeKAqOKAqFRoYW5rcyB0byBCTWFsdGFpcyBmb3IgYWxsIHRoZSB3b3JrIG9uIERlbGxF
+RkkgbGVhZGluZyB0byB0aGlzIGFwcGxpY2F0aW9uIeKAqOKAqFRoYW5rcyB0byBrbTkgYW5kIE1la2xv
+cnQgZm9yIGFsbCB0aGUgaGFyZCB3b3JrIG9uIHRob3NlIGtlcm5lbCBleHRlbnNpb25zIGFuZCBkc2R0
+IHBhdGNoIeKAqOKAqFRoYW5rcyB0byB0aGUgY29tdW5pdHkgaW4gZ2VuZXJhbCBmb3IgYWxsIHRoZSBm
+ZWVkYmFjayBhbmQgZGVidWdpbmchA</string>
 								<object class="NSFont" key="NSSupport" id="606257709">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">1.300000e+01</double>
@@ -109,7 +111,7 @@ aGUgY29tdW5pdHkgaW4gZ2VuZXJhbCBmb3IgYWxsIHRoZSBmZWVkYmFjayBhbmQgZGVidWdpbmchA</s
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{425, 227}</string>
+					<string key="NSFrameSize">{425, 260}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -254,8 +256,8 @@ aGUgY29tdW5pdHkgaW4gZ2VuZXJhbCBmb3IgYWxsIHRoZSBmZWVkYmFjayBhbmQgZGVidWdpbmchA</s
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{337, 409}, {425, 227}}</string>
-					<string>{{337, 409}, {425, 227}}</string>
+					<string>{{276, 376}, {425, 260}}</string>
+					<string>{{276, 376}, {425, 260}}</string>
 					<boolean value="YES"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -313,7 +315,7 @@ aGUgY29tdW5pdHkgaW4gZ2VuZXJhbCBmb3IgYWxsIHRoZSBmZWVkYmFjayBhbmQgZGVidWdpbmchA</s
 			</object>
 		</object>
 		<int key="IBDocument.localizationMode">0</int>
-		<string key="IBDocument.LastKnownRelativeProjectPath">NetbookInstaller.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../NetbookInstaller.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 	</data>
 </archive>
