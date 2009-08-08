@@ -34,7 +34,6 @@
 		2725E73E0FED989D005869F8 /* NetbookBootMakerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */; };
 		2725E7580FED9EE5005869F8 /* NetbookInstallerCLI.app in Resources */ = {isa = PBXBuildFile; fileRef = 2748C2140FEB02EB000F22B8 /* NetbookInstallerCLI.app */; };
 		2725E7B20FEDAF56005869F8 /* bootMakerFiles in Resources */ = {isa = PBXBuildFile; fileRef = 2725E7B00FEDAF56005869F8 /* bootMakerFiles */; };
-		272EACEB0FF722D200274B67 /* InstallerCLI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */; };
 		272EAD360FF7278800274B67 /* NetbookInstaller.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* NetbookInstaller.app */; };
 		272EAD450FF7FD1E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
 		272EAD4A0FF7FD1E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
@@ -59,7 +58,6 @@
 		2748C4A30FEB037C000F22B8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
 		2748C4A40FEB037C000F22B8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
 		2748C4A60FEB03C0000F22B8 /* main_cli.m in Sources */ = {isa = PBXBuildFile; fileRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */; };
-		2748C5B10FEB0EA0000F22B8 /* InstallerCLI.m in Sources */ = {isa = PBXBuildFile; fileRef = 2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */; };
 		274B11E80FF458D4009BFF80 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 668FFA740FC11400007E4E75 /* SupportFiles */; };
 		27848F1D0FF1ACD500BF23A5 /* UpdateExtra.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27848F1C0FF1ACD500BF23A5 /* UpdateExtra.xib */; };
 		27848F1F0FF1AD8B00BF23A5 /* UpdateExtra.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27848F1E0FF1AD8B00BF23A5 /* UpdateExtra.icns */; };
@@ -178,8 +176,6 @@
 		2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookInstallerCLI-Info.plist"; sourceTree = "<group>"; };
 		2748C4A50FEB03C0000F22B8 /* main_cli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_cli.m; sourceTree = "<group>"; };
 		2748C58B0FEB0DF1000F22B8 /* main_cli.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_cli.pch; sourceTree = "<group>"; };
-		2748C5AF0FEB0EA0000F22B8 /* InstallerCLI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstallerCLI.h; sourceTree = "<group>"; };
-		2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstallerCLI.m; sourceTree = "<group>"; };
 		27848F140FF1AC8B00BF23A5 /* UpdateExtra.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpdateExtra.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UpdateExtra-Info.plist"; sourceTree = "<group>"; };
 		27848F1A0FF1ACA700BF23A5 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/UpdateExtra.xib; sourceTree = "<group>"; };
@@ -317,7 +313,6 @@
 				66EC09530FBF3E9C00D3B55B /* Installer.m */,
 				668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */,
 				27CA342A0FD47303006E14C4 /* HexEditor.m */,
-				2748C5B00FEB0EA0000F22B8 /* InstallerCLI.m */,
 				661B35C80FBE01E5004007B6 /* SystemInformation.m */,
 				661B38280FBE5091004007B6 /* NetbookInstallerController.m */,
 				27EC0B460FD7312F006740DB /* AboutWindowController.m */,
@@ -433,7 +428,6 @@
 				66EC09520FBF3E9C00D3B55B /* Installer.h */,
 				668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */,
 				27CA34290FD47303006E14C4 /* HexEditor.h */,
-				2748C5AF0FEB0EA0000F22B8 /* InstallerCLI.h */,
 				661B35C70FBE01E5004007B6 /* SystemInformation.h */,
 				661B38270FBE5091004007B6 /* NetbookInstallerController.h */,
 				27EC0B450FD7312F006740DB /* AboutWindowController.h */,
@@ -714,7 +708,6 @@
 				2748C3800FEB036B000F22B8 /* SystemInformation.m in Sources */,
 				2748C3810FEB036B000F22B8 /* HexEditor.m in Sources */,
 				2748C4A60FEB03C0000F22B8 /* main_cli.m in Sources */,
-				2748C5B10FEB0EA0000F22B8 /* InstallerCLI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,7 +757,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				272EACEB0FF722D200274B67 /* InstallerCLI.m in Sources */,
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				661B35C90FBE01E5004007B6 /* SystemInformation.m in Sources */,
 				661B38290FBE5091004007B6 /* NetbookInstallerController.m in Sources */,
@@ -889,7 +881,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = NetbookBootMaker;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.4;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1162,8 +1154,9 @@
 				GCC_PREFIX_HEADER = NetbookInstaller_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = NetbookInstaller;
+				VALID_ARCHS = "x86_64 ppc64 ppc i386";
 			};
 			name = Release;
 		};
@@ -1191,7 +1184,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
-				VALID_ARCHS = i386;
+				VALID_ARCHS = "ppc64 ppc i386";
 			};
 			name = Release;
 		};

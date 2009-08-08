@@ -27,7 +27,7 @@
 
 	if(![installer getAuthRef]) return;
 
-	if([systemInfo targetOS] < KERNEL_VERSION_10_5_6 && ([systemInfo targetOS] != KERNEL_VERSION_UNKNOWN))	// Less than Mac OS X 10.5.4
+	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.4
 	{
 		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 		[alert addButtonWithTitle:NSLocalizedString(@"Continue", nil)];

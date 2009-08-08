@@ -34,7 +34,6 @@
 {
 	// Split this into a seperate thread
 	
-	NSLog(@"Installing");
 	if([volumeList selectedItem])
 	{
 		installing = YES;
@@ -53,14 +52,11 @@
 {
 	// TODO: do some error checking to verify that that volume actualy exists.
 	return [[NSFileManager defaultManager] directoryContentsAtPath:@"/Volumes"];
-
-
-	return nil;
 }
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION_UNKNOWN];
+	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(0, 0, 0)];	// Any kernel version will work
 //	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [volumeList selectedItem];
@@ -125,7 +121,7 @@
 	[self updateStatus:NSLocalizedString(@"Installing dependencies files", nil)];	
 	// This is ONLY untill I port at least dsdt retriever to objective c (should be relatively easy).
 	[installer copyFrom:@"/usr/bin/xxd" toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/"]];
-	// First run pm set?
+	// First run pm set? (this could be moved to the cli / installer
 	[installer copyFrom:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist" toDir:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
 	
@@ -134,12 +130,18 @@
 	
 	
 	[self updateStatus:NSLocalizedString(@"Setting up bootloader ", nil)];	
+
 	[installer setQuietBoot:	NO];
+
 	[installer dissableHibernation:	YES];
-	
-	[installer installBootloader: DEFAULT_BOOTLOADER];
+//	NSLog(@"Install Bootloader");
+	NSString* bootloader = [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"];
+//	NSLog(@"Installing bootloader %@", bootloader);
+//	NSLog(@"Dict: %@", [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]);
+	[installer installBootloader: [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]];
+	//[installer installBootloader: DEFAULT_BOOTLOADER];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];	
-	
+
 	[installer setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/Extra"] recursivly: YES];
 	[installer setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/boot"] recursivly: NO];
 	
@@ -147,7 +149,7 @@
 	[installer setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/boot"] recursivly: NO];
 	
 	[self updateStatus:NSLocalizedString(@"Creating extensions cache", nil)];	
-	if([systemInfo targetOS] < KERNEL_VERSION_10_5_6)	// Less than Mac OS X 10.5.4
+	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
 	{
 		// This is ONLY going to be run from the install dvd, so we can copy these from the /
 		[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/Extensions.mkext"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/"]];
@@ -156,13 +158,15 @@
 		
 	} else
 	{
+		[installer copyDependencies];
 		[installer installExtensions];
+		[installer installLocalExtensions];
+
 		[installer patchGMAkext];
 		[installer patchFramebufferKext];
 		[installer patchIO80211kext];
 		[installer patchBluetooth];
-		
-		[installer copyDependencies];
+
 		[installer generateExtensionsCache];
 		[installer useSystemKernel];
 	}

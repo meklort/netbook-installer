@@ -10,6 +10,6 @@
 
 int main(int argc, char *argv[])
 {
-	// TODO: make sure everything is realeased properly... (It's not)
+	// TODO: Bless could be used to install chameleon / verify that the bootloader is installed
 	return 0;
 }

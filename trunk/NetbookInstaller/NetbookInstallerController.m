@@ -8,7 +8,6 @@
 
 #import "NetbookInstallerController.h"
 
-
 @implementation NetbookInstallerController
 
 /***
@@ -23,33 +22,42 @@
 }
 - (IBAction) volumeChanged: (id) sender
 {
+//	NSLog(@"Selected target: %@", [@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]);
 	[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]];
+ 
+	// TODO: enable this
 	[self updateBootloaderMenu];
 	[self updateCheckboxes];
-	//NSLog(@"Install path: %@", [@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]);
-	//NSLog(@"Install path: %@", [systemInfo installPath]);
-	// TODO: Update check boxes
 }
 - (void) updateBootloaderMenu
 {
 	NSMutableArray* bootOptions = [[NSMutableArray alloc] init];
-	int i = 0;
-	while(i < NUM_SUPPORTED_BOOTLOADERS) {
-		// Or I could use for loops... 
-		[bootOptions addObject:[[NSString alloc] initWithCString:bootLoaderName[i]]];
-		i++;
+	NSArray* bootloaders = [systemInfo supportedBootloaders];
+	NSLog(@"bootloaders: %@", bootloaders);
+
+	NSEnumerator* enumerator = [bootloaders objectEnumerator];
+	NSDictionary* bootloader;
+	// TODO: read these from the plist
+	while(bootloader = [enumerator nextObject]) {
+		[bootOptions addObject:[bootloader objectForKey:@"Visible Name"]];
+
 	}
+	NSLog(@"bootOptions: %@", bootOptions);
 	[bootloaderVersion removeAllItems];
 	[bootloaderVersion addItemsWithTitles:bootOptions];
-	if([systemInfo installedBootloader] != NONE)
-		// Bootloader is installed, we do not force an upgrade
-		[bootloaderVersion selectItemAtIndex:[systemInfo installedBootloader]];
+	
+	// TODO: select default bootloader
+		
+	/*if([systemInfo installedBootloader] != nil)
+		// TODO: follow upgrade path and determine if we need to upgrade to a new bootloader
+		[bootloaderVersion selectItemWithTitle:[[systemInfo installedBootloader] objectForKey:@"Long Name"]];
+
 	else
 	{
 		// No bootloader is installed, default to the latest version available
-		[bootloaderVersion selectItemAtIndex:CHAMELEON_R431];
+		[bootloaderVersion selectItemWithTitle:[[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]];
 		[bootloaderVersion setState:true];
-	}
+	}*/
 }
 
 - (void) initializeApplication
@@ -80,10 +88,10 @@
 	
 	
 	
-	
 	// Initialize warning label
-	// TODO: place all of the strings in a file (info.plist.string)
-	switch([systemInfo machineType]) {
+	// TODO: machine specific labels
+	[warningLabel setStringValue:NSLocalizedString(@"Warning Label", nil)];
+	/*switch([systemInfo machineType]) {
 		case MINI9: [warningLabel setStringValue:NSLocalizedString(@"Mini 9 Warning", nil)];
 			break;
 		case MINI10V: [warningLabel setStringValue:NSLocalizedString(@"Mini 10v Warning", nil)];
@@ -92,19 +100,21 @@
 			break;
 		case LENOVO_S10: [warningLabel setStringValue:NSLocalizedString(@"S10 Warning", nil)];
 			break;
+		case EEE_1000H: [warningLabel setStringValue:NSLocalizedString(@"EEE 1000H Warning", nil)];
 		case UNKNOWN:
 		default: [warningLabel setStringValue:NSLocalizedString(@"Unknown Warning", nil)];
 			break;
-	}
+	}*/
 	
 	[self updateCheckboxes];
+
 	[targetVolume setStringValue:[systemInfo bootPartition]];
 }
 
 - (void) updateCheckboxes
 {
 	
-	if([systemInfo installedBootloader] != NONE) {
+	if([systemInfo installedBootloader] != nil) {
 		[bootloaderCheckbox setState: false];
 		[bootloaderVersion setEnabled:false];
 	} 
@@ -181,7 +191,11 @@
  **
  ***/
 - (BOOL) isMachineSupported {
-	BOOL			supported, isDir = YES;
+	if([[systemInfo getMachineString] isEqualToString:@"General"]) return NO;
+	else return YES;
+	
+	// TODO: verify the machine's directory exists. If it doesnt, then the machine isn't supported
+	/*BOOL			supported, isDir = YES;
 	NSFileManager* fileManager;
 	NSString		*path, *fullPath;
 	
@@ -207,6 +221,10 @@
 			fullPath = [NSString stringWithFormat:@"%@/SupportFiles/Extensions/S10 Extensions/",path];
 			supported = [fileManager fileExistsAtPath: fullPath isDirectory: &isDir];
 			if(!isDir) supported = NO;			break;
+		case EEE_1000H:
+			fullPath = [NSString stringWithFormat:@"%@/SupportFiles/Extensions/EEE 1000H Extensions/",path];
+			supported = [fileManager fileExistsAtPath: fullPath isDirectory: &isDir];
+			if(!isDir) supported = NO;			break;
 		case UNKNOWN:
 		default:
 			//NSLog(@"Unknown");
@@ -215,7 +233,7 @@
 	}
 	
 	if(!supported) [systemInfo machineType: UNKNOWN];
-	return supported;
+	return supported;*/
 }
 
 /***
@@ -227,6 +245,7 @@
  ***/
 - (void) applicationDidFinishLaunching:(id)application
 {
+	
 	initialized = YES;
 	if(![self isMachineSupported]) {
 		// Look into NSRunAlertPanel
@@ -420,10 +439,25 @@
 	return [extensionsCheckbox state];
 }
 
-- (enum bootloader) bootloaderType
+- (NSDictionary*) bootloaderType
 {
-	if([bootloaderCheckbox state]) return CHAMELEON_R431;
-	else return NONE;
+	NSDictionary* returnDict = nil;
+	if(![bootloaderVersion titleOfSelectedItem]) return nil;
+	//NSLog(@"verifying bootlaoder");
+
+	NSEnumerator* bootloaders = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] keyEnumerator];
+	NSDictionary* bootloader;
+	while(bootloader = [bootloaders nextObject])
+	{
+		NSLog(@"Testing against %@", bootloader);
+		if([[bootloaderVersion titleOfSelectedItem] isEqualToString:[[[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader] objectForKey:@"Visible Name"]]) {
+//			NSLog(@"Found %@", [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]);
+			returnDict = [[NSDictionary alloc] initWithDictionary: [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader] copyItems:YES];
+			break;
+		}
+	}
+	
+	return returnDict;
 }
 
 - (BOOL) fixBluetooth
@@ -468,7 +502,7 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION_10_5_4];
+	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 5, 4)];
 	//	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [targetVolume selectedItem];
@@ -476,8 +510,7 @@
 	
 	[targetVolume removeAllItems];
 	[targetVolume addItemsWithTitles:options];
-	[targetVolume selectItemWithTitle:[current title]];
-	
+	[targetVolume selectItemWithTitle:[current title]];	
 	
 }
 

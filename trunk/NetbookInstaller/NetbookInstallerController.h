@@ -87,7 +87,7 @@
 - (BOOL) dissableHibernation;
 - (BOOL) enableRemoteCD;
 - (BOOL) installExtensions;
-- (enum bootloader) bootloaderType;
+- (NSDictionary*) bootloaderType;
 
 - (BOOL) fixBluetooth;
 - (BOOL) mirrorFriendlyGMA;

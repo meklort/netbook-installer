@@ -7,9 +7,11 @@
  *
  */
 
-
-#define NUM_SUPPORTED_BOOTLOADERS		3
+// NUM Bootloaders = 2 because PC EFI v10 has problems on the mini 
+// TODO: read these from a plist instead
+//#define NUM_SUPPORTED_BOOTLOADERS		2
 #define NUM_KERNELS						8
+/*
 
 const UInt64 bootLoaderMD5[NUM_SUPPORTED_BOOTLOADERS][2] = 
 {
@@ -24,7 +26,7 @@ const char *bootLoaderName[NUM_SUPPORTED_BOOTLOADERS] =
 	"PCEFI v9", 
 	"PCEFI v10"
 };
-
+*/
 const UInt64 kernelVersionMD5[NUM_KERNELS][2] = 
 {
 	0xc4cdde3890b79ca3, 0xbe765612b3cfbf94,		// Mac OS X 10.5.0
