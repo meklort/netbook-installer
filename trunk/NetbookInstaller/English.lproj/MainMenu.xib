@@ -8,8 +8,8 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="867"/>
 			<integer value="29"/>
-			<integer value="862"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -220,7 +220,7 @@
 												<object class="NSButton" id="966457353">
 													<reference key="NSNextResponder" ref="1001315038"/>
 													<int key="NSvFlags">268</int>
-													<string key="NSFrame">{{15, 72}, {281, 18}}</string>
+													<string key="NSFrame">{{15, 72}, {403, 18}}</string>
 													<reference key="NSSuperview" ref="1001315038"/>
 													<bool key="NSEnabled">YES</bool>
 													<object class="NSButtonCell" key="NSCell" id="23968513">
@@ -273,7 +273,7 @@
 												<object class="NSButton" id="356519827">
 													<reference key="NSNextResponder" ref="1001315038"/>
 													<int key="NSvFlags">268</int>
-													<string key="NSFrame">{{15, 92}, {301, 18}}</string>
+													<string key="NSFrame">{{15, 92}, {403, 18}}</string>
 													<reference key="NSSuperview" ref="1001315038"/>
 													<bool key="NSEnabled">YES</bool>
 													<object class="NSButtonCell" key="NSCell" id="122980078">
@@ -339,7 +339,7 @@
 												<object class="NSButton" id="517271320">
 													<reference key="NSNextResponder" ref="1001315038"/>
 													<int key="NSvFlags">268</int>
-													<string key="NSFrame">{{15, 132}, {403, 18}}</string>
+													<string key="NSFrame">{{15, 132}, {189, 18}}</string>
 													<reference key="NSSuperview" ref="1001315038"/>
 													<bool key="NSEnabled">YES</bool>
 													<object class="NSButtonCell" key="NSCell" id="858677999">
@@ -383,7 +383,7 @@
 												<object class="NSButton" id="639158834">
 													<reference key="NSNextResponder" ref="1001315038"/>
 													<int key="NSvFlags">268</int>
-													<string key="NSFrame">{{15, 12}, {93, 18}}</string>
+													<string key="NSFrame">{{15, 12}, {403, 18}}</string>
 													<reference key="NSSuperview" ref="1001315038"/>
 													<bool key="NSEnabled">YES</bool>
 													<object class="NSButtonCell" key="NSCell" id="81683102">
@@ -2046,8 +2046,6 @@
 							<string>extensionsCheckbox</string>
 							<string>hibernateChecbox</string>
 							<string>installButton</string>
-							<string>installationMethod</string>
-							<string>keyboardPrefPaneCheckbox</string>
 							<string>mainWindow</string>
 							<string>oldGMACheckbox</string>
 							<string>progressBar</string>
@@ -2067,8 +2065,6 @@
 							<string>NSButton</string>
 							<string>NSButton</string>
 							<string>NSButton</string>
-							<string>NSButton</string>
-							<string>NSMatrix</string>
 							<string>NSButton</string>
 							<string>NSWindow</string>
 							<string>NSButton</string>

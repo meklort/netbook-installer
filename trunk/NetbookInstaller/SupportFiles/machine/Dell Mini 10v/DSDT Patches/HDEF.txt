@@ -1,0 +1,54 @@
+            Device (HDEF)
+            {
+                Name (_ADR, 0x001B0000)
+                Name (_PRW, Package (0x02)
+                {
+                    0x05, 
+                    0x04
+                })
+                Name (_SUN, 0x01)
+                Method (_DSM, 4, NotSerialized)
+                {
+                    Store (Package (0x0c)
+                        {
+                            "codec-id", 
+                            Buffer (0x04)
+                            {
+                                0x72, 0x02, 0xEC, 0x10
+                            }, 
+
+                            "built-in", 
+                            Buffer (One)
+                            {
+                                0x00
+                            }, 
+
+                            "layout-id", 
+                            Buffer (0x04)
+                            {
+                                0x10, 0x01, 0x00, 0x00
+                            }, 
+
+                            "model",
+                            Buffer (0x0F)
+                            {
+                                "Realtek ALC272"
+                            },
+
+                            "device_type", 
+                            Buffer (0x07)
+                            {
+                                "alc272"
+                            },
+
+                            "PinConfigurations", 
+                            Buffer (Zero)
+                            {
+
+                            }
+
+                        }, Local0)
+                    DTGP (Arg0, Arg1, Arg2, Arg3, RefOf (Local0))
+                    Return (Local0)
+                }
+            } 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Default Bootloader</key>
+	<string>Chameleon R640</string>
+	<key>Bootloaders</key>
+	<dict>
+		<key>Chameleon R431</key>
+		<dict>
+			<key>Visible Name</key>
+			<string>Chameleon 2 RC1</string>
+			<key>Installable</key>
+			<false/>
+			<key>Upgrade Path</key>
+			<string>Chameleon R640</string>
+			<key>MD5</key>
+			<data>1ZNDn88UeaQDBU20kcDpKA==</data>
+		</dict>
+		<key>Chameleon R640</key>
+		<dict>
+			<key>Visible Name</key>
+			<string>Chameleon 2 RC2</string>
+			<key>Installable</key>
+			<true/>
+			<key>Upgrade Path</key>
+			<string></string>
+			<key>MD5</key>
+			<data>+19peruU1EMK+zwRufDRsQ==</data>
+		</dict>
+		<key>PC EFI v9</key>
+		<dict>
+			<key>Visible Name</key>
+			<string>PC EFI v9</string>
+			<key>Installable</key>
+			<true/>
+			<key>Upgrade Path</key>
+			<string>PC EFI v10</string>
+			<key>MD5</key>
+			<data>oXtqZCpTpmG+1lHIO+Np7Q==</data>
+		</dict>
+		<key>PC EFI v10</key>
+		<dict>
+			<key>Visible Name</key>
+			<string>PC EFI v10</string>
+			<key>Installable</key>
+			<false/>
+			<key>Upgrade Path</key>
+			<string></string>
+			<key>MD5</key>
+			<data>YUD5ZfRnW1+Lp97jU6Tudw==</data>
+		</dict>
+	</dict>
+</dict>
+</plist>
