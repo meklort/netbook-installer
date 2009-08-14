@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>PatchedAppleHDA</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.meklort.driver.PatchedAppleHDA</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>PatchedAppleHDA</string>
+	<key>CFBundlePackageType</key>
+	<string>KEXT</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0d1</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>Azalia Audio Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.meklort.driver.PatchedAppleHDA</string>
+			<key>IOClass</key>
+			<string>PatchedAppleAzaliaAudioDriver</string>
+			<key>IOProbeScore</key>
+			<string>1000</string>
+			<key>IOProviderClass</key>
+			<string>AppleAzaliaAudioCodec</string>
+			<key>InputSampleLatency</key>
+			<integer>30</integer>
+			<key>OutputSampleLatency</key>
+			<integer>30</integer>
+			<key>SampleOffsetPad</key>
+			<integer>0</integer>
+		</dict>
+		<key>HDA Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>com.meklort.driver.PatchedAppleHDA</string>
+			<key>IOClass</key>
+			<string>PatchedAppleHDADriver</string>
+			<key>IOProbeScore</key>
+			<string>1000</string>
+			<key>IOProviderClass</key>
+			<string>AppleHDACodec</string>
+			<key>InputSampleLatency</key>
+			<integer>0</integer>
+			<key>OutputSampleLatency</key>
+			<integer>0</integer>
+			<key>SampleOffsetPad</key>
+			<integer>0</integer>
+			<key>SystemSpecificSampleOffsetPad</key>
+			<array>
+				<dict>
+					<key>LayoutID</key>
+					<integer>8</integer>
+					<key>SampleOffsetPad</key>
+					<integer>260</integer>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	<key>OSBundleLibraries</key>
+	<dict>
+		<key>com.apple.driver.AppleHDA</key>
+		<string>1.0.0d1</string>
+		<key>com.apple.driver.DspFuncLib</key>
+		<string>1.5.2a1</string>
+		<key>com.apple.iokit.IOAudioFamily</key>
+		<string>1.1fc9</string>
+		<key>com.apple.iokit.IOHDAFamily</key>
+		<string>1.0.0d1</string>
+		<key>com.apple.kpi.bsd</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.iokit</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.libkern</key>
+		<string>8.0.0b3</string>
+		<key>com.apple.kpi.mach</key>
+		<string>8.0.0b3</string>
+	</dict>
+</dict>
+</plist>
