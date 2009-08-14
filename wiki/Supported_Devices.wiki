@@ -5,7 +5,7 @@ Current status of NetbookInstaller. This table reflects current code, not necess
 Colors:<br>
 <font color="red">Unsupported</font><br>
 <font color="orange">Partially supported</font><br>
-<font color="green">Fully supported (may require certain configurations however)</font><br>
+<font color="green">Fully supported (may require specific software configurations)</font><br>
 
 || Machine || Sleep || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WWAN ||
 || Dell Mini 9 || <font color="green">Works</font> || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> ||
