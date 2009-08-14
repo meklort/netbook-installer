@@ -8,7 +8,7 @@ Colors:<br>
 <font color="green">Fully supported (may require certain configurations however)</font><br>
 
 || Machine || Sleep || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WWAN ||
-|| Dell Mini 9 || <font color="green">Works</font> || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="orange">Works</font> ||
-|| Dell Mini 9 || <font color="green">Works</font> || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="orange">Works</font> ||
+|| Dell Mini 9 || <font color="green">Works</font> || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> ||
+|| Dell Mini 9 || <font color="green">Works</font> || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> ||
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||
 || Lenovo S10 || <font color="green">Works</font> || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="orange">Non Bootable, Slow</font> || <font color="red">Unsupported</font> ||
