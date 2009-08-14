@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27286F2C103371C200056C11 /* PatchedAppleAzaliaAudio.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */; };
+		2728708D1033A6A000056C11 /* Mini9MuteControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */; };
+		2747A81C1031F38800416FDE /* AppleHDADriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 2747A81B1031F38800416FDE /* AppleHDADriver.h */; };
+		276D1591103245EE00317A39 /* AppleAzaliaAudioDriver.h in Headers */ = {isa = PBXBuildFile; fileRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */; };
+		276D159C103270D200317A39 /* PatchedAppleAzaliaAudio.h in Headers */ = {isa = PBXBuildFile; fileRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */; };
+		27D50454102FAEE200864925 /* Mini9MuteControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */; };
+		27D50455102FAEE200864925 /* Mini9MuteControl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */; };
+		32D94FC60562CBF700B6AF17 /* patchedAppleHDA.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */; };
+		32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
+		32D94FCA0562CBF700B6AF17 /* patchedAppleHDA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */; settings = {ATTRIBUTES = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = patchedAppleHDA.h; sourceTree = "<group>"; };
+		1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = patchedAppleHDA.cpp; sourceTree = "<group>"; };
+		27286F1F1033718400056C11 /* PatchedAppleAzaliaAudio.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PatchedAppleAzaliaAudio.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		27286F201033718400056C11 /* PatchedAppleAzaliaAudio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PatchedAppleAzaliaAudio-Info.plist"; sourceTree = "<group>"; };
+		2747A81B1031F38800416FDE /* AppleHDADriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleHDADriver.h; sourceTree = "<group>"; };
+		276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleAzaliaAudioDriver.h; sourceTree = "<group>"; };
+		276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PatchedAppleAzaliaAudio.h; sourceTree = "<group>"; };
+		276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PatchedAppleAzaliaAudio.cpp; sourceTree = "<group>"; };
+		27D50452102FAEE200864925 /* Mini9MuteControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mini9MuteControl.h; sourceTree = "<group>"; };
+		27D50453102FAEE200864925 /* Mini9MuteControl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Mini9MuteControl.cpp; sourceTree = "<group>"; };
+		32D94FCF0562CBF700B6AF17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32D94FD00562CBF700B6AF17 /* patchedAppleHDA.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = patchedAppleHDA.kext; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		27286F1D1033718400056C11 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D94FCB0562CBF700B6AF17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* patchedAppleHDA */ = {
+			isa = PBXGroup;
+			children = (
+				247142CAFF3F8F9811CA285C /* Source */,
+				8DA8362C06AD9B9200E5AC22 /* Kernel.framework */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+				27286F201033718400056C11 /* PatchedAppleAzaliaAudio-Info.plist */,
+			);
+			name = patchedAppleHDA;
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				32D94FCF0562CBF700B6AF17 /* Info.plist */,
+				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				32D94FD00562CBF700B6AF17 /* patchedAppleHDA.kext */,
+				27286F1F1033718400056C11 /* PatchedAppleAzaliaAudio.kext */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		247142CAFF3F8F9811CA285C /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				2747A81B1031F38800416FDE /* AppleHDADriver.h */,
+				276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */,
+				27D50452102FAEE200864925 /* Mini9MuteControl.h */,
+				1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */,
+				276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */,
+				1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */,
+				27D50453102FAEE200864925 /* Mini9MuteControl.cpp */,
+				276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		27286F2A103371BE00056C11 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D94FC50562CBF700B6AF17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D94FC60562CBF700B6AF17 /* patchedAppleHDA.h in Headers */,
+				27D50454102FAEE200864925 /* Mini9MuteControl.h in Headers */,
+				2747A81C1031F38800416FDE /* AppleHDADriver.h in Headers */,
+				276D1591103245EE00317A39 /* AppleAzaliaAudioDriver.h in Headers */,
+				276D159C103270D200317A39 /* PatchedAppleAzaliaAudio.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		27286F1E1033718400056C11 /* PatchedAppleAzaliaAudio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27286F241033718700056C11 /* Build configuration list for PBXNativeTarget "PatchedAppleAzaliaAudio" */;
+			buildPhases = (
+				27286F1B1033718400056C11 /* Sources */,
+				27286F1C1033718400056C11 /* Resources */,
+				27286F1D1033718400056C11 /* Frameworks */,
+				27286F2A103371BE00056C11 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatchedAppleAzaliaAudio;
+			productName = PatchedAppleAzaliaAudio;
+			productReference = 27286F1F1033718400056C11 /* PatchedAppleAzaliaAudio.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+		32D94FC30562CBF700B6AF17 /* PatchedAppleHDA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "PatchedAppleHDA" */;
+			buildPhases = (
+				32D94FC50562CBF700B6AF17 /* Headers */,
+				32D94FC70562CBF700B6AF17 /* Resources */,
+				32D94FC90562CBF700B6AF17 /* Sources */,
+				32D94FCB0562CBF700B6AF17 /* Frameworks */,
+				32D94FCC0562CBF700B6AF17 /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PatchedAppleHDA;
+			productInstallPath = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+			productName = patchedAppleHDA;
+			productReference = 32D94FD00562CBF700B6AF17 /* patchedAppleHDA.kext */;
+			productType = "com.apple.product-type.kernel-extension.iokit";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "patchedAppleHDA" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* patchedAppleHDA */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				32D94FC30562CBF700B6AF17 /* PatchedAppleHDA */,
+				27286F1E1033718400056C11 /* PatchedAppleAzaliaAudio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27286F1C1033718400056C11 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D94FC70562CBF700B6AF17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		32D94FCC0562CBF700B6AF17 /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27286F1B1033718400056C11 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2728708D1033A6A000056C11 /* Mini9MuteControl.cpp in Sources */,
+				27286F2C103371C200056C11 /* PatchedAppleAzaliaAudio.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		32D94FC90562CBF700B6AF17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D94FCA0562CBF700B6AF17 /* patchedAppleHDA.cpp in Sources */,
+				27D50455102FAEE200864925 /* Mini9MuteControl.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C167DFE841241C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91DA08733DB10010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_PREPROCESS = YES;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.meklort.driver.PatchedAppleHDA;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = PatchedAppleHDA;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		1DEB91DB08733DB10010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CURRENT_PROJECT_VERSION = 1.0.0d1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = Info.plist;
+				INFOPLIST_PREPROCESS = YES;
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.patchedAppleHDA;
+				MODULE_VERSION = 1.0.0d1;
+				PRODUCT_NAME = patchedAppleHDA;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Release;
+		};
+		1DEB91DE08733DB10010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		1DEB91DF08733DB10010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.5;
+			};
+			name = Release;
+		};
+		27286F221033718600056C11 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "PatchedAppleAzaliaAudio-Info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.PatchedAppleAzaliaAudio;
+				MODULE_VERSION = 1.0.0d1;
+				PREBINDING = NO;
+				PRODUCT_NAME = PatchedAppleAzaliaAudio;
+				WRAPPER_EXTENSION = kext;
+			};
+			name = Debug;
+		};
+		27286F231033718600056C11 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INFOPLIST_FILE = "PatchedAppleAzaliaAudio-Info.plist";
+				INSTALL_PATH = "$(SYSTEM_LIBRARY_DIR)/Extensions";
+				MODULE_NAME = com.yourcompany.driver.PatchedAppleAzaliaAudio;
+				MODULE_VERSION = 1.0.0d1;
+				PREBINDING = NO;
+				PRODUCT_NAME = PatchedAppleAzaliaAudio;
+				WRAPPER_EXTENSION = kext;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91D908733DB10010E9CD /* Build configuration list for PBXNativeTarget "PatchedAppleHDA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91DA08733DB10010E9CD /* Debug */,
+				1DEB91DB08733DB10010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91DD08733DB10010E9CD /* Build configuration list for PBXProject "patchedAppleHDA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91DE08733DB10010E9CD /* Debug */,
+				1DEB91DF08733DB10010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27286F241033718700056C11 /* Build configuration list for PBXNativeTarget "PatchedAppleAzaliaAudio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27286F221033718600056C11 /* Debug */,
+				27286F231033718600056C11 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

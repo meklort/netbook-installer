@@ -1,0 +1,2946 @@
+// !$*UTF8*$!
+{
+	089C1669FE841209C02AAC07 /* Project object */ = {
+		activeBuildConfigurationName = Release;
+		activeTarget = 27286F1E1033718400056C11 /* PatchedAppleAzaliaAudio */;
+		addToTargets = (
+			32D94FC30562CBF700B6AF17 /* PatchedAppleHDA */,
+		);
+		codeSenseManager = 27B574FC102A1FC100DBE436 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					779,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					739,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 271892540;
+			PBXWorkspaceStateSaveDate = 271892540;
+		};
+		perUserProjectItems = {
+			27286F45103373E100056C11 = 27286F45103373E100056C11 /* PlistBookmark */;
+			27286F46103373E100056C11 = 27286F46103373E100056C11 /* PlistBookmark */;
+			27286F49103373E100056C11 = 27286F49103373E100056C11 /* PlistBookmark */;
+			27286F4A103373E100056C11 = 27286F4A103373E100056C11 /* PBXTextBookmark */;
+			27286F4B103373E100056C11 = 27286F4B103373E100056C11 /* PBXTextBookmark */;
+			27286F4C103373E100056C11 = 27286F4C103373E100056C11 /* PBXTextBookmark */;
+			27286F4D103373E100056C11 = 27286F4D103373E100056C11 /* PBXTextBookmark */;
+			27286F4E103373E100056C11 = 27286F4E103373E100056C11 /* PlistBookmark */;
+			27286F4F103373E100056C11 = 27286F4F103373E100056C11 /* PBXTextBookmark */;
+			27286F50103373E100056C11 = 27286F50103373E100056C11 /* PBXTextBookmark */;
+			27286F51103373E100056C11 = 27286F51103373E100056C11 /* PBXTextBookmark */;
+			27286F52103373E100056C11 = 27286F52103373E100056C11 /* PBXTextBookmark */;
+			27286F53103373E100056C11 = 27286F53103373E100056C11 /* PBXTextBookmark */;
+			27286F54103373E100056C11 = 27286F54103373E100056C11 /* PBXTextBookmark */;
+			27286F55103373E100056C11 = 27286F55103373E100056C11 /* PBXTextBookmark */;
+			27286F56103373E100056C11 = 27286F56103373E100056C11 /* PBXTextBookmark */;
+			27286F57103373E100056C11 = 27286F57103373E100056C11 /* PBXTextBookmark */;
+			27286F58103373E100056C11 = 27286F58103373E100056C11 /* PlistBookmark */;
+			27286F59103373E100056C11 = 27286F59103373E100056C11 /* PlistBookmark */;
+			27286F5A103373E100056C11 = 27286F5A103373E100056C11 /* PBXTextBookmark */;
+			27286F5B103373E100056C11 = 27286F5B103373E100056C11 /* PBXTextBookmark */;
+			27286F5C103373E100056C11 = 27286F5C103373E100056C11 /* PBXTextBookmark */;
+			27286F5D103373E100056C11 = 27286F5D103373E100056C11 /* PBXTextBookmark */;
+			27286F7210337A0800056C11 = 27286F7210337A0800056C11 /* PBXTextBookmark */;
+			27286F7310337A0800056C11 = 27286F7310337A0800056C11 /* PBXTextBookmark */;
+			27286F7410337A0800056C11 = 27286F7410337A0800056C11 /* PBXTextBookmark */;
+			27286F7510337A0800056C11 = 27286F7510337A0800056C11 /* PBXTextBookmark */;
+			27286F7610337A0800056C11 = 27286F7610337A0800056C11 /* PBXTextBookmark */;
+			27286F8B10337FD500056C11 = 27286F8B10337FD500056C11 /* PBXTextBookmark */;
+			27286F8C10337FD500056C11 = 27286F8C10337FD500056C11 /* PBXTextBookmark */;
+			27286F8D10337FD500056C11 = 27286F8D10337FD500056C11 /* PBXTextBookmark */;
+			27286F8E10337FD500056C11 = 27286F8E10337FD500056C11 /* PBXTextBookmark */;
+			27286F8F10337FD500056C11 = 27286F8F10337FD500056C11 /* PBXTextBookmark */;
+			27286F9010337FD500056C11 = 27286F9010337FD500056C11 /* PBXTextBookmark */;
+			27286F9110337FD500056C11 = 27286F9110337FD500056C11 /* PBXTextBookmark */;
+			27286F9210337FD500056C11 = 27286F9210337FD500056C11 /* PBXTextBookmark */;
+			27286F9310337FD500056C11 = 27286F9310337FD500056C11 /* PBXTextBookmark */;
+			27286F9410337FD500056C11 = 27286F9410337FD500056C11 /* PBXTextBookmark */;
+			27286F9510337FD500056C11 = 27286F9510337FD500056C11 /* PBXTextBookmark */;
+			27286F9610337FD500056C11 = 27286F9610337FD500056C11 /* PBXTextBookmark */;
+			27286F9710337FD500056C11 = 27286F9710337FD500056C11 /* PBXTextBookmark */;
+			27286F9810337FD500056C11 = 27286F9810337FD500056C11 /* PBXTextBookmark */;
+			27286FAC103382FB00056C11 = 27286FAC103382FB00056C11 /* PBXTextBookmark */;
+			27286FAD103382FB00056C11 = 27286FAD103382FB00056C11 /* PBXTextBookmark */;
+			27286FAE103382FB00056C11 = 27286FAE103382FB00056C11 /* PBXTextBookmark */;
+			27286FAF103382FB00056C11 = 27286FAF103382FB00056C11 /* PBXTextBookmark */;
+			27286FB4103384AB00056C11 = 27286FB4103384AB00056C11 /* PBXTextBookmark */;
+			27286FB5103384AB00056C11 = 27286FB5103384AB00056C11 /* PBXTextBookmark */;
+			27286FC21033871300056C11 = 27286FC21033871300056C11 /* PBXTextBookmark */;
+			27286FC31033871300056C11 = 27286FC31033871300056C11 /* PBXTextBookmark */;
+			27286FC41033871300056C11 = 27286FC41033871300056C11 /* PBXTextBookmark */;
+			27286FC51033871300056C11 = 27286FC51033871300056C11 /* PBXTextBookmark */;
+			27286FC61033871300056C11 = 27286FC61033871300056C11 /* PBXTextBookmark */;
+			27286FCE103387D100056C11 = 27286FCE103387D100056C11 /* PBXTextBookmark */;
+			27286FCF103387D100056C11 = 27286FCF103387D100056C11 /* PBXTextBookmark */;
+			27286FE21033898500056C11 = 27286FE21033898500056C11 /* PBXTextBookmark */;
+			27286FE31033898500056C11 = 27286FE31033898500056C11 /* PBXTextBookmark */;
+			27286FEE103389F200056C11 = 27286FEE103389F200056C11 /* PBXTextBookmark */;
+			27286FEF103389F200056C11 = 27286FEF103389F200056C11 /* PBXTextBookmark */;
+			27286FF0103389F200056C11 = 27286FF0103389F200056C11 /* PBXTextBookmark */;
+			27286FF1103389F200056C11 = 27286FF1103389F200056C11 /* PBXTextBookmark */;
+			2728700110338B4000056C11 = 2728700110338B4000056C11 /* PBXTextBookmark */;
+			2728700210338B4000056C11 = 2728700210338B4000056C11 /* PBXTextBookmark */;
+			2728701910338F9800056C11 = 2728701910338F9800056C11 /* PBXTextBookmark */;
+			2728701F10338F9800056C11 = 2728701F10338F9800056C11 /* PBXTextBookmark */;
+			2728702010338F9800056C11 = 2728702010338F9800056C11 /* PBXTextBookmark */;
+			2728702110338F9800056C11 = 2728702110338F9800056C11 /* PBXTextBookmark */;
+			2728702210338F9800056C11 = 2728702210338F9800056C11 /* PBXTextBookmark */;
+			2728702310338F9800056C11 = 2728702310338F9800056C11 /* PBXTextBookmark */;
+			2728702410338F9800056C11 = 2728702410338F9800056C11 /* PBXTextBookmark */;
+			2728702510338F9800056C11 = 2728702510338F9800056C11 /* PBXTextBookmark */;
+			2728702610338F9800056C11 = 2728702610338F9800056C11 /* PBXTextBookmark */;
+			2728702710338F9800056C11 = 2728702710338F9800056C11 /* PBXTextBookmark */;
+			2728702810338F9800056C11 = 2728702810338F9800056C11 /* PBXTextBookmark */;
+			272870331033918C00056C11 = 272870331033918C00056C11 /* PBXTextBookmark */;
+			272870351033918C00056C11 = 272870351033918C00056C11 /* PBXTextBookmark */;
+			272870361033918C00056C11 = 272870361033918C00056C11 /* PBXTextBookmark */;
+			272870371033918C00056C11 = 272870371033918C00056C11 /* PBXTextBookmark */;
+			2728704410339B3100056C11 = 2728704410339B3100056C11 /* PBXTextBookmark */;
+			2728704510339B3100056C11 = 2728704510339B3100056C11 /* PBXTextBookmark */;
+			2728704610339B3100056C11 = 2728704610339B3100056C11 /* PBXTextBookmark */;
+			2728704E10339ECE00056C11 = 2728704E10339ECE00056C11 /* PBXTextBookmark */;
+			2728704F10339ECE00056C11 = 2728704F10339ECE00056C11 /* PBXTextBookmark */;
+			2728705010339ECE00056C11 = 2728705010339ECE00056C11 /* PBXTextBookmark */;
+			2728705A10339F6000056C11 = 2728705A10339F6000056C11 /* PBXTextBookmark */;
+			272870611033A01C00056C11 = 272870611033A01C00056C11 /* PBXTextBookmark */;
+			272870621033A01C00056C11 = 272870621033A01C00056C11 /* PBXTextBookmark */;
+			272870701033A4EB00056C11 = 272870701033A4EB00056C11 /* PBXTextBookmark */;
+			272870711033A4EB00056C11 = 272870711033A4EB00056C11 /* PBXTextBookmark */;
+			272870A81033B18300056C11 = 272870A81033B18300056C11 /* PBXTextBookmark */;
+			272870A91033B18300056C11 = 272870A91033B18300056C11 /* PBXTextBookmark */;
+			272870AA1033B18300056C11 = 272870AA1033B18300056C11 /* PBXTextBookmark */;
+			272870AB1033B18300056C11 = 272870AB1033B18300056C11 /* PBXTextBookmark */;
+			272870AC1033B18300056C11 = 272870AC1033B18300056C11 /* PBXTextBookmark */;
+			272870AD1033B18300056C11 = 272870AD1033B18300056C11 /* PBXTextBookmark */;
+			272870AE1033B18300056C11 = 272870AE1033B18300056C11 /* PBXTextBookmark */;
+			272870AF1033B18300056C11 = 272870AF1033B18300056C11 /* PBXTextBookmark */;
+			272870B01033B18300056C11 = 272870B01033B18300056C11 /* PBXTextBookmark */;
+			272870B11033B18300056C11 = 272870B11033B18300056C11 /* PBXTextBookmark */;
+			272870B21033B18300056C11 = 272870B21033B18300056C11 /* PBXTextBookmark */;
+			272870B31033B18300056C11 = 272870B31033B18300056C11 /* PBXTextBookmark */;
+			272870B41033B18300056C11 = 272870B41033B18300056C11 /* PBXTextBookmark */;
+			272870B51033B18300056C11 = 272870B51033B18300056C11 /* PBXTextBookmark */;
+			272870B61033B18300056C11 = 272870B61033B18300056C11 /* PBXTextBookmark */;
+			272870B71033B18300056C11 = 272870B71033B18300056C11 /* PBXTextBookmark */;
+			272870B81033B18300056C11 = 272870B81033B18300056C11 /* PBXTextBookmark */;
+			272870B91033B18300056C11 = 272870B91033B18300056C11 /* PBXTextBookmark */;
+			272870BA1033B18300056C11 = 272870BA1033B18300056C11 /* PBXTextBookmark */;
+			272870BB1033B18300056C11 = 272870BB1033B18300056C11 /* PBXTextBookmark */;
+			272870C01033B1DC00056C11 = 272870C01033B1DC00056C11 /* PBXTextBookmark */;
+			272870C11033B1DC00056C11 = 272870C11033B1DC00056C11 /* PBXTextBookmark */;
+			272870D01033B5B100056C11 = 272870D01033B5B100056C11 /* PBXTextBookmark */;
+			272870D21033B5B100056C11 = 272870D21033B5B100056C11 /* PBXTextBookmark */;
+			272870D31033B5B100056C11 = 272870D31033B5B100056C11 /* PBXTextBookmark */;
+			272870D41033B5B100056C11 = 272870D41033B5B100056C11 /* PBXTextBookmark */;
+			272870D51033B5B100056C11 = 272870D51033B5B100056C11 /* PBXTextBookmark */;
+			272870D61033B5B100056C11 = 272870D61033B5B100056C11 /* PBXTextBookmark */;
+			272870E91033CAE400056C11 = 272870E91033CAE400056C11 /* PBXTextBookmark */;
+			272870EA1033CAE400056C11 = 272870EA1033CAE400056C11 /* PBXTextBookmark */;
+			272870EC1033CAE400056C11 = 272870EC1033CAE400056C11 /* PBXTextBookmark */;
+			272870ED1033CAE400056C11 = 272870ED1033CAE400056C11 /* PBXTextBookmark */;
+			272870EE1033CAE400056C11 = 272870EE1033CAE400056C11 /* PBXTextBookmark */;
+			272870EF1033CAE400056C11 = 272870EF1033CAE400056C11 /* PBXTextBookmark */;
+			272870F01033CAE400056C11 = 272870F01033CAE400056C11 /* PBXTextBookmark */;
+			27287152103465F200056C11 = 27287152103465F200056C11 /* PBXTextBookmark */;
+			27287153103465F200056C11 = 27287153103465F200056C11 /* PBXTextBookmark */;
+			27287154103465F200056C11 = 27287154103465F200056C11 /* PBXTextBookmark */;
+			27287155103465F200056C11 = 27287155103465F200056C11 /* PBXTextBookmark */;
+			27287156103465F200056C11 = 27287156103465F200056C11 /* PBXTextBookmark */;
+			27287157103465F200056C11 = 27287157103465F200056C11 /* PBXTextBookmark */;
+			27287158103465F200056C11 = 27287158103465F200056C11 /* PBXTextBookmark */;
+			27287159103465F200056C11 = 27287159103465F200056C11 /* PBXTextBookmark */;
+			2728715A103465F200056C11 = 2728715A103465F200056C11 /* PBXTextBookmark */;
+			2728715B103465F200056C11 = 2728715B103465F200056C11 /* PBXTextBookmark */;
+			2728715C103465F200056C11 = 2728715C103465F200056C11 /* PBXTextBookmark */;
+			272871771034722A00056C11 = 272871771034722A00056C11 /* PBXTextBookmark */;
+			2747A8391031F47D00416FDE = 2747A8391031F47D00416FDE /* PBXTextBookmark */;
+			276D19C0103279E800317A39 = 276D19C0103279E800317A39 /* PBXTextBookmark */;
+			276D19C5103279E800317A39 = 276D19C5103279E800317A39 /* PBXTextBookmark */;
+			276D19CB103279E800317A39 = 276D19CB103279E800317A39 /* PBXTextBookmark */;
+			276D19CE103279E800317A39 = 276D19CE103279E800317A39 /* PBXTextBookmark */;
+			279F622C1034C859000830AC /* PBXTextBookmark */ = 279F622C1034C859000830AC /* PBXTextBookmark */;
+			279F622D1034C859000830AC /* PBXTextBookmark */ = 279F622D1034C859000830AC /* PBXTextBookmark */;
+			279F622E1034C859000830AC /* PBXTextBookmark */ = 279F622E1034C859000830AC /* PBXTextBookmark */;
+			279F622F1034C859000830AC /* PBXTextBookmark */ = 279F622F1034C859000830AC /* PBXTextBookmark */;
+			279F62301034C859000830AC /* PBXTextBookmark */ = 279F62301034C859000830AC /* PBXTextBookmark */;
+			279F62311034C859000830AC /* PBXTextBookmark */ = 279F62311034C859000830AC /* PBXTextBookmark */;
+			279F62321034C859000830AC /* PBXTextBookmark */ = 279F62321034C859000830AC /* PBXTextBookmark */;
+			279F62331034C859000830AC /* PBXTextBookmark */ = 279F62331034C859000830AC /* PBXTextBookmark */;
+			279F62341034C859000830AC /* PBXTextBookmark */ = 279F62341034C859000830AC /* PBXTextBookmark */;
+			279F62351034C859000830AC /* PBXTextBookmark */ = 279F62351034C859000830AC /* PBXTextBookmark */;
+			279F62361034C859000830AC /* PBXTextBookmark */ = 279F62361034C859000830AC /* PBXTextBookmark */;
+			279F62371034C859000830AC /* PBXTextBookmark */ = 279F62371034C859000830AC /* PBXTextBookmark */;
+			279F62381034C859000830AC /* PBXTextBookmark */ = 279F62381034C859000830AC /* PBXTextBookmark */;
+			279F62391034C859000830AC /* PBXTextBookmark */ = 279F62391034C859000830AC /* PBXTextBookmark */;
+			279F623A1034C859000830AC /* PBXTextBookmark */ = 279F623A1034C859000830AC /* PBXTextBookmark */;
+			279F623B1034C859000830AC /* PBXTextBookmark */ = 279F623B1034C859000830AC /* PBXTextBookmark */;
+			279F623C1034C859000830AC /* PBXTextBookmark */ = 279F623C1034C859000830AC /* PBXTextBookmark */;
+			279F623D1034C859000830AC /* PBXTextBookmark */ = 279F623D1034C859000830AC /* PBXTextBookmark */;
+			27B5750E102A253E00DBE436 = 27B5750E102A253E00DBE436 /* PlistBookmark */;
+			27B5750F102A253E00DBE436 = 27B5750F102A253E00DBE436 /* PBXTextBookmark */;
+			27B57510102A253E00DBE436 = 27B57510102A253E00DBE436 /* PBXTextBookmark */;
+			27D5088E102FB4BB00864925 = 27D5088E102FB4BB00864925 /* PBXTextBookmark */;
+			27D50892102FB4BB00864925 = 27D50892102FB4BB00864925 /* PBXTextBookmark */;
+			27D94CDB10347AC10034702B = 27D94CDB10347AC10034702B /* PBXTextBookmark */;
+			27D94CDC10347AC10034702B = 27D94CDC10347AC10034702B /* PBXTextBookmark */;
+			27D94CDD10347AC10034702B = 27D94CDD10347AC10034702B /* PBXTextBookmark */;
+			27D94CDE10347AC10034702B = 27D94CDE10347AC10034702B /* PBXTextBookmark */;
+			27D94CE610347B3A0034702B = 27D94CE610347B3A0034702B /* PBXTextBookmark */;
+			27D94CE710347B3A0034702B = 27D94CE710347B3A0034702B /* PBXTextBookmark */;
+			27D94CE810347B3A0034702B = 27D94CE810347B3A0034702B /* PBXTextBookmark */;
+			27D94CE910347B3A0034702B = 27D94CE910347B3A0034702B /* PBXTextBookmark */;
+			27D94CEA10347B3A0034702B = 27D94CEA10347B3A0034702B /* PBXTextBookmark */;
+			27D94CEB10347B3A0034702B = 27D94CEB10347B3A0034702B /* PBXTextBookmark */;
+			27D94CEC10347B3A0034702B = 27D94CEC10347B3A0034702B /* PBXTextBookmark */;
+			27D94D02103483D10034702B = 27D94D02103483D10034702B /* PBXTextBookmark */;
+			27D94D03103483D10034702B = 27D94D03103483D10034702B /* PBXTextBookmark */;
+			27D94D04103483D10034702B = 27D94D04103483D10034702B /* PBXTextBookmark */;
+			27D94D05103483D10034702B = 27D94D05103483D10034702B /* PBXTextBookmark */;
+			27D94D06103483D10034702B = 27D94D06103483D10034702B /* PBXTextBookmark */;
+			27D94D191034881C0034702B = 27D94D191034881C0034702B /* PBXTextBookmark */;
+			27D94D1A1034881C0034702B = 27D94D1A1034881C0034702B /* PBXTextBookmark */;
+			27D94D1B1034881C0034702B = 27D94D1B1034881C0034702B /* PBXTextBookmark */;
+			27D94D1C1034881C0034702B = 27D94D1C1034881C0034702B /* PBXTextBookmark */;
+			27D94D1D1034881C0034702B = 27D94D1D1034881C0034702B /* PBXTextBookmark */;
+			27D94D1E1034881C0034702B = 27D94D1E1034881C0034702B /* PBXTextBookmark */;
+			27D94D1F1034881C0034702B = 27D94D1F1034881C0034702B /* PBXTextBookmark */;
+			27D94D201034881C0034702B = 27D94D201034881C0034702B /* PBXTextBookmark */;
+			27D94D211034881C0034702B = 27D94D211034881C0034702B /* PBXTextBookmark */;
+			27D94D221034881C0034702B = 27D94D221034881C0034702B /* PBXTextBookmark */;
+			27D94D231034881C0034702B = 27D94D231034881C0034702B /* PBXTextBookmark */;
+			27D94D2D103489030034702B = 27D94D2D103489030034702B /* PBXTextBookmark */;
+			27D94D2E103489030034702B = 27D94D2E103489030034702B /* PBXTextBookmark */;
+			27D94D2F103489030034702B = 27D94D2F103489030034702B /* PBXTextBookmark */;
+			27D94D30103489030034702B = 27D94D30103489030034702B /* PBXTextBookmark */;
+			27D94D31103489030034702B = 27D94D31103489030034702B /* PBXTextBookmark */;
+			27D94D32103489030034702B = 27D94D32103489030034702B /* PBXTextBookmark */;
+			27D94D33103489030034702B = 27D94D33103489030034702B /* PBXTextBookmark */;
+			27D94D34103489030034702B = 27D94D34103489030034702B /* PBXTextBookmark */;
+			27D94D35103489030034702B = 27D94D35103489030034702B /* PBXTextBookmark */;
+			27D94D36103489030034702B = 27D94D36103489030034702B /* PBXTextBookmark */;
+			27D94D37103489030034702B = 27D94D37103489030034702B /* PBXTextBookmark */;
+			27D94D38103489030034702B = 27D94D38103489030034702B /* PBXTextBookmark */;
+			27D94D39103489030034702B = 27D94D39103489030034702B /* PBXTextBookmark */;
+			27D94D4510348AAE0034702B = 27D94D4510348AAE0034702B /* PBXTextBookmark */;
+			27D94D4610348AAE0034702B = 27D94D4610348AAE0034702B /* PBXTextBookmark */;
+			27D94D4710348AAE0034702B = 27D94D4710348AAE0034702B /* PBXTextBookmark */;
+			27D94D4910348ACA0034702B = 27D94D4910348ACA0034702B /* PBXTextBookmark */;
+			27D94D4A10348ACA0034702B = 27D94D4A10348ACA0034702B /* PBXTextBookmark */;
+			27D94D4C10348AD40034702B = 27D94D4C10348AD40034702B /* PBXTextBookmark */;
+			27D94D4D10348AD40034702B = 27D94D4D10348AD40034702B /* PBXTextBookmark */;
+			27D94D4E10348AD40034702B = 27D94D4E10348AD40034702B /* PBXTextBookmark */;
+			27D94D4F10348AD40034702B = 27D94D4F10348AD40034702B /* PBXTextBookmark */;
+			27D94D5010348AD40034702B = 27D94D5010348AD40034702B /* PBXTextBookmark */;
+			27D94D5110348AD40034702B = 27D94D5110348AD40034702B /* PBXTextBookmark */;
+			27D94D5210348AD40034702B = 27D94D5210348AD40034702B /* PBXTextBookmark */;
+			27D94D5310348AD40034702B = 27D94D5310348AD40034702B /* PBXTextBookmark */;
+			27D94D5810348B010034702B = 27D94D5810348B010034702B /* PBXTextBookmark */;
+			27D94D5E10348B4F0034702B = 27D94D5E10348B4F0034702B /* PBXTextBookmark */;
+			27D94D5F10348B4F0034702B = 27D94D5F10348B4F0034702B /* PBXTextBookmark */;
+			27D94D6010348B4F0034702B = 27D94D6010348B4F0034702B /* PBXTextBookmark */;
+			27D94D6110348B4F0034702B = 27D94D6110348B4F0034702B /* PBXTextBookmark */;
+			27D94D6210348B4F0034702B = 27D94D6210348B4F0034702B /* PBXTextBookmark */;
+			27D94D6310348B4F0034702B = 27D94D6310348B4F0034702B /* PBXTextBookmark */;
+			27D94D6410348B4F0034702B = 27D94D6410348B4F0034702B /* PBXTextBookmark */;
+			27D94D6710348B7A0034702B = 27D94D6710348B7A0034702B /* PBXTextBookmark */;
+			27D94D731034AE080034702B = 27D94D731034AE080034702B /* PBXTextBookmark */;
+			27D94D741034AE080034702B = 27D94D741034AE080034702B /* PBXTextBookmark */;
+			27D94D751034AE080034702B = 27D94D751034AE080034702B /* PBXTextBookmark */;
+			27D94D761034AE080034702B = 27D94D761034AE080034702B /* PBXTextBookmark */;
+			27D94D771034AE080034702B = 27D94D771034AE080034702B /* PBXTextBookmark */;
+			27D94D781034AE080034702B = 27D94D781034AE080034702B /* PBXTextBookmark */;
+			27D94D791034AE0F0034702B = 27D94D791034AE0F0034702B /* PBXTextBookmark */;
+			27D94D7A1034AE0F0034702B = 27D94D7A1034AE0F0034702B /* PBXTextBookmark */;
+			27D94D7B1034AE0F0034702B = 27D94D7B1034AE0F0034702B /* PBXTextBookmark */;
+			27D94D7C1034AE0F0034702B = 27D94D7C1034AE0F0034702B /* PBXTextBookmark */;
+			27D94D7D1034AE0F0034702B = 27D94D7D1034AE0F0034702B /* PBXTextBookmark */;
+			27D94D7E1034AE0F0034702B = 27D94D7E1034AE0F0034702B /* PBXTextBookmark */;
+			27D94D811034AE130034702B = 27D94D811034AE130034702B /* PBXTextBookmark */;
+			27D94D921034B3B00034702B = 27D94D921034B3B00034702B /* PBXTextBookmark */;
+			27D94D931034B3B00034702B = 27D94D931034B3B00034702B /* PBXTextBookmark */;
+			27D94D941034B3B00034702B = 27D94D941034B3B00034702B /* PBXTextBookmark */;
+			27D94D951034B3B00034702B = 27D94D951034B3B00034702B /* PBXTextBookmark */;
+			27D94D961034B3B00034702B = 27D94D961034B3B00034702B /* PBXTextBookmark */;
+			27D94D971034B3B00034702B = 27D94D971034B3B00034702B /* PBXTextBookmark */;
+			27D94D981034B3B00034702B = 27D94D981034B3B00034702B /* PBXTextBookmark */;
+			27D94D991034B3B00034702B = 27D94D991034B3B00034702B /* PBXTextBookmark */;
+			27D94D9A1034B3B00034702B = 27D94D9A1034B3B00034702B /* PBXTextBookmark */;
+			27D94D9B1034B3B00034702B = 27D94D9B1034B3B00034702B /* PBXTextBookmark */;
+			27D94D9C1034B3B00034702B = 27D94D9C1034B3B00034702B /* PBXTextBookmark */;
+			27D94D9D1034B3B00034702B = 27D94D9D1034B3B00034702B /* PBXTextBookmark */;
+			27D94DAC1034BE090034702B = 27D94DAC1034BE090034702B /* PBXTextBookmark */;
+		};
+		sourceControlManager = 27B574FB102A1FC100DBE436 /* Source Control */;
+		userBookmarkGroup = 276D1589103245CE00317A39 /* PBXBookmarkGroup */;
+		userBuildSettings = {
+		};
+	};
+	1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 3346}}";
+			sepNavSelRange = "{944, 39}";
+			sepNavVisRange = "{324, 917}";
+			sepNavWindowFrame = "{{15, -5}, {750, 778}}";
+		};
+	};
+	1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {972, 2142}}";
+			sepNavSelRange = "{4807, 0}";
+			sepNavVisRange = "{3689, 827}";
+		};
+	};
+	27286F1E1033718400056C11 /* PatchedAppleAzaliaAudio */ = {
+		activeExec = 0;
+	};
+	27286F45103373E100056C11 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			OSBundleLibraries,
+		);
+		name = /Users/meklort/Documents/patchedAppleHDA/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27286F46103373E100056C11 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 27286F201033718400056C11 /* PatchedAppleAzaliaAudio-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			OSBundleLibraries,
+			com.apple.iokit.IOAudioFamily,
+		);
+		name = "/Users/meklort/Documents/patchedAppleHDA/PatchedAppleAzaliaAudio-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27286F49103373E100056C11 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			IOKitPersonalities,
+			"Azalia Audio Driver",
+			IOClass,
+		);
+		name = /Users/meklort/Documents/patchedAppleHDA/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27286F4A103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */;
+		name = "AppleAzaliaAudioDriver.h: 32";
+		rLen = 0;
+		rLoc = 1095;
+		rType = 0;
+		vrLen = 1255;
+		vrLoc = 360;
+	};
+	27286F4B103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 23";
+		rLen = 0;
+		rLoc = 415;
+		rType = 0;
+		vrLen = 895;
+		vrLoc = 0;
+	};
+	27286F4C103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 983;
+		vrLoc = 695;
+	};
+	27286F4D103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 6";
+		rLen = 0;
+		rLoc = 399;
+		rType = 0;
+		vrLen = 1527;
+		vrLoc = 0;
+	};
+	27286F4E103373E100056C11 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			IOKitPersonalities,
+			"Azalia Audio Driver",
+			SampleOffsetPad,
+		);
+		name = /Users/meklort/Documents/patchedAppleHDA/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27286F4F103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */;
+		name = "patchedAppleHDA.h: 23";
+		rLen = 39;
+		rLoc = 944;
+		rType = 0;
+		vrLen = 1132;
+		vrLoc = 0;
+	};
+	27286F50103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	27286F51103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 23";
+		rLen = 0;
+		rLoc = 415;
+		rType = 0;
+		vrLen = 895;
+		vrLoc = 0;
+	};
+	27286F52103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */;
+		name = "AppleAzaliaAudioDriver.h: 32";
+		rLen = 0;
+		rLoc = 1095;
+		rType = 0;
+		vrLen = 1255;
+		vrLoc = 360;
+	};
+	27286F53103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 23";
+		rLen = 0;
+		rLoc = 415;
+		rType = 0;
+		vrLen = 895;
+		vrLoc = 0;
+	};
+	27286F54103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 6";
+		rLen = 0;
+		rLoc = 399;
+		rType = 0;
+		vrLen = 1527;
+		vrLoc = 0;
+	};
+	27286F55103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 983;
+		vrLoc = 695;
+	};
+	27286F56103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 6";
+		rLen = 0;
+		rLoc = 399;
+		rType = 0;
+		vrLen = 1527;
+		vrLoc = 0;
+	};
+	27286F57103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 983;
+		vrLoc = 695;
+	};
+	27286F58103373E100056C11 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			OSBundleLibraries,
+		);
+		name = /Users/meklort/Documents/patchedAppleHDA/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27286F59103373E100056C11 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 27286F201033718400056C11 /* PatchedAppleAzaliaAudio-Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			OSBundleLibraries,
+			com.apple.iokit.IOAudioFamily,
+		);
+		name = "/Users/meklort/Documents/patchedAppleHDA/PatchedAppleAzaliaAudio-Info.plist";
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27286F5A103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 272;
+	};
+	27286F5B103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 36";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 1040;
+		vrLoc = 330;
+	};
+	27286F5C103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 896;
+		vrLoc = 1047;
+	};
+	27286F5D103373E100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 36";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 1040;
+		vrLoc = 330;
+	};
+	27286F7210337A0800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 651;
+		vrLoc = 1355;
+	};
+	27286F7310337A0800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 91";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 815;
+		vrLoc = 3604;
+	};
+	27286F7410337A0800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 36";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 1040;
+		vrLoc = 330;
+	};
+	27286F7510337A0800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 704;
+		vrLoc = 1302;
+	};
+	27286F7610337A0800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 6";
+		rLen = 0;
+		rLoc = 399;
+		rType = 0;
+		vrLen = 1527;
+		vrLoc = 0;
+	};
+	27286F8B10337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 65";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1015;
+		vrLoc = 463;
+	};
+	27286F8C10337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 15";
+		rLen = 0;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 893;
+		vrLoc = 0;
+	};
+	27286F8D10337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 88";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1388;
+		vrLoc = 2216;
+	};
+	27286F8E10337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	27286F8F10337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 65";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1012;
+		vrLoc = 466;
+	};
+	27286F9010337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 15";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 897;
+		vrLoc = 0;
+	};
+	27286F9110337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 43";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1201;
+		vrLoc = 342;
+	};
+	27286F9210337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 125";
+		rLen = 35;
+		rLoc = 3465;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 3596;
+	};
+	27286F9310337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 100";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27286F9410337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 132";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 815;
+		vrLoc = 3604;
+	};
+	27286F9510337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	27286F9610337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 132";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 823;
+		vrLoc = 3596;
+	};
+	27286F9710337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 99";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 180;
+		vrLoc = 1826;
+	};
+	27286F9810337FD500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 120";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 851;
+		vrLoc = 3567;
+	};
+	27286FAC103382FB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 40";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 501;
+		vrLoc = 1505;
+	};
+	27286FAD103382FB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 99";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1350;
+		vrLoc = 2305;
+	};
+	27286FAE103382FB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 35";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 762;
+	};
+	27286FAF103382FB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 102";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1350;
+		vrLoc = 2305;
+	};
+	27286FB4103384AB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 46";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1044;
+		vrLoc = 762;
+	};
+	27286FB5103384AB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 6";
+		rLen = 0;
+		rLoc = 399;
+		rType = 0;
+		vrLen = 876;
+		vrLoc = 3886;
+	};
+	27286FC21033871300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 28";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 463;
+	};
+	27286FC31033871300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 6";
+		rLen = 0;
+		rLoc = 399;
+		rType = 0;
+		vrLen = 839;
+		vrLoc = 3886;
+	};
+	27286FC41033871300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 16";
+		rLen = 0;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 890;
+		vrLoc = 0;
+	};
+	27286FC51033871300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 28";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 463;
+	};
+	27286FC61033871300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 38";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 987;
+		vrLoc = 267;
+	};
+	27286FCE103387D100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 93";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 119;
+		vrLoc = 1887;
+	};
+	27286FCF103387D100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 16";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 988;
+		vrLoc = 267;
+	};
+	27286FE21033898500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 126";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27286FE31033898500056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 38";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 992;
+		vrLoc = 267;
+	};
+	27286FEE103389F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 29";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1205;
+		vrLoc = 453;
+	};
+	27286FEF103389F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 952;
+		vrLoc = 56;
+	};
+	27286FF0103389F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 127";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27286FF1103389F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 39";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 1062;
+		vrLoc = 419;
+	};
+	2728700110338B4000056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 95";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2728700210338B4000056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 102";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1360;
+		vrLoc = 2118;
+	};
+	2728701910338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */;
+		name = "patchedAppleHDA.h: 23";
+		rLen = 39;
+		rLoc = 944;
+		rType = 0;
+		vrLen = 917;
+		vrLoc = 324;
+	};
+	2728701F10338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 46";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1125;
+		vrLoc = 540;
+	};
+	2728702010338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */;
+		name = "patchedAppleHDA.h: 23";
+		rLen = 39;
+		rLoc = 944;
+		rType = 0;
+		vrLen = 917;
+		vrLoc = 324;
+	};
+	2728702110338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 90";
+		rLen = 19;
+		rLoc = 3069;
+		rType = 0;
+		vrLen = 1073;
+		vrLoc = 2898;
+	};
+	2728702210338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 44";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 858;
+		vrLoc = 0;
+	};
+	2728702310338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */;
+		name = "AppleAzaliaAudioDriver.h: 23";
+		rLen = 19;
+		rLoc = 629;
+		rType = 0;
+		vrLen = 1255;
+		vrLoc = 360;
+	};
+	2728702410338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 46";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 1124;
+		vrLoc = 540;
+	};
+	2728702510338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 90";
+		rLen = 19;
+		rLoc = 3069;
+		rType = 0;
+		vrLen = 1073;
+		vrLoc = 2898;
+	};
+	2728702610338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 102";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 3478;
+	};
+	2728702710338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 100";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2728702810338F9800056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 44";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1093;
+		vrLoc = 630;
+	};
+	272870331033918C00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */;
+		name = "AppleAzaliaAudioDriver.h: 23";
+		rLen = 19;
+		rLoc = 629;
+		rType = 0;
+		vrLen = 1202;
+		vrLoc = 413;
+	};
+	272870351033918C00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 102";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870361033918C00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 44";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1092;
+		vrLoc = 631;
+	};
+	272870371033918C00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */;
+		name = "AppleAzaliaAudioDriver.h: 23";
+		rLen = 19;
+		rLoc = 629;
+		rType = 0;
+		vrLen = 1202;
+		vrLoc = 413;
+	};
+	2728704410339B3100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 100";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2728704510339B3100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 90";
+		rLen = 19;
+		rLoc = 3069;
+		rType = 0;
+		vrLen = 1073;
+		vrLoc = 2898;
+	};
+	2728704610339B3100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 42";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1096;
+		vrLoc = 745;
+	};
+	2728704E10339ECE00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 96";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2728704F10339ECE00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 90";
+		rLen = 1016;
+		rLoc = 3037;
+		rType = 0;
+		vrLen = 831;
+		vrLoc = 3692;
+	};
+	2728705010339ECE00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 112";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2728705A10339F6000056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 28";
+		rLen = 0;
+		rLoc = 478;
+		rType = 0;
+		vrLen = 984;
+		vrLoc = 199;
+	};
+	272870611033A01C00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 91";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870621033A01C00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 42";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 1091;
+		vrLoc = 449;
+	};
+	272870701033A4EB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 197";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870711033A4EB00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 85";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1392;
+		vrLoc = 2216;
+	};
+	272870A81033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 133";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870A91033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 85";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1228;
+		vrLoc = 2620;
+	};
+	272870AA1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 111";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870AB1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 109";
+		rLen = 0;
+		rLoc = 3715;
+		rType = 0;
+		vrLen = 1030;
+		vrLoc = 3004;
+	};
+	272870AC1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 105";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870AD1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 101";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 996;
+		vrLoc = 1219;
+	};
+	272870AE1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 78";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 191;
+		vrLoc = 1815;
+	};
+	272870AF1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 136";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1114;
+		vrLoc = 3030;
+	};
+	272870B01033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 78";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 447;
+		vrLoc = 1559;
+	};
+	272870B11033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 975;
+		vrLoc = 3;
+	};
+	272870B21033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 124";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870B31033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 0;
+	};
+	272870B41033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 124";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870B51033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 25";
+		rLen = 9;
+		rLoc = 362;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 0;
+	};
+	272870B61033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 124";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870B71033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 927;
+		vrLoc = 0;
+	};
+	272870B81033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 124";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870B91033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 934;
+		vrLoc = 0;
+	};
+	272870BA1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 110";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870BB1033B18300056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 10";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 830;
+		vrLoc = 0;
+	};
+	272870C01033B1DC00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 130";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870C11033B1DC00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 79";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1049;
+		vrLoc = 1726;
+	};
+	272870D01033B5B100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 109";
+		rLen = 0;
+		rLoc = 3715;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 3322;
+	};
+	272870D21033B5B100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 93";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870D31033B5B100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 109";
+		rLen = 0;
+		rLoc = 3715;
+		rType = 0;
+		vrLen = 1000;
+		vrLoc = 3034;
+	};
+	272870D41033B5B100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 79";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 751;
+		vrLoc = 3780;
+	};
+	272870D51033B5B100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 93";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870D61033B5B100056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 109";
+		rLen = 0;
+		rLoc = 3715;
+		rType = 0;
+		vrLen = 1026;
+		vrLoc = 3322;
+	};
+	272870E91033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 43";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 299;
+	};
+	272870EA1033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	272870EC1033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 185";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870ED1033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 79";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1031;
+		vrLoc = 1222;
+	};
+	272870EE1033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 180";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	272870EF1033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 43";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 299;
+	};
+	272870F01033CAE400056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 297;
+		rType = 0;
+		vrLen = 730;
+		vrLoc = 0;
+	};
+	27287152103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 1058;
+		vrLoc = 3138;
+	};
+	27287153103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 140";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 996;
+		vrLoc = 374;
+	};
+	27287154103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 737;
+		vrLoc = 3794;
+	};
+	27287155103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 116";
+		rLen = 0;
+		rLoc = 702;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27287156103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 124";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 1106;
+		vrLoc = 3044;
+	};
+	27287157103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27287158103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 124";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 729;
+		vrLoc = 3802;
+	};
+	27287159103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 120";
+		rLen = 0;
+		rLoc = 1906;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2728715A103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 980;
+		vrLoc = 3381;
+	};
+	2728715B103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 140";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 996;
+		vrLoc = 374;
+	};
+	2728715C103465F200056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 1058;
+		vrLoc = 3138;
+	};
+	272871771034722A00056C11 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 117";
+		rLen = 83;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	2747A81B1031F38800416FDE /* AppleHDADriver.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 994}}";
+			sepNavSelRange = "{88, 0}";
+			sepNavVisRange = "{0, 1370}";
+			sepNavWindowFrame = "{{15, -5}, {750, 778}}";
+		};
+	};
+	2747A8391031F47D00416FDE /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2747A81B1031F38800416FDE /* AppleHDADriver.h */;
+		name = "AppleHDADriver.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 1486;
+		vrLoc = 0;
+	};
+	276D1589103245CE00317A39 /* PBXBookmarkGroup */ = {
+		isa = PBXBookmarkGroup;
+		children = (
+			276D19A91032716100317A39 /* PBXTextBookmark */,
+		);
+		name = Root;
+	};
+	276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 686}}";
+			sepNavSelRange = "{629, 19}";
+			sepNavVisRange = "{413, 1202}";
+		};
+	};
+	276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 469}}";
+			sepNavSelRange = "{371, 0}";
+			sepNavVisRange = "{0, 559}";
+		};
+	};
+	276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 980}}";
+			sepNavSelRange = "{1875, 0}";
+			sepNavVisRange = "{301, 988}";
+		};
+	};
+	276D19A91032716100317A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = dispatchPowerStateToEngines;
+		rLen = 0;
+		rLoc = 415;
+		rType = 0;
+		vrLen = 984;
+		vrLoc = 378;
+	};
+	276D19C0103279E800317A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2747A81B1031F38800416FDE /* AppleHDADriver.h */;
+		name = "AppleHDADriver.h: 4";
+		rLen = 0;
+		rLoc = 88;
+		rType = 0;
+		vrLen = 1370;
+		vrLoc = 0;
+	};
+	276D19C5103279E800317A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D1590103245EE00317A39 /* AppleAzaliaAudioDriver.h */;
+		name = "AppleAzaliaAudioDriver.h: 133";
+		rLen = 23;
+		rLoc = 767;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 1615;
+	};
+	276D19CB103279E800317A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 164;
+		vrLoc = 0;
+	};
+	276D19CE103279E800317A39 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 11";
+		rLen = 0;
+		rLoc = 39;
+		rType = 0;
+		vrLen = 1085;
+		vrLoc = 219;
+	};
+	279F622C1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 152";
+		rLen = 0;
+		rLoc = 4807;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 3689;
+	};
+	279F622D1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 25";
+		rLen = 0;
+		rLoc = 420;
+		rType = 0;
+		vrLen = 596;
+		vrLoc = 0;
+	};
+	279F622E1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 42";
+		rLen = 0;
+		rLoc = 1214;
+		rType = 0;
+		vrLen = 1034;
+		vrLoc = 595;
+	};
+	279F622F1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 69";
+		rLen = 0;
+		rLoc = 1999;
+		rType = 0;
+		vrLen = 1130;
+		vrLoc = 409;
+	};
+	279F62301034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 61";
+		rLen = 0;
+		rLoc = 1904;
+		rType = 0;
+		vrLen = 1090;
+		vrLoc = 961;
+	};
+	279F62311034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 50";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 0;
+	};
+	279F62321034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 152";
+		rLen = 0;
+		rLoc = 4807;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 3689;
+	};
+	279F62331034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 59";
+		rLen = 11;
+		rLoc = 1838;
+		rType = 0;
+		vrLen = 973;
+		vrLoc = 1079;
+	};
+	279F62341034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 125";
+		rLen = 0;
+		rLoc = 2745;
+		rType = 0;
+		vrLen = 1376;
+		vrLoc = 2284;
+	};
+	279F62351034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 152";
+		rLen = 0;
+		rLoc = 4807;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 3689;
+	};
+	279F62361034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 120";
+		rLen = 0;
+		rLoc = 2682;
+		rType = 0;
+		vrLen = 1037;
+		vrLoc = 3069;
+	};
+	279F62371034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 69";
+		rLen = 0;
+		rLoc = 1999;
+		rType = 0;
+		vrLen = 1131;
+		vrLoc = 408;
+	};
+	279F62381034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 54";
+		rLen = 743;
+		rLoc = 1367;
+		rType = 0;
+		vrLen = 1196;
+		vrLoc = 1630;
+	};
+	279F62391034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 25";
+		rLen = 0;
+		rLoc = 420;
+		rType = 0;
+		vrLen = 596;
+		vrLoc = 0;
+	};
+	279F623A1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 42";
+		rLen = 0;
+		rLoc = 1214;
+		rType = 0;
+		vrLen = 1052;
+		vrLoc = 577;
+	};
+	279F623B1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 25";
+		rLen = 0;
+		rLoc = 420;
+		rType = 0;
+		vrLen = 596;
+		vrLoc = 0;
+	};
+	279F623C1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 42";
+		rLen = 0;
+		rLoc = 1214;
+		rType = 0;
+		vrLen = 1034;
+		vrLoc = 595;
+	};
+	279F623D1034C859000830AC /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 59";
+		rLen = 0;
+		rLoc = 1875;
+		rType = 0;
+		vrLen = 988;
+		vrLoc = 301;
+	};
+	27B574FB102A1FC100DBE436 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+		};
+	};
+	27B574FC102A1FC100DBE436 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	27B5750E102A253E00DBE436 /* PlistBookmark */ = {
+		isa = PlistBookmark;
+		fRef = 32D94FCF0562CBF700B6AF17 /* Info.plist */;
+		fallbackIsa = PBXBookmark;
+		isK = 0;
+		kPath = (
+			IOKitPersonalities,
+			IOClass,
+		);
+		name = /Users/meklort/Documents/patchedAppleHDA/Info.plist;
+		rLen = 0;
+		rLoc = 2147483647;
+	};
+	27B5750F102A253E00DBE436 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 9";
+		rLen = 0;
+		rLoc = 2;
+		rType = 0;
+		vrLen = 788;
+		vrLoc = 98;
+	};
+	27B57510102A253E00DBE436 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3EFF42367911CA2CB7 /* patchedAppleHDA.h */;
+		name = "patchedAppleHDA.h: 6";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 77;
+		vrLoc = 0;
+	};
+	27D50452102FAEE200864925 /* Mini9MuteControl.h */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 469}}";
+			sepNavSelRange = "{420, 0}";
+			sepNavVisRange = "{0, 596}";
+		};
+	};
+	27D50453102FAEE200864925 /* Mini9MuteControl.cpp */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {957, 1680}}";
+			sepNavSelRange = "{1214, 0}";
+			sepNavVisRange = "{595, 1034}";
+		};
+	};
+	27D5088E102FB4BB00864925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 10";
+		rLen = 0;
+		rLoc = 596;
+		rType = 0;
+		vrLen = 172;
+		vrLoc = 0;
+	};
+	27D50892102FB4BB00864925 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 189;
+		vrLoc = 0;
+	};
+	27D94CDB10347AC10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 117";
+		rLen = 83;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94CDC10347AC10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 3146;
+	};
+	27D94CDD10347AC10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 117";
+		rLen = 83;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94CDE10347AC10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 3146;
+	};
+	27D94CE610347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 109";
+		rLen = 0;
+		rLoc = 3715;
+		rType = 0;
+		vrLen = 997;
+		vrLoc = 3322;
+	};
+	27D94CE710347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 130";
+		rLen = 0;
+		rLoc = 2745;
+		rType = 0;
+		vrLen = 1175;
+		vrLoc = 2870;
+	};
+	27D94CE810347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 117";
+		rLen = 83;
+		rLoc = 1823;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94CE910347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 156";
+		rLen = 0;
+		rLoc = 3470;
+		rType = 0;
+		vrLen = 1050;
+		vrLoc = 3146;
+	};
+	27D94CEA10347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 109";
+		rLen = 0;
+		rLoc = 3715;
+		rType = 0;
+		vrLen = 997;
+		vrLoc = 3322;
+	};
+	27D94CEB10347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 130";
+		rLen = 0;
+		rLoc = 2745;
+		rType = 0;
+		vrLen = 1175;
+		vrLoc = 2870;
+	};
+	27D94CEC10347B3A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D02103483D10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 55";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 941;
+	};
+	27D94D03103483D10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D04103483D10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D05103483D10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 55";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 941;
+	};
+	27D94D06103483D10034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 187";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D191034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D1A1034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 152";
+		rLen = 0;
+		rLoc = 4807;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 3689;
+	};
+	27D94D1B1034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 141";
+		rLen = 52;
+		rLoc = 3040;
+		rType = 0;
+		vrLen = 782;
+		vrLoc = 3749;
+	};
+	27D94D1C1034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 187";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D1D1034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 55";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 784;
+		vrLoc = 3747;
+	};
+	27D94D1E1034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 152";
+		rLen = 0;
+		rLoc = 4807;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 3689;
+	};
+	27D94D1F1034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D201034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 141";
+		rLen = 52;
+		rLoc = 3040;
+		rType = 0;
+		vrLen = 782;
+		vrLoc = 3749;
+	};
+	27D94D211034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 188";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D221034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 1A224C3FFF42367911CA2CB7 /* patchedAppleHDA.cpp */;
+		name = "patchedAppleHDA.cpp: 152";
+		rLen = 0;
+		rLoc = 4807;
+		rType = 0;
+		vrLen = 827;
+		vrLoc = 3689;
+	};
+	27D94D231034881C0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 133";
+		rLen = 0;
+		rLoc = 2802;
+		rType = 0;
+		vrLen = 790;
+		vrLoc = 3741;
+	};
+	27D94D2D103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 15";
+		rLen = 0;
+		rLoc = 263;
+		rType = 0;
+		vrLen = 789;
+		vrLoc = 0;
+	};
+	27D94D2E103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 511;
+		vrLoc = 1495;
+	};
+	27D94D2F103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 0;
+	};
+	27D94D30103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 47";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 968;
+		vrLoc = 466;
+	};
+	27D94D31103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 68";
+		rLen = 0;
+		rLoc = 960;
+		rType = 0;
+		vrLen = 507;
+		vrLoc = 1499;
+	};
+	27D94D32103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 47";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 901;
+		vrLoc = 603;
+	};
+	27D94D33103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 79";
+		rLen = 0;
+		rLoc = 960;
+		rType = 0;
+		vrLen = 507;
+		vrLoc = 1499;
+	};
+	27D94D34103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 19";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 844;
+		vrLoc = 0;
+	};
+	27D94D35103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 994;
+		vrLoc = 0;
+	};
+	27D94D36103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 930;
+		vrLoc = 0;
+	};
+	27D94D37103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 15";
+		rLen = 0;
+		rLoc = 263;
+		rType = 0;
+		vrLen = 789;
+		vrLoc = 0;
+	};
+	27D94D38103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 1";
+		rLen = 0;
+		rLoc = 0;
+		rType = 0;
+		vrLen = 511;
+		vrLoc = 1495;
+	};
+	27D94D39103489030034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 991;
+		vrLoc = 734;
+	};
+	27D94D4510348AAE0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 991;
+		vrLoc = 734;
+	};
+	27D94D4610348AAE0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 991;
+		vrLoc = 734;
+	};
+	27D94D4710348AAE0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 205";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D4910348ACA0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: ISO C++ forbids declaration of 'IOPCIDevice' with no type";
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		rLen = 0;
+		rLoc = 14;
+		rType = 1;
+	};
+	27D94D4A10348ACA0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 18";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 368;
+		vrLoc = 163;
+	};
+	27D94D4C10348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 966;
+		vrLoc = 734;
+	};
+	27D94D4D10348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 53;
+	};
+	27D94D4E10348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 205";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D4F10348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 205";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D5010348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 17";
+		rLen = 0;
+		rLoc = 406;
+		rType = 0;
+		vrLen = 966;
+		vrLoc = 734;
+	};
+	27D94D5110348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 205";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D5210348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 926;
+		vrLoc = 53;
+	};
+	27D94D5310348AD40034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 205";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D5810348B010034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 202";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D5E10348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 18";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 820;
+		vrLoc = 53;
+	};
+	27D94D5F10348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 10";
+		rLen = 0;
+		rLoc = 214;
+		rType = 0;
+		vrLen = 975;
+		vrLoc = 0;
+	};
+	27D94D6010348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 10";
+		rLen = 0;
+		rLoc = 214;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D6110348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 9";
+		rLen = 0;
+		rLoc = 163;
+		rType = 0;
+		vrLen = 822;
+		vrLoc = 53;
+	};
+	27D94D6210348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 10";
+		rLen = 0;
+		rLoc = 214;
+		rType = 0;
+		vrLen = 975;
+		vrLoc = 0;
+	};
+	27D94D6310348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 18";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 820;
+		vrLoc = 53;
+	};
+	27D94D6410348B4F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 205";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D6710348B7A0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 207";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D731034AE080034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 69";
+		rLen = 0;
+		rLoc = 960;
+		rType = 0;
+		vrLen = 378;
+		vrLoc = 1628;
+	};
+	27D94D741034AE080034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 74";
+		rLen = 0;
+		rLoc = 940;
+		rType = 0;
+		vrLen = 985;
+		vrLoc = 1728;
+	};
+	27D94D751034AE080034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 199";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D761034AE080034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 74";
+		rLen = 0;
+		rLoc = 940;
+		rType = 0;
+		vrLen = 985;
+		vrLoc = 1728;
+	};
+	27D94D771034AE080034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 69";
+		rLen = 0;
+		rLoc = 960;
+		rType = 0;
+		vrLen = 378;
+		vrLoc = 1628;
+	};
+	27D94D781034AE080034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 30";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 912;
+		vrLoc = 298;
+	};
+	27D94D791034AE0F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 18";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 163;
+	};
+	27D94D7A1034AE0F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 209;
+		rType = 0;
+		vrLen = 258;
+		vrLoc = 151;
+	};
+	27D94D7B1034AE0F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "error: 'deviceRegisters' was not declared in this scope";
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		rLen = 0;
+		rLoc = 69;
+		rType = 1;
+	};
+	27D94D7C1034AE0F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 18";
+		rLen = 0;
+		rLoc = 359;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 163;
+	};
+	27D94D7D1034AE0F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50452102FAEE200864925 /* Mini9MuteControl.h */;
+		name = "Mini9MuteControl.h: 12";
+		rLen = 20;
+		rLoc = 209;
+		rType = 0;
+		vrLen = 258;
+		vrLoc = 151;
+	};
+	27D94D7E1034AE0F0034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 207";
+		rLen = 0;
+		rLoc = 2017;
+		rType = 0;
+		vrLen = 0;
+		vrLoc = 2006;
+	};
+	27D94D811034AE130034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 30";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 912;
+		vrLoc = 298;
+	};
+	27D94D921034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 371;
+		rType = 0;
+		vrLen = 559;
+		vrLoc = 0;
+	};
+	27D94D931034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 152";
+		rLen = 0;
+		rLoc = 3464;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 3696;
+	};
+	27D94D941034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 24";
+		rLen = 0;
+		rLoc = 615;
+		rType = 0;
+		vrLen = 940;
+		vrLoc = 378;
+	};
+	27D94D951034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 30";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 958;
+		vrLoc = 91;
+	};
+	27D94D961034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 32";
+		rLen = 0;
+		rLoc = 886;
+		rType = 0;
+		vrLen = 990;
+		vrLoc = 531;
+	};
+	27D94D971034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 35";
+		rLen = 0;
+		rLoc = 557;
+		rType = 0;
+		vrLen = 865;
+		vrLoc = 3;
+	};
+	27D94D981034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 30";
+		rLen = 0;
+		rLoc = 407;
+		rType = 0;
+		vrLen = 956;
+		vrLoc = 91;
+	};
+	27D94D991034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 64";
+		rLen = 0;
+		rLoc = 1906;
+		rType = 0;
+		vrLen = 929;
+		vrLoc = 942;
+	};
+	27D94D9A1034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159A103270D200317A39 /* PatchedAppleAzaliaAudio.h */;
+		name = "PatchedAppleAzaliaAudio.h: 17";
+		rLen = 0;
+		rLoc = 371;
+		rType = 0;
+		vrLen = 559;
+		vrLoc = 0;
+	};
+	27D94D9B1034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 24";
+		rLen = 0;
+		rLoc = 615;
+		rType = 0;
+		vrLen = 940;
+		vrLoc = 378;
+	};
+	27D94D9C1034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 27D50453102FAEE200864925 /* Mini9MuteControl.cpp */;
+		name = "Mini9MuteControl.cpp: 152";
+		rLen = 0;
+		rLoc = 3464;
+		rType = 0;
+		vrLen = 835;
+		vrLoc = 3696;
+	};
+	27D94D9D1034B3B00034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 24";
+		rLen = 0;
+		rLoc = 615;
+		rType = 0;
+		vrLen = 1022;
+		vrLoc = 534;
+	};
+	27D94DAC1034BE090034702B /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 276D159B103270D200317A39 /* PatchedAppleAzaliaAudio.cpp */;
+		name = "PatchedAppleAzaliaAudio.cpp: 51";
+		rLen = 0;
+		rLoc = 1538;
+		rType = 0;
+		vrLen = 1023;
+		vrLoc = 825;
+	};
+	32D94FC30562CBF700B6AF17 /* PatchedAppleHDA */ = {
+		activeExec = 0;
+	};
+}
