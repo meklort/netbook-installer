@@ -66,7 +66,10 @@ int main(int argc, char *argv[])
 	[installer dissableHibernation:	YES];
 
 	//	[installer setRemoteCD:			YES]; // This is not possilbe when running as root.
-	[installer installBootloader: [[systemInfo bootloaderDict] objectForKey:[[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
+	
+	// Install default bootlaoder
+	
+	[installer installBootloader: 	[[[systemInfo bootloaderDict] objectForKey: @"Bootloaders"] objectForKey: [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
 	
 	// Install the gui
 	[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];

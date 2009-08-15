@@ -26,10 +26,7 @@
 }
 - (NSDictionary*) bootloaderDict
 {
-	return [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
-
-	//return bootloaderDict;
-//	return [[NSDictionary alloc]initWithDictionary: bootloaderDict copyItems: NO];
+	return bootloaderDict;
 }
 - (NSString*) extensionsFolder
 {
@@ -38,10 +35,6 @@
 
 - (NSString*) getMachineString
 {
-//	NSLog(@"%@", [self extensionsFolder]);
-
-//	NSLog(@"%@", [machineInfo objectForKey:@"Long Name"]);
-	//NSString* name = [machineInfo objectForKey:@"Long Name"];//	
 	return [machineInfo objectForKey:@"Long Name"];
 }
 
@@ -126,7 +119,7 @@
 
 - (void) determineInstallState;
 {
-	bootloaderDict = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
+	bootloaderDict =  [[NSDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
 	[self determinebootPartition];
 	[self determineMachineType];
 	
@@ -272,9 +265,8 @@
 	
 	machineInfo = nil;
 	NSLog(@"Searching for %@", [NSString stringWithCString: model]);
-	
 	while ((currentModel = [enumerator nextObject])) {
-		if([[currentModel objectForKey:@"Model Name"] isEqualToString:[NSString stringWithCString: model]])
+		if([[currentModel objectForKey:@"Model Name"] length] <= strlen(model) && [[currentModel objectForKey:@"Model Name"] isEqualToString:[[NSString stringWithCString: model] substringToIndex:[[currentModel objectForKey:@"Model Name"] length]]])
 		{
 			machineInfo = [[NSDictionary alloc] initWithDictionary:currentModel copyItems:YES];
 			break;
@@ -416,7 +408,6 @@
 {
 	// TODO: fix bug with bootloaderDict.
 //	if(!bootloaderDict) 
-		bootloaderDict = [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
 
 	NSLog(@"%@", bootloaderDict);
 	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
