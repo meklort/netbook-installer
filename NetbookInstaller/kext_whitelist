@@ -1,6 +1,5 @@
 AppleACPIPlatform.kext
 AppleAPIC.kext
-AppleDecrypt.kext
 AppleEFIRuntime.kext
 AppleHDA.kext
 AppleHPET.kext

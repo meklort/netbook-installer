@@ -26,7 +26,8 @@
 
 
 	if(![installer getAuthRef]) return;
-
+	[installer mountRamDisk];
+	
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.4
 	{
 		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
@@ -44,6 +45,7 @@
 		[installer generateExtensionsCache];
 		[installer useSystemKernel];
 	}	
+	[installer unmountRamDisk];
 	
 	[installer release];
 }

@@ -36,11 +36,11 @@
 		2725E7B20FEDAF56005869F8 /* bootMakerFiles in Resources */ = {isa = PBXBuildFile; fileRef = 2725E7B00FEDAF56005869F8 /* bootMakerFiles */; };
 		272EAD360FF7278800274B67 /* NetbookInstaller.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* NetbookInstaller.app */; };
 		272EAD450FF7FD1E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
-		272EAD4A0FF7FD1E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
 		272EAD530FF7FD7E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
 		272EAD560FF7FDA300274B67 /* bless in Resources */ = {isa = PBXBuildFile; fileRef = 272EAD4E0FF7FD5F00274B67 /* bless */; };
 		273CA9FF0FD420D30060FE60 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
 		273CAA000FD420E10060FE60 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
+		2741B26D102DFD47008876DE /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 2741B26C102DFD47008876DE /* SupportFiles */; };
 		2748C3780FEB0319000F22B8 /* dell_mini_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */; };
 		2748C3790FEB0319000F22B8 /* DellMini9.png in Resources */ = {isa = PBXBuildFile; fileRef = 661B389A0FBE6957004007B6 /* DellMini9.png */; };
 		2748C37A0FEB0319000F22B8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
@@ -172,6 +172,7 @@
 		272EAD430FF7FD1E00274B67 /* main_bless.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_bless.h; sourceTree = "<group>"; };
 		272EAD440FF7FD1E00274B67 /* main_bless.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_bless.m; sourceTree = "<group>"; };
 		272EAD4E0FF7FD5F00274B67 /* bless */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bless; sourceTree = BUILT_PRODUCTS_DIR; };
+		2741B26C102DFD47008876DE /* SupportFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SupportFiles; path = UpdateExtraSupportFiles/SupportFiles; sourceTree = "<group>"; };
 		2748C2140FEB02EB000F22B8 /* NetbookInstallerCLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookInstallerCLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookInstallerCLI-Info.plist"; sourceTree = "<group>"; };
 		2748C4A50FEB03C0000F22B8 /* main_cli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_cli.m; sourceTree = "<group>"; };
@@ -356,6 +357,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		2741B251102DFD34008876DE /* UpdateExtraSupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2741B26C102DFD47008876DE /* SupportFiles */,
+			);
+			name = UpdateExtraSupportFiles;
+			sourceTree = "<group>";
+		};
 		29B97314FDCFA39411CA2CEA /* NetbookInstaller */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,14 +389,14 @@
 			children = (
 				661B36690FBE28D0004007B6 /* checksum.h */,
 				32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-				2748C4A50FEB03C0000F22B8 /* main_cli.m */,
 				2748C58B0FEB0DF1000F22B8 /* main_cli.pch */,
 				2725E3D80FED88A8005869F8 /* main_bootmake.pch */,
-				2725E3D90FED88A8005869F8 /* main_bootmake.m */,
 				27848F220FF1ADCB00BF23A5 /* main_updateextra.pch */,
-				27848F230FF1ADCB00BF23A5 /* main_updateextra.m */,
 				272EAD430FF7FD1E00274B67 /* main_bless.h */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				2748C4A50FEB03C0000F22B8 /* main_cli.m */,
+				2725E3D90FED88A8005869F8 /* main_bootmake.m */,
+				27848F230FF1ADCB00BF23A5 /* main_updateextra.m */,
 				272EAD440FF7FD1E00274B67 /* main_bless.m */,
 			);
 			name = "Other Sources";
@@ -396,6 +405,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2741B251102DFD34008876DE /* UpdateExtraSupportFiles */,
 				A1544D2E0FFEEBBE004B05AB /* bootmaker.icns */,
 				2725E7B00FEDAF56005869F8 /* bootMakerFiles */,
 				661B38990FBE6957004007B6 /* dell_mini_icon.icns */,
@@ -628,6 +638,7 @@
 				27848F1D0FF1ACD500BF23A5 /* UpdateExtra.xib in Resources */,
 				27848F1F0FF1AD8B00BF23A5 /* UpdateExtra.icns in Resources */,
 				270AF2DF0FF443640085AD97 /* kext_whitelist in Resources */,
+				2741B26D102DFD47008876DE /* SupportFiles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,7 +745,6 @@
 				668FF75D0FC0D04C007E4E75 /* main.m in Sources */,
 				668FFD0C0FC280D8007E4E75 /* DSDTPatcher.m in Sources */,
 				27EC0B490FD7312F006740DB /* AboutWindowController.m in Sources */,
-				272EAD4A0FF7FD1E00274B67 /* main_bless.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

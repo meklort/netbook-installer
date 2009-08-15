@@ -56,7 +56,7 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(0, 0, 0)];	// Any kernel version will work
+	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 5, 0)];	// Any Leopard and beyond  (0.0.0 = no kernel required)
 //	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [volumeList selectedItem];
@@ -90,6 +90,8 @@
 	
 	// Copy the CLI and GUI installer
 	[self updateStatus:NSLocalizedString(@"Installing NetbookInstaller Applications", nil)];	
+	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstallerCLI.app"]];
+	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstallerCLI.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];

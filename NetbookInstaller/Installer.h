@@ -79,6 +79,7 @@
 - (BOOL) patchFramebufferKext;
 - (BOOL) patchIO80211kext;
 - (BOOL) patchBluetooth;
+- (BOOL) patchAppleUSBEHCI;
 - (BOOL) installLocalExtensions;
 - (BOOL) copyDependencies;
 
@@ -98,6 +99,7 @@
 
 - (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination;
 
+- (BOOL) removeBlacklistedKexts;
 
 @end
 

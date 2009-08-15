@@ -44,6 +44,7 @@
 	GetVolParmsInfoBuffer	*buffer;
 	
 	[self unmountRamDisk];
+	// TODO: Ensure that /Volumes/ramdisk doesnt exist
 
 	system("/usr/sbin/diskutil eraseVolume HFS+ ramdisk `hdid -nomount ram://523648`");
 	
@@ -199,6 +200,8 @@
 		[self updateStatus:NSLocalizedString(@"Patching Bluetooth", nil)];
 		[self patchBluetooth];
 		[self updatePorgressBar: 5];
+		
+		[self patchAppleUSBEHCI];
 				
 		[self generateExtensionsCache];
 		[self useSystemKernel];
@@ -222,7 +225,7 @@
 
 	[self updateStatus:NSLocalizedString(@"Verifying Bootloader", nil)];
 	NSLog(@"Installing bootloader %@", [sender bootloaderType]);
-	[self installBootloader: [[NSDictionary alloc] initWithDictionary:[sender bootloaderType] copyItems:YES]];
+	if([sender bootloaderType]) [self installBootloader: [[NSDictionary alloc] initWithDictionary:[sender bootloaderType] copyItems:YES]];
 	[self updatePorgressBar: 10];
 
 
@@ -230,7 +233,7 @@
 	if([sender hideFiles]) {
 		if([systemInfo efiHidden])  [self showFiles];
 		else						[self hideFiles];
-	}
+	} else if([systemInfo efiHidden])  [self hideFiles];	// rehide files if previously hidden
 	
 	if([sender fixBluetooth]) [self fixBluetooth];
 	[self updatePorgressBar: 30];
@@ -595,8 +598,8 @@
 	}
 	
 //	[configFile writeToFile:@"/Volumes/ramdisk/dsdt/config" atomically:NO];
-	[configFile writeToFile:@"/tmp/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
-	[self copyFrom:@"/tmp/config" toDir:@"/Volumes/ramdisk/dsdt/"];
+	[configFile writeToFile:@"/Volumes/ramdisk/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
+	[self copyFrom:@"/Volumes/ramdisk/config" toDir:@"/Volumes/ramdisk/dsdt/"];
 	// TODO: Create the patch config file
 	//NSLog(@"DSDT Error %@", error);
 
@@ -931,12 +934,32 @@
 	return [self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir: [[systemInfo extensionsFolder] stringByAppendingString: @"/IOBluetoothFamily.kext/Contents/PlugIns/BroadcomUSBBluetoothHCIController.kext/Contents/Info.plist"]];
 }
 
+
+
+- (BOOL) patchAppleUSBEHCI
+{
+	NSMutableDictionary* infoPlist;
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/IOUSBFamily.kext"] toDir:[systemInfo extensionsFolder]];
+	infoPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns/AppleUSBEHCI.kext/Contents/Info.plist"]];
+
+	[infoPlist setObject:@"1.0" forKey:@"OSBundleCompatibleVersion"];
+	[infoPlist writeToFile: @"/Volumes/ramdisk/Info.plist" atomically:NO];
+
+	return [self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir: [[systemInfo extensionsFolder] stringByAppendingString: @"/IOUSBFamily.kext/Contents/PlugIns/AppleUSBEHCI.kext/Contents/Info.plist"]];
+
+}
+
+
+
 //----------			installLocalExtensions			----------//
 - (BOOL) installLocalExtensions
 {
 	BOOL status = YES;
 	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] initWithCapacity: 10];
-	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
+	
+	// This *WAS* /S/L/E
+//	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
+	NSString* destinationExtensions =  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"];
 	
 	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/LocalExtensions/"]];
 	
@@ -954,22 +977,23 @@
 	return status;
 }
 
+
+
 //----------			copyDependencies			----------//
 - (BOOL) copyDependencies
 {
-	NSString *whitelistString = [[NSString alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/kext_whitelist"]]; // reads file into memory as an NSString
+	/*NSString *whitelistString = [[NSString alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/kext_whitelist"]]; // reads file into memory as an NSString
 	NSArray *whitelist = [whitelistString componentsSeparatedByString:@"\n"]; // each line, adjust character for line endings
 	
 	// These go into /Volumes/ramdisk/Extensions to be generated into an ext cache
-	[self makeDir:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions"]];
 	int i = 0;
 	while(i < [whitelist count])
 	{
-		if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"]];
+		if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:@"/Volumes/ramdisk/Extensions/"];
 		i++;
-	}
-
-//	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions"]];
+	}*/
+	[self makeDir:@"/Volumes/ramdisk/Extensions"];
+    [self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:@"/Volumes/ramdisk/Extensions/"];
 	//[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:[[systemInfo installPath] stringByAppendingString: [systemInfo extensionsFolder]]];
 	
 		
@@ -988,14 +1012,20 @@
 // This generates and mkext in <install>/Extra/Extensions.mkext FROM /Volumes/ramdisk/Extensions
 - (BOOL) generateExtensionsCache
 {
+	// Remove prvious if exists
+	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
 	NSLog(@"Copied /System/Library/Extensions");
 	[self updateStatus:NSLocalizedString(@"Copying Extension dependencies", nil)];
 		
-	[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: [[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"]];
+	[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: @"/Volumes/ramdisk/Extensions/"];
 	
-	NSLog(@"Deleting blacklisted items");
-	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/AppleTyMCEDriver.kext"]];
+//	NSLog(@"Deleting blacklisted items");
+//	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk/Extensions/AppleACPIPlatform.kext"]];
+//	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk/Extensions/IOACPIFamily.kext"]];
+//	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk/Extensions/IOPCIFamily.kext"]];
 
+	
+	[self removeBlacklistedKexts];
 	
 	//sudo kextcache -a i386 -m <installPath>/Extra/Extensions.mkext <installPath>/Extra/Mini9Ext/ /Sytem/Library/Extensions
 
@@ -1011,7 +1041,7 @@
 	
 	
 	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
-	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/tmp/Extensions/"]];
+	[nsargs addObject:@"/Volumes/ramdisk/Extensions/"];
 	//[nsargs addObject:[systemInfo extensionsFolder]];
 	
 	[nsargs2 addObject: @"-a"];
@@ -1023,8 +1053,8 @@
 	[nsargs2 addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]];
 	
 		
-	[self setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"] recursivly: YES];
-	[self setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"] recursivly: YES];
+	[self setPermissions: @"755" onPath: @"/Volumes/ramdisk/Extensions/" recursivly: YES];
+	[self setOwner:@"root" andGroup:@"wheel" onPath: @"/Volumes/ramdisk/Extensions/" recursivly: YES];
 	
 	[self setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"] recursivly: YES];
 	[self setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"] recursivly: YES];
@@ -1035,7 +1065,8 @@
 	setenv("_com_apple_kextd_skiplocks", "1", 1);	    // This let kexts cache run before the 5 minut delay imposed by kextd
 	if([self runCMD:"/usr/sbin/kextcache" withArgs:nsargs])
 	{
-		return [self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/tmp/Extensions/"]];
+		return YES;
+		//return [self deleteFile:@"/Volumes/ramdisk/Extensions/"];
 	} else return NO;
 	
 	
@@ -1096,5 +1127,46 @@
 	return YES;
 }
 
+- (BOOL) removeBlacklistedKexts
+{
+	NSLog(@"Remove blacklisted items");
+	NSDictionary*	machineplist= [[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]] objectForKey:@"General"];	
+
+	NSArray* blacklist = [[systemInfo machineInfo] objectForKey:@"Kext Blacklist"];
+	NSEnumerator* kexts = [blacklist objectEnumerator];
+
+	// Remove machien specific extension
+	NSString* kext;
+	while((kext = [kexts nextObject]))
+	{
+		NSLog(@"Removing %@", kext);
+		if(![kext isEqualToString:@""])
+		{
+			// TODO: verify kext does not go below root. (aka Security issue)
+			[self makeDir:   [[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
+			[self copyFrom:  [[systemInfo installPath] stringByAppendingFormat:@"/Volumes/ramdisk/Extensions/%@", kext] toDir:[[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
+			[self deleteFile:[[systemInfo installPath] stringByAppendingFormat:@"/Volumes/ramdisk/Extensions/%@", kext]];
+			[self deleteFile:[[systemInfo installPath] stringByAppendingFormat:@"/System/Library/Extensions/%@", kext]];
+		}
+	}
+	
+	
+	// Repeat for Generic extensions blacklist
+	kexts = [[machineplist objectForKey:@"Kext Blacklist"] objectEnumerator];
+	while((kext = [kexts nextObject]))
+	{
+		NSLog(@"Removing %@", kext);
+		if(![kext isEqualToString:@""])
+		{
+			// TODO: verify kext does not go below root. (aka Security issue)
+			[self makeDir:   [[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
+			[self copyFrom:  [[systemInfo installPath] stringByAppendingFormat:@"/Volumes/ramdisk/Extensions/%@", kext] toDir:[[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
+			[self deleteFile:[[systemInfo installPath] stringByAppendingFormat:@"/Volumes/ramdisk/Extensions/%@", kext]];
+			[self deleteFile:[[systemInfo installPath] stringByAppendingFormat:@"/System/Library/Extensions/%@", kext]];
+		}
+	}
+	
+	return NO;
+}
 
 @end
