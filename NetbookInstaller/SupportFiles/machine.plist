@@ -16,6 +16,10 @@
 		<integer>0</integer>
 		<key>EFI Strings</key>
 		<dict/>
+		<key>Kext Blacklist</key>
+		<array>
+			<string>AppleTyMCEDriver.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -35,6 +39,8 @@
 		<integer>668</integer>
 		<key>EFI Strings</key>
 		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict>
 			<key>BAT</key>
@@ -59,6 +65,8 @@
 		<integer>668</integer>
 		<key>EFI Strings</key>
 		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict>
 			<key>BAT</key>
@@ -83,6 +91,10 @@
 		<integer>0</integer>
 		<key>EFI Strings</key>
 		<dict/>
+		<key>Kext Blacklist</key>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -102,6 +114,10 @@
 		<integer>0</integer>
 		<key>EFI Strings</key>
 		<dict/>
+		<key>Kext Blacklist</key>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -121,6 +137,8 @@
 		<integer>0</integer>
 		<key>EFI Strings</key>
 		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
