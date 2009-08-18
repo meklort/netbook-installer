@@ -112,6 +112,13 @@ bool SMBIOSResolver::start(IOService * provider)
 		if(rootManufacturer->getLength() > 1) iosRoot->setProperty("manufacturer", OSData::withBytes(rootManufacturer->getCStringNoCopy(), rootManufacturer->getLength() + 1) );
 	}
 	
+	dictString = hwDict->getObject("system-type");
+	if(dictString)
+	{
+		OSData * systemType = OSDynamicCast( OSData, dictString);
+		if(systemType) iosRoot->setProperty("system-type", systemType );
+	}
+	
 	dictString = hwDict->getObject("compatible");
 	if(dictString) 
 	{
