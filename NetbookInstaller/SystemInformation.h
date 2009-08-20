@@ -96,6 +96,9 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 
 - (int) getKernelVersion: (NSString*) path;
 - (NSArray*) installableVolumes: (int) minVersions;
+- (BOOL) needsHelperPartition;
+
+- (NSDictionary*) getFileSystemInformation: (NSString*) mountPoint;
 
 
 @end

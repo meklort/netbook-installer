@@ -11,22 +11,8 @@
 // TODO: read these from a plist instead
 //#define NUM_SUPPORTED_BOOTLOADERS		2
 #define NUM_KERNELS						8
-/*
 
-const UInt64 bootLoaderMD5[NUM_SUPPORTED_BOOTLOADERS][2] = 
-{
-	0xd593439fcf1479a4, 0x03054db491c0e928,
-	0xa17b6a642a53a661, 0xbed651c83be369ed,
-	0x6140f965f4675b5f,	0x8ba7dee353a4ee77
-};
 
-const char *bootLoaderName[NUM_SUPPORTED_BOOTLOADERS] =
-{
-	"Chameleon 2.0 RC1 r431",
-	"PCEFI v9", 
-	"PCEFI v10"
-};
-*/
 const UInt64 kernelVersionMD5[NUM_KERNELS][2] = 
 {
 	0xc4cdde3890b79ca3, 0xbe765612b3cfbf94,		// Mac OS X 10.5.0

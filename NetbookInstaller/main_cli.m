@@ -22,15 +22,21 @@ int main(int argc, char *argv[])
 
 	[installer mountRamDisk];
 	infoDict = [[NSBundle mainBundle] infoDictionary];
-	
+	NSLog(@"Determine Install State");
 	[systemInfo determineInstallState];
+	
 	
 	if(argc > 1)
 	{
+		NSLog(@"Determine partition from path");
+
 		NSLog([[NSString alloc] initWithCString:argv[1]]);
 		[systemInfo determinePartitionFromPath: [[NSString alloc] initWithCString:argv[1]]];
 		// Else we use the default of /
 	}
+	
+	NSLog(@"Initialize installer State");
+
 
 	[installer systemInfo: systemInfo];
 	[installer remountTargetWithPermissions];
@@ -68,9 +74,7 @@ int main(int argc, char *argv[])
 	//	[installer setRemoteCD:			YES]; // This is not possilbe when running as root.
 	
 	// Install default bootlaoder
-	
-	[installer installBootloader: 	[[[systemInfo bootloaderDict] objectForKey: @"Bootloaders"] objectForKey: [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
-	
+		
 	// Install the gui
 	[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 
@@ -89,6 +93,8 @@ int main(int argc, char *argv[])
 		[installer useSystemKernel];
 	}	
 	
+	[installer installBootloader: 	[[[systemInfo bootloaderDict] objectForKey: @"Bootloaders"] objectForKey: [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
+
 	[installer hideFiles];
 	[installer unmountRamDisk];
 

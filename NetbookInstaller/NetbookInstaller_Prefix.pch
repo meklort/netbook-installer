@@ -4,18 +4,18 @@
 
 #ifdef __OBJC__
 	#import <Foundation/Foundation.h>
-    #import <Cocoa/Cocoa.h>
+	#import <Cocoa/Cocoa.h>
 #endif
 
 
-#define NUM_SUPPORTED_BOOTLOADERS		2
+//#define NUM_SUPPORTED_BOOTLOADERS		2
 
 //extern const char *bootLoaderName[];
 
 
 
-#define KERNEL_VERSION_NONE		-2
-#define KERNEL_VERSION_UNKNOWN		-1
+//#define KERNEL_VERSION_NONE		-2
+//#define KERNEL_VERSION_UNKNOWN		-1
 
 #define KERNEL_VERSION( __major__, __minor__, __bugfix__ )			(__major__ << 8 | __minor__ << 4 | __bugfix__)
 
