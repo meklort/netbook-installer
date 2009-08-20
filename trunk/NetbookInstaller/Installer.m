@@ -17,8 +17,6 @@
 }
 
 
-
-
 - (void)remountTargetWithPermissions
 {
 	if([[systemInfo installPath] isEqualToString:@"/"]) return;
@@ -36,19 +34,20 @@
 
 - (void) mountRamDisk
 {	// TODOL port from carbon api to cocao api using NSFileManager
-	NSString* ramdiskNumber;
+	/*NSString* ramdiskNumber;
 	OSStatus err;
 	FSRef ref;
 	FSVolumeRefNum actualVolume;
 	ByteCount *size = malloc(sizeof(ByteCount));
-	GetVolParmsInfoBuffer	*buffer;
+	GetVolParmsInfoBuffer	*buffer;*/
 	
 	[self unmountRamDisk];
 	// TODO: Ensure that /Volumes/ramdisk doesnt exist
 
+	// replace with runCMDasUser
 	system("/usr/sbin/diskutil eraseVolume HFS+ ramdisk `hdid -nomount ram://523648`");
 	
-
+/*
 	err = FSPathMakeRef ( (const UInt8 *) [@"/Volumes/ramdisk/" fileSystemRepresentation], &ref, NULL );
 	// get a FSVolumeRefNum from mountPath
 	if ( noErr == err ) {
@@ -67,8 +66,8 @@
 	
 	// TODO / FIXME  - I dont know what the size should be... 
 	FSGetVolumeMountInfoSize(actualVolume, size);
-	//buffer = (GetVolParmsInfoBuffer*) malloc(*size);
-	buffer = malloc(1024);	// Yes, this means the file name can only by 1024characters long
+	buffer = (GetVolParmsInfoBuffer*) malloc(*size);
+	//buffer = malloc(1024);	// Yes, this means the file name can only by 1024characters long
 	
 	FSGetVolumeParms(actualVolume, buffer, *size);
 	
@@ -76,13 +75,15 @@
 	
 	ramdiskNumber = [[NSString alloc] initWithCString:((const char*)(*buffer).vMDeviceID)];
 	free(size);
-	free(buffer);
+	free(buffer);*/
 	
 	
 	//[self unmountRamDisk];
 	// Re mount the disk using diskutil, this way it doesn't ignore permissions
 	NSLog(@"Remounting ramdisk");
-	system([[@"/sbin/mount -u -o owners /dev/" stringByAppendingString: ramdiskNumber] cStringUsingEncoding:NSASCIIStringEncoding]);
+	system([@"/sbin/mount -u -o owners /Volumes/ramdisk" cStringUsingEncoding:NSASCIIStringEncoding]);
+
+	//system([[@"/sbin/mount -u -o owners /dev/" stringByAppendingString: ramdiskNumber] cStringUsingEncoding:NSASCIIStringEncoding]);
 	// Get the volume number for /Volumes/ramdisk
 	NSLog(@"Permissions fixed");
 	
@@ -494,11 +495,28 @@
 // Installer Options
 - (BOOL) installBootloader: (NSDictionary*) bootloaderType
 {
+	NSScanner* scanner = [[NSScanner alloc] initWithString:[systemInfo bootPartition]];
+	[scanner setCharactersToBeSkipped: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
+	[scanner scanInteger: NULL];	// scan past disk number
+	
+	NSString* bsdDisk = [[systemInfo bootPartition] substringToIndex:[scanner scanLocation]];		// strip off partition number
+	
+	/**
+	 ** Warning - 10.6 hack follows, to be removed in the future... (or at least make it not hackish)
+	 **/
+	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
+	{
+		// MUST use chameleon 2 rc2 for the moment
+		bootloaderType = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:@"Chameleon R640"];
+	}
+	
+	
+	
 	if(!bootloaderType) {
 		NSLog(@"Unable to install bootlaoder: no value passed");
 		return NO;
 	} else {
-		NSLog(@"Installing booter");
+		NSLog(@"Installing booter to /dev/r%@", [systemInfo bootPartition]);
 	}
 	NSString* bootPath;
 	if([[systemInfo installedBootloader] isEqualToDictionary:bootloaderType]) NSLog(@"Bootloader already installed, insatlling anyways");
@@ -513,12 +531,11 @@
 	[nsargs addObject: @"-u"];
 	[nsargs addObject: @"-y"];
 	
-	//FIXME: This breask when the partition number is multi digits.
-	//[[@"/dev/r" stringByAppendingString: [[systemInfo bootPartition] substringToIndex:[[systemInfo bootPartition] length] - 2]]
-	[nsargs addObject:[@"/dev/r" stringByAppendingString: [[systemInfo bootPartition] substringToIndex:[[systemInfo bootPartition] length] - 2]]];
+	[nsargs addObject:[@"/dev/r" stringByAppendingString: bsdDisk]];
 
 	// TODO: Fdisk is included w/ OS X, it can be removed from the file and run from /usr/sbin/fdisk
-	[self runCMD:(char*)[[bootPath stringByAppendingString: @"/fdisk"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs];
+//	[self runCMD:(char*)[[bootPath stringByAppendingString: @"/fdisk"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs];
+	[self runCMD:"/usr/sbin/fdisk" withArgs:nsargs];
 
 
 	NSMutableArray* nsargs2 = [[NSMutableArray alloc] init];
@@ -530,9 +547,23 @@
 	
 	[self runCMD:"/bin/dd" withArgs:nsargs2];
 	
-	
-	[self copyFrom:[bootPath stringByAppendingString: @"/boot"] toDir:[[systemInfo installPath] stringByAppendingString: @"/"]];
+	/**
+	 ** Warning - 10.6 hack follows, to be removed in the future... (or at least make it not hackish)
+	 **/
+	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
+	{
+		// MUST use chameleon 2 rc2 for the moment
+									// /SupportFiles/bootloader/snow/boot
+		[self copyFrom:[bootPath stringByAppendingString: @"../snow/boot"] toDir:[[systemInfo installPath] stringByAppendingString: @"/"]];
+	}
+	else
+	{
+		[self copyFrom:[bootPath stringByAppendingString: @"/boot"] toDir:[[systemInfo installPath] stringByAppendingString: @"/"]];
+	}
 	[self hidePath:[[systemInfo installPath] stringByAppendingString: @"/boot"]];
+	
+	[scanner release];
+	
 	return YES;
 
 }
@@ -542,17 +573,26 @@
 	BOOL status = YES;
 	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] initWithCapacity: 10];
 	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
+	NSEnumerator* sources;
+	NSString* source;
 
+	
+	if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))
+	{
+		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/10.6 Extensions/"]];
+		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.6 Extensions/"]];
+		
+	}
+	
 	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Extensions/"]];
 
-	[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Extensions/"]];
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Extensions/"]];
 	
 	
-		// An iterator could hav ebeen used too
-	while([sourceExtensions count] > 0) {
-		NSString* current = [sourceExtensions objectAtIndex: 0];
-		[sourceExtensions removeObjectAtIndex: 0];
-		if(![self copyFrom: current toDir: destinationExtensions]) status = NO;
+	
+	sources = [sourceExtensions objectEnumerator];	// An enumerator could hav ebeen used too
+	while(source = [sources nextObject]) {
+		if(![self copyFrom: source toDir: destinationExtensions]) status = NO;
 	}
 	
 	
@@ -600,8 +640,6 @@
 //	[configFile writeToFile:@"/Volumes/ramdisk/dsdt/config" atomically:NO];
 	[configFile writeToFile:@"/Volumes/ramdisk/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
 	[self copyFrom:@"/Volumes/ramdisk/config" toDir:@"/Volumes/ramdisk/dsdt/"];
-	// TODO: Create the patch config file
-	//NSLog(@"DSDT Error %@", error);
 
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
@@ -656,14 +694,10 @@
 	// If the preference plist doesnt exist, copy a default one in.
 	if(![manager fileExistsAtPath:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]])
 	{
-		[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
+		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 		[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 
 	}
-	
-
-	
-	
 	
 	
 	//if(([systemInfo hibernationDissabled]) ^ dissable)	// Setting have changed
@@ -711,6 +745,7 @@
 	}
 	else if(![setting isEqualToString: @"Yes"] && quietBoot == true)
 	{
+		// Enable quiet boot
 		[bootSettings removeObjectForKey: @"Timeout"];
 		[bootSettings setObject: @"Yes" forKey: @"Quiet Boot"];
 
@@ -958,12 +993,12 @@
 	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] initWithCapacity: 10];
 	
 	// This *WAS* /S/L/E
-//	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
-	NSString* destinationExtensions =  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"];
+	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
+//	NSString* destinationExtensions =  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"];
 	
 	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/LocalExtensions/"]];
 	
-	[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
 	
 	
 	// An iterator could hav ebeen used too
@@ -1091,7 +1126,12 @@
 	[bootSettings setObject: @"mach_kernel" forKey: @"Kernel"];
 	
 	[bootSettings writeToFile: @"/Volumes/ramdisk/com.apple.Boot.plist" atomically: NO];
-	return [self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+	if([self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]])
+	{
+		return [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/mach_kernel.10.5.6"]];
+	} else {
+		return NO;
+	}
 }
 
 - (BOOL) removePrevExtra
@@ -1166,7 +1206,7 @@
 		}
 	}
 	
-	return NO;
+	return YES;
 }
 
 @end

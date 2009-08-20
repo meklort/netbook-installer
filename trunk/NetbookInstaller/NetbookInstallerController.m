@@ -33,7 +33,7 @@
 {
 	NSMutableArray* bootOptions = [[NSMutableArray alloc] init];
 	NSArray* bootloaders = [systemInfo supportedBootloaders];
-	NSLog(@"bootloaders: %@", bootloaders);
+//	NSLog(@"bootloaders: %@", bootloaders);
 
 	NSEnumerator* enumerator = [bootloaders objectEnumerator];
 	NSDictionary* bootloader;
@@ -42,7 +42,7 @@
 		[bootOptions addObject:[bootloader objectForKey:@"Visible Name"]];
 
 	}
-	NSLog(@"bootOptions: %@", bootOptions);
+//	NSLog(@"bootOptions: %@", bootOptions);
 	[bootloaderVersion removeAllItems];
 	[bootloaderVersion addItemsWithTitles:bootOptions];
 	
@@ -443,6 +443,7 @@
 {
 	NSDictionary* returnDict = nil;
 	if(![bootloaderVersion titleOfSelectedItem]) return nil;
+	if([bootloaderCheckbox state] == NO) return nil;
 	//NSLog(@"verifying bootlaoder");
 
 	NSEnumerator* bootloaders = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] keyEnumerator];
@@ -557,15 +558,10 @@
 {
 	[self updateVolumeMenu];
 	// TOOD: update the volume list.
-	NSString *devicePath = 
-	[[notification userInfo] objectForKey:@"NSDevicePath"];
+	//NSString *devicePath = [[notification userInfo] objectForKey:@"NSDevicePath"];
 	
 	
-	NSLog(@"Device did mount: %@", devicePath);
-	/* DVD volumes have a VIDEO_TS media folder at the root level 
-	 NSString *mediaPath = [devicePath stringByAppendingString:@"/VIDEO_TS"];
-	 
-	 [self openMedia:mediaPath isVolume:YES];*/
+//	NSLog(@"Device did mount: %@", devicePath);
 }
 
 

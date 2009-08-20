@@ -136,10 +136,9 @@
 	[installer setQuietBoot:	NO];
 
 	[installer dissableHibernation:	YES];
-//	NSLog(@"Install Bootloader");
+
 	NSString* bootloader = [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"];
-//	NSLog(@"Installing bootloader %@", bootloader);
-//	NSLog(@"Dict: %@", [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]);
+
 	[installer installBootloader: [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]];
 	//[installer installBootloader: DEFAULT_BOOTLOADER];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];	
@@ -168,6 +167,7 @@
 		[installer patchFramebufferKext];
 		[installer patchIO80211kext];
 		[installer patchBluetooth];
+		[installer patchAppleUSBEHCI];
 
 		[installer generateExtensionsCache];
 		[installer useSystemKernel];
@@ -179,7 +179,7 @@
 	[installer hideFiles];
 
 	[self updateStatus:NSLocalizedString(@"Done", nil)];	
-	[installer mountRamDisk];
+	[installer unmountRamDisk];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:100]];
 
 	
@@ -188,7 +188,18 @@
 	return YES;
 }
 
+- (BOOL) patchmpkg
+{
+	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	[nsargs addObject: @"-x"];	
+	[nsargs addObject: @"-f"];	
 
+	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.mpkg"]];
+	[nsargs addObject: @"/Volumes/ramdisk/OSInstallMPKG"];	
+	
+	return NO;
+	
+}
 - (BOOL) patchOSInstall
 {
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
@@ -202,8 +213,7 @@
 	
 	[installer runCMD:"/usr/sbin/pkgutil" withArgs:nsargs];
 	
-	// Update the postinstall script
-	//cp $3/Extra/postinstall /tmp/OSInstall/Scripts/postinstall_actions/postinstall
+	// Add NetbookInstallerCLI as a postinstaller script
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/postinstall"] toDir:@"/Volumes/ramdisk/OSInstall/Scripts/postinstall_actions/"];
 	
 	// Backup the origional file.

@@ -76,6 +76,12 @@
 		27CA342B0FD47303006E14C4 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
 		27CA342D0FD4731C006E14C4 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
 		27CA342E0FD47324006E14C4 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
+		27D2EA54103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		27D2EA55103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		27D2EA56103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		27D2EA57103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		27D2EA58103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		27D2EA59103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
 		27EC0B470FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
 		27EC0B480FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
 		27EC0B490FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
@@ -188,6 +194,7 @@
 		279665740FD4206400EBF41B /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		27CA34290FD47303006E14C4 /* HexEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexEditor.h; sourceTree = "<group>"; };
 		27CA342A0FD47303006E14C4 /* HexEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexEditor.m; sourceTree = "<group>"; };
+		27D2EA53103CBC5C006C97CE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		27EC0B450FD7312F006740DB /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		27EC0B460FD7312F006740DB /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		27EC0BB90FD7696F006740DB /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -230,6 +237,7 @@
 				2725E6D80FED9417005869F8 /* SecurityFoundation.framework in Frameworks */,
 				2725E6D90FED9417005869F8 /* CoreServices.framework in Frameworks */,
 				2725E6DA0FED9417005869F8 /* libcrypto.dylib in Frameworks */,
+				27D2EA55103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +258,7 @@
 				2748C4A20FEB037C000F22B8 /* SecurityFoundation.framework in Frameworks */,
 				2748C4A30FEB037C000F22B8 /* CoreServices.framework in Frameworks */,
 				2748C4A40FEB037C000F22B8 /* libcrypto.dylib in Frameworks */,
+				27D2EA56103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +272,7 @@
 				2784908B0FF1B09A00BF23A5 /* SecurityFoundation.framework in Frameworks */,
 				2784908C0FF1B09A00BF23A5 /* CoreServices.framework in Frameworks */,
 				2784908D0FF1B09A00BF23A5 /* libcrypto.dylib in Frameworks */,
+				27D2EA54103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +286,7 @@
 				668FFC6E0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */,
 				66363E990FC3A90A00BF0516 /* CoreServices.framework in Frameworks */,
 				273CAA000FD420E10060FE60 /* libcrypto.dylib in Frameworks */,
+				27D2EA57103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +300,7 @@
 				668FFC6D0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */,
 				66363E9B0FC3A90A00BF0516 /* CoreServices.framework in Frameworks */,
 				273CA9FF0FD420D30060FE60 /* libcrypto.dylib in Frameworks */,
+				27D2EA58103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +314,7 @@
 				668FFC6C0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */,
 				66363E9A0FC3A90A00BF0516 /* CoreServices.framework in Frameworks */,
 				279665750FD4206400EBF41B /* libcrypto.dylib in Frameworks */,
+				27D2EA59103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +439,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				27D2EA53103CBC5C006C97CE /* IOKit.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);

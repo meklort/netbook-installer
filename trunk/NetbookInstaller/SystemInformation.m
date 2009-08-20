@@ -11,6 +11,11 @@
 #import <Foundation/NSPropertyList.h>
 
 #import <sys/sysctl.h>
+
+#import <sys/mount.h>
+#import <sys/ucred.h>
+#import <sys/param.h>
+
 #import <openssl/md5.h>
 #import "checksum.h"
 
@@ -119,8 +124,12 @@
 
 - (void) determineInstallState;
 {
+
+	//NSLog(@"Determine boot");
 	bootloaderDict =  [[NSDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
 	[self determinebootPartition];
+	//NSLog(@"Determine machine type");
+
 	[self determineMachineType];
 	
 	[self determineDSDTState];
@@ -141,89 +150,40 @@
 // code example from http://snipplr.com/view/1645/given-a-mount-path-retrieve-a-usb-device-name/
 - (void) determinebootPartition
 {
-	// TODOL port from carbon api to cocao api using NSFileManager
-	OSStatus err;
-	FSRef ref;
-	FSVolumeRefNum actualVolume;
-	ByteCount *size = malloc(sizeof(ByteCount));
-	GetVolParmsInfoBuffer	*buffer;
+	//NSFileManager* fileManager = [NSFileManager defaultManager];
+	//NSError*	errs;
+	NSDictionary* info = [self getFileSystemInformation: @"/"];
+
+	bootPartition = [[[NSString alloc] initWithString:[info objectForKey:@"Mounted From"]] substringFromIndex:[@"/dev/" length]];
+	installPath = [[NSString alloc] initWithString:@"/"];
+
+	NSLog(@"Root Device: %@\n", bootPartition);
 	
-	err = FSPathMakeRef ( (const UInt8 *) [@"/" fileSystemRepresentation], &ref, NULL );
-	installPath = @"/";
-	// get a FSVolumeRefNum from mountPath
-	if ( noErr == err ) {
-		FSCatalogInfo   catalogInfo;
-		err = FSGetCatalogInfo ( &ref,
-								kFSCatInfoVolume,
-								&catalogInfo,
-								NULL,
-								NULL,
-								NULL
-								);
-		if ( noErr == err ) {
-			actualVolume = catalogInfo.volume;
-		}
-	}
 	
-	// TODO / FIXME  - I dont know what the size should be... 
-	FSGetVolumeMountInfoSize(actualVolume, size);
-	//buffer = (GetVolParmsInfoBuffer*) malloc(*size);
-	buffer = malloc(1024);	// Yes, this means the file name can only by 1024characters long
 	
-	FSGetVolumeParms(actualVolume, buffer, *size);
+//	NSLog(@"Information about /: %@", [fileManager attributesOfFileSystemForPath: @"/" error:&errs]);
 	
-//	NSLog(@"Root Device: %s\n", (const char*)(*buffer).vMDeviceID);
 	
-	bootPartition = [[NSString alloc] initWithCString:((const char*)(*buffer).vMDeviceID)];
+	
+//	NSLog(@"Info %@", [self getFileSystemInformation: @"/"]);
+
 	
 	[self determineTargetOS];
 	[self determineBootloader];
 	
-	
-
-	
-	free(size);
-	free(buffer);
 	
 }
 
 //TODO: fix this as it currently crashes when a BAD path is sent
 - (void) determinePartitionFromPath: (NSString*) path
 {
-	OSStatus err;
-	FSRef ref;
-	FSVolumeRefNum actualVolume;
-	ByteCount *size = malloc(sizeof(ByteCount));
-	GetVolParmsInfoBuffer	*buffer;
-	
-	err = FSPathMakeRef ( (const UInt8 *) [path fileSystemRepresentation], &ref, NULL );
-	
-	// get a FSVolumeRefNum from mountPath
-	if ( noErr == err ) {
-		FSCatalogInfo   catalogInfo;
-		err = FSGetCatalogInfo ( &ref,
-								kFSCatInfoVolume,
-								&catalogInfo,
-								NULL,
-								NULL,
-								NULL
-								);
-		if ( noErr == err ) {
-			actualVolume = catalogInfo.volume;
-		}
-	}
-	
-	// TODO / FIXME  - I dont know what the size should be... 
-	FSGetVolumeMountInfoSize(actualVolume, size);
-	//buffer = (GetVolParmsInfoBuffer*) malloc(*size);
-	buffer = malloc(1024);
-	
-	FSGetVolumeParms(actualVolume, buffer, *size);
-	
-//	NSLog(@"Root Device: %s\n", (const char*)(*buffer).vMDeviceID);
-	
-	bootPartition = [[NSString alloc] initWithCString:((const char*)(*buffer).vMDeviceID)];
+	NSDictionary* info = [self getFileSystemInformation: path];
+
+	bootPartition = [[[NSString alloc] initWithString:[info objectForKey:@"Mounted From"]] substringFromIndex:[@"/dev/" length]];
 	installPath = [[NSString alloc] initWithString:path];
+
+	NSLog(@"Target Device: %@\n", bootPartition);
+	
 	
 	[self determineTargetOS];
 
@@ -239,9 +199,6 @@
 	[self determineHiddenState];
 	[self determineGMAVersion];
 	[self determinekeyboardPrefPaneInstalled];
-
-	free(size);
-	free(buffer);
 
 
 }
@@ -264,7 +221,7 @@
 	sysctl(mib, 2, model, &len, NULL, 0);
 	
 	machineInfo = nil;
-	NSLog(@"Searching for %@", [NSString stringWithCString: model]);
+	//NSLog(@"Searching for %@", [NSString stringWithCString: model]);
 	while ((currentModel = [enumerator nextObject])) {
 		if([[currentModel objectForKey:@"Model Name"] length] <= strlen(model) && [[currentModel objectForKey:@"Model Name"] isEqualToString:[[NSString stringWithCString: model] substringToIndex:[[currentModel objectForKey:@"Model Name"] length]]])
 		{
@@ -282,7 +239,7 @@
 		NSLog(@"Unable to determine machine information, failing");
 		exit(-1);	// ALERT / FAIL
 	} else {
-		NSLog(@"%@", machineInfo);
+		//NSLog(@"%@", machineInfo);
 	}
 
 	free(model);
@@ -409,9 +366,9 @@
 	// TODO: fix bug with bootloaderDict.
 //	if(!bootloaderDict) 
 
-	NSLog(@"%@", bootloaderDict);
+	//NSLog(@"%@", bootloaderDict);
 	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
-	NSLog(@"%@", installPath);
+	//NSLog(@"%@", installPath);
 
 	NSDictionary* booter;
 	NSEnumerator* bootloaders = [allbootloaders keyEnumerator];
@@ -444,7 +401,7 @@
 		i++;
 	}
 
-	NSLog(@"%@", md5);
+	//NSLog(@"%@", md5);
 
 	while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
 	{
@@ -515,7 +472,7 @@
 {
 	NSString* path = [kernelPath stringByReplacingOccurrencesOfString:@"/mach_kernel" withString:@"/"];
 
-	int majorVersion, minorVersion, bugfixVersion;
+	int majorVersion = 0, minorVersion = 0, bugfixVersion = 0;
 	NSScanner* scanner;
 	NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingString:@"/System/Library/CoreServices/SystemVersion.plist"]];
 	NSString* versionString = [systemVersion objectForKey:@"ProductVersion"];
@@ -532,7 +489,7 @@
 	/*	gestaltSystemVersionMajor
 	 gestaltSystemVersionMinor
 	 gestaltSystemVersionBugFix*/
-	NSLog(@"Kernel: %d", KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion));
+	NSLog(@"%@ Kernel:  %d.%d.%d, %d", path, majorVersion, minorVersion, bugfixVersion, KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion));
 	return KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion);
 	
 	// TODO: do the following if SystemVersion.plist doesnt exist (aka, the boot partition)
@@ -600,5 +557,118 @@
 	return returnVal;
 	*/
 }
+
+/**
+ ** needsHelperPartition
+ ** This method determins if the target device is bootable, if it isn't we need a helper partition with the boot files
+ ** 
+ **/
+- (BOOL) needsHelperPartition
+{
+	//Searching for "BSD Name" property = "diskXsY" INSIDE of IOSDCHCIBlockDevice, if it isn't loaded, it doesnt matter
+	// This is only valid on the root device
+	
+	io_iterator_t			iter;
+    io_service_t			service;
+    kern_return_t			kr;
+	CFDictionaryRef	dictRef;
+	
+	// ApplePS2MouseDevice is our parent in the I/O Registry
+	dictRef = IOServiceMatching("IOSDHCIBlockDevice"); 
+	if (!dictRef) {
+		NSLog(@"IOServiceMatching returned NULL.\n");
+		return false;
+	} 
+	
+	
+	// Create an iterator over all matching IOService nubs.
+	// This consumes a reference on dictRef.
+	kr = IOServiceGetMatchingServices(kIOMasterPortDefault, dictRef, &iter);
+	if (KERN_SUCCESS != kr) {
+		NSLog(@"IOServiceGetMatchingServices returned 0x%08x.\n", kr);
+		return false;
+	}
+	
+	
+	//dictRef = CFPreferencesCopyMultiple(NULL ,CFSTR(APP_ID), kCFPreferencesCurrentUser, kCFPreferencesAnyHost);
+	
+	
+	// Iterate across all instances of IOBlockStorageServices.
+	while ((service = IOIteratorNext(iter))) {
+		//NSLog([[NSString alloc] initWithCString:"Iterating...\n" encoding:NSASCIIStringEncoding]);
+		
+		io_registry_entry_t child;
+		
+		// Now that our parent has been found we can traverse the I/O Registry to find our driver.
+		kr = IORegistryEntryGetChildEntry(service, kIOServicePlane, &child);
+		if (KERN_SUCCESS != kr) {
+			NSLog(@"IORegistryEntryGetParentEntry returned 0x%08x.\n", kr);
+		} else {
+			// We're only interested in the parent object if it's our driver class.
+			if (IOObjectConformsTo(child, "ApplePS2SynapticsTouchPad")) {
+				// This is the function that results in ::setProperties() being called in our
+				// kernel driver. The dictionary we created is passed to the driver here.
+				
+				
+				//kr = IORegistryEntrySetCFProperties(child, dictRef);
+				//NSLog([[NSString alloc] initWithCString:"Sent message to kext" encoding:NSASCIIStringEncoding]);
+				//if (KERN_SUCCESS != kr) {
+				//	NSLog(@"IORegistryEntrySetCFProperties returned an error.\n", kr);
+				//}
+			} else {
+				//NSLog(@"%s: Unable to locate Touchpad kext.\n", APP_ID);
+				//				IOObjectRelease(parent);
+				//				IOObjectRelease(service);
+				
+				//				return false
+			}
+			
+			// Done with the parent object.
+			IOObjectRelease(child);
+		}
+		
+		// Done with the object returned by the iterator.
+		IOObjectRelease(service);
+	}
+	
+	if (iter != IO_OBJECT_NULL) {
+		IOObjectRelease(iter);
+		iter = IO_OBJECT_NULL;
+	}
+	
+	if (dictRef) {
+		CFRelease(dictRef);
+		dictRef = NULL;
+	} 
+	
+	return NO;
+}
+
+- (NSDictionary*) getFileSystemInformation: (NSString*) mountPoint
+{
+	NSMutableDictionary* returnDict = [[NSMutableDictionary alloc] init];
+	struct statfs buffer;
+	statfs([mountPoint cStringUsingEncoding:NSASCIIStringEncoding], &buffer);
+
+//	[returnDict setObject:[[NSNumber alloc] initWithShort:buffer.f_otype] forKey:@"Filesystem Type"];	// reserved, always 0
+//	[returnDict setObject:[[NSNumber alloc] initWithShort:buffer.f_oflags] forKey:@"Filesystem flags"];	// reserved, always 0
+	
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_bsize] forKey:@"Block Size"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_iosize] forKey:@"Optimal IO block Size"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_blocks] forKey:@"Total Blocks"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_bfree] forKey:@"Free Blocks"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_bavail] forKey:@"Available Blocks"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_blocks] forKey:@"Total Blocks"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_blocks] forKey:@"Total Blocks"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_files] forKey:@"Files"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_ffree] forKey:@"Free Files"];
+	[returnDict setObject:[[NSNumber alloc] initWithLong:buffer.f_flags] forKey:@"Mount Flags"];
+	[returnDict setObject:[[NSString alloc] initWithCString:buffer.f_fstypename encoding:NSASCIIStringEncoding] forKey:@"File System"];
+	[returnDict setObject:[[NSString alloc] initWithCString:buffer.f_mntonname encoding:NSASCIIStringEncoding] forKey:@"Mount Directory"];
+	[returnDict setObject:[[NSString alloc] initWithCString:buffer.f_mntfromname encoding:NSASCIIStringEncoding] forKey:@"Mounted From"];
+	
+	return returnDict;
+}
+
 
 @end
