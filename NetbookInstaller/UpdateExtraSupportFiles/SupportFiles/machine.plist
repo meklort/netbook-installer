@@ -17,10 +17,9 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<dict>
-			<key>AppleTyMCEDriver.kext</key>
-			<string></string>
-		</dict>
+		<array>
+			<string>AppleTyMCEDriver.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -41,7 +40,7 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<dict/>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict>
 			<key>BAT</key>
@@ -67,7 +66,7 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<dict/>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict>
 			<key>BAT</key>
@@ -75,6 +74,27 @@
 			<key>FN8</key>
 			<string>Method (_Q1C,</string>
 		</dict>
+	</dict>
+	<key>Samsung NC-10</key>
+	<dict>
+		<key>Support Files</key>
+		<string>Samsung NC-10</string>
+		<key>Extensions Directory</key>
+		<string>NC10Ext</string>
+		<key>Model Name</key>
+		<string>NC10</string>
+		<key>Long Name</key>
+		<string>Samsung NC-10</string>
+		<key>Bluetooth Vendor ID</key>
+		<integer>0</integer>
+		<key>Bluetooth Device ID</key>
+		<integer>0</integer>
+		<key>EFI Strings</key>
+		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
+		<key>DSDT Patches</key>
+		<dict/>
 	</dict>
 	<key>Asus EEE 1000H</key>
 	<dict>
@@ -93,7 +113,9 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<dict/>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -114,10 +136,9 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<dict>
-			<key>AppleHDA.kext</key>
-			<string></string>
-		</dict>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -138,7 +159,7 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<dict/>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
