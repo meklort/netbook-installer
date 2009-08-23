@@ -1,4 +1,5 @@
 #summary Contents of machine.plist and what each entry means
+#labels Phase-Design
 = Introduction =
 
 machine.plist is a configuration file telling NetbookInstaller (and related apps) what to install bassed on what netbook this it is being run on.
