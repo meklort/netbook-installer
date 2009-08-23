@@ -1,4 +1,5 @@
 #summary Table of devices supported by NetbookInstaller.
+#labels Featured
 Current status of NetbookInstaller. This table reflects current code, not necessarily the latest release.
 = Details =
 
