@@ -12,6 +12,7 @@ Colors:<br>
 || Dell Mini 9 / Vostro A90 || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
 || Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
+|| HP Mini 110 || || || || || || || || || || 
 || Samsung NC-10 || || || || || || || || || || 
 
 Note 1: The Lenovo S10 reports itself as "Lenovo" and as such it currently cannot be distinguished from other lenovo devices.
