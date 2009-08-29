@@ -7,7 +7,7 @@ This is a rudimentary document explaining the basic usage of NetbookInstaller an
 
 == Requirements ==
 
- * An account with Admin privileges on OS X 10.5.* or 10.6.* - Used to prepare the Installation Dongle
+ * An account with Admin privileges on OS X 10.5.x or 10.6.x - Used to prepare the Installation Dongle
  * 10.5.x Retail DVD - not a system specific build (i.e those bundled with a machine) - To create the Installation Dongle.
  * >=8GB External USB Disk (can be a dongle or a HDD) - This will be the Installation Dongle
  * One of our [Supported_Devices] - To install OS X onto :)
@@ -53,7 +53,7 @@ You can either run it from your Netbook, or use it to patch a mounted Netbook dr
 ^1^ When you hide the files, you can still access UpdateExtra etc, by using  "go-> go to folder" in the finder and typing "/Extra" without the quotation marks.
 
 <br>
-= Anything Else? =
+= Slimming OS X =
 
 If you've got a <=16GB SSD, you'll find OS X a bit of a squeeze. [http://www.xslimmer.com/ XSlimmer] Can remove PPC code and extra languages from Apps to slim your install down - it keeps a blacklist of files so it shouldn't slim anything that will break your system or prevent future updates.
 
