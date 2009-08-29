@@ -1,0 +1,64 @@
+#summary How to use the NetbookInstaller Suite
+#labels Featured
+
+= Howto =
+
+This is a rudimentary document explaining the basic usage of NetbookInstaller and NetbookBootMaker, It assumes that you are familiar with OS X.
+
+== Requirements ==
+
+ * An account with Admin privileges on OS X 10.5.* or 10.6.* - Used to prepare the Installation Dongle
+ * 10.5.x Retail DVD - not a system specific build (i.e those bundled with a machine) - To create the Installation Dongle.
+ * >=8GB External USB Disk (can be a dongle or a HDD) - This will be the Installation Dongle
+ * One of our [Supported_Devices] - To install OS X onto :)
+
+<br>
+= NetbookBootMaker =
+
+NetbookBootMaker makes a USB drive with the Mac OS X Installation DVD imaged on it bootable on your netbook.
+
+First, using Disk Utility, format your USB drive so that it has an MBR and so that it has one partition of at least 8Gb. After this, restore the 10.5 Retail DVD onto your USB stick.
+
+Download and unzip NetbookBootMaker. Run it and set the destination to your USB stick you just restored the OS X Install DVD onto.
+
+http://www.jpiper.net/nbm/1.jpg
+
+Click "Prepare Boot Drive", enter your password and wait for NetbookBootMaker to complete.
+
+At this point, it is advisable to bundle the latest combo system update onto your USB Installation dongle (If there's room). As of writing this was [http://support.apple.com/downloads/Mac_OS_X_10_5_8_Combo_Update OS X 10.5.8] (760mb) - this is purely for convenience, and can always be put on a separate USB stick or installed onto the netbook using another method.
+
+You can now eject your USB Installation Dongle, plug it into your Netbook and boot the OS X Installer from it - don't forget to customise your install to remove extra languages and print drivers you won't be needing.
+
+== After Install ==
+
+After you've installed OS X, you should be able to boot directly from your HDD/SDD, at which point you'll be greeted with the install wizard. After this, run the 10.5.8 combo updater mentioned in the previous paragraph. After running this, when your Netbook restarts, you'll need to boot into safe mode (hit any key during the blue progress bar on startup, type -x into the prompt and hit enter) and run NetbookInstaller (see Below) to finish your installation.
+
+<br>
+= NetbookInstaller =
+
+NetbookInstaller prepares your machine to run OS X as flawlessly as possible by the way of kernel extensions, and other known fixes for specific machines.
+
+You can either run it from your Netbook, or use it to patch a mounted Netbook drive (i.e a Runcore USB Interface)
+
+|| *Preset* || *Mandatory for functioning installation?* || *Comments* ||
+|| Install Bootloader || Yes (PC EFI v9 / Chameleon 2 RC2) || Choice is up to you, you can always switch at a later point ||
+|| Install xx Extensions || Yes || Installs kernel extensions to support your machine ||
+|| Hide NetbookInstaller Files || No || Makes for a prettier installation ^1^ ||
+|| Generate a system specific dsdt.aml file || Yes || ||
+|| Enable Remote CD || No || ||
+|| Enable Hibernation || No || Experimental support, generally not advisable to enable ||
+|| Enable Quiet Boot || No || It is best not to enable this so it is easier to boot into verbose and safe mode ||
+|| Fix Bluetooth || No || ||
+
+^1^ When you hide the files, you can still access UpdateExtra etc, by using  "go-> go to folder" in the finder and typing "/Extra" without the quotation marks.
+
+<br>
+= Anything Else? =
+
+If you've got a <=16GB SSD, you'll find OS X a bit of a squeeze. [http://www.xslimmer.com/ XSlimmer] Can remove PPC code and extra languages from Apps to slim your install down - it keeps a blacklist of files so it shouldn't slim anything that will break your system or prevent future updates.
+
+You may also want to delete the Fancy OS X Text to Speech Reader - Alex. He can take up to 600mb(!) and after deleting, you'll still have the voices that came with 10.4 - just run the following command from the terminal.
+
+{{{
+sudo rm -rf /System/Library/Speech/Voices/Alex.SpeechVoice
+}}}
