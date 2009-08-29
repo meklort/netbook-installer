@@ -1,5 +1,4 @@
 #summary How to use the NetbookInstaller Suite
-#labels Featured
 
 This is a rudimentary document explaining the basic usage of !NetbookInstaller and !NetbookBootMaker, It assumes that you are familiar with OS X.
 
@@ -38,9 +37,11 @@ After you've installed OS X, you should be able to boot directly from your HDD/S
 
 !NetbookInstaller prepares your machine to run OS X as flawlessly as possible by the way of kernel extensions, and other known fixes for specific machines.
 
-You can either run it from your Netbook, or use it to patch a mounted Netbook drive (i.e a Runcore USB Interface)
+http://www.jpiper.net/nbm/2.jpg
 
-|| *Preset* || *Mandatory for functioning installation?* || *Comments* ||
+You can either run it from your Netbook, or use it to patch a mounted Netbook drive (i.e a !RunCore USB Interface)
+
+|| *Preset* || *Mandatory for functioning installation* || *Comments* ||
 || Install Bootloader || Yes (PC EFI v9 / Chameleon 2 RC2) || Choice is up to you, you can always switch at a later point ||
 || Install xx Extensions || Yes || Installs kernel extensions to support your machine ||
 || Hide !NetbookInstaller Files || No || Makes for a prettier installation ^1^ ||
@@ -50,12 +51,12 @@ You can either run it from your Netbook, or use it to patch a mounted Netbook dr
 || Enable Quiet Boot || No || It is best not to enable this so it is easier to boot into verbose and safe mode ||
 || Fix Bluetooth || No || ||
 
-^1^ When you hide the files, you can still access UpdateExtra etc, by using  "go-> go to folder" in the finder and typing "/Extra" without the quotation marks.
+^1^ When you hide the files, you can still access UpdateExtra etc, by using  "Go -> Go to Folder" in the finder and typing "/Extra" without the quotation marks.
 
 <br>
 = Slimming OS X =
 
-If you've got a <=16GB SSD, you'll find OS X a bit of a squeeze. [http://www.xslimmer.com/ XSlimmer] Can remove PPC code and extra languages from Apps to slim your install down - it keeps a blacklist of files so it shouldn't slim anything that will break your system or prevent future updates.
+If you've got a small (<=16GB) hard disk, you'll find OS X a bit of a squeeze. [http://www.xslimmer.com/ XSlimmer] can remove PPC code and extra languages from apps to slim your install down - it keeps a blacklist of files so it won't slim any system or developer apps, or those that it know will be broken by slimming.
 
 You may also want to delete the Fancy OS X Text to Speech Reader - Alex. He can take up to 600mb(!) and after deleting, you'll still have the voices that came with 10.4 - just run the following command from the terminal.
 
