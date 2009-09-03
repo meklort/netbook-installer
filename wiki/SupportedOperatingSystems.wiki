@@ -1,6 +1,6 @@
 = Details =
 
-NetbookInstaller 0.8.2 RC4 compatibility (Host to target)
+==NetbookInstaller 0.8.2 RC4 compatibility (Host to target)==
 || Host OS	||	Target OS		||
 || 10.5.x		||	10.5.6 - 10.5.8	||
 || 10.6.x		||	Unsupported ||
@@ -8,7 +8,7 @@ NetbookInstaller 0.8.2 RC4 compatibility (Host to target)
 
 <br/>
 
-NetbookBootMaker 0.8.2 RC4 DVD compatibility
+==NetbookBootMaker 0.8.2 RC4 DVD compatibility==
 || DVD Versions	|| Status ||
 || 10.5			|| Works, requires update to 10.5.6 after install	||
 || 10.5.1		|| Works, requires update to 10.5.6 after install ||
