@@ -80,7 +80,7 @@
  - (IBAction) bluetoothModified: (id) sender;
  */
 
-- (void) setProgress: (UInt8) progress;
+- (void) setProgress: (double) progress;
 
 // Requested system State
 - (BOOL) enableQuietBoot;
@@ -102,6 +102,8 @@
 
 - (void) updateVolumeMenu;
 - (void) mountChange:(NSNotification *)notification ;
+
+- (BOOL) performThreadedInstall;
 
 
 

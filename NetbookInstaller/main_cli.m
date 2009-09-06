@@ -30,8 +30,8 @@ int main(int argc, char *argv[])
 	{
 		NSLog(@"Determine partition from path");
 
-		NSLog([[NSString alloc] initWithCString:argv[1]]);
-		[systemInfo determinePartitionFromPath: [[NSString alloc] initWithCString:argv[1]]];
+		NSLog(@"%s", argv[1]);
+		[systemInfo determinePartitionFromPath: [[NSString alloc] initWithCString:argv[1] encoding: NSASCIIStringEncoding]];
 		// Else we use the default of /
 	}
 	
@@ -47,15 +47,7 @@ int main(int argc, char *argv[])
 	// Install and patch extensions
 	
 	[installer makeDir: [systemInfo extensionsFolder]];
-		
-	[installer installExtensions];
-	[installer installLocalExtensions];
-	[installer patchGMAkext];
-	[installer patchFramebufferKext];
-	[installer patchIO80211kext];
-	[installer patchBluetooth];
 	
-
 
 	[installer installDisplayProfile];
 	[installer installPrefPanes];
@@ -78,6 +70,7 @@ int main(int argc, char *argv[])
 	// Install the gui
 	[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 
+
 	
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
 	{
@@ -89,11 +82,26 @@ int main(int argc, char *argv[])
 	} else
 	{
 		[installer copyDependencies];
+		
+		[installer installExtensions];
+		[installer installLocalExtensions];
+		
+		[installer patchGMAkext];
+		[installer patchFramebufferKext];
+		[installer patchIO80211kext];
+		[installer patchBluetooth];
+		[installer patchAppleUSBEHCI];
+		
+		
 		[installer generateExtensionsCache];
 		[installer useSystemKernel];
 	}	
 	
-	[installer installBootloader: 	[[[systemInfo bootloaderDict] objectForKey: @"Bootloaders"] objectForKey: [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
+	//[installer makeDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/Applications"]];
+
+	
+	// If no bootloader, we dont want to overwrite the bootloder on a current install unless requested
+	if(![systemInfo installedBootloader]) [installer installBootloader: 	[[[systemInfo bootloaderDict] objectForKey: @"Bootloaders"] objectForKey: [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
 
 	[installer hideFiles];
 	[installer unmountRamDisk];

@@ -10,95 +10,48 @@
 
 @implementation Installer
 
-- (id) initWithSender: (id) senderObject;
-{
-	sender = senderObject;
-	return self;
-}
-
 
 - (void)remountTargetWithPermissions
 {
+	NSLog(@"SystemInfo = %@", systemInfo);
 	if([[systemInfo installPath] isEqualToString:@"/"]) return;
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
-	[nsargs addObject: @"-u"];
-	[nsargs addObject: @"-o"];
-	[nsargs addObject: @"owners"];
-	[nsargs addObject: [@"/dev/" stringByAppendingString: [systemInfo bootPartition]]];
+	NSArray* nsargs = [[NSArray alloc] initWithObjects: 
+						@"-u", @"-o", @"owners", [@"/dev/" stringByAppendingString: [systemInfo bootPartition]], nil];
+
 	
 	[self runCMD:"/sbin/mount" withArgs:nsargs];
+	
+	[nsargs release];
 	
 //	system([[@"/sbin/mount -u -o owners /dev/" stringByAppendingString: [systemInfo bootPartition]] cStringUsingEncoding:NSASCIIStringEncoding]);
 }
 
 - (void) mountRamDisk
-{	// TODOL port from carbon api to cocao api using NSFileManager
-	/*NSString* ramdiskNumber;
-	OSStatus err;
-	FSRef ref;
-	FSVolumeRefNum actualVolume;
-	ByteCount *size = malloc(sizeof(ByteCount));
-	GetVolParmsInfoBuffer	*buffer;*/
-	
+{	
 	[self unmountRamDisk];
 	// TODO: Ensure that /Volumes/ramdisk doesnt exist
 
 	// replace with runCMDasUser
 	system("/usr/sbin/diskutil eraseVolume HFS+ ramdisk `hdid -nomount ram://523648`");
-	
-/*
-	err = FSPathMakeRef ( (const UInt8 *) [@"/Volumes/ramdisk/" fileSystemRepresentation], &ref, NULL );
-	// get a FSVolumeRefNum from mountPath
-	if ( noErr == err ) {
-		FSCatalogInfo   catalogInfo;
-		err = FSGetCatalogInfo ( &ref,
-								kFSCatInfoVolume,
-								&catalogInfo,
-								NULL,
-								NULL,
-								NULL
-								);
-		if ( noErr == err ) {
-			actualVolume = catalogInfo.volume;
-		}
-	}
-	
-	// TODO / FIXME  - I dont know what the size should be... 
-	FSGetVolumeMountInfoSize(actualVolume, size);
-	buffer = (GetVolParmsInfoBuffer*) malloc(*size);
-	//buffer = malloc(1024);	// Yes, this means the file name can only by 1024characters long
-	
-	FSGetVolumeParms(actualVolume, buffer, *size);
-	
-	NSLog(@"Ramdisk Device: %s\n", (const char*)(*buffer).vMDeviceID);
-	
-	ramdiskNumber = [[NSString alloc] initWithCString:((const char*)(*buffer).vMDeviceID)];
-	free(size);
-	free(buffer);*/
-	
-	
-	//[self unmountRamDisk];
-	// Re mount the disk using diskutil, this way it doesn't ignore permissions
+
 	NSLog(@"Remounting ramdisk");
+
 	system([@"/sbin/mount -u -o owners /Volumes/ramdisk" cStringUsingEncoding:NSASCIIStringEncoding]);
 
-	//system([[@"/sbin/mount -u -o owners /dev/" stringByAppendingString: ramdiskNumber] cStringUsingEncoding:NSASCIIStringEncoding]);
-	// Get the volume number for /Volumes/ramdisk
 	NSLog(@"Permissions fixed");
 	
 }
 	
 - (void) unmountRamDisk
 {
-//	return;
 //	diskutil eject /Volumes/ramdisk
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
-	
-	[nsargs addObject: @"eject"];
-	[nsargs addObject: @"/Volumes/ramdisk/"];
-	
+	NSArray* nsargs = [[NSArray alloc] initWithObjects: 
+					   @"eject", @"/Volumes/ramdisk/", nil];
+
+
 	[self runCMD:"/usr/sbin/diskutil" withArgs:nsargs];
+	[nsargs release];
 }
 		
 - (void) systemInfo: (SystemInformation*) info
@@ -106,161 +59,12 @@
 	systemInfo = info;
 }
 
-- (BOOL) performInstall: (SystemInformation*) sysInfo
-{
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	
-	systemInfo = sysInfo;
-	
-	if(![self getAuthRef]) 
-	{
-		[sender performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
-		return NO;
-	}
-	
-
-	[self updateStatus:NSLocalizedString(@"Remounting target", nil)];
-	[self remountTargetWithPermissions];
-	[self updatePorgressBar: 0];
-
-	
-	[self updateStatus:NSLocalizedString(@"Creating ramdisk", nil)];
-	[self mountRamDisk];
-	[self updatePorgressBar: 7];
-
-
-
-	//[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles//UpdateExtra.app"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
-
-	[self updatePorgressBar: 0];
-	[self updateStatus:NSLocalizedString(@"Creating /Extra", nil)];
-	if([sender installExtensions]) 
-	{
-		[self removePrevExtra];
-	} else
-	{
-		[self installExtraFiles];
-	}
-	[self updatePorgressBar: 3];
-	
-
-	[self updateStatus:NSLocalizedString(@"Installing Display Profiles", nil)];
-	[self installDisplayProfile];
-	[self updatePorgressBar: 1];
-
-	[self updateStatus:NSLocalizedString(@"Installing Preference Panes", nil)];
-	[self installPrefPanes];
-	[self installLaunchAgents];
-	[self updatePorgressBar: 1];
-	
-
-	[self updateStatus:NSLocalizedString(@"Instaling Power Managment bundle", nil)];
-	[self installSystemConfiguration];
-	[self updatePorgressBar: 1];
-	
-	if([sender regenerateDSDT] && ![sysInfo dsdtInstalled]) {
-		[self installDSDT];
-	} else if([sender regenerateDSDT]) {
-		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/dsdt.dsl"]];
-	}
-
-	
-	if([sender installExtensions]){
-		//[self makeDir:@"/Volumes/ramdisk/Extensions"];
-		[self updateStatus:NSLocalizedString(@"Copying Dependencies", nil)];
-		[self copyDependencies];
-		NSLog(@"extensionsFolder: %@", [systemInfo extensionsFolder]);
-		[self makeDir: [systemInfo extensionsFolder]];	// This shoudl already be done
-		
-		[self updatePorgressBar: 5];
-		
-		[self updateStatus:NSLocalizedString(@"Installing Extensions", nil)];
-		[self installExtensions];
-		[self installLocalExtensions];
-		[self updatePorgressBar: 14];
-
-		if([sender mirrorFriendlyGMA]) 
-		{
-			[self installMirrorFriendlyGraphics];
-		}
-		else 
-		{
-			[self updateStatus:NSLocalizedString(@"Patching GMA950 Extension", nil)];
-			[self patchGMAkext];
-			[self updatePorgressBar: 5];
-		
-			[self updateStatus:NSLocalizedString(@"Patching Framebuffer Extension", nil)];
-			[self patchFramebufferKext];
-			[self updatePorgressBar: 5];
-		}
-		
-		[self updateStatus:NSLocalizedString(@"Patching Wireless Extension", nil)];
-		[self patchIO80211kext];
-		[self updatePorgressBar: 5];
-		
-		[self updateStatus:NSLocalizedString(@"Patching Bluetooth", nil)];
-		[self patchBluetooth];
-		[self updatePorgressBar: 5];
-		
-		[self patchAppleUSBEHCI];
-				
-		[self generateExtensionsCache];
-		[self useSystemKernel];
-		
-		//[self installDSDT]; already copied in TODO: verify this
-
-		
-
-	}
-
-	[self updateStatus:NSLocalizedString(@"Verifying Quiet Boot state", nil)];
-	[self setQuietBoot:			[sender enableQuietBoot]];
-	
-	
-	[self updateStatus:NSLocalizedString(@"Verifying Hibernation state", nil)];
-	[self dissableHibernation:	[sender dissableHibernation]];
-
-	[self updateStatus:NSLocalizedString(@"Verifying RemoteCD State", nil)];
-	[self setRemoteCD:			[sender enableRemoteCD]];
-	[self updatePorgressBar: 5];
-
-	[self updateStatus:NSLocalizedString(@"Verifying Bootloader", nil)];
-	NSLog(@"Installing bootloader %@", [sender bootloaderType]);
-	if([sender bootloaderType]) [self installBootloader: [[NSDictionary alloc] initWithDictionary:[sender bootloaderType] copyItems:YES]];
-	[self updatePorgressBar: 10];
-
-
-	// These funcitons have not been coded yet
-	if([sender hideFiles]) {
-		if([systemInfo efiHidden])  [self showFiles];
-		else						[self hideFiles];
-	} else if([systemInfo efiHidden])  [self hideFiles];	// rehide files if previously hidden
-	
-	if([sender fixBluetooth]) [self fixBluetooth];
-	[self updatePorgressBar: 30];
-	
-	[self updateStatus:NSLocalizedString(@"Complete", nil)];
-
-	[self unmountRamDisk];
-	
-	[sender performSelectorOnMainThread:@selector(installFinished) withObject: nil waitUntilDone:NO];
-
-
-
-	
-	
-
-	[pool release];
-	
-	return YES;
-}
-
 - (BOOL) getAuthRef
 {
 	if(getuid() == 0) return YES;
 	AuthorizationRef authorizationRef;
 	
-    AuthorizationItem right = { "com.mydellmini.Installer", 0, NULL, 0 };
+    AuthorizationItem right = { "com.meklort.netbookinstaller", 0, NULL, 0 };
 	AuthorizationItem admin = { kAuthorizationRightExecute, 0, NULL, 0};
 	AuthorizationItem rights[2];
 	rights[0] = right;
@@ -296,25 +100,28 @@
 
 - (BOOL) copyFrom: (NSString*) source toDir: (NSString*) destination
 {
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	BOOL returnVal = NO;
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:@"-rf", source, destination, nil];
 	
-	[nsargs addObject: @"-rf"];
-	[nsargs addObject:source];
-	[nsargs addObject:destination];
+	returnVal = [self runCMD:"/bin/cp" withArgs:nsargs];
 	
-	return [self runCMD:"/bin/cp" withArgs:nsargs];
+	[nsargs release];
+	
+	return returnVal;
 	
 }
 
 - (BOOL) moveFrom: (NSString*) source to: (NSString*) destination
 {
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
-	[nsargs addObject:@"-f"];
+	BOOL returnVal;
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:@"-f", source, destination, nil];
+
 	
-	[nsargs addObject:source];
-	[nsargs addObject:destination];
+	returnVal = [self runCMD:"/bin/mv" withArgs:nsargs];
 	
-	return [self runCMD:"/bin/mv" withArgs:nsargs];
+	[nsargs release];
+	
+	return returnVal;
 	
 }
 
@@ -322,10 +129,12 @@
 {
 	if(getuid() == 0)
 	{
+		// we are already root, so we dont neet to escilate our privleges
 		return [self runCMDAsUser: command withArgs: nsargs];
 	}
 	else
 	{
+		// We are a regular user. We need to escilate our privledges.
 		return [self runCMDAsRoot: command withArgs: nsargs];
 		
 	}
@@ -337,10 +146,9 @@
 	NSMutableString* commandString = [[NSMutableString alloc] initWithCString:command];
 	NSMutableString* escapedString;
 	int i = 0;
-	
-	
-	//NSLog(@"%@", nsargs);
 	int h = 0;
+	
+	// Escape any white spaces
 	while(h < [commandString length])
 	{
 		if([commandString characterAtIndex:h] == ' ')
@@ -353,13 +161,15 @@
 	
 	run = [run initWithString:commandString];
 	
-	
 	while(i < [nsargs count])
 	{
 		[run appendString:@" "];
 		
+		if(escapedString != nil) [escapedString release];
 		escapedString = [[NSMutableString alloc] initWithString:[nsargs objectAtIndex:i]];
+		
 		int j = 0;
+		// Excape any whitespaces
 		while(j < [escapedString length])
 		{
 			if([escapedString characterAtIndex:j] == ' ')
@@ -370,13 +180,17 @@
 			j++;
 		}
 		
-		//[run appendString:[[@"\"" stringByAppendingString: escapedString] stringByAppendingString:@"\""]];
 		[run appendString:escapedString];
 		
 		i++;
 	}
 	//NSLog(@"Executing: %@", run);
+	// TODO: change away from system and twards one of teh exec commands. We also may need to catch the output or return codes of any command we run (instead of retuning YES)
 	system([run cStringUsingEncoding:NSASCIIStringEncoding]);	
+	
+	if(run != nil) [run release];
+	if(commandString != nil) [commandString release];
+	if(escapedString != nil) [escapedString release];
 	return YES;
 }
 
@@ -387,7 +201,6 @@
 	int i = 0;
 	OSStatus status;
 	
-	//NSLog(@"Running %s", command);
 	while(i < [nsargs count])
 	{
 		args[i] = (char*)[[nsargs objectAtIndex:i] cStringUsingEncoding:NSASCIIStringEncoding];
@@ -401,7 +214,6 @@
 	if(status == 0) while(fgets(string, 10, pipe) != NULL);	// Block untill command has completed
 
 	fclose(pipe);
-	//NSLog(@"Done running %s", command);
 
 	
 	if(status == 0) return YES;
@@ -411,34 +223,47 @@
 
 - (BOOL) hidePath: (NSString*) path
 {
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	BOOL returnVal = NO;
+
+	// /Volumes/target/usr/bin/chflag hidden path
+
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:@"hidden", path, nil];
 	
-	
-	[nsargs addObject: @"hidden"];
-	[nsargs addObject:path];
-	
-	if(![self runCMD: (char*)[[[systemInfo installPath] stringByAppendingString: @"/usr/bin/chflags"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs])
+	if(!(returnVal = [self runCMD: (char*)[[[systemInfo installPath] stringByAppendingString: @"/usr/bin/chflags"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs]))
 	{
-		return [self runCMD:"/usr/bin/chflags" withArgs:nsargs];	// rathen than distributing chflags, we just try running it in both locations
-	} else return NO;
+		returnVal = [self runCMD:"/usr/bin/chflags" withArgs:nsargs];	// rathen than distributing chflags, we just try running it in both locations
+	}
+	
+	[nsargs release];
+	
+	return returnVal;
 }
+
+
 
 - (BOOL) showPath: (NSString*) path
 {
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	// /Volumes/target/usr/bin/chflag nohidden path
+	BOOL returnVal = NO;
 	
-	[nsargs addObject: @"nohidden"];
-	[nsargs addObject:path];
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:@"nohidden", path, nil];
 	
-	if(![self runCMD: (char*)[[[systemInfo installPath] stringByAppendingString: @"/usr/bin/chflags"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs])
+	if(!(returnVal = [self runCMD: (char*)[[[systemInfo installPath] stringByAppendingString: @"/usr/bin/chflags"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs]))
 	{
-		return [self runCMD:"/usr/bin/chflags" withArgs:nsargs];	// rathen than distributing chflags, we just try running it in both locations
-	} else return NO;
+		returnVal = [self runCMD:"/usr/bin/chflags" withArgs:nsargs];	// rathen than distributing chflags, we just try running it in both locations
+	}
+	
+	[nsargs release];
+	
+	return returnVal;
+	
 }
 
 
 - (BOOL) setPermissions: (NSString*) perms onPath: (NSString*) path recursivly: (BOOL) recursiv
 {
+	// /bin/chmod [-R] perms path
+
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
 	if(recursiv) 	[nsargs addObject: @"-R"];
@@ -452,6 +277,7 @@
 
 - (BOOL) setOwner: (NSString*) owner andGroup: (NSString*) group onPath: (NSString*) path recursivly: (BOOL) recursiv
 {
+	// /usr/sbin/chown [-R] owner:group path
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
 	if(recursiv) 	[nsargs addObject: @"-R"];
@@ -464,27 +290,32 @@
 
 - (BOOL) makeDir: (NSString*) dir
 {
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	BOOL returnVal = NO;
+	// /bin/mkdir -p dir
+
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:@"-p", dir, nil];
 	
-	[nsargs addObject: @"-p"];
-	[nsargs addObject:dir];
+	returnVal = [self runCMD:"/bin/mkdir" withArgs:nsargs];
 	
-	return [self runCMD:"/bin/mkdir" withArgs:nsargs];
+	[nsargs release];
+	
+	return returnVal;
 }
 
 -(BOOL) deleteFile: (NSString*) file
 {
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	BOOL returnVal = NO;
+	// /bin/rm -rf file
+
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:@"-rf", file, nil];
 	
-	[nsargs addObject: @"-rf"];
-	[nsargs addObject:file];
+	returnVal = [self runCMD:"/bin/rm" withArgs:nsargs];
 	
-	return [self runCMD:"/bin/rm" withArgs:nsargs];
+	[nsargs release];
+	
+	return returnVal;
+	
 }
-
-
-
-
 
 
 
@@ -506,7 +337,7 @@
 	 **/
 	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
 	{
-		// MUST use chameleon 2 rc2 for the moment
+		// Force correct bootloader
 		bootloaderType = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:@"Chameleon R640"];
 	}
 	
@@ -533,7 +364,6 @@
 	
 	[nsargs addObject:[@"/dev/r" stringByAppendingString: bsdDisk]];
 
-	// TODO: Fdisk is included w/ OS X, it can be removed from the file and run from /usr/sbin/fdisk
 //	[self runCMD:(char*)[[bootPath stringByAppendingString: @"/fdisk"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs];
 	[self runCMD:"/usr/sbin/fdisk" withArgs:nsargs];
 
@@ -543,25 +373,14 @@
 	[nsargs2 addObject:[@"if=" stringByAppendingString:[bootPath stringByAppendingString: @"boot1h"]]];
 	[nsargs2 addObject:[@"of=/dev/r" stringByAppendingString: [systemInfo bootPartition]]];
 	
-	//[@"of=/dev/r" stringByAppendingString: [systemInfo bootPartition]]
 	
 	[self runCMD:"/bin/dd" withArgs:nsargs2];
 	
-	/**
-	 ** Warning - 10.6 hack follows, to be removed in the future... (or at least make it not hackish)
-	 **/
-	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
-	{
-		// MUST use chameleon 2 rc2 for the moment
-									// /SupportFiles/bootloader/snow/boot
-		[self copyFrom:[bootPath stringByAppendingString: @"../snow/boot"] toDir:[[systemInfo installPath] stringByAppendingString: @"/"]];
-	}
-	else
-	{
-		[self copyFrom:[bootPath stringByAppendingString: @"/boot"] toDir:[[systemInfo installPath] stringByAppendingString: @"/"]];
-	}
+	[self copyFrom:[bootPath stringByAppendingString: @"/boot"] toDir:[[systemInfo installPath] stringByAppendingString: @"/"]];
 	[self hidePath:[[systemInfo installPath] stringByAppendingString: @"/boot"]];
 	
+	[nsargs	 release];
+	[nsargs2 release];
 	[scanner release];
 	
 	return YES;
@@ -579,10 +398,18 @@
 	
 	if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))
 	{
+		// Copy in 10.6 Extensions
 		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/10.6 Extensions/"]];
 		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.6 Extensions/"]];
 		
 	}
+	else
+	{
+		// Copy in 10.5 Extensions
+		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/10.5 Extensions/"]];
+		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.5 Extensions/"]];
+	}
+
 	
 	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Extensions/"]];
 
@@ -596,24 +423,30 @@
 	}
 	
 	
+	[sourceExtensions release];
 	return status;
 }
 
 - (BOOL) hideFiles
 {
+	// Hidding /boot, /Extra, /Extra.bak
 	[self hidePath:[[systemInfo installPath] stringByAppendingString: @"/boot"]];
 	[self hidePath:[[systemInfo installPath] stringByAppendingString: @"/Extra"]];
+	[self hidePath:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak"]];
+
 	return YES;
 }
 
 - (BOOL) showFiles
 {
+	// Showing /boot, /Extra, /Extra.bak
 	[self showPath:[[systemInfo installPath] stringByAppendingString: @"/boot"]];
 	[self showPath:[[systemInfo installPath] stringByAppendingString: @"/Extra"]];
+	[self showPath:[[systemInfo installPath] stringByAppendingString: @"/Extra.bakb"]];
+
 	return YES;
 }
 
-// TODO: This will ONLY work if you install the dsdt to /
 - (BOOL) installDSDT
 {
 	// TODO: make the dsdt compile / decompiler into a framework / dylib
@@ -621,8 +454,14 @@
 	[self makeDir: @"/Volumes/ramdisk/dsdt/"];
 	[self makeDir: @"/Volumes/ramdisk/dsdt/patches"];
 	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/DSDTPatcher/"] toDir: @"/Volumes/ramdisk/dsdt/"];
+
+	[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General"] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 	[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
+
+	NSMutableDictionary* genPatches= [NSMutableDictionary dictionaryWithDictionary: [[[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]] objectForKey:@"General"] objectForKey: @"DSDT Patches"]];	
+
 	NSDictionary* patches = [[systemInfo machineInfo] objectForKey:@"DSDT Patches"];
+
 	NSMutableString* configFile = [[NSMutableString alloc] initWithString:@""];
 	NSEnumerator* keys = [patches keyEnumerator];
 	NSString* key;
@@ -630,25 +469,30 @@
 	
 	while(key = [keys nextObject])
 	{
+		[genPatches setObject:[patches objectForKey:key] forKey:key];
+	}
+	keys = [genPatches keyEnumerator];
+	
+	while(key = [keys nextObject])
+	{
 		[configFile appendString:@":"];
 		[configFile appendString:key];
 		[configFile appendString:@":"];
-		[configFile appendString:[patches objectForKey:key]];
+		[configFile appendString:[genPatches objectForKey:key]];
 		[configFile appendString:@":\r\n"];
 	}
 	
-//	[configFile writeToFile:@"/Volumes/ramdisk/dsdt/config" atomically:NO];
 	[configFile writeToFile:@"/Volumes/ramdisk/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
 	[self copyFrom:@"/Volumes/ramdisk/config" toDir:@"/Volumes/ramdisk/dsdt/"];
 
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
-	//[nsargs addObject: @"PWD=/Volumes/ramdisk/dsdt/"];
-	//[nsargs addObject: @"/Volumes/ramdisk/dsdt/DSDTPatcher"];
-	
-	//[self runCMD:"/usr/bin/env" withArgs:nsargs];
 	[self runCMD:"/Volumes/ramdisk/dsdt/DSDTPatcher" withArgs:nsargs];
 
+	
+	[configFile release];
+	[nsargs release];
+	
 	// The dsdt patcher doesnt konw where to put it, so we do it here.
 	return [self copyFrom: @"/Volumes/ramdisk/dsdt/Volumes/ramdisk/dsdt/dsdt.aml" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
 
@@ -683,50 +527,54 @@
 							  kCFPreferencesCurrentUser,
 							  kCFPreferencesAnyHost);
 
+	[dict release];
+	[save release];
+	
 	return YES;
 }
 
 - (BOOL) dissableHibernation: (BOOL) dissable 
 {
 	UInt8 state;
-	NSFileManager* manager = [[NSFileManager alloc] init];
+	NSFileManager* manager = [NSFileManager defaultManager];
 	
 	// If the preference plist doesnt exist, copy a default one in.
 	if(![manager fileExistsAtPath:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]])
 	{
+		[self makeDir:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 		[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 
 	}
 	
 	
-	//if(([systemInfo hibernationDissabled]) ^ dissable)	// Setting have changed
-	//{
-		NSMutableDictionary*	propertyList= [[NSMutableDictionary alloc] initWithContentsOfFile: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]];
+	NSMutableDictionary*	propertyList= [[NSMutableDictionary alloc] initWithContentsOfFile: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]];
 	
-		NSMutableDictionary* powerStates = [[NSMutableDictionary alloc] initWithDictionary:[propertyList objectForKey: @"Custom Profile"]];
-		NSMutableDictionary* acPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"AC Power"]];
-		NSMutableDictionary* battPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"Battery Power"]];
+	NSMutableDictionary* powerStates = [[NSMutableDictionary alloc] initWithDictionary:[propertyList objectForKey: @"Custom Profile"]];
+	NSMutableDictionary* acPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"AC Power"]];
+	NSMutableDictionary* battPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"Battery Power"]];
 	
-		if(dissable) state = 0;
-		else state = 3;
+	if(dissable) state = 3;
+	else state = 0;
 		
-		[acPowerState   setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
-		[battPowerState setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
+	[acPowerState   setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
+	[battPowerState setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
 
 
 		
-		[powerStates setObject: acPowerState forKey: @"AC Power"];
-		[powerStates setObject: battPowerState forKey: @"Battery Power"];
-		[propertyList setObject: powerStates forKey: @"Custom Profile"];
+	[powerStates setObject: acPowerState forKey: @"AC Power"];
+	[powerStates setObject: battPowerState forKey: @"Battery Power"];
+	[propertyList setObject: powerStates forKey: @"Custom Profile"];
 
 
-		[propertyList writeToFile: @"/Volumes/ramdisk/com.apple.PowerManagement.plist" atomically: NO]; 
-		if(state == 3) [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/var/vm/sleepimage"]];
+	[propertyList writeToFile: @"/Volumes/ramdisk/com.apple.PowerManagement.plist" atomically: NO]; 
+	if(state == 3) [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/var/vm/sleepimage"]];
+	
+	[propertyList release];
+	[acPowerState release];
+	[battPowerState release];
 
-		return [self copyFrom: @"/Volumes/ramdisk/com.apple.PowerManagement.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Library/Preferences/SystemConfiguration/"]];
-	//}
-	//return YES;
+	return [self copyFrom: @"/Volumes/ramdisk/com.apple.PowerManagement.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Library/Preferences/SystemConfiguration/"]];
 }
 
 - (BOOL) setQuietBoot: (BOOL) quietBoot
@@ -751,6 +599,9 @@
 
 	}
 	[bootSettings writeToFile: @"/Volumes/ramdisk/com.apple.Boot.plist" atomically: NO];
+	
+	[bootSettings release];
+	
 	return [self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
 }
 
@@ -761,11 +612,6 @@
 
 - (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination
 {
-//	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]])NSLog(@"Copying from %@", [[ [ [NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/"] stringByAppendingString:source]);
-//	NSLog(@"Copying from %@", [ [ [ [ [ [NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/"] stringByAppendingString:source]);
-
-//	NSLog(@"Copying to   %@", [[systemInfo installPath] stringByAppendingString: destination]);
-	// First install general files
 	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [self copyFrom: [[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
 	return [self copyFrom: [[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
 
@@ -803,7 +649,9 @@
 
 - (BOOL) installLaunchAgents
 {
-	return [self copyMachineFilesFrom: @"LaunchAgents/" toDir: @"/Library/LaunchAgents/"];
+	[self copyMachineFilesFrom: @"LaunchAgents/" toDir: @"/Library/LaunchAgents/"];
+	return [self copyMachineFilesFrom: @"LaunchDaemons/" toDir: @"/Library/LaunchDaemons/"];
+
 }
 
 
@@ -833,9 +681,9 @@
 	
 	HexEditor* editor = [HexEditor alloc];
 	
-	UInt32 findBytes = 0x27A28086;
+	UInt32 findBytes =    0x27A28086;
 	UInt32 replaceBytes = 0x27AE8086;
-	char findString[] = {'0', 'x', '2', '7', 'A', '2', '8', '0', '8', '6'};
+	char findString[] =    {'0', 'x', '2', '7', 'A', '2', '8', '0', '8', '6'};
 	char replaceString[] = {'0', 'x', '2', '7', 'A', 'E', '8', '0', '8', '6'};
 
 	
@@ -864,7 +712,7 @@
 	[find release];
 	[replace release];
 	[editor release];
-	return NO;
+	return YES;
 }
 
 - (BOOL) patchFramebufferKext
@@ -874,9 +722,9 @@
 	
 	HexEditor* editor = [HexEditor alloc];
 	
-	UInt32 findBytes = 0x27A28086;
+	UInt32 findBytes =    0x27A28086;
 	UInt32 replaceBytes = 0x27AE8086;
-	char findString[] = {'0', 'x', '2', '7', 'A', '2', '8', '0', '8', '6'};
+	char findString[] =    {'0', 'x', '2', '7', 'A', '2', '8', '0', '8', '6'};
 	char replaceString[] = {'0', 'x', '2', '7', 'A', 'E', '8', '0', '8', '6'};
 	
 	
@@ -905,7 +753,7 @@
 	[find release];
 	[replace release];
 	[editor release];
-	return NO;
+	return YES;
 }
 
 - (BOOL) patchIO80211kext
@@ -966,6 +814,12 @@
 	[plist setObject: properties forKey: @"IOKitPersonalities"];
 	
 	[plist writeToFile: @"/Volumes/ramdisk/Info.plist" atomically:NO];
+	
+	[bcmusb release];
+	[properties release];
+	[plist release];
+	
+	
 	return [self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir: [[systemInfo extensionsFolder] stringByAppendingString: @"/IOBluetoothFamily.kext/Contents/PlugIns/BroadcomUSBBluetoothHCIController.kext/Contents/Info.plist"]];
 }
 
@@ -979,6 +833,8 @@
 
 	[infoPlist setObject:@"1.0" forKey:@"OSBundleCompatibleVersion"];
 	[infoPlist writeToFile: @"/Volumes/ramdisk/Info.plist" atomically:NO];
+	
+	[infoPlist release];
 
 	return [self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir: [[systemInfo extensionsFolder] stringByAppendingString: @"/IOUSBFamily.kext/Contents/PlugIns/AppleUSBEHCI.kext/Contents/Info.plist"]];
 
@@ -990,15 +846,17 @@
 - (BOOL) installLocalExtensions
 {
 	BOOL status = YES;
-	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] initWithCapacity: 10];
+	NSMutableArray* sourceExtensions = [[NSMutableArray alloc] init];
 	
-	// This *WAS* /S/L/E
-	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
-//	NSString* destinationExtensions =  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"];
+//	NSString* destinationExtensions =  [[[systemInfo installPath] stringByAppendingString: @"/Extra/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Extensions Directory"]];
 	
-	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/LocalExtensions/"]];
+	// This is really ONLY for clamshell display.kext
+	NSString* destinationExtensions =  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"];
+	//NSString* destinationExtensions = [systemInfo extensionsFolder];
 	
+	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/LocalExtensions/"]];	
 	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
+	
 	
 	
 	// An iterator could hav ebeen used too
@@ -1008,6 +866,7 @@
 		if(![self copyFrom: current toDir: destinationExtensions]) status = NO;
 	}
 	
+	[sourceExtensions release];
 	
 	return status;
 }
@@ -1017,18 +876,34 @@
 //----------			copyDependencies			----------//
 - (BOOL) copyDependencies
 {
-	/*NSString *whitelistString = [[NSString alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/kext_whitelist"]]; // reads file into memory as an NSString
-	NSArray *whitelist = [whitelistString componentsSeparatedByString:@"\n"]; // each line, adjust character for line endings
-	
-	// These go into /Volumes/ramdisk/Extensions to be generated into an ext cache
-	int i = 0;
-	while(i < [whitelist count])
+	if(
+	   (([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) ||	// 10.6 to any
+	   (([systemInfo hostOS] <  KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] <  KERNEL_VERSION(10, 6, 0)))		// 10.5 to 10.5
+	   )
 	{
-		if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:@"/Volumes/ramdisk/Extensions/"];
-		i++;
-	}*/
-	[self makeDir:@"/Volumes/ramdisk/Extensions"];
-    [self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:@"/Volumes/ramdisk/Extensions/"];
+		[self makeDir:@"/Volumes/ramdisk/Extensions"];
+		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:@"/Volumes/ramdisk/Extensions/"];
+	}
+	else 
+	{
+		// Only use the white list if you are creating a 10.6 USB boot disk and re are not on 10.6. This is due to an updated kextcache that will *NOT* run on 10.5 even in a chroot
+		NSString *whitelistString = [[NSString alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/kext_whitelist"]]; // reads file into memory as an NSString
+		NSArray *whitelist = [whitelistString componentsSeparatedByString:@"\n"]; // each line, adjust character for line endings
+		
+		int i = 0;
+		while(i < [whitelist count])
+		{
+			if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:[systemInfo extensionsFolder]];
+			i++;
+		}
+		
+	}
+
+	
+	
+	// Move to a grey list or similar"
+	[self deleteFile:@"/Volumes/ramdisk/Extensions/AppleHDA.kext"];
+
 	//[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:[[systemInfo installPath] stringByAppendingString: [systemInfo extensionsFolder]]];
 	
 		
@@ -1045,70 +920,164 @@
 
 
 // This generates and mkext in <install>/Extra/Extensions.mkext FROM /Volumes/ramdisk/Extensions
+// FIXME: this is very (extremely?) ugly, I absolutely will rework this. If I dont and you see it in svn, let me know.
 - (BOOL) generateExtensionsCache
 {
-	// Remove prvious if exists
-	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
-	NSLog(@"Copied /System/Library/Extensions");
-	[self updateStatus:NSLocalizedString(@"Copying Extension dependencies", nil)];
-		
-	[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: @"/Volumes/ramdisk/Extensions/"];
-	
-//	NSLog(@"Deleting blacklisted items");
-//	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk/Extensions/AppleACPIPlatform.kext"]];
-//	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk/Extensions/IOACPIFamily.kext"]];
-//	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk/Extensions/IOPCIFamily.kext"]];
-
-	
-	[self removeBlacklistedKexts];
-	
-	//sudo kextcache -a i386 -m <installPath>/Extra/Extensions.mkext <installPath>/Extra/Mini9Ext/ /Sytem/Library/Extensions
-
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
-	NSMutableArray* nsargs2 = [[NSMutableArray alloc] init];
-
+	[self setOwner:@"root" andGroup:@"wheel" onPath: [systemInfo installPath] recursivly: NO];
 	
 	
-	// Generate Extensions cache
-	[nsargs addObject: @"-a"];
-	[nsargs addObject: @"i386"];
-	[nsargs addObject: @"-m"];
-	
-	
-	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
-	[nsargs addObject:@"/Volumes/ramdisk/Extensions/"];
-	//[nsargs addObject:[systemInfo extensionsFolder]];
-	
-	[nsargs2 addObject: @"-a"];
-	[nsargs2 addObject: @"i386"];
-	[nsargs2 addObject: @"-m"];
-	
-	
-	[nsargs2 addObject:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
-	[nsargs2 addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]];
-	
-		
-	[self setPermissions: @"755" onPath: @"/Volumes/ramdisk/Extensions/" recursivly: YES];
+	[self setPermissions: @"644" onPath: @"/Volumes/ramdisk/Extensions/" recursivly: YES];
 	[self setOwner:@"root" andGroup:@"wheel" onPath: @"/Volumes/ramdisk/Extensions/" recursivly: YES];
 	
-	[self setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"] recursivly: YES];
-	[self setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"] recursivly: YES];
+//	[self setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"] recursivly: YES];
+//	[self setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"] recursivly: YES];
+	
+	[self setPermissions: @"755" onPath: [systemInfo extensionsFolder] recursivly: YES];
+	[self setOwner:@"root" andGroup:@"wheel" onPath: [systemInfo extensionsFolder] recursivly: YES];
+	
+	// Remove prvious mkexts
+	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
 
 	
-	
-	NSLog(@"Generating extensions Cache");
-	setenv("_com_apple_kextd_skiplocks", "1", 1);	    // This let kexts cache run before the 5 minut delay imposed by kextd
-	if([self runCMD:"/usr/sbin/kextcache" withArgs:nsargs])
+	if((([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) || [systemInfo targetOS] <= KERNEL_VERSION(10, 6, 0))
 	{
+		
+		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions.mkext"]];
+		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext"]];
+		
+		
+		NSLog(@"Copied /System/Library/Extensions");	
+		
+		// Copy /Extra/Extensions/* to /Volumes/ramdisk/Extensions, overwriting any /S/L/E kexts previously copied there in [self copyDep]
+		[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: @"/Volumes/ramdisk/Extensions/"];
+		
+		[self removeBlacklistedKexts];
+		
+		//sudo kextcache -a i386 -m <installPath>/Extra/Extensions.mkext <installPath>/Extra/Mini9Ext/ /Sytem/Library/Extensions
+		
+		NSMutableArray* nsargs4 = [[NSMutableArray alloc] init];
+		NSMutableArray* nsargs5 = [[NSMutableArray alloc] init];
+		//	NSMutableArray* nsargs6 = [[NSMutableArray alloc] init];
+		
+		
+		
+		
+		NSArray* nsargs = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+						   @"/usr/sbin/kextcache", @"-a", @"i386", @"-m", @"/Extra/Extensions.mkext", @"/Volumes/ramdisk/Extensions/", nil];
+		
+		
+		
+		
+		
+		// kextcache -a i386 -m /System/Library/Extensions.mkext /System/Library/Extensions/
+		
+		//chroot "$3" /usr/sbin/kextcache -system-caches
+		
+		NSArray* nsargs2 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+							@"/usr/sbin/kextcache", @"-a", @"i386", @"-m", @"/System/Library/Extensions.mkext", @"/System/Library/Extensions/", nil];
+		
+		
+		// kextcache -l -m /System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext /System/Library/Extensions/
+		
+		NSArray* nsargs3 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+							@"/usr/sbin/kextcache", @"-a", @"i386", @"-l", @"-m", @"/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext", @"/System/Library/Extensions/", nil];
+		
+		
+	
+		
+		
+		NSLog(@"Generating extensions Cache");
+		setenv("_com_apple_kextd_skiplocks", "1", 1);	    // This let kexts cache run before the 5 minut delay imposed by kextd
+		
+		
+		// Remount ramdisk so it's visible in the chroot
+		NSDictionary* info = [ systemInfo getFileSystemInformation: @"/Volumes/ramdisk"];
+		
+		// Unmount ramdisk
+		[nsargs4 addObject:@"unmount"];
+		[nsargs4 addObject:@"-force"];
+		
+		[nsargs4 addObject:@"/Volumes/ramdisk"];
+		[self runCMD:"/usr/bin/hdiutil" withArgs:nsargs4];
+		
+		[self makeDir:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk"]];
+		
+		// Remount ramdisk
+		[nsargs5 addObject:@"-t"];
+		[nsargs5 addObject:@"hfs"];
+		[nsargs5 addObject:[info objectForKey:@"Mounted From"]];
+		[nsargs5 addObject:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk"]];
+		[self runCMD:"/sbin/mount" withArgs:nsargs5];
+		
+		
+		
+		if( [self runCMD:"/usr/sbin/chroot" withArgs:nsargs])
+		{
+			[self runCMD:"/usr/sbin/chroot" withArgs:nsargs2];
+			if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0)) [self runCMD:"/usr/sbin/chroot" withArgs:nsargs3];
+			
+			[self makeDir:@"/Volumes/ramdisk"];
+			
+			
+			// Unmount ramdisk
+			[nsargs4 removeLastObject];
+			[nsargs4 addObject:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk"]];
+			[self runCMD:"/usr/bin/hdiutil" withArgs:nsargs4];
+			
+			// Remount ramdisk
+			[nsargs5 removeLastObject];
+			[nsargs5 addObject:@"/Volumes/ramdisk"];
+			[self runCMD:"/sbin/mount" withArgs:nsargs5];
+			
+			
+			
+			[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk"]];
+			
+			[nsargs4 release];
+			[nsargs5 release];
+			[nsargs3 release];
+			[nsargs2 release];
+			[nsargs release];
+
+			return YES;
+		}
+		else {
+			[self makeDir:@"/Volumes/ramdisk"];
+			
+			// Unmount ramdisk
+			[nsargs4 removeLastObject];
+			[nsargs4 addObject:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk"]];
+			[self runCMD:"/usr/bin/hdiutil" withArgs:nsargs4];
+			
+			// Remount ramdisk
+			[nsargs5 removeLastObject];
+			[nsargs5 addObject:@"/Volumes/ramdisk"];
+			[self runCMD:"/sbin/mount" withArgs:nsargs5];
+			
+			[nsargs4 release];
+			[nsargs5 release];
+			[nsargs3 release];
+			[nsargs2 release];
+			[nsargs release];
+			[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Volumes/ramdisk"]];
+			return NO;
+			
+		}
+		
+	}
+	else
+	{
+		NSArray* nsargs = [[NSArray alloc] initWithObjects:@"-a", @"i386", @"-m", [[systemInfo installPath] stringByAppendingString:@"/Extra/Extensions.mkext"], [systemInfo extensionsFolder], nil];	// This should only happen on 10.5 -> 10.6 dvd pathing
+		[self runCMD:"/usr/sbin/kextcache" withArgs:nsargs];
+		
+		[nsargs release];
 		return YES;
-		//return [self deleteFile:@"/Volumes/ramdisk/Extensions/"];
-	} else return NO;
-	
-	
-	// TODO: set correct permissions on these files...
-	
+
+
+	}
 }
 
+// Legacy, used for pre 10.5.6 boot dvd's (Aka, remove this when 10.5.x support is dropped
 - (BOOL) useLatestKernel
 {
 	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
@@ -1116,9 +1085,11 @@
 	[bootSettings setObject: @"mach_kernel.10.5.6" forKey: @"Kernel"];
 	
 	[bootSettings writeToFile: @"/Volumes/ramdisk/com.apple.Boot.plist" atomically: NO];
+	[bootSettings release];
 	return [self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
 }
 
+// legacy, used when transitioning form a pre 10.5.6 install to a 10.5.6+ install. Remove when 10.5.x support is dropped
 - (BOOL) useSystemKernel
 {
 	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
@@ -1126,6 +1097,7 @@
 	[bootSettings setObject: @"mach_kernel" forKey: @"Kernel"];
 	
 	[bootSettings writeToFile: @"/Volumes/ramdisk/com.apple.Boot.plist" atomically: NO];
+	[bootSettings release];
 	if([self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]])
 	{
 		return [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/mach_kernel.10.5.6"]];
@@ -1151,22 +1123,6 @@
 }
 
 
-- (BOOL) updatePorgressBar: (NSUInteger) percent
-{
-	
-	[sender performSelectorOnMainThread:@selector(updatePorgressBar:) withObject: [[NSNumber alloc] initWithInt:percent] waitUntilDone:NO];
-	return YES;
-	//[progressBar setValue: [[NSNumber alloc] initWithInt: percent]];
-	//[progressBar incrementBy: percent];
-	//return YES;
-}
-- (BOOL) updateStatus: (NSString*) status
-{
-	[sender performSelectorOnMainThread:@selector(updateStatus:) withObject: status waitUntilDone:NO];
-	//[statusLabel setStringValue:status];
-	return YES;
-}
-
 - (BOOL) removeBlacklistedKexts
 {
 	NSLog(@"Remove blacklisted items");
@@ -1184,7 +1140,7 @@
 		{
 			// TODO: verify kext does not go below root. (aka Security issue)
 			[self makeDir:   [[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
-			[self copyFrom:  [[systemInfo installPath] stringByAppendingFormat:@"/Volumes/ramdisk/Extensions/%@", kext] toDir:[[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
+			[self copyFrom:  [[systemInfo installPath] stringByAppendingFormat:@"/System/Library/Extensions/%@", kext] toDir:[[systemInfo installPath] stringByAppendingString:@"/System/Library/BackupExtensions/"]];
 			[self deleteFile:[[systemInfo installPath] stringByAppendingFormat:@"/Volumes/ramdisk/Extensions/%@", kext]];
 			[self deleteFile:[[systemInfo installPath] stringByAppendingFormat:@"/System/Library/Extensions/%@", kext]];
 		}
@@ -1206,6 +1162,48 @@
 		}
 	}
 	
+	return YES;
+}
+
+- (BOOL) patchPre1056mkext
+{
+	return NO;
+}
+
+- (BOOL) repairExtensionPermissions
+{
+	// repair directory
+
+	
+	NSArray* nsargs = [[NSArray alloc] initWithObjects:
+					   [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"],
+					   @"-type", @"f",
+					   @"-exec", @"/bin/chmod", @"644", @"{}", @";",
+					   nil
+					   ];
+	
+	NSArray* nsargs2 = [[NSArray alloc] initWithObjects:
+						[[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"],
+						@"-type", @"d",
+						@"-name", @"MacOS",	// files in MacOS are executables and need the executable bit set
+						@"-exec", @"/bin/chmod", @"-R", @"755", @"{}", @";",
+						nil
+						];
+
+	NSArray* nsargs3 = [[NSArray alloc] initWithObjects:
+					   [[systemInfo installPath] stringByAppendingString:@"/System/Library/Extensions/"],
+					   @"-type", @"d",
+					   @"-exec", @"/bin/chmod", @"755", @"{}", @";",
+					   nil
+					   ];
+	[self runCMD:"/usr/bin/find" withArgs:nsargs];
+	[self runCMD:"/usr/bin/find" withArgs:nsargs2];
+	[self runCMD:"/usr/bin/find" withArgs:nsargs3];
+	
+	[nsargs release];
+	[nsargs2 release];
+	[nsargs3 release];
+
 	return YES;
 }
 

@@ -22,8 +22,6 @@
 	
 }
 
-- (BOOL) performInstall: (SystemInformation*) systemInfo;
-
 // Get root authorization;
 - (BOOL) getAuthRef;
 
@@ -48,8 +46,6 @@
 - (BOOL) installSystemConfiguration;
 - (BOOL) installExtraFiles;
 
-- (BOOL) updateStatus: (NSString*) status;
-- (BOOL) updatePorgressBar: (NSUInteger) percent;
 
 					
 - (BOOL) setPermissions: (NSString*) perms onPath: (NSString*) path recursivly: (BOOL) recursiv;
@@ -69,7 +65,7 @@
 - (BOOL) installMirrorFriendlyGraphics;
 
 
-// DSD patch routines
+// DSDT patch routines
 - (BOOL) getDSDT;
 - (BOOL) patchDSDT;
 - (BOOL) patchDSDT: (BOOL) forcePatch;
@@ -86,7 +82,6 @@
 - (BOOL) generateExtensionsCache;
 
 
-- (id) initWithSender: (id) sender;
 - (void) systemInfo: (SystemInformation*) info;
 - (void) mountRamDisk;
 - (void) unmountRamDisk;
@@ -100,6 +95,9 @@
 - (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination;
 
 - (BOOL) removeBlacklistedKexts;
+- (BOOL) patchPre1056mkext;
+
+- (BOOL) repairExtensionPermissions;
 
 @end
 

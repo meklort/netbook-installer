@@ -11,7 +11,7 @@
 #import "Installer.h"
 
 @interface UpdateExtraController : NSObject {
-
+	IBOutlet NSProgressIndicator*	progressBar;
 }
 
 - (IBAction) performInstall: (id) sender;
