@@ -21,7 +21,31 @@
 			<string>AppleTyMCEDriver.kext</string>
 		</array>
 		<key>DSDT Patches</key>
-		<dict/>
+		<dict>
+			<key>RTC</key>
+			<string>Device (RTC)</string>
+		</dict>
+		<key>Install Paths</key>
+		<dict>
+			<key>3rdParyPrefPanes</key>
+			<string>/Library/PreferenePanes</string>
+			<key>DisplayProfiles</key>
+			<string>/Library/ColorSync/Profiles/</string>
+			<key>ExtraFiles</key>
+			<string>/Extra/</string>
+			<key>LaunchAgents</key>
+			<string>/Library/LaunchAgents/</string>
+			<key>LaunchDaemons</key>
+			<string>/Library/LaunchDaemons/</string>
+			<key>LocalExtensions</key>
+			<string>/System/Library/Extensions/</string>
+			<key>Preferences</key>
+			<string></string>
+			<key>PrefPanes</key>
+			<string>/System/Library/PrefencePanes/</string>
+			<key>SystemConfiguration</key>
+			<string>/System/Library/SystemConfiguration/</string>
+		</dict>
 	</dict>
 	<key>Dell Vostro A90</key>
 	<dict>
@@ -49,53 +73,6 @@
 			<string>Method (_Q1C,</string>
 		</dict>
 	</dict>
-	<key>Dell Mini 9</key>
-	<dict>
-		<key>Support Files</key>
-		<string>Dell Mini 9</string>
-		<key>Extensions Directory</key>
-		<string>Mini9Ext</string>
-		<key>Model Name</key>
-		<string>Inspiron 910</string>
-		<key>Long Name</key>
-		<string>Dell Mini 9</string>
-		<key>Bluetooth Vendor ID</key>
-		<integer>16700</integer>
-		<key>Bluetooth Device ID</key>
-		<integer>668</integer>
-		<key>EFI Strings</key>
-		<dict/>
-		<key>Kext Blacklist</key>
-		<array/>
-		<key>DSDT Patches</key>
-		<dict>
-			<key>BAT</key>
-			<string>Device (BAT1)</string>
-			<key>FN8</key>
-			<string>Method (_Q1C,</string>
-		</dict>
-	</dict>
-	<key>Samsung NC-10</key>
-	<dict>
-		<key>Support Files</key>
-		<string>Samsung NC-10</string>
-		<key>Extensions Directory</key>
-		<string>NC10Ext</string>
-		<key>Model Name</key>
-		<string>NC10</string>
-		<key>Long Name</key>
-		<string>Samsung NC-10</string>
-		<key>Bluetooth Vendor ID</key>
-		<integer>0</integer>
-		<key>Bluetooth Device ID</key>
-		<integer>0</integer>
-		<key>EFI Strings</key>
-		<dict/>
-		<key>Kext Blacklist</key>
-		<array/>
-		<key>DSDT Patches</key>
-		<dict/>
-	</dict>
 	<key>Asus EEE 1000H</key>
 	<dict>
 		<key>Support Files</key>
@@ -116,6 +93,74 @@
 		<array>
 			<string>AppleHDA.kext</string>
 		</array>
+		<key>DSDT Patches</key>
+		<dict/>
+	</dict>
+	<key>Dell Mini 9</key>
+	<dict>
+		<key>Support Files</key>
+		<string>Dell Mini 9</string>
+		<key>Extensions Directory</key>
+		<string>Mini9Ext</string>
+		<key>Model Name</key>
+		<string>Inspiron 910</string>
+		<key>Long Name</key>
+		<string>Dell Mini 9</string>
+		<key>Bluetooth Vendor ID</key>
+		<integer>16700</integer>
+		<key>Bluetooth Device ID</key>
+		<integer>688</integer>
+		<key>EFI Strings</key>
+		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
+		<key>DSDT Patches</key>
+		<dict>
+			<key>BAT</key>
+			<string>Device (BAT1)</string>
+			<key>FN8</key>
+			<string>Method (_Q1C,</string>
+		</dict>
+	</dict>
+	<key>Dell Mini 10v</key>
+	<dict>
+		<key>Support Files</key>
+		<string>Dell Mini 10v</string>
+		<key>Extensions Directory</key>
+		<string>Mini10vExt</string>
+		<key>Model Name</key>
+		<string>Inspiron 1011</string>
+		<key>Long Name</key>
+		<string>Dell Mini 10v</string>
+		<key>Bluetooth Vendor ID</key>
+		<integer>0</integer>
+		<key>Bluetooth Device ID</key>
+		<integer>0</integer>
+		<key>EFI Strings</key>
+		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
+		<key>DSDT Patches</key>
+		<dict/>
+	</dict>
+	<key>HP Mini 110</key>
+	<dict>
+		<key>Support Files</key>
+		<string>HP Mini 110</string>
+		<key>Extensions Directory</key>
+		<string>Mini110Ext</string>
+		<key>Model Name</key>
+		<string>HP Mini 110</string>
+		<key>Long Name</key>
+		<string>HP Mini 110</string>
+		<key>Bluetooth Vendor ID</key>
+		<integer>0</integer>
+		<key>Bluetooth Device ID</key>
+		<integer>0</integer>
+		<key>EFI Strings</key>
+		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
@@ -142,16 +187,37 @@
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
-	<key>Dell Mini 10v</key>
+	<key>Samsung NC-10</key>
 	<dict>
 		<key>Support Files</key>
-		<string>Dell Mini 10v</string>
+		<string>Samsung NC-10</string>
 		<key>Extensions Directory</key>
-		<string>Mini10vExt</string>
+		<string>NC10Ext</string>
 		<key>Model Name</key>
-		<string>Inspiron 1011</string>
+		<string>NC10</string>
 		<key>Long Name</key>
-		<string>Dell Mini 10v</string>
+		<string>Samsung NC-10</string>
+		<key>Bluetooth Vendor ID</key>
+		<integer>0</integer>
+		<key>Bluetooth Device ID</key>
+		<integer>0</integer>
+		<key>EFI Strings</key>
+		<dict/>
+		<key>Kext Blacklist</key>
+		<array/>
+		<key>DSDT Patches</key>
+		<dict/>
+	</dict>
+	<key>MSI Wind U100</key>
+	<dict>
+		<key>Support Files</key>
+		<string>MSI Wind U100</string>
+		<key>Extensions Directory</key>
+		<string>U100Ext</string>
+		<key>Model Name</key>
+		<string>U-100</string>
+		<key>Long Name</key>
+		<string>MSI Wind U100</string>
 		<key>Bluetooth Vendor ID</key>
 		<integer>0</integer>
 		<key>Bluetooth Device ID</key>
