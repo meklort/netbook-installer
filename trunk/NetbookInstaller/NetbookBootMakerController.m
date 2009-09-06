@@ -74,7 +74,7 @@
 
 	
 	[systemInfo determineInstallState];
-	NSLog(partition);
+	NSLog(@"%@", partition);
 	[systemInfo determinePartitionFromPath: partition];
 	
 
@@ -90,10 +90,11 @@
 	
 	// Copy the CLI and GUI installer
 	[self updateStatus:NSLocalizedString(@"Installing NetbookInstaller Applications", nil)];	
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstallerCLI.app"]];
 	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app"]];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstallerCLI.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
+	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"]];
+
+	
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
 	
 	// Patch OS Install
@@ -157,7 +158,7 @@
 		[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/mach_kernel.10.5.6"] toDir:[[systemInfo installPath] stringByAppendingString:@"/"]];
 		[installer useLatestKernel];
 		
-	} else
+	} else // any other vesion is officialy supported
 	{
 		[installer copyDependencies];
 		[installer installExtensions];
@@ -312,7 +313,7 @@
 {
 	if([NSThread isMainThread])
 	{
-		NSLog(status);
+		NSLog(@"%@", status);
 		[statusLabel setStringValue:status];
 	}
 	else

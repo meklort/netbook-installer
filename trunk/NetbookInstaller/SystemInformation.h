@@ -28,6 +28,8 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 	NSDictionary*		installedBootloader;
 	NSDictionary*		bootloaderDict;
 	UInt32 installedKernel;
+	UInt32 hostKernel;
+
 
 	
 	int		efiVersion;
@@ -52,11 +54,12 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 	NSDictionary* machineInfo;
 
 }
-
+- (id) init;
 - (bool) dsdtInstalled;
 - (NSDictionary*) bootloaderDict;
 - (NSArray*) supportedBootloaders;
 - (NSString*) getMachineString;
+- (int) hostOS;
 - (int) targetOS;
 - (bool) keyboardPrefPaneInstalled;
 - (bool) remoteCDEnabled;

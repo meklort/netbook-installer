@@ -10,6 +10,9 @@
 #import <IOKit/IOKitLib.h>
 #import <Foundation/NSPropertyList.h>
 
+#define KERNEL_VERSION( __major__, __minor__, __bugfix__ )			(__major__ << 8 | __minor__ << 4 | __bugfix__)
+
+
 #import <sys/sysctl.h>
 
 #import <sys/mount.h>
@@ -23,7 +26,11 @@
 
 @implementation SystemInformation
 
-
+- (id) init
+{
+	hostKernel = [self getKernelVersion:@"/"];
+	return self;
+}
 - (bool) dsdtInstalled
 {
 	return dsdtInstalled;
@@ -131,19 +138,39 @@
 	//NSLog(@"Determine machine type");
 
 	[self determineMachineType];
-	
+	//NSLog(@"Determine dsdt type");
+
 	[self determineDSDTState];
+	
+	//NSLog(@"Determine remotecd");
+
 	[self determineRemoteCDState];
+	
+	//NSLog(@"Determine bluetooth");
+
 	[self determineBluetoothState];
 
+	//NSLog(@"Determine hibernate");
 
 	[self determineHibernateState];
-	[self determineQuiteBootState];
-	[self determineHiddenState];
-	[self determineGMAVersion];
-	[self determinekeyboardPrefPaneInstalled];
+	
+	//NSLog(@"Determine quiet boot");
 
-	//	NSLog(@"state");
+	[self determineQuiteBootState];
+	
+	//NSLog(@"Determine hidden state");
+
+	[self determineHiddenState];
+	//NSLog(@"Determine gma");
+
+	[self determineGMAVersion];
+	//NSLog(@"Determine prefpane");
+
+	[self determinekeyboardPrefPaneInstalled];
+	//NSLog(@"Done");
+
+
+	//	//NSLog(@"state");
 	
 }
 
@@ -157,15 +184,16 @@
 	bootPartition = [[[NSString alloc] initWithString:[info objectForKey:@"Mounted From"]] substringFromIndex:[@"/dev/" length]];
 	installPath = [[NSString alloc] initWithString:@"/"];
 
+	
 	NSLog(@"Root Device: %@\n", bootPartition);
 	
 	
 	
-//	NSLog(@"Information about /: %@", [fileManager attributesOfFileSystemForPath: @"/" error:&errs]);
+//	//NSLog(@"Information about /: %@", [fileManager attributesOfFileSystemForPath: @"/" error:&errs]);
 	
 	
 	
-//	NSLog(@"Info %@", [self getFileSystemInformation: @"/"]);
+//	//NSLog(@"Info %@", [self getFileSystemInformation: @"/"]);
 
 	
 	[self determineTargetOS];
@@ -205,7 +233,7 @@
 
 - (void) determineMachineType
 {
-//	NSLog(@"machine type");
+//	//NSLog(@"machine type");
 	NSDictionary*	machineplist= [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]];	
 	NSEnumerator *enumerator = [machineplist objectEnumerator];
 	NSDictionary* currentModel;
@@ -220,10 +248,11 @@
 	model = malloc(len);
 	sysctl(mib, 2, model, &len, NULL, 0);
 	
+	
 	machineInfo = nil;
 	//NSLog(@"Searching for %@", [NSString stringWithCString: model]);
 	while ((currentModel = [enumerator nextObject])) {
-		if([[currentModel objectForKey:@"Model Name"] length] <= strlen(model) && [[currentModel objectForKey:@"Model Name"] isEqualToString:[[NSString stringWithCString: model] substringToIndex:[[currentModel objectForKey:@"Model Name"] length]]])
+		if([[currentModel objectForKey:@"Model Name"] length] <= strlen(model) && [[currentModel objectForKey:@"Model Name"] isEqualToString:[[NSString stringWithCString: model encoding: NSASCIIStringEncoding] substringToIndex:[[currentModel objectForKey:@"Model Name"] length]]])
 		{
 			machineInfo = [[NSDictionary alloc] initWithDictionary:currentModel copyItems:YES];
 			break;
@@ -236,7 +265,7 @@
 	}
 	
 	if(!machineInfo) {
-		NSLog(@"Unable to determine machine information, failing");
+		//NSLog(@"Unable to determine machine information, failing");
 		exit(-1);	// ALERT / FAIL
 	} else {
 		//NSLog(@"%@", machineInfo);
@@ -251,7 +280,7 @@
 	fileManager = [NSFileManager defaultManager];
 
 	dsdtInstalled = [fileManager fileExistsAtPath: [installPath stringByAppendingString: @"/Extra/DSDT.aml"]];
-//	NSLog(@"DSDT");
+//	//NSLog(@"DSDT");
 }
 
 - (void) determineRemoteCDState
@@ -310,9 +339,14 @@
 
 - (void) determineGMAVersion
 {
-	// MD5?
-	NSBundle*	gmaFramebuffer = [[NSBundle alloc] initWithPath:[installPath stringByAppendingString:[@"/Extra/" stringByAppendingString:[[machineInfo objectForKey:@"Extensions Directory"] stringByAppendingString:@"/AppleIntelIntegratedFramebuffer.kext/"]]]];
-	mirrorFriendlyGMA = [[[gmaFramebuffer infoDictionary] valueForKey:@"CFBundleVersion"] isEqualToString:@"5.3.0"];
+	if([machineInfo count])	// If plist exists (not the case when we are using netbookInstallerHelper
+	{
+		NSBundle*	gmaFramebuffer = [[NSBundle alloc] initWithPath:[installPath stringByAppendingString:[@"/Extra/" stringByAppendingString:[[machineInfo objectForKey:@"Extensions Directory"] stringByAppendingString:@"/AppleIntelIntegratedFramebuffer.kext/"]]]];
+		mirrorFriendlyGMA = [[[gmaFramebuffer infoDictionary] valueForKey:@"CFBundleVersion"] isEqualToString:@"5.3.0"];
+	} else
+	{
+		mirrorFriendlyGMA = false;
+	}
 }
 
 - (void) determineBluetoothState
@@ -320,7 +354,8 @@
 	NSFileManager* fileManager;
 	fileManager = [NSFileManager defaultManager];
 	
-	bluetoothPatched = [fileManager fileExistsAtPath: [installPath stringByAppendingString: @"/Library/Preferences/com.apple.Bluetooth.plist"]] ? false : true;
+	
+	bluetoothPatched = !(([[[self machineInfo] objectForKey:@"Bluetooth Vendor ID"] isEqualToNumber:[NSNumber numberWithInt:0]]) || ([[[self machineInfo] objectForKey:@"Bluetooth Device ID"] isEqualToNumber:[NSNumber numberWithInt:0]]));
 	
 	bluetoothVendorId = [[machineInfo objectForKey:@"Bluetooth Vendor ID"] intValue];
 	bluetoothDeviceId = [[machineInfo objectForKey:@"Bluetooth Device ID"] intValue];
@@ -415,6 +450,11 @@
 	
 }
 
+- (int) hostOS
+{
+	return hostKernel;
+}
+
 - (int) targetOS
 {
 	return installedKernel;
@@ -429,7 +469,7 @@
 	installedKernel = [self getKernelVersion: installPath];
 	return YES;
 	
-//	NSLog(@"Determining OS Version");
+//	//NSLog(@"Determining OS Version");
 	// TODO: read value from SystemVersion.plist instead
 //	installedKernel = [self getKernelVersion:[installPath stringByAppendingString:@"/mach_kernel"]];
 //	return YES;
@@ -447,15 +487,21 @@
 		if([self getKernelVersion:[@"/Volumes/" stringByAppendingString:[[volumes objectAtIndex:i] stringByAppendingString:@"/mach_kernel"]]] < minVersions)
 		{
 			// Boot unsupported, remove volume from the list
-			//NSLog(@"Removing %@", [volumes objectAtIndex:i]);
+			NSLog(@"Removing %@", [volumes objectAtIndex:i]);
 			[volumes removeObjectAtIndex:i];
 			//i++;
 		}
 		else
 		{
-			//NSLog(@"Keeping %@", [volumes objectAtIndex:i]);
+			if([[[self getFileSystemInformation:[@"/Volumes/" stringByAppendingString:[volumes objectAtIndex:i]]] objectForKey:@"Mount Flags"] intValue] & MNT_RDONLY)
+			{				NSLog(@"Removing %@", [volumes objectAtIndex:i]);
+					[volumes removeObjectAtIndex:i];	// remove if volume is read only
 
-			i++;
+			}
+			else
+			{
+				i++;
+			}
 		}
 	}
 	
@@ -489,7 +535,7 @@
 	/*	gestaltSystemVersionMajor
 	 gestaltSystemVersionMinor
 	 gestaltSystemVersionBugFix*/
-	NSLog(@"%@ Kernel:  %d.%d.%d, %d", path, majorVersion, minorVersion, bugfixVersion, KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion));
+	//NSLog(@"%@ Kernel:  %d.%d.%d, %d", path, majorVersion, minorVersion, bugfixVersion, KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion));
 	return KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion);
 	
 	// TODO: do the following if SystemVersion.plist doesnt exist (aka, the boot partition)
@@ -576,7 +622,7 @@
 	// ApplePS2MouseDevice is our parent in the I/O Registry
 	dictRef = IOServiceMatching("IOSDHCIBlockDevice"); 
 	if (!dictRef) {
-		NSLog(@"IOServiceMatching returned NULL.\n");
+		//NSLog(@"IOServiceMatching returned NULL.\n");
 		return false;
 	} 
 	
@@ -585,7 +631,7 @@
 	// This consumes a reference on dictRef.
 	kr = IOServiceGetMatchingServices(kIOMasterPortDefault, dictRef, &iter);
 	if (KERN_SUCCESS != kr) {
-		NSLog(@"IOServiceGetMatchingServices returned 0x%08x.\n", kr);
+		//NSLog(@"IOServiceGetMatchingServices returned 0x%08x.\n", kr);
 		return false;
 	}
 	
@@ -602,7 +648,7 @@
 		// Now that our parent has been found we can traverse the I/O Registry to find our driver.
 		kr = IORegistryEntryGetChildEntry(service, kIOServicePlane, &child);
 		if (KERN_SUCCESS != kr) {
-			NSLog(@"IORegistryEntryGetParentEntry returned 0x%08x.\n", kr);
+			//NSLog(@"IORegistryEntryGetParentEntry returned 0x%08x.\n", kr);
 		} else {
 			// We're only interested in the parent object if it's our driver class.
 			if (IOObjectConformsTo(child, "ApplePS2SynapticsTouchPad")) {
@@ -613,7 +659,7 @@
 				//kr = IORegistryEntrySetCFProperties(child, dictRef);
 				//NSLog([[NSString alloc] initWithCString:"Sent message to kext" encoding:NSASCIIStringEncoding]);
 				//if (KERN_SUCCESS != kr) {
-				//	NSLog(@"IORegistryEntrySetCFProperties returned an error.\n", kr);
+				//	//NSLog(@"IORegistryEntrySetCFProperties returned an error.\n", kr);
 				//}
 			} else {
 				//NSLog(@"%s: Unable to locate Touchpad kext.\n", APP_ID);
