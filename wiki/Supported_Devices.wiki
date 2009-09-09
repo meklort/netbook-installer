@@ -17,7 +17,7 @@ This page documents the current state of NetbookInstaller. Note that this reflec
 
 || Machine || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WLAN || WWAN || Sleep || Hibernation ||
 || Dell Mini 9 / Vostro A90 || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
-|| Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || N/A  || <font color="green">Works</font> || ||
+|| Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
 || Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
 || HP Mini 110 || || || || || || || || || || 
 || Samsung NC-10 || <font color="orange">Speakers Only</font> || || || || || || || || || 
@@ -26,8 +26,8 @@ This page documents the current state of NetbookInstaller. Note that this reflec
 
 || Machine || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WLAN || WWAN || Sleep || Hibernation ||
 || Dell Mini 9 / Vostro A90 || <font color="red">Unsupported</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
-|| Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || N/A  || <font color="green">Works</font> || ||
-|| Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="red">In Progress</font> || || <font color="green">Works</font> || ||
+|| Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
+|| Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="red">In Progress</font> || ||
 || HP Mini 110 || || || || || || || || || || 
 || Samsung NC-10 || <font color="orange">Speakers Only</font> || || || || || || || || || 
 
