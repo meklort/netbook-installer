@@ -29,6 +29,6 @@ This page documents the current state of NetbookInstaller. Note that this reflec
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
 || Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="red">In Progress</font> || ||
 || HP Mini 110 || || || || || || || || || || 
-|| Samsung NC-10 || <font color="orange">Speakers Only</font> || || || || || || || || || 
+|| Samsung NC-10 || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || || || || <font color="green">Works</font> || || || || 
 
 ^1^ The Lenovo S10 reports itself as "Lenovo" and as such it currently cannot be distinguished from other Lenovo devices.
