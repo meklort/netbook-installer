@@ -25,7 +25,12 @@
 	[installer systemInfo: systemInfo];
 
 
-	if(![installer getAuthRef]) return;
+	if(![installer getAuthRef]) 
+	{
+		[installer release];
+		[systemInfo release];
+		return;
+	}
 	[installer mountRamDisk];
 	
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.4

@@ -93,6 +93,8 @@
 	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"]];
+	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/gptsync"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/gptsync"]];
+
 
 	
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
@@ -123,7 +125,28 @@
 
 	[self updateStatus:NSLocalizedString(@"Installing dependencies files", nil)];	
 	// This is ONLY untill I port at least dsdt retriever to objective c (should be relatively easy).
-	[installer copyFrom:@"/usr/bin/xxd" toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/"]];
+	
+	// FIXME: Fix this
+	/*
+	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/xxd"]];
+	[installer makeDir:@"/Volumes/ramdisk/usr"];
+	[installer makeDir:@"/Volumes/ramdisk/usr/bin"];
+
+	[installer setPermissions:@"777" onPath:@"/Volumes/ramdisk/usr/" recursivly:YES];
+
+
+	NSLog(@"Running %s", (char*)[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxdExtract.sh"] cStringUsingEncoding:NSASCIIStringEncoding]);
+
+	
+	[installer setPermissions:@"755" onPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxdExtract.sh"] recursivly:NO];
+
+	[installer runCMD:(char*)[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxdExtract.sh"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs: [NSArray arrayWithObjects:[systemInfo installPath], nil]];
+	[installer copyFrom:@"/Volumes/ramdisk/usr/bin/xxd" toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/"]];
+	*/
+	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxd"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/"]];
+
+	// END FIXME
+	
 	// First run pm set? (this could be moved to the cli / installer
 	[installer copyFrom:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist" toDir:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
