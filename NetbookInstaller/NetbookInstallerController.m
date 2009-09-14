@@ -50,7 +50,7 @@
 		
 	/*if([systemInfo installedBootloader] != nil)
 		// TODO: follow upgrade path and determine if we need to upgrade to a new bootloader
-		[bootloaderVersion selectItemWithTitle:[[systemInfo installedBootloader] objectForKey:@"Long Name"]];
+		[bootloaderVersion selectItemWithTitle:[[systemInfo installedBootloader] objectForKey:@"Support Files"]];
 
 	else
 	{

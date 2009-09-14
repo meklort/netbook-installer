@@ -14,11 +14,13 @@
 - (id) initWithData: (NSData*) initialData
 {
 	data = [[NSMutableData alloc] initWithData: initialData];
+	if(!data) NSLog(@"HexEditor: incalid data passed");
 	return self;
 }
 
-- (NSUInteger) find: (NSData*) needle andReplace: (NSData*) replace
+- (BOOL) find: (NSData*) needle andReplace: (NSData*) replace
 {
+	if(!data) return NO;
 	NSUInteger index = 0;
 	NSRange	range;
 	NSData* compare;
@@ -38,6 +40,7 @@
 			//NSLog(@"Found byte sequence, replacing\n");
 			[data replaceBytesInRange:range withBytes:[replace bytes] length:[replace length]];
 		}
+		[compare release];
 		index++;
 	}
 	free(bytes);

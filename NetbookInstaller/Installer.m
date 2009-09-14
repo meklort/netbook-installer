@@ -13,7 +13,6 @@
 
 - (void)remountTargetWithPermissions
 {
-	NSLog(@"SystemInfo = %@", systemInfo);
 	if([[systemInfo installPath] isEqualToString:@"/"]) return;
 	
 	NSArray* nsargs = [[NSArray alloc] initWithObjects: 
@@ -45,13 +44,31 @@
 	
 - (void) unmountRamDisk
 {
-//	diskutil eject /Volumes/ramdisk
-	NSArray* nsargs = [[NSArray alloc] initWithObjects: 
+	NSFileManager* fileManger = [NSFileManager defaultManager];
+	
+	if([fileManger fileExistsAtPath:@"/Volumes/ramdisk"]) 
+	{
+		//	diskutil eject /Volumes/ramdisk
+		NSArray* nsargs = [[NSArray alloc] initWithObjects: 
 					   @"eject", @"/Volumes/ramdisk/", nil];
 
 
-	[self runCMD:"/usr/sbin/diskutil" withArgs:nsargs];
-	[nsargs release];
+		[self runCMD:"/usr/sbin/diskutil" withArgs:nsargs];
+		[nsargs release];
+	}	// Drive should be unmounted now
+	
+	if([fileManger fileExistsAtPath:@"/Volumes/ramdisk"]) 
+	{
+		// Someone created a folder?
+		NSArray* nsargs = [[NSArray alloc] initWithObjects: @"/Volumes/ramdisk/", nil];
+		
+		
+		[self runCMD:"/bin/rmdir" withArgs:nsargs];	// This will oly work if the directory is empty
+		[nsargs release];
+
+	}
+		
+	
 }
 		
 - (void) systemInfo: (SystemInformation*) info
@@ -161,7 +178,7 @@
 	
 	run = [run initWithString:commandString];
 	
-	while(i < [nsargs count])
+	while(nsargs && i < [nsargs count])
 	{
 		[run appendString:@" "];
 		
@@ -201,7 +218,7 @@
 	int i = 0;
 	OSStatus status;
 	
-	while(i < [nsargs count])
+	while(nsargs && i < [nsargs count])
 	{
 		args[i] = (char*)[[nsargs objectAtIndex:i] cStringUsingEncoding:NSASCIIStringEncoding];
 		i++;
@@ -335,16 +352,17 @@
 	/**
 	 ** Warning - 10.6 hack follows, to be removed in the future... (or at least make it not hackish)
 	 **/
-	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
+	/*if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
 	{
 		// Force correct bootloader
 		bootloaderType = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:@"Chameleon R640"];
 	}
-	
+	*/
 	
 	
 	if(!bootloaderType) {
 		NSLog(@"Unable to install bootlaoder: no value passed");
+		[scanner release];
 		return NO;
 	} else {
 		NSLog(@"Installing booter to /dev/r%@", [systemInfo bootPartition]);
@@ -399,21 +417,21 @@
 	if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))
 	{
 		// Copy in 10.6 Extensions
-		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/10.6 Extensions/"]];
-		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.6 Extensions/"]];
+		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/10.6 Extensions/"]];
+		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.6 Extensions/"]];
 		
 	}
 	else
 	{
 		// Copy in 10.5 Extensions
-		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/10.5 Extensions/"]];
-		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.5 Extensions/"]];
+		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/10.5 Extensions/"]];
+		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.5 Extensions/"]];
 	}
 
 	
-	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Extensions/"]];
+	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/Extensions/"]];
 
-	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Extensions/"]];
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Extensions/"]];
 	
 	
 	
@@ -456,7 +474,7 @@
 	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/DSDTPatcher/"] toDir: @"/Volumes/ramdisk/dsdt/"];
 
 	[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General"] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
-	[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
+	[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 
 	NSMutableDictionary* genPatches= [NSMutableDictionary dictionaryWithDictionary: [[[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]] objectForKey:@"General"] objectForKey: @"DSDT Patches"]];	
 
@@ -513,8 +531,8 @@
 	
 	if(([[dict objectForKey: @"EnableODiskBrowsing"] boolValue] && [[dict objectForKey: @"ODSSupported"] boolValue]) == remoteCD) return YES;
 	
-	[dict setObject:[[NSNumber alloc] initWithBool:remoteCD] forKey: @"EnableODiskBrowsing"];
-	[dict setObject:[[NSNumber alloc] initWithBool:remoteCD] forKey: @"ODSSupported"];
+	[dict setObject:[NSNumber numberWithBool: remoteCD] forKey: @"EnableODiskBrowsing"];
+	[dict setObject:[NSNumber numberWithBool: remoteCD] forKey: @"ODSSupported"];
 	
 	
 	save = [[NSDictionary alloc] initWithDictionary: dict];
@@ -542,8 +560,8 @@
 	if(![manager fileExistsAtPath:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist"]])
 	{
 		[self makeDir:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
-		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
-		[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
+		if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
+		[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/Preferences/com.apple.PowerManagement.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
 
 	}
 	
@@ -612,8 +630,8 @@
 
 - (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination
 {
-	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [self copyFrom: [[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
-	return [self copyFrom: [[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [self copyFrom: [[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
+	return [self copyFrom: [[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/"] stringByAppendingString:source] toDir: [[systemInfo installPath] stringByAppendingString: destination]];
 
 	
 //	return YES;
@@ -854,8 +872,8 @@
 	NSString* destinationExtensions =  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"];
 	//NSString* destinationExtensions = [systemInfo extensionsFolder];
 	
-	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Long Name"]] stringByAppendingString: @"/LocalExtensions/"]];	
-	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Long Name"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
+	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/LocalExtensions/"]];	
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
 	
 	
 	
@@ -878,7 +896,7 @@
 {
 	if(
 	   (([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) ||	// 10.6 to any
-	   (([systemInfo hostOS] <  KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] <  KERNEL_VERSION(10, 6, 0)))		// 10.5 to 10.5
+															 ([systemInfo targetOS] <  KERNEL_VERSION(10, 6, 0))		// 10.x to 10.5
 	   )
 	{
 		[self makeDir:@"/Volumes/ramdisk/Extensions"];
@@ -901,10 +919,8 @@
 
 	
 	
-	// Move to a grey list or similar"
+	// TODO: Move to a grey list or similar, this is hackish....
 	[self deleteFile:@"/Volumes/ramdisk/Extensions/AppleHDA.kext"];
-
-	//[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:[[systemInfo installPath] stringByAppendingString: [systemInfo extensionsFolder]]];
 	
 		
 	return YES;
@@ -938,8 +954,8 @@
 	// Remove prvious mkexts
 	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
 
-	
-	if((([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) || [systemInfo targetOS] <= KERNEL_VERSION(10, 6, 0))
+	if((([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) || 
+															  [systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))
 	{
 		
 		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions.mkext"]];
@@ -949,9 +965,9 @@
 		NSLog(@"Copied /System/Library/Extensions");	
 		
 		// Copy /Extra/Extensions/* to /Volumes/ramdisk/Extensions, overwriting any /S/L/E kexts previously copied there in [self copyDep]
+		[self removeBlacklistedKexts];
 		[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: @"/Volumes/ramdisk/Extensions/"];
 		
-		[self removeBlacklistedKexts];
 		
 		//sudo kextcache -a i386 -m <installPath>/Extra/Extensions.mkext <installPath>/Extra/Mini9Ext/ /Sytem/Library/Extensions
 		
