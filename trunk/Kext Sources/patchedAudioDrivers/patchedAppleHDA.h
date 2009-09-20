@@ -181,47 +181,11 @@ class AppleHDADriver : public IOAudioDevice
 	};
 
 class PatchedAppleHDADriver : public AppleHDADriver
-	{
-		static int (*orig_halt_restart)(unsigned int type);
+{
+	OSDeclareDefaultStructors(PatchedAppleHDADriver);
 
-//		IOReturn (AppleHDADriver::*performPowerStateChangePointer)(IOAudioDevicePowerState oldPowerState, IOAudioDevicePowerState newPowerState, UInt32 *microsecondsUntilComplete);
+public:
+	virtual PatchedAppleHDADriver* probe (IOService *provider, SInt32 *score); 
+	virtual IOReturn activateAudioEngine(IOAudioEngine *audioEngine, bool shouldStartAudioEngine);
 
-		
-		OSDeclareDefaultStructors(PatchedAppleHDADriver);
-	/*	
-	private:
-		UInt32         _nvramType;
-		volatile UInt8 *_nvramData;
-		volatile UInt8 *_nvramPort;
-	*/	
-	public:
-		virtual bool init(OSDictionary *properties);
-
-		virtual void dispatchPowerStateToEngines(UInt32);
-		virtual PatchedAppleHDADriver* PatchedAppleHDADriver::probe (IOService *provider, SInt32 *score); 
-		virtual void protectedPowerChange_sleep(IOAudioDevicePowerState, bool);
-		virtual void protectedPowerChange_active(IOAudioDevicePowerState, bool);
-
-
-		
-		virtual IOReturn performPowerStateChange(IOAudioDevicePowerState oldPowerState,
-												 IOAudioDevicePowerState newPowerState,
-												 UInt32 *microsecondsUntilComplete);
-		
-		virtual IOReturn message( UInt32      type,
-												IOService * provider,
-								 void *      arg );
-		
-		
-		virtual void audioEngineStarting();
-		virtual void audioEngineStopped();
-		virtual IOReturn activateAudioEngine(IOAudioEngine *audioEngine, bool shouldStartAudioEngine);
-		virtual	bool createAudioEngine (OSArray * streamInterfaceNumberArray);
-/*
-		bool start(IOService *provider);
-		
-		virtual IOReturn read(IOByteCount offset, UInt8 *buffer,
-							  IOByteCount length);
-		virtual IOReturn write(IOByteCount offset, UInt8 *buffer,
-							   IOByteCount length);*/
-	};
+};
