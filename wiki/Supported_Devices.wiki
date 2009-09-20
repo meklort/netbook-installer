@@ -16,19 +16,21 @@ This page documents the current state of NetbookInstaller. Note that this reflec
 = Hardware (10.5) =
 
 || Machine || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WLAN || WWAN || Sleep || Hibernation ||
-|| Dell Mini 9 / Vostro A90 || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
+|| Dell Mini 9 / Vostro A90 || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font>^1^ || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
-|| Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
+|| Lenovo S10 ^2^ || <font color="orange">No Inputs</font> || <font color="green">Works</font> || <font color="Green">Works</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
 || HP Mini 110 || || || || || || || || || || 
 || Samsung NC-10 || <font color="orange">Speakers Only</font> || || || || || || || || || 
 
 = Hardware (10.6) =
 
 || Machine || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WLAN || WWAN || Sleep || Hibernation ||
-|| Dell Mini 9 / Vostro A90 || <font color="red">Unsupported</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
+|| Dell Mini 9 / Vostro A90 || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font>^1^ || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
-|| Lenovo S10 ^1^ || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="orange">Breaks Sleep</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="red">In Progress</font> || ||
+|| Lenovo S10 ^2^ || <font color="orange">No Inputs</font> || <font color="green">Works</font> || <font color="Green">Works</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
 || HP Mini 110 || || || || || || || || || || 
 || Samsung NC-10 || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || || || || <font color="green">Works</font> || || || || 
 
-^1^ The Lenovo S10 reports itself as "Lenovo" and as such it currently cannot be distinguished from other Lenovo devices.
+^1^ The Mini 9's card reader can not be booted from via the bios, however you can use a helper partition to boot an installed OS from the SD card.
+
+^2^ The Lenovo S10 reports itself as "Lenovo" and as such it currently cannot be distinguished from other Lenovo devices.
