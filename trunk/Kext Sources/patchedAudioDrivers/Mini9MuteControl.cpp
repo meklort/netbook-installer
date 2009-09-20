@@ -160,6 +160,7 @@ bool Mini9MuteControl::corbEnabled()
 
 void Mini9MuteControl::setCorb(bool state)
 {	
+	return;	// Temperarily dissabled...
 	UInt8 returnVal = state;
 	int i;
 	if(_ioreg == NULL)
@@ -242,12 +243,15 @@ void Mini9MuteControl::setMute(bool mute)
 				//runVerb(0, _output, HDA_PIN_CTRL, (_mute ? 0x0 : 0x80));
 			runVerb(0, _output, 0x3B0, (_mute ? 0x80 : 0x00));		// unmute line out
 																	//runVerb(0, _output, 0x70c, (_mute ? 0x00 : 0x02));		// unmute line out
+			if(!_mute) 	runVerb(0, _output, HDA_SET_EAPD, 0x02);	// Set line in to enabled
+
 
 			break;
 		case WIDGET_LINE_OUT:
 				//runVerb(0, _output, HDA_PIN_CTRL, (_mute ? 0x0 : 0x40));
 			runVerb(0, _output, 0x3B0, (_mute ? 0x80 : 0x00));		// unmute line out
 																	//runVerb(0, _output, 0x70c, (_mute ? 0x00 : 0x02));		// unmute line out
+			if(!_mute) 	runVerb(0, _output, HDA_SET_EAPD, 0x02);	// Set line in to enabled
 
 
 			break;
