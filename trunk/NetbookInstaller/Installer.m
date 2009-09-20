@@ -8,6 +8,11 @@
 
 #import "Installer.h"
 
+// This is needed for the 10.4 sdk
+#ifndef kAuthorizationRightExecute
+#define kAuthorizationRightExecute	";system.privilege.admin"
+#endif
+
 @implementation Installer
 
 
@@ -349,16 +354,6 @@
 	
 	NSString* bsdDisk = [[systemInfo bootPartition] substringToIndex:[scanner scanLocation]];		// strip off partition number
 	
-	/**
-	 ** Warning - 10.6 hack follows, to be removed in the future... (or at least make it not hackish)
-	 **/
-	/*if([systemInfo targetOS] >= KERNEL_VERSION(10,6,0))
-	{
-		// Force correct bootloader
-		bootloaderType = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:@"Chameleon R640"];
-	}
-	*/
-	
 	
 	if(!bootloaderType) {
 		NSLog(@"Unable to install bootlaoder: no value passed");
@@ -382,7 +377,6 @@
 	
 	[nsargs addObject:[@"/dev/r" stringByAppendingString: bsdDisk]];
 
-//	[self runCMD:(char*)[[bootPath stringByAppendingString: @"/fdisk"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs:nsargs];
 	[self runCMD:"/usr/sbin/fdisk" withArgs:nsargs];
 
 
@@ -467,6 +461,11 @@
 
 - (BOOL) installDSDT
 {
+	NSMutableDictionary* genPatches;
+	NSDictionary* patches;
+	
+	// Cleanup, delete old dsdt from DelEFI
+	[self deleteFile:@"/dsdt.aml"];
 	// TODO: make the dsdt compile / decompiler into a framework / dylib
 
 	[self makeDir: @"/Volumes/ramdisk/dsdt/"];
@@ -474,20 +473,33 @@
 	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/DSDTPatcher/"] toDir: @"/Volumes/ramdisk/dsdt/"];
 
 	[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General"] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
-	[self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 
-	NSMutableDictionary* genPatches= [NSMutableDictionary dictionaryWithDictionary: [[[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]] objectForKey:@"General"] objectForKey: @"DSDT Patches"]];	
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]])
+	{
+		genPatches = [NSMutableDictionary dictionaryWithDictionary: [[[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]] objectForKey:@"General"] objectForKey: @"DSDT Patches"]];	
+		patches = [[systemInfo machineInfo] objectForKey:@"DSDT Patches"];
 
-	NSDictionary* patches = [[systemInfo machineInfo] objectForKey:@"DSDT Patches"];
+	} else {
+		genPatches = [[systemInfo machineInfo] objectForKey:@"DSDT Patches"];
 
+	}
+
+
+	
 	NSMutableString* configFile = [[NSMutableString alloc] initWithString:@""];
-	NSEnumerator* keys = [patches keyEnumerator];
 	NSString* key;
+	NSEnumerator* keys;
 	NSError* error;
 	
-	while(key = [keys nextObject])
+	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]])
 	{
-		[genPatches setObject:[patches objectForKey:key] forKey:key];
+		keys = [patches keyEnumerator];
+
+		while(key = [keys nextObject])
+		{
+			[genPatches setObject:[patches objectForKey:key] forKey:key];
+		}
 	}
 	keys = [genPatches keyEnumerator];
 	
