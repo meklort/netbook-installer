@@ -16,6 +16,7 @@ This page documents the current state of NetbookInstaller. Note that this reflec
 = Hardware (10.5) =
 
 || Machine || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WLAN || WWAN || Sleep || Hibernation ||
+|| Acer Aspire One D150|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="yellow">???</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || || ||
 || Dell Mini 9 / Vostro A90 || <font color="orange">No Line In</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font>^1^ || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
 || Lenovo S10 ^2^ || <font color="orange">No Inputs</font> || <font color="green">Works</font> || <font color="Green">Works</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
@@ -25,6 +26,7 @@ This page documents the current state of NetbookInstaller. Note that this reflec
 = Hardware (10.6) =
 
 || Machine || Audio || Touchpad || Bluetooth || Card Reader || Ethernet || WLAN || WWAN || Sleep || Hibernation ||
+|| Acer Aspire One D150 || || || || || || || || || ||
 || Dell Mini 9 / Vostro A90 || <font color="orange">Speakers Only</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="orange">Non Bootable, Slow</font>^1^ || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> ||  <font color="green">Works</font> || ||
 || Dell Mini 10v|| <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font> || <font color="green">Works</font>  || <font color="green">Works</font> || ||
 || Lenovo S10 ^2^ || <font color="orange">No Inputs</font> || <font color="green">Works</font> || <font color="Green">Works</font> || <font color="green">Works</font> || <font color="red">Unsupported</font> || <font color="green">Works</font> || || <font color="green">Works</font> || ||
