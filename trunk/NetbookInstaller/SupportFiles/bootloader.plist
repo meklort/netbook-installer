@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>Default Bootloader</key>
-	<string>Chameleon R640</string>
+	<string>Chameleon R658</string>
 	<key>Bootloaders</key>
 	<dict>
-		<key>Chameleon R640</key>
+		<key>Chameleon R658</key>
 		<dict>
 			<key>Visible Name</key>
-			<string>Chameleon 2 RC2</string>
+			<string>Chameleon 2 RC3</string>
 			<key>Installable</key>
 			<true/>
 			<key>Upgrade Path</key>
 			<string></string>
 			<key>MD5</key>
-			<data>eIAVdNtB+maT7Jdv4AtQTg==</data>
+			<data>/zsYir8suJYk17tM0ALF4w==</data>
 		</dict>
 	</dict>
 </dict>

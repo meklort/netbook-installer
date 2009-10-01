@@ -132,7 +132,7 @@
 	
 	if([systemInfo efiHidden])
 	{
-		[showhideFilesCheckbox setState:false];
+		[showhideFilesCheckbox setState:NO];
 		[showhideFilesCheckbox setTitle:[[@"Show " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
 	} 
 	else
@@ -143,39 +143,41 @@
 	}
 	[extensionsCheckbox setTitle:[[@"Install " stringByAppendingString:[systemInfo getMachineString]] stringByAppendingString:@" Extensions"]];
 	 
-	[dsdtCheckbox setState:![systemInfo dsdtInstalled]];
+		//[dsdtCheckbox setState:![systemInfo dsdtInstalled]];
+	[dsdtCheckbox setState:YES];
+
 	if([systemInfo remoteCDEnabled])
 	{
-		[remoteCDCheckbox setState:false];
+		[remoteCDCheckbox setState:NO];
 		[remoteCDCheckbox setTitle:NSLocalizedString(@"Disable Remote CD", nil)];
 	} 
 	else
 	{
-		[remoteCDCheckbox setState:true];
+		[remoteCDCheckbox setState:YES];
 		[remoteCDCheckbox setTitle:NSLocalizedString(@"Enable Remote CD", nil)];
 		
 	}
 	
 	if([systemInfo hibernationDissabled])
 	{
-		[hibernateChecbox setState:false];
+		[hibernateChecbox setState:NO];
 		[hibernateChecbox setTitle:NSLocalizedString(@"Enable hibernation", nil)];
 	} 
 	else
 	{
-		[hibernateChecbox setState:true];
+		[hibernateChecbox setState:YES];
 		[hibernateChecbox setTitle:NSLocalizedString(@"Disable hibernation", nil)];
 		
 	}
 	
 	if([systemInfo quietBoot])
 	{
-		[quietBootCheckbox setState:false];
+		[quietBootCheckbox setState:NO];
 		[quietBootCheckbox setTitle:NSLocalizedString(@"Disable Quiet Boot", nil)];
 	} 
 	else
 	{
-		[quietBootCheckbox setState:false];
+		[quietBootCheckbox setState:YES];
 		[quietBootCheckbox setTitle:NSLocalizedString(@"Enable Quiet Boot", nil)];
 		
 	}
@@ -669,6 +671,7 @@
 		[self updateStatus:NSLocalizedString(@"Patching USB", nil)];
 
 		[installer patchAppleUSBEHCI];
+			//[installer patchAppleHDA];
 		
 		[self updateStatus:NSLocalizedString(@"Generating Extension Caches", nil)];
 		[installer generateExtensionsCache];

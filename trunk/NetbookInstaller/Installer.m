@@ -5,13 +5,8 @@
 //  Created by Evan Lojewski on 5/16/09.
 //  Copyright 2009. All rights reserved.
 //
-
+ 
 #import "Installer.h"
-
-// This is needed for the 10.4 sdk
-#ifndef kAuthorizationRightExecute
-#define kAuthorizationRightExecute	";system.privilege.admin"
-#endif
 
 @implementation Installer
 
@@ -470,8 +465,9 @@
 
 	[self makeDir: @"/Volumes/ramdisk/dsdt/"];
 	[self makeDir: @"/Volumes/ramdisk/dsdt/patches"];
+	
+	// Copy dsdt files / patches into ramdisk
 	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/DSDTPatcher/"] toDir: @"/Volumes/ramdisk/dsdt/"];
-
 	[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General"] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [self copyFrom:[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString:@"/DSDT Patches/"]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 
@@ -514,7 +510,7 @@
 	
 	[configFile writeToFile:@"/Volumes/ramdisk/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
 	[self copyFrom:@"/Volumes/ramdisk/config" toDir:@"/Volumes/ramdisk/dsdt/"];
-
+	[self deleteFile:@"/Volumes/ramdisk/config"];
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
 	
 	[self runCMD:"/Volumes/ramdisk/dsdt/DSDTPatcher" withArgs:nsargs];
@@ -584,8 +580,8 @@
 	NSMutableDictionary* acPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"AC Power"]];
 	NSMutableDictionary* battPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"Battery Power"]];
 	
-	if(dissable) state = 3;
-	else state = 0;
+	if(dissable) state = 0;
+	else state = 3;
 		
 	[acPowerState   setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
 	[battPowerState setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
@@ -871,6 +867,22 @@
 }
 
 
+- (BOOL) patchAppleHDA
+{
+	NSMutableDictionary* infoPlist;
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleHDA.kext"] toDir:[systemInfo extensionsFolder]];
+	infoPlist = [[NSMutableDictionary alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleHDA.kext/Contents/Info.plist"]];
+	
+	[infoPlist setObject:@"1.0" forKey:@"OSBundleCompatibleVersion"];
+	[infoPlist writeToFile: @"/Volumes/ramdisk/Info.plist" atomically:NO];
+	
+	[infoPlist release];
+	
+	return [self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir: [[systemInfo extensionsFolder] stringByAppendingString: @"/AppleHDA.kext/Contents/Info.plist"]];
+	
+}
+
+
 
 //----------			installLocalExtensions			----------//
 - (BOOL) installLocalExtensions
@@ -906,6 +918,8 @@
 //----------			copyDependencies			----------//
 - (BOOL) copyDependencies
 {
+	[self removeBlacklistedKexts];
+
 	if(
 	   (([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) ||	// 10.6 to any
 															 ([systemInfo targetOS] <  KERNEL_VERSION(10, 6, 0))		// 10.x to 10.5
@@ -977,7 +991,6 @@
 		NSLog(@"Copied /System/Library/Extensions");	
 		
 		// Copy /Extra/Extensions/* to /Volumes/ramdisk/Extensions, overwriting any /S/L/E kexts previously copied there in [self copyDep]
-		[self removeBlacklistedKexts];
 		[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: @"/Volumes/ramdisk/Extensions/"];
 		
 		
@@ -1128,7 +1141,18 @@
 	[bootSettings release];
 	if([self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]])
 	{
-		return [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/mach_kernel.10.5.6"]];
+		bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
+		if(![[bootSettings objectForKey: @"Kernel"] isEqualToString:@"mach_kernel.10.5.6"])
+		{
+			[bootSettings release];
+			return [self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/mach_kernel.10.5.6"]];
+		} 
+		else {
+			[bootSettings release];
+			NSLog(@"Unable to revert to system kernel, keeping mach_kernel.10.5.6");
+			return NO;
+		}
+
 	} else {
 		return NO;
 	}
@@ -1232,6 +1256,21 @@
 	[nsargs2 release];
 	[nsargs3 release];
 
+	return YES;
+}
+
+- (BOOL) restoreBackupExtra
+{
+	[self deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Extra"]];
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString:@"/Extra.bak"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra"]];
+	return YES;
+}
+
+- (BOOL) failGracefully
+{
+
+	[self restoreBackupExtra];
+	[self performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
 	return YES;
 }
 
