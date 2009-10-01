@@ -192,6 +192,7 @@
 		[installer patchIO80211kext];
 		[installer patchBluetooth];
 		[installer patchAppleUSBEHCI];
+			//[installer patchAppleHDA];
 
 		[installer generateExtensionsCache];
 		[installer useSystemKernel];
@@ -219,11 +220,25 @@
 	[nsargs addObject: @"-f"];	
 
 	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.mpkg"]];
+	[nsargs addObject: @"-c"];	
 	[nsargs addObject: @"/Volumes/ramdisk/OSInstallMPKG"];	
+	
+	
+	[installer runCMD:"/usr/bin/xar" withArgs:nsargs];
+	
+	
+	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/Volumes/ramdisk/OSInstallMPKG/Distribution"];
+	
 	
 	return NO;
 	
 }
+
+- (BOOL) patchPrivateFramework
+{
+	return NO;
+}
+
 - (BOOL) patchOSInstall
 {
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
@@ -239,7 +254,7 @@
 	
 	// Add NetbookInstallerCLI as a postinstaller script
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/postinstall"] toDir:@"/Volumes/ramdisk/OSInstall/Scripts/postinstall_actions/"];
-	
+	[installer setPermissions:@"755" onPath:@"/Volumes/ramdisk/OSInstall/Scripts/postinstall_actions/" recursivly:YES];
 	// Backup the origional file.
 	[installer moveFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.pkg"] to: [[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.pkg.orig"]];
 

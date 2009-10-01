@@ -60,11 +60,13 @@
 		<key>Bluetooth Vendor ID</key>
 		<integer>16700</integer>
 		<key>Bluetooth Device ID</key>
-		<integer>668</integer>
+		<integer>688</integer>
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<array/>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict>
 			<key>BAT</key>
@@ -96,6 +98,29 @@
 		<key>DSDT Patches</key>
 		<dict/>
 	</dict>
+	<key>Asus EEE 901</key>
+	<dict>
+		<key>Support Files</key>
+		<string>Asus EEE 901</string>
+		<key>Extensions Directory</key>
+		<string>EEE901Ext</string>
+		<key>Model Name</key>
+		<string>901</string>
+		<key>Long Name</key>
+		<string>Asus EEE 901</string>
+		<key>Bluetooth Vendor ID</key>
+		<integer>0</integer>
+		<key>Bluetooth Device ID</key>
+		<integer>0</integer>
+		<key>EFI Strings</key>
+		<dict/>
+		<key>Kext Blacklist</key>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
+		<key>DSDT Patches</key>
+		<dict/>
+	</dict>
 	<key>Dell Mini 9</key>
 	<dict>
 		<key>Support Files</key>
@@ -113,13 +138,17 @@
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
-		<array/>
+		<array>
+			<string>AppleHDA.kext</string>
+		</array>
 		<key>DSDT Patches</key>
 		<dict>
 			<key>BAT</key>
 			<string>Device (BAT1)</string>
 			<key>FN8</key>
 			<string>Method (_Q1C,</string>
+			<key>USB4</key>
+			<string>Device (USB4)</string>
 		</dict>
 	</dict>
 	<key>Dell Mini 10v</key>
@@ -133,15 +162,22 @@
 		<key>Long Name</key>
 		<string>Dell Mini 10v</string>
 		<key>Bluetooth Vendor ID</key>
-		<integer>0</integer>
+		<integer>16700</integer>
 		<key>Bluetooth Device ID</key>
-		<integer>0</integer>
+		<integer>688</integer>
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
 		<array/>
 		<key>DSDT Patches</key>
-		<dict/>
+		<dict>
+			<key>BAT</key>
+			<string>Device (BAT1)</string>
+			<key>FN8</key>
+			<string>Method (_Q1C,</string>
+			<key>PXS2</key>
+			<string>Device (PXS2</string>
+		</dict>
 	</dict>
 	<key>HP Mini 110</key>
 	<dict>
@@ -175,9 +211,9 @@
 		<key>Long Name</key>
 		<string>Lenovo S10</string>
 		<key>Bluetooth Vendor ID</key>
-		<integer>0</integer>
+		<integer>8449</integer>
 		<key>Bluetooth Device ID</key>
-		<integer>0</integer>
+		<integer>2652</integer>
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>
@@ -185,7 +221,18 @@
 			<string>AppleHDA.kext</string>
 		</array>
 		<key>DSDT Patches</key>
-		<dict/>
+		<dict>
+			<key>USB1</key>
+			<string>Device (USB1)</string>
+			<key>USB2</key>
+			<string>Device (USB2)</string>
+			<key>USB3</key>
+			<string>Device (USB3)</string>
+			<key>USB4</key>
+			<string>Device (USB4)</string>
+			<key>USB7</key>
+			<string>Device (USB7)</string>
+		</dict>
 	</dict>
 	<key>Samsung NC-10</key>
 	<dict>
@@ -198,9 +245,9 @@
 		<key>Long Name</key>
 		<string>Samsung NC-10</string>
 		<key>Bluetooth Vendor ID</key>
-		<integer>0</integer>
+		<integer>8449</integer>
 		<key>Bluetooth Device ID</key>
-		<integer>0</integer>
+		<integer>2652</integer>
 		<key>EFI Strings</key>
 		<dict/>
 		<key>Kext Blacklist</key>

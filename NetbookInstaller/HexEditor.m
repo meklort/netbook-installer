@@ -21,7 +21,7 @@
 - (BOOL) find: (NSData*) needle andReplace: (NSData*) replace
 {
 	if(!data) return NO;
-	NSUInteger index = 0;
+	unsigned int index = 0;
 	NSRange	range;
 	NSData* compare;
 	void* bytes = malloc([needle length] * 8);

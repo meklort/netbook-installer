@@ -22,6 +22,10 @@
 #import <openssl/md5.h>
 #import "checksum.h"
 
+#ifndef UF_HIDDEN
+#define UF_HIDDEN 0x00008000 /* hint that this item should not be */ 
+#endif
+
 
 
 @implementation SystemInformation
@@ -119,11 +123,11 @@
 	return installedBootloader;
 }
 
-- (NSUInteger) bluetoothVendorId
+- (unsigned int) bluetoothVendorId
 {
 	return bluetoothVendorId;
 }
-- (NSUInteger) bluetoothDeviceId
+- (unsigned int) bluetoothDeviceId
 {
 	return bluetoothDeviceId;
 }
