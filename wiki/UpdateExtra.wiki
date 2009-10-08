@@ -13,5 +13,5 @@ In order to add or remove a kext, do the following:
   # Open a finder window
   # Press cmd + shift + G
   # Type /Extra in the window that appeared in from the above command and hit enter.
-  # Copy any kexts you want to /Extra/<machineName>Ext/
+  # Copy any kexts you want to /Extra/[machineName]Ext/
   # Run /Extra/UpdateExtra.app to rebuild the extension cache.
