@@ -1,0 +1,279 @@
+TPostbootMounter
+v7
+r0
+t277689151.938443
+cCheck dependencies
+cProcessInfoPlistFile /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Info.plist Info.plist
+cCopyStringsFile /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal x86_64 c++ com.apple.compilers.gcc.4_2
+cCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal x86_64 c com.apple.compilers.gcc.4_2
+cCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+cCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal i386 c com.apple.compilers.gcc.4_2
+cCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal ppc c++ com.apple.compilers.gcc.4_2
+cCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal ppc c com.apple.compilers.gcc.4_2
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004AC2EDE500000000000000EE
+t1254288869
+s238
+
+N/Users/meklort/netbook-installer/PostbootMounter/English.lproj/InfoPlist.strings
+c000000004ADCFBA20000000000000030
+t1255996322
+s48
+
+N/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp
+c000000004ADCFBBD00000000000010BC
+t1255996349
+s4284
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c
+c000000004ADCFBBD00000000000001B0
+t1255996349
+s432
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter.LinkFileList
+c000000004ADCFBBD0000000000000091
+t1255996349
+s145
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o
+t1255996351
+s3828
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter.LinkFileList
+c000000004ADCFBBD0000000000000090
+t1255996349
+s144
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter.o
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter_info.o
+t1255996351
+s3812
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.LinkFileList
+c000000004ADCFBBD0000000000000093
+t1255996349
+s147
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o
+t1255996351
+s4128
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext.dSYM
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Info.plist
+t1255996349
+s824
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/MacOS/PostbootMounter
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Resources/English.lproj/InfoPlist.strings
+t1255996349
+s92
+
+NInfo.plist
+c000000004ADCFBA2000000000000037D
+t1255996322
+s893
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies277689149#277689149#0(0"0(0#1#0"4300882208#0"0#
+
+CCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+s277689150.590903
+e277689150.763307
+r0
+xCompileC
+xbuild/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o
+x/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token
+lSLF07#2@76"Compile /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689150#277689150#0(2084"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token16(4@44"OpenHaltRestart.h: No such file or directory277689150#0#128#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#47#0#47#0#28"*: No such file or directory0(4@69"Expected constructor, destructor, or type conversion before '(' token277689150#128#150#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#51#0#51#0#19"expected * before *0(4@40"'MAXCPUS' was not declared in this scope277689150#278#121#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#56#0#56#0#34"'*' was not declared in this scope0(4@46"'kPERestartCPU' was not declared in this scope277689150#520#127#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#64#0#64#0#34"'*' was not declared in this scope0(4@41"'kdreboot' was not declared in this scope277689150#647#122#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#66#0#66#0#34"'*' was not declared in this scope0(4@43"'kPEHaltCPU' was not declared in this scope277689150#769#124#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#68#0#68#0#34"'*' was not declared in this scope0(4@48"'ml_get_max_cpus' was not declared in this scope277689150#893#129#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#70#0#70#0#34"'*' was not declared in this scope0(4@43"'iocpu_ptrs' was not declared in this scope277689150#1022#124#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#74#0#74#0#34"'*' was not declared in this scope0(4@38"'IOCPU' was not declared in this scope277689150#1146#119#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#34"'*' was not declared in this scope0(4@44"Expected primary-expression before ')' token277689150#1265#125#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#19"expected * before *0(4@32"Expected `)' before 'iocpu_ptrs'277689150#1390#113#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#19"expected * before *0(23@16"At global scope:277689150#1503#87#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#0#0#0#0#0"0(4@51"'com_psystar_OpenHaltRestart' has not been declared277689150#1590#132#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#25"'*' has not been declared0(4@42"'IOService' was not declared in this scope277689150#1722#123#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#34"'*' was not declared in this scope0(4@41"'provider' was not declared in this scope277689150#1845#122#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#34"'*' was not declared in this scope0(4@36"Expected ',' or ';' before '{' token277689150#1967#117#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#89#0#89#0#19"expected * before *0(0#0#68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp4300882208#1884"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch i386 -fmessage-length=0 -pipe -nostdinc -fno-builtin -Wno-trigraphs -fno-exceptions -fno-rtti -fcheck-new -fasm-blocks -force_cpusubtype_ALL -msoft-float -Os -fno-common -mkernel -finline -fno-keep-inline-functions -Wreturn-type -Wunused-variable -DKERNEL -DKERNEL_PRIVATE -DDRIVER_PRIVATE -DAPPLE -DNeXT -isysroot /Developer/SDKs/MacOSX10.6.sdk -fapple-kext -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-generated-files.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-own-target-headers.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-all-target-headers.hmap -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-project-headers.hmap -F/Users/meklort/netbook-installer/PostbootMounter/build/Release -I/Users/meklort/netbook-installer/PostbootMounter/build/Release/include -I/System/Library/Frameworks/Kernel.framework/PrivateHeaders -I/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Kernel.framework/Headers -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/i386 -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources -c /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp -o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o1#
+
+CCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal i386 c com.apple.compilers.gcc.4_2
+s277689150.763568
+e277689151.116809
+r1
+xCompileC
+xbuild/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o
+x/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c
+xnormal
+xi386
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@152"Compile /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c277689150#277689151#0(0"0(0#0#144"/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c4300882208#1923"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch i386 -fmessage-length=0 -pipe -nostdinc -std=gnu99 -fno-builtin -Wno-trigraphs -fasm-blocks -force_cpusubtype_ALL -msoft-float -Os -fno-common -mkernel -finline -fno-keep-inline-functions -Wreturn-type -Wunused-variable -DKERNEL -DKERNEL_PRIVATE -DDRIVER_PRIVATE -DAPPLE -DNeXT -isysroot /Developer/SDKs/MacOSX10.6.sdk -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-generated-files.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-own-target-headers.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-all-target-headers.hmap -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-project-headers.hmap -F/Users/meklort/netbook-installer/PostbootMounter/build/Release -I/Users/meklort/netbook-installer/PostbootMounter/build/Release/include -I/System/Library/Frameworks/Kernel.framework/PrivateHeaders -I/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Kernel.framework/Headers -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/i386 -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources -c /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c -o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o0#
+
+CCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal ppc c++ com.apple.compilers.gcc.4_2
+s277689151.116959
+e277689151.937234
+r0
+xCompileC
+xbuild/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter.o
+x/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp
+xnormal
+xppc
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token
+lSLF07#2@76"Compile /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689151#277689151#0(2084"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token16(4@44"OpenHaltRestart.h: No such file or directory277689151#0#128#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#47#0#47#0#28"*: No such file or directory0(4@69"Expected constructor, destructor, or type conversion before '(' token277689151#128#150#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#51#0#51#0#19"expected * before *0(4@40"'MAXCPUS' was not declared in this scope277689151#278#121#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#56#0#56#0#34"'*' was not declared in this scope0(4@46"'kPERestartCPU' was not declared in this scope277689151#520#127#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#64#0#64#0#34"'*' was not declared in this scope0(4@41"'kdreboot' was not declared in this scope277689151#647#122#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#66#0#66#0#34"'*' was not declared in this scope0(4@43"'kPEHaltCPU' was not declared in this scope277689151#769#124#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#68#0#68#0#34"'*' was not declared in this scope0(4@48"'ml_get_max_cpus' was not declared in this scope277689151#893#129#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#70#0#70#0#34"'*' was not declared in this scope0(4@43"'iocpu_ptrs' was not declared in this scope277689151#1022#124#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#74#0#74#0#34"'*' was not declared in this scope0(4@38"'IOCPU' was not declared in this scope277689151#1146#119#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#34"'*' was not declared in this scope0(4@44"Expected primary-expression before ')' token277689151#1265#125#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#19"expected * before *0(4@32"Expected `)' before 'iocpu_ptrs'277689151#1390#113#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#19"expected * before *0(23@16"At global scope:277689151#1503#87#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#0#0#0#0#0"0(4@51"'com_psystar_OpenHaltRestart' has not been declared277689151#1590#132#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#25"'*' has not been declared0(4@42"'IOService' was not declared in this scope277689151#1722#123#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#34"'*' was not declared in this scope0(4@41"'provider' was not declared in this scope277689151#1845#122#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#34"'*' was not declared in this scope0(4@36"Expected ',' or ';' before '{' token277689151#1967#117#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#89#0#89#0#19"expected * before *0(0#0#68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp4300882208#1878"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch ppc -fmessage-length=0 -pipe -nostdinc -fno-builtin -Wno-trigraphs -fno-exceptions -fno-rtti -fcheck-new -force_cpusubtype_ALL -msoft-float -Os -fno-common -mkernel -finline -fno-keep-inline-functions -Wreturn-type -Wunused-variable -DKERNEL -DKERNEL_PRIVATE -DDRIVER_PRIVATE -DAPPLE -DNeXT -isysroot /Developer/SDKs/MacOSX10.6.sdk -fapple-kext -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-generated-files.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-own-target-headers.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-all-target-headers.hmap -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-project-headers.hmap -F/Users/meklort/netbook-installer/PostbootMounter/build/Release -I/Users/meklort/netbook-installer/PostbootMounter/build/Release/include -I/System/Library/Frameworks/Kernel.framework/PrivateHeaders -I/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Kernel.framework/Headers -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/ppc -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources -c /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp -o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter.o1#
+
+CCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal ppc c com.apple.compilers.gcc.4_2
+s277689151.124401
+e277689151.930803
+r1
+xCompileC
+xbuild/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter_info.o
+x/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c
+xnormal
+xppc
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@152"Compile /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c277689151#277689151#0(0"0(0#0#144"/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c4300882208#1917"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch ppc -fmessage-length=0 -pipe -nostdinc -std=gnu99 -fno-builtin -Wno-trigraphs -force_cpusubtype_ALL -msoft-float -Os -fno-common -mkernel -finline -fno-keep-inline-functions -Wreturn-type -Wunused-variable -DKERNEL -DKERNEL_PRIVATE -DDRIVER_PRIVATE -DAPPLE -DNeXT -isysroot /Developer/SDKs/MacOSX10.6.sdk -mtune=G5 -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-generated-files.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-own-target-headers.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-all-target-headers.hmap -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-project-headers.hmap -F/Users/meklort/netbook-installer/PostbootMounter/build/Release -I/Users/meklort/netbook-installer/PostbootMounter/build/Release/include -I/System/Library/Frameworks/Kernel.framework/PrivateHeaders -I/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Kernel.framework/Headers -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/ppc -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources -c /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c -o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter_info.o0#
+
+CCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal x86_64 c++ com.apple.compilers.gcc.4_2
+s277689149.848503
+e277689150.590741
+r0
+xCompileC
+xbuild/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o
+x/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp
+xnormal
+xx86_64
+xc++
+xcom.apple.compilers.gcc.4_2
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope
+o/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token
+lSLF07#2@76"Compile /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#277689150#0(2084"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token16(4@44"OpenHaltRestart.h: No such file or directory277689150#0#128#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#47#0#47#0#28"*: No such file or directory0(4@69"Expected constructor, destructor, or type conversion before '(' token277689150#128#150#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#51#0#51#0#19"expected * before *0(4@40"'MAXCPUS' was not declared in this scope277689150#278#121#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#56#0#56#0#34"'*' was not declared in this scope0(4@46"'kPERestartCPU' was not declared in this scope277689150#520#127#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#64#0#64#0#34"'*' was not declared in this scope0(4@41"'kdreboot' was not declared in this scope277689150#647#122#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#66#0#66#0#34"'*' was not declared in this scope0(4@43"'kPEHaltCPU' was not declared in this scope277689150#769#124#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#68#0#68#0#34"'*' was not declared in this scope0(4@48"'ml_get_max_cpus' was not declared in this scope277689150#893#129#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#70#0#70#0#34"'*' was not declared in this scope0(4@43"'iocpu_ptrs' was not declared in this scope277689150#1022#124#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#74#0#74#0#34"'*' was not declared in this scope0(4@38"'IOCPU' was not declared in this scope277689150#1146#119#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#34"'*' was not declared in this scope0(4@44"Expected primary-expression before ')' token277689150#1265#125#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#19"expected * before *0(4@32"Expected `)' before 'iocpu_ptrs'277689150#1390#113#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#77#0#77#0#19"expected * before *0(23@16"At global scope:277689150#1503#87#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#0#0#0#0#0"0(4@51"'com_psystar_OpenHaltRestart' has not been declared277689150#1590#132#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#25"'*' has not been declared0(4@42"'IOService' was not declared in this scope277689150#1722#123#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#34"'*' was not declared in this scope0(4@41"'provider' was not declared in this scope277689150#1845#122#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#88#0#88#0#34"'*' was not declared in this scope0(4@36"Expected ',' or ';' before '{' token277689150#1967#117#0(6@68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp277689149#89#0#89#0#19"expected * before *0(0#0#68"/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp4300882208#1890"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c++ -arch x86_64 -fmessage-length=0 -pipe -nostdinc -fno-builtin -Wno-trigraphs -fno-exceptions -fno-rtti -fcheck-new -fasm-blocks -force_cpusubtype_ALL -msoft-float -Os -fno-common -mkernel -finline -fno-keep-inline-functions -Wreturn-type -Wunused-variable -DKERNEL -DKERNEL_PRIVATE -DDRIVER_PRIVATE -DAPPLE -DNeXT -isysroot /Developer/SDKs/MacOSX10.6.sdk -fapple-kext -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-generated-files.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-own-target-headers.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-all-target-headers.hmap -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-project-headers.hmap -F/Users/meklort/netbook-installer/PostbootMounter/build/Release -I/Users/meklort/netbook-installer/PostbootMounter/build/Release/include -I/System/Library/Frameworks/Kernel.framework/PrivateHeaders -I/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Kernel.framework/Headers -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/x86_64 -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources -c /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp -o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o1#
+
+CCompileC build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal x86_64 c com.apple.compilers.gcc.4_2
+s277689149.849621
+e277689151.124245
+r1
+xCompileC
+xbuild/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o
+x/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c
+xnormal
+xx86_64
+xc
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@152"Compile /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c277689149#277689151#0(0"0(0#0#144"/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c4300882208#1929"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x c -arch x86_64 -fmessage-length=0 -pipe -nostdinc -std=gnu99 -fno-builtin -Wno-trigraphs -fasm-blocks -force_cpusubtype_ALL -msoft-float -Os -fno-common -mkernel -finline -fno-keep-inline-functions -Wreturn-type -Wunused-variable -DKERNEL -DKERNEL_PRIVATE -DDRIVER_PRIVATE -DAPPLE -DNeXT -isysroot /Developer/SDKs/MacOSX10.6.sdk -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-generated-files.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-own-target-headers.hmap -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-all-target-headers.hmap -iquote /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/PostbootMounter-project-headers.hmap -F/Users/meklort/netbook-installer/PostbootMounter/build/Release -I/Users/meklort/netbook-installer/PostbootMounter/build/Release/include -I/System/Library/Frameworks/Kernel.framework/PrivateHeaders -I/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Kernel.framework/Headers -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/x86_64 -I/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources -c /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/DerivedSources/PostbootMounter_info.c -o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o0#
+
+CCopyStringsFile /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s277689149.187265
+e277689149.848398
+r1
+xCopyStringsFile
+x/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings277689149#277689149#0(0"0(0#0#80"/Users/meklort/netbook-installer/PostbootMounter/English.lproj/InfoPlist.strings4300882208#396"    cd /Users/meklort/netbook-installer/PostbootMounter    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Resources/English.lproj0#
+
+CCreateUniversalBinary /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/MacOS/PostbootMounter normal "x86_64 i386 ppc"
+r0
+
+CGenerateDSYMFile /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext.dSYM /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/MacOS/PostbootMounter
+r0
+
+CLd /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/i386/PostbootMounter normal i386
+r0
+
+CLd /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/ppc/PostbootMounter normal ppc
+r0
+
+CLd /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Release/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter normal x86_64
+r0
+
+CProcessInfoPlistFile /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Info.plist Info.plist
+s277689149.181884
+e277689149.187171
+r1
+xProcessInfoPlistFile
+x/Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist277689149#277689149#0(0"0(0#0#59"/Users/meklort/netbook-installer/PostbootMounter/Info.plist4300882208#241"    cd /Users/meklort/netbook-installer/PostbootMounter    builtin-infoPlistUtility Info.plist -expandbuildsettings -platform macosx -o /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext/Contents/Info.plist0#
+
+CTouch /Users/meklort/netbook-installer/PostbootMounter/build/Release/PostbootMounter.kext
+r0
+

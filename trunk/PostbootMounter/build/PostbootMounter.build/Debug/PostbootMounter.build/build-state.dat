@@ -1,0 +1,105 @@
+TPostbootMounter
+v7
+r1
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004AC2EDE500000000000000EE
+t1254288869
+s238
+
+N/Users/meklort/netbook-installer/PostbootMounter/English.lproj/InfoPlist.strings
+c000000004ADCFBA20000000000000030
+t1255996322
+s48
+
+N/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp
+c000000004ADCFBA20000000000000019
+t1255996322
+s25
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext.dSYM
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/Info.plist
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/MacOS/PostbootMounter
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/Resources/English.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/DerivedSources/PostbootMounter_info.c
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/i386/PostbootMounter.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.LinkFileList
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o
+t2
+s0
+
+N/Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o
+t2
+s0
+
+NInfo.plist
+c000000004ADCFBA2000000000000037D
+t1255996322
+s893
+
+CCompileC build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/i386/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal i386 c++ com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/i386/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal i386 c com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter.o /Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp normal x86_64 c++ com.apple.compilers.gcc.4_2
+r0
+
+CCompileC build/PostbootMounter.build/Debug/PostbootMounter.build/Objects-normal/x86_64/PostbootMounter_info.o /Users/meklort/netbook-installer/PostbootMounter/build/PostbootMounter.build/Debug/PostbootMounter.build/DerivedSources/PostbootMounter_info.c normal x86_64 c com.apple.compilers.gcc.4_2
+r0
+
+CCopyStringsFile /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+r0
+
+CGenerateDSYMFile /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext.dSYM /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/MacOS/PostbootMounter
+r0
+
+CLd /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/MacOS/PostbootMounter normal i386
+r0
+
+CLd /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/MacOS/PostbootMounter normal x86_64
+r0
+
+CProcessInfoPlistFile /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext/Contents/Info.plist Info.plist
+r0
+
+CTouch /Users/meklort/netbook-installer/PostbootMounter/build/Debug/PostbootMounter.kext
+r0
+

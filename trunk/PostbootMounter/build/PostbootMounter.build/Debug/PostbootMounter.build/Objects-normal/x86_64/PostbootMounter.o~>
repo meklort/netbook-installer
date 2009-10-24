@@ -1,0 +1,17 @@
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:47:29: error: OpenHaltRestart.h: No such file or directory
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:51: error: expected constructor, destructor, or type conversion before '(' token
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:56: error: 'MAXCPUS' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: In function 'int open_halt_restart(unsigned int)':
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:64: error: 'kPERestartCPU' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:66: error: 'kdreboot' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:68: error: 'kPEHaltCPU' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:70: error: 'ml_get_max_cpus' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:74: error: 'iocpu_ptrs' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: 'IOCPU' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected primary-expression before ')' token
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:77: error: expected `)' before 'iocpu_ptrs'
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp: At global scope:
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'com_psystar_OpenHaltRestart' has not been declared
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'IOService' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:88: error: 'provider' was not declared in this scope
+/Users/meklort/netbook-installer/PostbootMounter/PostbootMounter.cpp:89: error: expected ',' or ';' before '{' token
