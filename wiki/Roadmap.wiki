@@ -8,12 +8,12 @@ The following list are the requirements for each major release version.
 
 == 0.8.x (Alpha) ==
  The alpha version of NetbookInstaller are those in which large amounts of code changes are occurring. The interface to add more machine support may change at any moment and break previous release's plists.
- * 
+ * Add DeviceID and VendorID detection. This will be used to install appropriate kexts based on the hardware.
 
 == 0.9.x (Beta) ==
 The main requirement for the beta versions of NetbookInstaller and NetbookBootMaker is for a finalized interface to add more machine support.
  * NetbookCD and NetbookBootMaker should share same codebase.
-* No restrictions on the host OS. 0.9.x (boot maker) should be able to run on Tiger, Linux, or Windows.
+ * No restrictions on the host OS. 0.9.x (boot maker) should be able to run on Tiger, Linux, or Windows.
  * Semi-stable interface / api 
  * Error checking in all major functions.
  * All functions and methods should have a valid return value. At the moment, many return YES even when an error occurs.
