@@ -1,0 +1,81 @@
+#summary ChangeLog for each release.
+<wiki:toc max_depth="2" />
+
+= NetbookInstaller 0.8.3 =
+== RC 1 ==
+==== _All Machines_ ====
+ * DSDT generation bug should be fixed, however I have not tested this.
+ * Updated touchpad driver's gesture code. This should work fairly well on most netbooks with a large touchpad.
+ * Fixed the "Internal devices showing as external' bug (aka, the orange icon bug). 
+ * Updates to FakeSMC v2 from netkas.
+ * Clean up /dsdt.aml if it exists (correct location is in /Extra).
+
+==== _Dell Mini 9_ ====
+ * Battery meter no longer states that the battery needs service (unless if it really does). 
+ * DSDT Patch so that bluetooth does not affect sleep.
+ * Included AppleAzaliaAudio for speaker output only.
+
+==== _Dell Mini 10v_ ====
+ * Battery meter no longer states that the battery needs service (unless if it really does). 
+ * DSDT patch to disable the F1 button
+ * Updated touchpad driver to reduce jumping.
+
+==== _Lenovo S10_ ====
+ * DSDT Patch to enable sleep
+ * Included Bluetooth vendor  and device id's to patch the bluetooth kext.
+ * Patched AppleAzaliaAudio to include headphone switching.
+
+== RC 2 ==
+==== _All Netbooks_ ====
+ * Added some error checking that should help out with the 10.5.0 -> 10.5.6 upgrade problem (aka, missing mach_kernel.10.5.6)
+ * gptsync is run on new installs. This should let you install Windows XP on a GUID / GPT drive.
+ * NetbookInstaller is no longer needed to be run after a new install (bug with 0.8.2 RC1 only).
+
+==== _Dell Mini 10v_ ====
+ * Included new version of VerbHelper from lnxneo which should help with audio after sleep problems on Snow Leopard.
+
+== RC 3 ==
+==== _All Netbooks_ ====
+ * Fixed edge scrolling bug introduced with 10v touchpad changes. A couple of other touchpad changes are also included.
+ * NetbookBootMaker now assumes a generic netbook. This shouldn't change anything, but it might work a bit better when generated on a known netbook and used on a different machine.
+ * NetbookInstaller will now set the target partition as active in the MBR. This will help with Windows XP dual boots in that you no longer have to manually set the OS X install as active after installing XP. (NOTE: this has not been tested on dual boot installs yet).
+ * Fixed a few typos.
+ * ncluded gdisk instead of gptsync to create the hybrid mbr table. This works with previous installs now too.
+
+==== _Dell Mini 9_ ====
+ * Included a DSDT patch so that usb devices are not improperly removed during sleep
+
+==== _Dell Mini 10v_ ====
+ * Upgraded to the latest VerbHelper from lnexeo. Audio now resumes after sleep.
+ * Included a DSDT patch so that usb devices are not improperly removed during sleep
+
+== RC 4 ==
+==== _All Netbooks_ ====
+ * Hibernation *should* be disableable now in NebtookInstaller (but don't take my word for it..)
+ * Patched SleepEnabler to work on any current 10.6.x kernel. you must run NetbookInstaller *before* the 10.6.2 update (you can reboot before it too).
+ * Patched Chameleon so that it applies tea's 10.6.2 kernel patch at runtime.
+ * Stability fixes with NetbookInstaller (added more error checking).
+ * Various internal API changes
+
+== RC 5 ==
+==== _All Netbooks_ ====
+ * Updated xameleon patch to fixup the 10.6.2 support
+ * Chameleon patch to determine the native lcd resolution (via edid)
+ * Chameleon patch to incoperate the 915resolution program for intel GPU's
+----
+= NetbookInstaller 0.8.2 =
+ * Fixed target os version detection. NetbookInsatller will no longer refuse to install on updated OS's later than the one it was released for
+ * Fix /Extra deletion bug. You no longer have to select both regenerate dsdt and install extensions for the machine to be be bootable.
+ * Added Chameleon 2 RC3 (r658) to the installer.
+ * Added Mini 10v audiofix (thanks go to lnxneo for this)
+ * Updated touchpad driver especially for the 10v to allow two finger scrolling to be enable while also allowing dragging.
+ * Numerous under the hood changes specifically to make the installer more modular and to allow for it to be modified without recompiling it. This is due to the use of plists.
+ * Initial 10.6 support (Including numerous bug fixes that causes the program to terminate early).
+ * USB Audio devices now work
+ * A few other minor changes to the gui and to a couple of kexts
+ * You no longer need to delete the dsdt file to generate a new one after a hardware upgrade. The dsdt patcher will now use your original dsdt if you install Chameleon 2 RC3.
+----
+= NetbookInstaller 0.8.1 =
+----
+= NetbookInstaller 0.8.0 =
+ * Initial version, port of DellEFI to Objective C
