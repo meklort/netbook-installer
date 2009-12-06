@@ -1,4 +1,5 @@
 #summary ChangeLog for each release.
+#labels Featured
 <wiki:toc max_depth="2" />
 
 = NetbookInstaller 0.8.3 =
@@ -59,7 +60,7 @@
 
 == RC 5 ==
 ==== _All Netbooks_ ====
- * Updated xameleon patch to fixup the 10.6.2 support
+ * Updated chameleon patch to enhance the 10.6.2 kernel support (makes it non 10.6.2 specific).
  * Chameleon patch to determine the native lcd resolution (via edid)
  * Chameleon patch to incoperate the 915resolution program for intel GPU's
 ----
