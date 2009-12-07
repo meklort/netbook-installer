@@ -63,6 +63,7 @@
  * Updated chameleon patch to enhance the 10.6.2 kernel support (makes it non 10.6.2 specific).
  * Chameleon patch to determine the native lcd resolution (via edid)
  * Chameleon patch to incoperate the 915resolution program for intel GPU's
+ * Fixed DSDT generation bug introduced in RC4.
 ----
 = NetbookInstaller 0.8.2 =
  * Fixed target os version detection. NetbookInsatller will no longer refuse to install on updated OS's later than the one it was released for
