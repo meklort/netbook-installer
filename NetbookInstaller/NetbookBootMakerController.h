@@ -32,6 +32,8 @@
 
 - (BOOL) patchDVDPartition: (NSString*) partition;
 - (BOOL) patchOSInstall;
+- (BOOL) patchmpkg;
+- (BOOL) patchPrivateFramework;
 - (BOOL) removePostInstallError;
 - (BOOL) patchUtilitMenu;
 

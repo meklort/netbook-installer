@@ -53,6 +53,8 @@
 - (IBAction) openAboutWindow: (id) sender;
 
 - (void) enableOptions;
+- (void) enableOptions: (BOOL) state;
+
 - (void) updateCheckboxes;
 
 - (void) applicationDidFinishLaunching:(id)application;

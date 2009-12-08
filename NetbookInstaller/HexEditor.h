@@ -14,5 +14,5 @@
 }
 - (NSMutableData*) data;
 - (id) initWithData: (NSData*) initialData;
-- (NSUInteger) find: (NSData*) needle andReplace: (NSData*) replace;
+- (BOOL) find: (NSData*) needle andReplace: (NSData*) replace;
 @end

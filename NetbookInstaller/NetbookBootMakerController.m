@@ -20,6 +20,7 @@
 
 	installing = false;
 	systemInfo = [[SystemInformation alloc] init];
+	[systemInfo genericMachineType];	// We dont know our target netbook, assume generic
 
 	// This is run whenever ANY nib file is loaded
 	[self updateVolumeMenu];
@@ -86,14 +87,18 @@
 	
 	// remove the previos /Extra directory
 	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Extra"]];
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/mach_kernel.10.5.6"]];
+	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/mach_kernel_10_5_6"]];
 	
 	// Copy the CLI and GUI installer
 	[self updateStatus:NSLocalizedString(@"Installing NetbookInstaller Applications", nil)];	
 	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"]];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/gptsync"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/gptsync"]];
+	[installer setPermissions:@"755" onPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/setActive.sh"] recursivly:NO];
+	[installer setPermissions:@"755" onPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/gdisk"] recursivly:NO];
+
+		
+		//[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/gptsync"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/gptsync"]];
 
 
 	
@@ -113,7 +118,7 @@
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];	
 	/// Time to actualy do the install
 	
-	[self updateStatus:NSLocalizedString(@"Creating extra", nil)];	
+	[self updateStatus:NSLocalizedString(@"Creating /Extra", nil)];	
 	[installer removePrevExtra];
 	[installer installExtraFiles];
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
@@ -159,7 +164,7 @@
 
 	[installer setQuietBoot:	NO];
 
-	[installer dissableHibernation:	YES];
+	[installer disableHibernation:	YES];
 
 	NSString* bootloader = [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"];
 
@@ -203,8 +208,9 @@
 	
 	[installer hideFiles];
 
-	[self updateStatus:NSLocalizedString(@"Done", nil)];	
 	[installer unmountRamDisk];
+	
+	[self updateStatus:NSLocalizedString(@"Done", nil)];	
 	[self updatePorgressBar: [[NSNumber alloc] initWithInt:100]];
 
 	
@@ -227,7 +233,7 @@
 	[installer runCMD:"/usr/bin/xar" withArgs:nsargs];
 	
 	
-	NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/Volumes/ramdisk/OSInstallMPKG/Distribution"];
+		//NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/Volumes/ramdisk/OSInstallMPKG/Distribution"];
 	
 	
 	return NO;

@@ -23,8 +23,6 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 
 
 @interface SystemInformation : NSObject {
-	//enum machine		machineType;
-	enum scrollMethod	twoFingerScrolling;
 	NSDictionary*		installedBootloader;
 	NSDictionary*		bootloaderDict;
 	UInt32 installedKernel;
@@ -32,20 +30,20 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 
 
 	
-	int		efiVersion;
-	int		netbookInstallerVersion;
+	//int		efiVersion;
+	//int		netbookInstallerVersion;
 	
 	NSUInteger	bluetoothVendorId;
-	NSUInteger	bluetoothDeviceId;
+	unsigned int	bluetoothDeviceId;
 	
-	bool		dsdtInstalled;
-	bool		keyboardPrefPaneInstalled;
-	bool		remoteCDEnabled;
-	bool		hibernationDissabled;
-	bool		quietBoot;
-	bool		bluetoothPatched;
-	bool		mirrorFriendlyGMA;
-	bool		efiHidden;
+	BOOL		dsdtInstalled;
+	BOOL		remoteCDEnabled;
+	BOOL		hibernationDissabled;
+	BOOL		quietBoot;
+	BOOL		bluetoothPatched;
+	BOOL		mirrorFriendlyGMA;
+	BOOL		efiHidden;
+	BOOL		generic;
 	
 //	NSString*	extensionsFolder;
 	NSString*	bootPartition;
@@ -55,24 +53,23 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 
 }
 - (id) init;
-- (bool) dsdtInstalled;
+- (BOOL) dsdtInstalled;
 - (NSDictionary*) bootloaderDict;
 - (NSArray*) supportedBootloaders;
 - (NSString*) getMachineString;
-- (int) hostOS;
-- (int) targetOS;
-- (bool) keyboardPrefPaneInstalled;
-- (bool) remoteCDEnabled;
-- (bool) hibernationDissabled;
+- (NSInteger) hostOS;
+- (NSInteger) targetOS;
+- (BOOL) remoteCDEnabled;
+- (BOOL) hibernationDissabled;
 - (NSString*) bootPartition;
 - (NSDictionary*) machineInfo;
 - (NSString*) extensionsFolder;
 - (void) installPath: (NSString*) path;
 - (NSString*) installPath;
-- (bool) quietBoot;
-- (bool) bluetoothPatched;
+- (BOOL) quietBoot;
+- (BOOL) bluetoothPatched;
 - (BOOL) mirrorFriendlyGMA;
-- (bool) efiHidden;
+- (BOOL) efiHidden;
 - (NSDictionary*) installedBootloader;
 //- (enum machine) machineType;
 //- (void) machineType: (enum machine) newMachineType;
@@ -80,7 +77,7 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 - (NSUInteger) bluetoothVendorId;
 - (NSUInteger) bluetoothDeviceId;
 
-- (int) getKernelVersion: (NSString*) kernelPath;
+- (NSInteger) getKernelVersion: (NSString*) kernelPath;
 
 - (void) determineInstallState;
 - (void) determineMachineType;
@@ -92,16 +89,18 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 - (void) determineQuiteBootState;
 - (void) determineGMAVersion;
 - (void) determineHiddenState;
+- (BOOL) hiddenStateOfPath: (NSString*) path;
 - (void) determineBluetoothState;
-- (void) determinekeyboardPrefPaneInstalled;
 - (void) determineBootloader;
 - (BOOL) determineTargetOS;
 
-- (int) getKernelVersion: (NSString*) path;
 - (NSArray*) installableVolumes: (int) minVersions;
 - (BOOL) needsHelperPartition;
 
 - (NSDictionary*) getFileSystemInformation: (NSString*) mountPoint;
 
+- (void) genericMachineType;
+
+- (void) printStatus;
 
 @end

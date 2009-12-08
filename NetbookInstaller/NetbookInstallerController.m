@@ -27,7 +27,9 @@
  
 	// TODO: enable this
 	[self updateBootloaderMenu];
+	[self enableOptions];
 	[self updateCheckboxes];
+	[systemInfo printStatus];
 }
 - (void) updateBootloaderMenu
 {
@@ -74,7 +76,6 @@
 	[systemInfo determineInstallState];
 	
 	[self updateVolumeMenu];
-	[self enableOptions];
 	[self updateCheckboxes];
 
 	
@@ -85,6 +86,8 @@
 	
 	// Initialize botloader dropdown
 	[self updateBootloaderMenu];
+	[self enableOptions: NO];
+
 	
 	
 	
@@ -137,7 +140,7 @@
 	} 
 	else
 	{
-		[showhideFilesCheckbox setState:true];
+		[showhideFilesCheckbox setState:YES];
 		[showhideFilesCheckbox setTitle:[[@"Hide " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
 		
 	}
@@ -177,7 +180,7 @@
 	} 
 	else
 	{
-		[quietBootCheckbox setState:YES];
+		[quietBootCheckbox setState:NO];
 		[quietBootCheckbox setTitle:NSLocalizedString(@"Enable Quiet Boot", nil)];
 		
 	}
@@ -192,7 +195,8 @@
  **		extensions exist.
  **
  ***/
-- (BOOL) isMachineSupported {
+- (BOOL) isMachineSupported
+{
 	if([[systemInfo getMachineString] isEqualToString:@"General"]) return NO;
 	else return YES;
 	
@@ -363,9 +367,10 @@
  ***/
 - (void) enableOptions
 {
-
-	bool state = true;
-	//bool state = true;
+	[self enableOptions: YES];
+}
+- (void) enableOptions: (BOOL) state
+{
 	// Dissable / enable all checkboxes
 	[bootloaderCheckbox			setEnabled: state];
 	//if(state) 	[oldGMACheckbox setEnabled: [oldGMACheckbox state]];
@@ -629,8 +634,10 @@
 	[installer installSystemConfiguration];
 	[self updatePorgressBar: [NSNumber numberWithInt: 1]];
 	
+	[self updateStatus:NSLocalizedString(@"Regenerating DSDT.aml", nil)];
 	if([self regenerateDSDT]) [installer installDSDT]; // modifed version of chameleon ensures origional dsdt is available.
-	
+	[self updatePorgressBar: [NSNumber numberWithInt: 1]];
+
 
 	
 	
@@ -669,7 +676,6 @@
 		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
 		
 		[self updateStatus:NSLocalizedString(@"Patching USB", nil)];
-
 		[installer patchAppleUSBEHCI];
 			//[installer patchAppleHDA];
 		
@@ -684,7 +690,7 @@
 	
 	
 	[self updateStatus:NSLocalizedString(@"Verifying Hibernation state", nil)];
-	[installer dissableHibernation:	[self dissableHibernation]];
+	[installer disableHibernation:	[self dissableHibernation]];
 	
 	[self updateStatus:NSLocalizedString(@"Verifying RemoteCD State", nil)];
 	[installer setRemoteCD:			[self enableRemoteCD]];
@@ -700,21 +706,22 @@
 		if([systemInfo efiHidden])		[installer showFiles];
 		else							[installer hideFiles];
 	} else if([systemInfo efiHidden])	[installer hideFiles];	// rehide files if previously hidden
+
 	
 	if([self fixBluetooth]) [installer fixBluetooth];
 	[self updatePorgressBar: [NSNumber numberWithInt: 30]];
 	
-	[self updateStatus:NSLocalizedString(@"Done", nil)];
-	
 	[installer unmountRamDisk];
+
+	
+	[installer release];
+
+	[self updateStatus:NSLocalizedString(@"Done", nil)];
+
 	
 	[self performSelectorOnMainThread:@selector(installFinished) withObject: nil waitUntilDone:NO];
 	
 	
-	
-	
-	
-	[installer release];
 	[pool release];
 	
 	return YES;
