@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 			
 			
 	[installer setQuietBoot:	NO];
-	[installer dissableHibernation:	YES];
+	[installer disableHibernation:	YES];
 
 	//	[installer setRemoteCD:			YES]; // This is not possilbe when running as root.
 	

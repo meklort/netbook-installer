@@ -22,20 +22,16 @@
 #import <openssl/md5.h>
 #import "checksum.h"
 
-#ifndef UF_HIDDEN
-#define UF_HIDDEN 0x00008000 /* hint that this item should not be */ 
-#endif
-
-
 
 @implementation SystemInformation
 
 - (id) init
 {
 	hostKernel = [self getKernelVersion:@"/"];
+	generic = false;
 	return self;
 }
-- (bool) dsdtInstalled
+- (BOOL) dsdtInstalled
 {
 	return dsdtInstalled;
 	
@@ -54,17 +50,12 @@
 	return [machineInfo objectForKey:@"Long Name"];
 }
 
-- (bool) keyboardPrefPaneInstalled
-{
-	return keyboardPrefPaneInstalled;
-}
-
-- (bool) remoteCDEnabled
+- (BOOL) remoteCDEnabled
 {
 	return remoteCDEnabled;
 }
 
-- (bool) hibernationDissabled
+- (BOOL) hibernationDissabled
 {
 	return hibernationDissabled;
 }
@@ -89,12 +80,12 @@
 {
 }
 
-- (bool) quietBoot
+- (BOOL) quietBoot
 {
 	return quietBoot;
 }
 
-- (bool) bluetoothPatched
+- (BOOL) bluetoothPatched
 {
 	return bluetoothPatched;
 }
@@ -104,7 +95,7 @@
 	return mirrorFriendlyGMA;
 }
 
--(bool) efiHidden
+-(BOOL) efiHidden
 {
 	return efiHidden;
 }
@@ -123,11 +114,11 @@
 	return installedBootloader;
 }
 
-- (unsigned int) bluetoothVendorId
+- (NSUInteger) bluetoothVendorId
 {
 	return bluetoothVendorId;
 }
-- (unsigned int) bluetoothDeviceId
+- (NSUInteger) bluetoothDeviceId
 {
 	return bluetoothDeviceId;
 }
@@ -168,9 +159,6 @@
 	//NSLog(@"Determine gma");
 
 	[self determineGMAVersion];
-	//NSLog(@"Determine prefpane");
-
-	[self determinekeyboardPrefPaneInstalled];
 	//NSLog(@"Done");
 
 
@@ -185,7 +173,7 @@
 	//NSError*	errs;
 	NSDictionary* info = [self getFileSystemInformation: @"/"];
 
-	bootPartition = [[[NSString alloc] initWithString:[info objectForKey:@"Mounted From"]] substringFromIndex:[@"/dev/" length]];
+	bootPartition = [[NSString alloc] initWithString:[[info objectForKey:@"Mounted From"] substringFromIndex:[@"/dev/" length]]];
 	installPath = [[NSString alloc] initWithString:@"/"];
 
 	
@@ -211,7 +199,7 @@
 {
 	NSDictionary* info = [self getFileSystemInformation: path];
 
-	bootPartition = [[[NSString alloc] initWithString:[info objectForKey:@"Mounted From"]] substringFromIndex:[@"/dev/" length]];
+	bootPartition = [[NSString alloc] initWithString:[[info objectForKey:@"Mounted From"] substringFromIndex:[@"/dev/" length]]];
 	installPath = [[NSString alloc] initWithString:path];
 
 	NSLog(@"Target Device: %@\n", bootPartition);
@@ -230,7 +218,6 @@
 	[self determineQuiteBootState];
 	[self determineHiddenState];
 	[self determineGMAVersion];
-	[self determinekeyboardPrefPaneInstalled];
 
 
 }
@@ -263,7 +250,7 @@
 		}
 	}
 	
-	if(!machineInfo)
+	if(!machineInfo || generic)
 	{
 		machineInfo = [[NSDictionary alloc] initWithDictionary:[machineplist objectForKey:@"General"] copyItems:YES];
 	}
@@ -368,19 +355,25 @@
 
 - (void) determineHiddenState
 {
-	const char* path = "/Extra";
+	efiHidden = [self hiddenStateOfPath: [installPath stringByAppendingString:@"/Extra"]];
+}
+
+- (BOOL) hiddenStateOfPath: (NSString*) path;
+{
+	int retVal;
+	if(![[NSFileManager defaultManager] fileExistsAtPath:path])
+	{
+		// Does not exist, so mark as hiddne hidden...
+		return YES;
+	}
+
+	const char* cpath = [path cStringUsingEncoding:NSASCIIStringEncoding];
 	struct stat fileStatus;
-	stat(path, &fileStatus);
+	retVal = stat(cpath, &fileStatus);
 	
-	efiHidden = (fileStatus.st_flags & UF_HIDDEN);
+	return ((fileStatus.st_flags & UF_HIDDEN) ? YES : NO);
 }
 
-- (void) determinekeyboardPrefPaneInstalled
-{	NSDictionary *	propertyList= [NSDictionary dictionaryWithContentsOfFile:[installPath stringByAppendingString: @"/System/Library/PreferencePanes/Keyboard.prefPane/Contents/version.plist"]];
-
-	//NSBundle*	prefPane = [[NSBundle alloc] initWithPath:@"/System/Library/PreferencePanes/Keyboard.prefPane/"];
-	keyboardPrefPaneInstalled = [[propertyList valueForKey:@"SourceVersion"] isEqualToString:@"1020000"];
-}
 
 - (NSArray*) supportedBootloaders
 {
@@ -402,12 +395,7 @@
 
 - (void) determineBootloader
 {
-	// TODO: fix bug with bootloaderDict.
-//	if(!bootloaderDict) 
-
-	//NSLog(@"%@", bootloaderDict);
 	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
-	//NSLog(@"%@", installPath);
 
 	NSDictionary* booter;
 	NSEnumerator* bootloaders = [allbootloaders keyEnumerator];
@@ -415,7 +403,6 @@
 	NSData* bootloader = [[NSData alloc] initWithContentsOfFile:[installPath stringByAppendingString:@"/boot"]];
 	NSRange replaceByte;
 	NSMutableData* md5 =			[[NSMutableData alloc] initWithLength:16];
-//	NSData* bootmd5;
 
 	
 	unsigned char *digest;
@@ -440,8 +427,6 @@
 		i++;
 	}
 
-	//NSLog(@"%@", md5);
-
 	while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
 	{
 		if([md5 isEqualToData:[[[bootloaderDict objectForKey:@"Bootloaders"] objectForKey:booter] objectForKey:@"MD5"]]) installedBootloader = [[NSDictionary alloc] initWithDictionary:booter copyItems:YES];
@@ -449,34 +434,28 @@
 	
 	
 	[bootloader release];
-//	[bootmd5 release];
 	[md5 release];
 	
 }
 
-- (int) hostOS
+- (NSInteger) hostOS
 {
 	return hostKernel;
 }
 
-- (int) targetOS
+- (NSInteger) targetOS
 {
 	return installedKernel;
 }
 - (BOOL) determineTargetOS
 {
-	// Use the following for / detection only
+	// Use the following for / detection only (recommended over the plist)
 /*	gestaltSystemVersionMajor
 	gestaltSystemVersionMinor
 	gestaltSystemVersionBugFix*/
 	
 	installedKernel = [self getKernelVersion: installPath];
 	return YES;
-	
-//	//NSLog(@"Determining OS Version");
-	// TODO: read value from SystemVersion.plist instead
-//	installedKernel = [self getKernelVersion:[installPath stringByAppendingString:@"/mach_kernel"]];
-//	return YES;
 }
 
 - (NSArray*) installableVolumes: (int) minVersions
@@ -491,16 +470,14 @@
 		if([self getKernelVersion:[@"/Volumes/" stringByAppendingString:[[volumes objectAtIndex:i] stringByAppendingString:@"/mach_kernel"]]] < minVersions)
 		{
 			// Boot unsupported, remove volume from the list
-			NSLog(@"Removing %@", [volumes objectAtIndex:i]);
 			[volumes removeObjectAtIndex:i];
-			//i++;
 		}
 		else
 		{
 			if([[[self getFileSystemInformation:[@"/Volumes/" stringByAppendingString:[volumes objectAtIndex:i]]] objectForKey:@"Mount Flags"] intValue] & MNT_RDONLY)
-			{				NSLog(@"Removing %@", [volumes objectAtIndex:i]);
-					[volumes removeObjectAtIndex:i];	// remove if volume is read only
-
+			{
+				// remove if volume is read only
+				[volumes removeObjectAtIndex:i];
 			}
 			else
 			{
@@ -526,86 +503,23 @@
 	NSScanner* scanner;
 	NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingString:@"/System/Library/CoreServices/SystemVersion.plist"]];
 	NSString* versionString = [systemVersion objectForKey:@"ProductVersion"];
-	if(!versionString) return 0;
-	//if(!versionString) return 10 << 4 | 5 << 2 | 8;
+	if(!versionString)
+	{
+		[systemVersion release];
+		return 0;
+		//return KERNEL_VERSION(10,5,8);
+	}
+	
 	versionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@" "];
-	//NSLog(@"%@", versionString);
+
 	scanner = [NSScanner scannerWithString:versionString];
 	
 	[scanner scanInt:&majorVersion];
 	[scanner scanInt:&minorVersion];
 	[scanner scanInt:&bugfixVersion];
-	// Use the following for / detection only
-	/*	gestaltSystemVersionMajor
-	 gestaltSystemVersionMinor
-	 gestaltSystemVersionBugFix*/
-	//NSLog(@"%@ Kernel:  %d.%d.%d, %d", path, majorVersion, minorVersion, bugfixVersion, KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion));
+
+	[systemVersion release];
 	return KERNEL_VERSION(majorVersion, minorVersion, bugfixVersion);
-	
-	// TODO: do the following if SystemVersion.plist doesnt exist (aka, the boot partition)
-	
-	/*// Find last / and use it as the root, if we cant find SystemVersion, fall back to the md5
-	//NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:@"/System/Library/CoreServices/SystemVersion.plist"];
-	//NSString* versionString = [systemVersion objectForKey:@"ProductVersion"];
-
-	
-	
-	// Verify the target os version (possibly use SystemVersion here, falling back to md5
-	NSData* kernel = [[NSData alloc] initWithContentsOfFile:path];
-	unsigned char *digest;
-	SInt8 returnVal = -2;
-	UInt8 i = 0;
-	UInt8 index = 0;
-	
-	struct uint128 knownMD5;
-	NSRange replaceByte;
-	
-	NSMutableData* md5 =			[[NSMutableData alloc] initWithLength:16];
-	NSData* kernelMD5;
-	
-	
-	if(!kernel)
-	{
-		returnVal = -2;
-	}
-	else
-	{
-		returnVal =  -1;
-		digest = MD5([kernel bytes], [kernel length], NULL);
-	
-	
-	
-		// Convert the string into an NSData type
-		while(digest[i] != 0) {
-			replaceByte.location = 16 - (i + 1);
-			replaceByte.length = 1;
-			[md5 replaceBytesInRange:replaceByte withBytes:&(digest[i]) length:1];
-			i++;
-		}
-	
-		// Determine which bootloader, these values are in checksum.h as well as SystemInformation.h
-		while((returnVal == -1) && index < NUM_KERNELS)
-		{
-			knownMD5.lower = kernelVersionMD5[index][0];
-			knownMD5.upper = kernelVersionMD5[index][1];
-			
-			kernelMD5 = [[NSData alloc] initWithBytes:(const void *)&knownMD5 length:16];
-			
-			//[bootmd5 release];
-			if([md5 isEqualToData:kernelMD5]) returnVal = index;
-			index++;
-			
-		}
-		
-		[kernel release];
-		[kernelMD5 release];
-		[md5 release];
-	}
-	
-	//NSLog(@"Kernel at %@ is 10.5.%d", path, returnVal);
-
-	return returnVal;
-	*/
 }
 
 /**
@@ -615,6 +529,7 @@
  **/
 - (BOOL) needsHelperPartition
 {
+	// TODO: write this method...
 	//Searching for "BSD Name" property = "diskXsY" INSIDE of IOSDCHCIBlockDevice, if it isn't loaded, it doesnt matter
 	// This is only valid on the root device
 	
@@ -720,5 +635,32 @@
 	return returnDict;
 }
 
+- (void) genericMachineType
+{
+	generic = YES;
+}
+
+- (void) printStatus		// Status of target / system
+{
+	NSLog(@"Mountpoint Statistics: %@\n", [self getFileSystemInformation: [self installPath]]);
+	NSLog(@"HostOS: %d\n", [self hostOS]);
+	NSLog(@"TargetOS: %d\n", [self targetOS]);
+	NSLog(@"InstallPath: %@\n", [self installPath]);
+	NSLog(@"Boot Partition: %@\n", [self bootPartition]);
+
+	NSLog(@"InstalledBootloader: %@\n", [self installedBootloader]);
+	NSLog(@"BluetoothVendorID: %d\n", [self bluetoothVendorId]); 
+	NSLog(@"BluetoothDeviceID: %d\n", [self bluetoothDeviceId]);
+	NSLog(@"BluetoothPatched: %s\n", (bluetoothPatched ? "Yes" : "No"));
+	NSLog(@"DSDT Installed: %s\n", ([self dsdtInstalled]? "Yes" : "No"));
+	NSLog(@"RemoteCD Enabled: %s", ([self remoteCDEnabled]? "Yes" : "No"));
+	NSLog(@"Hibernation Disabled: %s", ([self hibernationDissabled]? "Yes" : "No"));
+	NSLog(@"QuietBoot Enabled: %s", ([self quietBoot]? "Yes" : "No"));
+	NSLog(@"MirrorFriendlyGMA Installed: %s", ([self mirrorFriendlyGMA]? "Yes" : "No"));
+	NSLog(@"/Extra Hidden: %s", ([self efiHidden]? "Yes" : "No"));
+	NSLog(@"Force Generic: %s", (generic? "Yes" : "No"));
+	
+	//NSDictionary* machineInfo;
+}
 
 @end
