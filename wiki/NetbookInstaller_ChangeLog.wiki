@@ -64,6 +64,9 @@
  * Chameleon patch to determine the native lcd resolution (via edid)
  * Chameleon patch to incoperate the 915resolution program for intel GPU's
  * Fixed DSDT generation bug introduced in RC4.
+ * Mirroring off command located at /Extra/bin/mirroring.
+ * Replaces OpenHaltRestart.kext with OSXRestart.kext. Fixes restart after sleep issue.
+ * Updated to FakeSMC v2.5 from netkas.
 ----
 = NetbookInstaller 0.8.2 =
  * Fixed target os version detection. NetbookInsatller will no longer refuse to install on updated OS's later than the one it was released for
