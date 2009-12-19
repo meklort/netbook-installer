@@ -69,6 +69,9 @@
  * Updated to FakeSMC v2.5 from netkas.
  * Updated UpdateExtra.app so that it no longer becomes unresponsive.
 
+=== _Dell Mini 10v_ ===
+ * Temporary fix for the A06 bios.
+
 === _Dell Mini 9_ ===
  * Updated audio for the Mini 9. This is a temporary fix and will change in the future.
 
