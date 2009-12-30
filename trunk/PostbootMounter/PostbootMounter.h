@@ -2,7 +2,7 @@
 #include <IOKit/IOService.h>
 #include <IOKit/IOLib.h>
 
-
+	//extern class IOService;
 
 	// class definition
 class PostbootMounter : public IOService
