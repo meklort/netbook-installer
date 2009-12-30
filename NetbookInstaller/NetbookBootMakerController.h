@@ -12,8 +12,8 @@
 
 
 @interface NetbookBootMakerController : NSObject {
-	SystemInformation*	systemInfo;
-	Installer*			installer;
+	SystemInformation* systemInfo;
+	Installer*	installer;
 	IBOutlet NSPopUpButton*		volumeList;
 	
 	IBOutlet NSProgressIndicator*	progressBar;
@@ -25,25 +25,21 @@
 }
 - (IBAction) performInstall: (id) sender;
 
+- (void) mountChange:(NSNotification *)notification;
+
 
 - (NSArray*) getMountedVolumes;
 - (void) updateVolumeMenu;
 
-
-- (BOOL) patchDVDPartition: (NSString*) partition;
-- (BOOL) patchOSInstall;
-- (BOOL) patchmpkg;
-- (BOOL) patchPrivateFramework;
-- (BOOL) removePostInstallError;
-- (BOOL) patchUtilitMenu;
-
-- (void) mountChange:(NSNotification *)notification;
 - (void) patchUSBDrive;
+- (BOOL) installBootlaoder: (NSString*) image toDrive: (NSString*) drive;
+
+- (BOOL) updatePorgressBar: (NSNumber*) percent;
+- (BOOL) updateStatus: (NSString*) status;
+- (BOOL) installFinished;
+- (BOOL) installFailed;
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication;
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender;
-
-- (BOOL) updateStatus: (NSString*) status;
-- (BOOL) updatePorgressBar: (NSNumber*) percent;
 
 @end

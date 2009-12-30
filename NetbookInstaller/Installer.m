@@ -361,7 +361,7 @@
 		//	sleep(2);
 
 	char string[10];
-	if(((int)pipe != (int)0) && ((int)pipe != (int)-1)) 
+	if((pipe != NULL) && (pipe != (void*)-1)) 
 	{
 		while(fgets(string, 10, pipe) != NULL)
 		{
@@ -378,7 +378,7 @@
 	if(commandString != nil) [commandString release];
 	if(escapedString != nil) [escapedString release];
 	
-	if(((int)pipe != (int)0) && ((int)pipe != (int)-1)) 
+	if((pipe != NULL) && (pipe != (void*)-1)) 
 	{
 		return returnString;
 	} else {
@@ -604,19 +604,19 @@
 	NSString* source;
 
 	
-	if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))
-	{
+//	if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))
+//	{
 		// Copy in 10.6 Extensions
 		[sourceExtensions addObject: [[[[[[NSBundle mainBundle] resourcePath]  stringByAppendingString: @nbiSupportFilesPath] stringByAppendingString: @nbiMachineFilesPath] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]] stringByAppendingString: @"/10.6 Extensions/"]];
 		if(![@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.6 Extensions/"]];
 		
-	}
-	else
-	{
-		// Copy in 10.5 Extensions
-		[sourceExtensions addObject: [[[[[[NSBundle mainBundle] resourcePath]  stringByAppendingString: @nbiSupportFilesPath] stringByAppendingString: @nbiMachineFilesPath] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]] stringByAppendingString: @"/10.5 Extensions/"]];
-		if(![@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.5 Extensions/"]];
-	}
+//	}
+//	else
+//	{
+//		// Copy in 10.5 Extensions
+//		[sourceExtensions addObject: [[[[[[NSBundle mainBundle] resourcePath]  stringByAppendingString: @nbiSupportFilesPath] stringByAppendingString: @nbiMachineFilesPath] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]] stringByAppendingString: @"/10.5 Extensions/"]];
+//		if(![@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.5 Extensions/"]];
+//	}
 
 	
 	[sourceExtensions addObject: [[[[[[NSBundle mainBundle] resourcePath]  stringByAppendingString: @nbiSupportFilesPath] stringByAppendingString: @nbiMachineFilesPath] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]] stringByAppendingString: @"/Extensions/"]];
@@ -671,11 +671,12 @@
 	[self makeDir: @"/Volumes/ramdisk/dsdt/patches"];
 	
 	// Copy dsdt files / patches into ramdisk
-	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%s/%s", nbiSupportFilesPath, nbiDSDTPath] toDir: @"/Volumes/ramdisk/dsdt/"];
-	[self copyFrom: [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat: @"/%s/%s/%s/%s/", nbiSupportFilesPath, nbiMachineFilesPath, nbiMachineGeneric, nbiMachineDSDTPath] toDir: @"/Volumes/ramdisk/dsdt/patches/"];
+	[self copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingFormat:@"/%s/%s", nbiSupportFilesPath, nbiDSDTPath] toDir: @"/Volumes/ramdisk/dsdt/"];		// Machine specific filae
+	[self copyFrom: [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat: @"/%s/%s/%s/%s/", nbiSupportFilesPath, nbiMachineFilesPath, nbiMachineGeneric, nbiMachineDSDTPath] toDir: @"/Volumes/ramdisk/dsdt/patches/"];	// generic files
 
 	if(![@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
 	{
+		// TODO: verify file exists
 		[self copyFrom: [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat: @"/%s/%s/%@/%s/", nbiSupportFilesPath, nbiMachineFilesPath, [[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles], nbiMachineDSDTPath] toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 		//[self copyFrom:[[[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @nbiSupportFilesPath]  stringByAppendingString: @nbiMachineFilesPath] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]] stringByAppendingString:@nbiMachineDSDTPath]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 
@@ -683,6 +684,7 @@
 		patches = [[systemInfo machineInfo] objectForKey:@nbiMachineDSDTPatches];
 
 	} else {
+
 		genPatches = [[systemInfo machineInfo] objectForKey:@nbiMachineDSDTPatches];
 
 	}
@@ -692,7 +694,6 @@
 	NSMutableString* configFile = [[NSMutableString alloc] initWithString:@""];
 	NSString* key;
 	NSEnumerator* keys;
-	NSError* error;
 	
 	if(![@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
 	{
@@ -703,22 +704,36 @@
 			[genPatches setObject:[patches objectForKey:key] forKey:key];
 		}
 	}
+	
 	keys = [genPatches keyEnumerator];
 	
 	while(key = [keys nextObject])
 	{
+		
+		if(![[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key] ])
+		{
+			NSLog(@"Unable to locate %@, skipping", [@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key]);
+			continue; // file doesn't exist, skipping
+		}
+
 		[configFile appendString:@":"];
 		[configFile appendString:key];
 		[configFile appendString:@":"];
 		[configFile appendString:[genPatches objectForKey:key]];
 		[configFile appendString:@":\r\n"];
 	}
+	if([configFile length])
+	{
+		NSError* error;
+
+		[self deleteFile:@"/Volumes/ramdisk/dsdt/config"];
+		[configFile writeToFile:@"/Volumes/ramdisk/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
+		[self copyFrom:@"/Volumes/ramdisk/config" toDir:@"/Volumes/ramdisk/dsdt/"];
+		[self deleteFile:@"/Volumes/ramdisk/config"];
+	}
 	
-	[configFile writeToFile:@"/Volumes/ramdisk/config" atomically:NO encoding:NSASCIIStringEncoding error:&error];
-	[self copyFrom:@"/Volumes/ramdisk/config" toDir:@"/Volumes/ramdisk/dsdt/"];
-	[self deleteFile:@"/Volumes/ramdisk/config"];
+	
 	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
-	
 	[self runCMD:"/Volumes/ramdisk/dsdt/DSDTPatcher" withArgs:nsargs];
 
 	
@@ -790,7 +805,7 @@
 	NSMutableDictionary* battPowerState = [[NSMutableDictionary alloc] initWithDictionary:[powerStates objectForKey: @"Battery Power"]];
 	
 	if(disable) state = 0;
-	else state = 5; //3;
+	else state = 3;
 		
 	[acPowerState   setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
 	[battPowerState setObject: [NSNumber numberWithInt:state] forKey: @"Hibernate Mode"];
@@ -848,7 +863,7 @@
 
 }
 
-- (BOOL) fixBluetooth
+- (BOOL) fixBluetooth	// delete bluetooth prefrence file
 {
 	if(![[NSFileManager defaultManager] fileExistsAtPath:@"/Library/Preferences/com.apple.Bluetooth.plist"]) return YES;
 
@@ -872,7 +887,7 @@
 - (BOOL) installExtraFiles
 {
 	// TODO: remove all of these functions, have been replaced by copyMachineFilesFrom: toDir:
-	return [self copyMachineFilesFrom: @"ExtraFiles/" toDir: @"/Extra/"];
+	return [self copyMachineFilesFrom: @"ExtraFiles/" toDir: @nbiExtrasPath];
 }
 
 - (BOOL) installDisplayProfile
@@ -1144,30 +1159,29 @@
 {
 	[self removeBlacklistedKexts];
 
-	if(
-	   (([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) ||	// 10.6 to any
-															 ([systemInfo targetOS] <  KERNEL_VERSION(10, 6, 0))		// 10.x to 10.5
-	   )
-	{
+//	if(
+//	   (([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) ||	// 10.6 to any
+//															 ([systemInfo targetOS] <  KERNEL_VERSION(10, 6, 0))		// 10.x to 10.5
+//	   )
+//	{
 		[self makeDir:@"/Volumes/ramdisk/Extensions"];
 		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"] toDir:@"/Volumes/ramdisk/Extensions/"];
-		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra/AdditionalExtension/"] toDir:@"/Volumes/ramdisk/Extensions/"];
-
-	}
-	else 
-	{
-		// Only use the white list if you are creating a 10.6 USB boot disk and re are not on 10.6. This is due to an updated kextcache that will *NOT* run on 10.5 even in a chroot
-		NSString *whitelistString = [[NSString alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/kext_whitelist"]]; // reads file into memory as an NSString
-		NSArray *whitelist = [whitelistString componentsSeparatedByString:@"\n"]; // each line, adjust character for line endings
+//
+//	}
+//	else 
+//	{
+//		// Only use the white list if you are creating a 10.6 USB boot disk and re are not on 10.6. This is due to an updated kextcache that will *NOT* run on 10.5 even in a chroot
+//		NSString *whitelistString = [[NSString alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/kext_whitelist"]]; // reads file into memory as an NSString
+//		NSArray *whitelist = [whitelistString componentsSeparatedByString:@"\n"]; // each line, adjust character for line endings
+//		
+//		int i = 0;
+//		while(i < [whitelist count])
+//		{
+//			if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:[systemInfo extensionsFolder]];
+//			i++;
+//		}
 		
-		int i = 0;
-		while(i < [whitelist count])
-		{
-			if(![[whitelist objectAtIndex:i] isEqualToString:@""]) [self copyFrom:[[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/"]stringByAppendingString:[whitelist objectAtIndex:i]] toDir:[systemInfo extensionsFolder]];
-			i++;
-		}
-		
-	}
+//	}
 
 	
 	
@@ -1181,8 +1195,10 @@
 
 - (BOOL) installMirrorFriendlyGraphics
 {
-	NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/OldGMA/"];	 
-	return [self copyFrom: source toDir: [systemInfo extensionsFolder]];
+	// THIS IS DEPRECIATED.
+	//NSString* source = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/OldGMA/"];	 
+	//return [self copyFrom: source toDir: [systemInfo extensionsFolder]];
+	return NO;
 }
 
 
@@ -1206,8 +1222,7 @@
 	// Remove prvious mkexts
 	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/Extensions.mkext"]];
 
-	if((([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0)) && ([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))) ||	// 10.6 host -> 10.6 target
-															  [systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))			// 10.x host -> 10.5 target
+	if([systemInfo hostOS] >= KERNEL_VERSION(10, 6, 0))			// 10.x host -> 10.5 target
 	{
 		
 		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions.mkext"]];
@@ -1217,20 +1232,33 @@
 		NSLog(@"Copied /System/Library/Extensions");	
 		
 		// Copy /Extra/Extensions/* to /Volumes/ramdisk/Extensions, overwriting any /S/L/E kexts previously copied there in [self copyDep]
+		[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/../AdditionalExtensions/"] toDir:@"/Volumes/ramdisk/Extensions/"];
 		[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/"] toDir: @"/Volumes/ramdisk/Extensions/"];
 		
 		
 		//sudo kextcache -a i386 -m <installPath>/Extra/Extensions.mkext <installPath>/Extra/Mini9Ext/ /Sytem/Library/Extensions
-		
+		NSArray* nsargs;
+		NSArray* nsargs2;
+		//NSArray* nsargs3;
 		NSMutableArray* nsargs4 = [[NSMutableArray alloc] init];
 		NSMutableArray* nsargs5 = [[NSMutableArray alloc] init];
 		//	NSMutableArray* nsargs6 = [[NSMutableArray alloc] init];
 		
 		
 		
-		
-		NSArray* nsargs = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
-						   @"/usr/sbin/kextcache", @"-a", @"i386", @"-m", @"/Extra/Extensions.mkext", @"/Volumes/ramdisk/Extensions/", nil];
+		if([systemInfo is64bit]  || [@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
+		{
+			// 64bit is supported, or we are generic	(aka, NetbookBootMaker)
+			nsargs = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+							   @"/usr/sbin/kextcache"/*, @"-a", @"i386"*/, @"-m", @"/Extra/Extensions.mkext", @"/Volumes/ramdisk/Extensions/", nil];
+		}
+		else
+		{
+			// 32bit only
+			nsargs = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+							   @"/usr/sbin/kextcache", @"-a", @"i386", @"-m", @"/Extra/Extensions.mkext", @"/Volumes/ramdisk/Extensions/", nil];
+
+		}
 		
 		
 		
@@ -1239,26 +1267,46 @@
 		// kextcache -a i386 -m /System/Library/Extensions.mkext /System/Library/Extensions/
 		
 		//chroot "$3" /usr/sbin/kextcache -system-caches
+		if([systemInfo is64bit]  || [@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
+		{
+			// 64bit is supported, or we are generic	(aka, NetbookBootMaker)
+			nsargs2 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+								@"/usr/sbin/kextcache"/*, @"-a", @"i386"*/, @"-m", @"/System/Library/Extensions.mkext", @"/System/Library/Extensions/", nil];
+		}
+		else
+		{
+			nsargs2 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+								@"/usr/sbin/kextcache", @"-a", @"i386", @"-m", @"/System/Library/Extensions.mkext", @"/System/Library/Extensions/", nil];
+
+		}
 		
-		NSArray* nsargs2 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
-							@"/usr/sbin/kextcache", @"-a", @"i386", @"-m", @"/System/Library/Extensions.mkext", @"/System/Library/Extensions/", nil];
-		
-		
+		/*
 		// kextcache -l -m /System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext /System/Library/Extensions/
+		if([systemInfo is64bit]  || [@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
+		{
+			// 64bit is supported, or we are generic	(aka, NetbookBootMaker)	
+			nsargs3 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+								@"/usr/sbin/kextcache", @"-l", @"-m", @"/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext", @"/System/Library/Extensions/", nil];
+		}
+		else
+		{
+			// 32bit		
+			nsargs3 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
+								@"/usr/sbin/kextcache", @"-a", @"i386", @"-l", @"-m", @"/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext", @"/System/Library/Extensions/", nil];
+			
+		}
+
 		
-		NSArray* nsargs3 = [[NSArray alloc] initWithObjects:[systemInfo installPath], 
-							@"/usr/sbin/kextcache", @"-a", @"i386", @"-l", @"-m", @"/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext", @"/System/Library/Extensions/", nil];
 		
-		
-	
+		*/
 		
 		
 		NSLog(@"Generating extensions Cache");
-		setenv("_com_apple_kextd_skiplocks", "1", 1);	    // This let kexts cache run before the 5 minut delay imposed by kextd
+		setenv("_com_apple_kextd_skiplocks", "1", 1);	    // This let kexts cache run before the 5 minute delay imposed by kextd
 		
 		
 		// Remount ramdisk so it's visible in the chroot
-		NSDictionary* info = [ systemInfo getFileSystemInformation: @nbiRamdiskPath];
+		NSDictionary* info = [ systemInfo getFileSystemInformation: @nbiRamdiskPath];	// info on ramdisk
 		
 		// Unmount ramdisk
 		 [nsargs4 addObject:[info objectForKey:@"Mounted From"]];
@@ -1278,7 +1326,9 @@
 		if( [self runCMD:"/usr/sbin/chroot" withArgs:nsargs])
 		{
 			[self runCMD:"/usr/sbin/chroot" withArgs:nsargs2];
-			if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0)) [self runCMD:"/usr/sbin/chroot" withArgs:nsargs3];
+			// TODO: target os check nolonger needed, we can assume 10.6
+			//if([systemInfo targetOS] >= KERNEL_VERSION(10, 6, 0))
+			//[self runCMD:"/usr/sbin/chroot" withArgs:nsargs3];
 			
 			[self makeDir:@nbiRamdiskPath];
 			
@@ -1299,11 +1349,11 @@
 			
 			[nsargs4 release];
 			[nsargs5 release];
-			[nsargs3 release];
+			//[nsargs3 release];
 			[nsargs2 release];
 			[nsargs release];
 
-			[self runCMD:"/usr/sbin/chroot" withArgs:[[NSArray alloc] initWithObjects:[systemInfo installPath], @"/usr/bin/touch", @"/Extra/Extensions.mkext", nil]];
+			[self runCMD:chrootPath withArgs:[[NSArray alloc] initWithObjects:[systemInfo installPath], @touchPath, @"/Extra/Extensions.mkext", nil]];
 
 			return YES;
 		}
@@ -1313,16 +1363,16 @@
 			// Unmount ramdisk
 				//[nsargs4 removeLastObject];
 				//[nsargs4 addObject:[[systemInfo installPath] stringByAppendingString:@nbiRamdiskPath]];
-			[self runCMD:"/sbin/umount" withArgs:nsargs4];
+			[self runCMD:unmountPath withArgs:nsargs4];
 			
 			// Remount ramdisk
 			[nsargs5 removeLastObject];
 			[nsargs5 addObject:@nbiRamdiskPath];
-			[self runCMD:"/sbin/mount" withArgs:nsargs5];
+			[self runCMD:mountPath withArgs:nsargs5];
 			
 			[nsargs4 release];
 			[nsargs5 release];
-			[nsargs3 release];
+			//[nsargs3 release];
 			[nsargs2 release];
 			[nsargs release];
 			[self deleteFile:[[systemInfo installPath] stringByAppendingString:@nbiRamdiskPath]];
@@ -1333,7 +1383,19 @@
 	}
 	else
 	{
-		NSArray* nsargs = [[NSArray alloc] initWithObjects:@"-a", @"i386", @"-m", [[systemInfo installPath] stringByAppendingString:@"/Extra/Extensions.mkext"], [systemInfo extensionsFolder], nil];	// This should only happen on 10.5 -> 10.6 dvd pathing
+		NSArray* nsargs;
+		
+		if([systemInfo is64bit]  || [@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
+		{
+			// 64bit is supported, or we are generic	(aka, NetbookBootMaker)	
+			nsargs = [[NSArray alloc] initWithObjects:@"-m", [[systemInfo installPath] stringByAppendingString:@"/Extra/Extensions.mkext"], [systemInfo extensionsFolder], nil];	// This should only happen on 10.5 -> 10.6 dvd pathing
+		}
+		else
+		{
+			// 32bit		
+			nsargs = [[NSArray alloc] initWithObjects:@"-a", @"i386", @"-m", [[systemInfo installPath] stringByAppendingString:@"/Extra/Extensions.mkext"], [systemInfo extensionsFolder], nil];	// This should only happen on 10.5 -> 10.6 dvd pathing
+		}
+		
 		[self runCMD:"/usr/sbin/kextcache" withArgs:nsargs];
 		
 		[nsargs release];
@@ -1344,16 +1406,16 @@
 }
 
 // Legacy, used for pre 10.5.6 boot dvd's (Aka, remove this when 10.5.x support is dropped
-- (BOOL) useLatestKernel
-{
-	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
-	
-	[bootSettings setObject: @"mach_kernel_10_5_6" forKey: @"Kernel"];
-	
-	[bootSettings writeToFile: @"/Volumes/ramdisk/com.apple.Boot.plist" atomically: NO];
-	[bootSettings release];
-	return [self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
-}
+//- (BOOL) useLatestKernel
+//{
+//	NSMutableDictionary*	bootSettings =  [[NSMutableDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist"]];
+//	
+//	[bootSettings setObject: @"mach_kernel_10_5_6" forKey: @"Kernel"];
+//	
+//	[bootSettings writeToFile: @"/Volumes/ramdisk/com.apple.Boot.plist" atomically: NO];
+//	[bootSettings release];
+//	return [self copyFrom: @"/Volumes/ramdisk/com.apple.Boot.plist" toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+//}
 
 // legacy, used when transitioning form a pre 10.5.6 install to a 10.5.6+ install. Remove when 10.5.x support is dropped
 - (BOOL) useSystemKernel
@@ -1392,9 +1454,10 @@
 		{
 			[self makeDir:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/"]];
 		}
-		
+		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/AdditionalExtensions"]];	// delete previous AdditionalExtensions
 		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra/"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak"]];
 		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+		
 
 	}
 
@@ -1406,9 +1469,9 @@
 	if([[NSFileManager defaultManager] fileExistsAtPath:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/"]])
 	{
 		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/DSDT.aml"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/DSDT.aml"]];
-		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/com.apple.Boot.plist"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+		//[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/com.apple.Boot.plist"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
 		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/Extensions.mkext"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
-		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/AdditionalExtension"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
+		[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/Extra.bak/AdditionalExtensions/"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/AdditionalExtensions/"]];
 
 	}
 
@@ -1459,11 +1522,6 @@
 	}
 	
 	return YES;
-}
-
-- (BOOL) patchPre1056mkext
-{
-	return NO;
 }
 
 - (BOOL) repairExtensionPermissions

@@ -40,6 +40,12 @@
 #define nbiMachineSupportFiles	"Support Files"
 #define nbiMachineDSDTPatches	"DSDT Patches"
 
+
+// other paths
+#define chrootPath				"/usr/sbin/chroot"
+#define touchPath				"/usr/bin/touch"
+#define unmountPath				"/sbin/umount"
+#define mountPath				"/sbin/mount"
 @interface Installer : NSObject {
 	SystemInformation*	systemInfo;
 	NSString*			extensionsDirectory;
@@ -120,14 +126,14 @@
 - (void)remountTargetWithPermissions;
 
 - (BOOL) useSystemKernel;
-- (BOOL) useLatestKernel;
+//- (BOOL) useLatestKernel;
 
 - (BOOL) removePrevExtra;
 
 - (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination;
 
 - (BOOL) removeBlacklistedKexts;
-- (BOOL) patchPre1056mkext;
+//- (BOOL) patchPre1056mkext;
 
 - (BOOL) repairExtensionPermissions;
 

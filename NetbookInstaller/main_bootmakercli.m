@@ -114,6 +114,9 @@ int main(int argc, char *argv[])
 	[systemInfo determinePartitionFromPath: @"/"];
 	[installer systemInfo: systemInfo];
 	
+	
+	
+	
 	[installer mountRamDiskAt:@"/tmp/" withSize:(10 * 1024 * 1024) andOptions:@"union,owners"];
 	packages =	[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/Packages/" withSize:(10 * 1024 * 1024) andOptions:@"owners"]];
 	menuItems =	[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/MenuItems/" withSize:(10 * 1024 * 1024) andOptions:@"owners"]];
@@ -125,9 +128,18 @@ int main(int argc, char *argv[])
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"];
 
 	[cli patchUtilitMenu];
-	[cli removePostInstallError];
+	
+	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
+	{
+		NSLog(@"Unsupported operating system target. Must be at least 10.6, not patching installer\n");
+	}
+	else
+	{
+		[cli removePostInstallError];
+		[cli patchOSInstall];
+	}
+	
 
-	[cli patchOSInstall];
 	
 	[installer remountDiskFrom: packages to: @"/System/Installation/Packages/"];
 	[installer remountDiskFrom: menuItems to:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/"];

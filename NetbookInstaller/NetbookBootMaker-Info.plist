@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>bootmaker.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.meklort.${PRODUCT_NAME:identifier}</string>
+	<string>com.meklort.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -17,7 +17,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.8.3 RC2</string>
+	<string>0.8.4a1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009, Evan Lojewski.</string>
 	<key>NSMainNibFile</key>
