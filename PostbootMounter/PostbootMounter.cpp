@@ -1,10 +1,15 @@
 #include "PostbootMounter.h"
 
-#include <bsd/sys/sysproto.h>
+#include "sysproto.h"
 #include <bsd/sys/stat.h>
 
 
-#include <UserNotification/KUNCUserNotifications.h>
+#include <IOKit/IOBSD.h>
+#include <IOKit/IOLib.h>
+#include <IOKit/IOService.h>
+#include <IOKit/IODeviceTreeSupport.h>
+#include <IOKit/IOKitKeys.h>
+#include <IOKit/IOPlatformExpert.h>
 
 #undef KERNEL
 #include <hfs/hfs_mount.h>
@@ -47,31 +52,49 @@ volatile bool run;
 	// our service start function, this is where we setup all the goodies
 bool PostbootMounter::start(IOService *provider)
 {
-	run = false;
-	printf("PostbootMounter: Saving mountroot_post_hook\n");
-
-	old_mountroot_post_hook = mountroot_post_hook;
-	printf("PostbootMounter: mountroot_post_hook backed up.\n");
-
-	mountroot_post_hook = &run_mount;
-	printf("PostbootMounter: mountroot_post_hook modified\n");
-	
-	while ( !run )
-	{
-		if (mountroot_post_hook != &run_mount)
-		{
-			// FIXME: This is only needed because another kext modifies mountroot_post_hook
-			// In the future, we should *wait* for that kext to do it's stuff, then overwrite the hook
-			// That way, there is no need for this while loop.
-			if(!old_mountroot_post_hook) old_mountroot_post_hook = mountroot_post_hook;
-				// TODO: wailt for BootCache.kext to use this, then modify it
-			printf("PostbootMounter: mountroot_post_hook modified\n");
-			mountroot_post_hook = &run_mount;
+	IORegistryEntry *	regEntry;
+	OSData *			data;
+	if((regEntry = IORegistryEntry::fromPath( "/chosen/memory-map", gIODTPlane ))) {	/* Find the map node */
+		data = (OSData *)regEntry->getProperty("RAMDisk");	/* Find the ram disk, if there */
+		if(!data) {		
+			/* No Ramdisk... */
+			IOLog("PostbootMounter: No ramdisk specified, exiting.\n");
+			return false;
 		}
-		IOSleep(50);
 	}
+	else
+	{
 		
-	return true;	// False would causes the kext to unload after it mountroot_post_hook is run (hence while (!run))
+		run = false;
+		//printf("PostbootMounter: Saving mountroot_post_hook\n");
+		
+		old_mountroot_post_hook = mountroot_post_hook;
+		//printf("PostbootMounter: mountroot_post_hook backed up.\n");
+		
+		mountroot_post_hook = &run_mount;
+		//printf("PostbootMounter: mountroot_post_hook modified\n");
+		
+		while ( !run )
+		{
+			// Keep watching the post root hook, ensure that we own it.
+			if (mountroot_post_hook != &run_mount)
+			{
+				// FIXME: This is only needed because another kext modifies mountroot_post_hook
+				// In the future, we should *wait* for that kext to do it's stuff, then overwrite the hook
+				// That way, there is no need for this while loop.
+				if(!old_mountroot_post_hook) old_mountroot_post_hook = mountroot_post_hook;
+				// TODO: wailt for BootCache.kext to use this, then modify it
+				//printf("PostbootMounter: mountroot_post_hook modified\n");
+				mountroot_post_hook = &run_mount;
+			}
+			IOSleep(50);	// Wait a bit
+		}
+		
+		return true;	// False would causes the kext to unload after it mountroot_post_hook is run (hence while (!run))
+		
+	}
+	
+	return false;
 }
 
 int mount_dev(const char* devpath, const char* mountpath, const char* fstype, int mntflags)
@@ -119,9 +142,11 @@ int mount_dev(const char* devpath, const char* mountpath, const char* fstype, in
 
 
 
-
+// Currently not used
 int exec_file(const char* path)
 {
+	/// NOTE: We *should* be using posix_spawn. The only reason we are mounting over the WindowSeriver is to ensure that we run before it does.	
+	
 	vm_offset_t	init_addr;
 	proc_t p = current_proc();
 		//thread_t thread = bsd_init_task;
@@ -214,25 +239,19 @@ int exec_file(const char* path)
 
 void run_mount()
 {
+	// TODO: Make this configurable.
 	run = true;
-	printf("PostbootMounter: Mounting /dev/md0\n");
-		// we mount the ramdisk to /System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/ so that we can overwrite the WindowServer command.
-	mount_dev("/dev/md0", "/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/", "hfs", MNT_UNION | MNT_SYNCHRONOUS);
-		//printf("PostbootMounter: NetbookBootMakerCLI returned %d, \n", 	exec_file("/usr/sbin/NetbookBootMakerCLI.app/Contents/MacOS/NetbookBootMakerCLI"));
-
-	/*
-	if( !bootCD )
-	{
-	 mount_dev("/dev/md0", "/usr/bin/", "hfs", MNT_UNION | MNT_SYNCHRONOUS);
-
-	//printf("PostbootMounter: NetbookBootMakerCLI returned %d, \n", KUNCExecute("/etc/NetbookBootMakerCLI.app/Contents/MacOS/NetbookBootMakerCLI", kOpenAppAsRoot, kOpenApplicationPath));
-	}
-	 */
+	//printf("PostbootMounter: Mounting /dev/md0\n");
 	
+	// we mount the ramdisk to /System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/ so that we can overwrite the WindowServer command.
+	// TODO: make this configurable in a plist
+	mount_dev("/dev/md0", "/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/", "hfs", MNT_UNION | MNT_SYNCHRONOUS);
+
 	if(old_mountroot_post_hook != NULL) 
 	{
-			// I believe BootCache uses mountroot_post_hook to retrive a notification from the kernel to do it's stuff, we overwrite that.
-		printf("PostbootMounter: Running old mountroot_post_hook\n");
+		// I believe BootCache uses mountroot_post_hook to retrive a notification from the kernel to do it's stuff, we overwrite that.
+		// Since we overwrote it, lets call it ourself.
+		//printf("PostbootMounter: Running old mountroot_post_hook\n");
 		(*old_mountroot_post_hook)();
 	}
 }

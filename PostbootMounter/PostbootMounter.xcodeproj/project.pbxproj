@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272F501C10E9C0A800E7FABB /* hfs_mount.h in Headers */ = {isa = PBXBuildFile; fileRef = 272F501B10E9C0A800E7FABB /* hfs_mount.h */; };
+		272F506210E9C26900E7FABB /* sysproto.h in Headers */ = {isa = PBXBuildFile; fileRef = 272F506110E9C26900E7FABB /* sysproto.h */; };
 		32D94FC60562CBF700B6AF17 /* PostbootMounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A224C3EFF42367911CA2CB7 /* PostbootMounter.h */; };
 		32D94FC80562CBF700B6AF17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		32D94FCA0562CBF700B6AF17 /* PostbootMounter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1A224C3FFF42367911CA2CB7 /* PostbootMounter.cpp */; settings = {ATTRIBUTES = (); }; };
@@ -16,6 +18,8 @@
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1A224C3EFF42367911CA2CB7 /* PostbootMounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostbootMounter.h; sourceTree = "<group>"; };
 		1A224C3FFF42367911CA2CB7 /* PostbootMounter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PostbootMounter.cpp; sourceTree = "<group>"; };
+		272F501B10E9C0A800E7FABB /* hfs_mount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hfs_mount.h; sourceTree = "<group>"; };
+		272F506110E9C26900E7FABB /* sysproto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sysproto.h; sourceTree = "<group>"; };
 		32D94FCF0562CBF700B6AF17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32D94FD00562CBF700B6AF17 /* PostbootMounter.kext */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostbootMounter.kext; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DA8362C06AD9B9200E5AC22 /* Kernel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kernel.framework; path = /System/Library/Frameworks/Kernel.framework; sourceTree = "<absolute>"; };
@@ -64,6 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				1A224C3EFF42367911CA2CB7 /* PostbootMounter.h */,
+				272F501B10E9C0A800E7FABB /* hfs_mount.h */,
+				272F506110E9C26900E7FABB /* sysproto.h */,
 				1A224C3FFF42367911CA2CB7 /* PostbootMounter.cpp */,
 			);
 			name = Source;
@@ -77,6 +83,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D94FC60562CBF700B6AF17 /* PostbootMounter.h in Headers */,
+				272F501C10E9C0A800E7FABB /* hfs_mount.h in Headers */,
+				272F506210E9C26900E7FABB /* sysproto.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,8 +210,11 @@
 		1DEB91DE08733DB10010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = NO;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
@@ -211,21 +222,32 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = i386;
 			};
 			name = Debug;
 		};
 		1DEB91DF08733DB10010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = (
+					i386,
+					x86_64,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SSE41_EXTENSIONS = NO;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../Downloads/xnu-1456.1.26\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../../Downloads/xnu-1228/\"/**",
+					"\"$(SRCROOT)/../../Downloads/xnu-1486.2.11/\"/**",
+				);
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
-				VALID_ARCHS = "i386 x86_64";
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
+				SDKROOT = macosx10.6;
+				USER_HEADER_SEARCH_PATHS = "";
+				VALID_ARCHS = "x86_64 i386";
 			};
 			name = Release;
 		};
