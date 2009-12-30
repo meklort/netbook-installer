@@ -3,51 +3,57 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
+
+/* Begin PBXAggregateTarget section */
+		27A8660910573BF600A8E274 /* NetbookBootCD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27A8660E10573C1D00A8E274 /* Build configuration list for PBXAggregateTarget "NetbookBootCD" */;
+			buildPhases = (
+				27A8660810573BF600A8E274 /* ShellScript */,
+			);
+			dependencies = (
+				27A5C4D5108CC62B00AE5720 /* PBXTargetDependency */,
+				27A8660D10573BFF00A8E274 /* PBXTargetDependency */,
+			);
+			name = NetbookBootCD;
+			productName = BootCD;
+		};
+/* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		270AF2DF0FF443640085AD97 /* kext_whitelist in Resources */ = {isa = PBXBuildFile; fileRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */; };
-		270AF2E00FF443640085AD97 /* kext_whitelist in Resources */ = {isa = PBXBuildFile; fileRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */; };
-		270AF2E10FF443640085AD97 /* kext_whitelist in Resources */ = {isa = PBXBuildFile; fileRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */; };
-		270AF2E20FF443640085AD97 /* kext_whitelist in Resources */ = {isa = PBXBuildFile; fileRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */; };
-		270AF2E30FF443640085AD97 /* kext_whitelist in Resources */ = {isa = PBXBuildFile; fileRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */; };
-		270AF2E40FF443640085AD97 /* kext_whitelist in Resources */ = {isa = PBXBuildFile; fileRef = 270AF2DE0FF443640085AD97 /* kext_whitelist */; };
-		2725E6640FED89D3005869F8 /* dell_mini_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */; };
-		2725E6650FED89D3005869F8 /* DellMini9.png in Resources */ = {isa = PBXBuildFile; fileRef = 661B389A0FBE6957004007B6 /* DellMini9.png */; };
+		271A58CC1082F08600B5E39B /* main_bootmakercli.m in Sources */ = {isa = PBXBuildFile; fileRef = 271A58CB1082F08600B5E39B /* main_bootmakercli.m */; };
+		271A5B5D1082F0FA00B5E39B /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
+		271A5B5E1082F0FD00B5E39B /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
+		271A5D371082F15800B5E39B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		271A5D381082F15800B5E39B /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661B368D0FBE2C50004007B6 /* CoreFoundation.framework */; };
+		271A5D391082F15800B5E39B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
+		271A5D3A1082F15800B5E39B /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */; };
+		271A5D3B1082F15800B5E39B /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
+		271A5D3C1082F15800B5E39B /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
+		271A5D3D1082F15800B5E39B /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		271A5D401082F16300B5E39B /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
 		2725E6670FED89D3005869F8 /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
 		2725E6680FED89D3005869F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		2725E66A0FED89D3005869F8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
-		2725E66B0FED8A07005869F8 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
-		2725E66D0FED8A07005869F8 /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
-		2725E66F0FED8A07005869F8 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
 		2725E6700FED8A07005869F8 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
-		2725E6D50FED9417005869F8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661B368D0FBE2C50004007B6 /* CoreFoundation.framework */; };
-		2725E6D60FED9417005869F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		2725E6D70FED9417005869F8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
-		2725E6D80FED9417005869F8 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */; };
-		2725E6D90FED9417005869F8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
-		2725E6DA0FED9417005869F8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
 		2725E6DC0FED9435005869F8 /* main_bootmake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725E3D90FED88A8005869F8 /* main_bootmake.m */; };
 		2725E7350FED9702005869F8 /* NetbookBootMaker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2725E7340FED9702005869F8 /* NetbookBootMaker.xib */; };
 		2725E73E0FED989D005869F8 /* NetbookBootMakerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */; };
-		2725E7580FED9EE5005869F8 /* NetbookInstallerCLI.app in Resources */ = {isa = PBXBuildFile; fileRef = 2748C2140FEB02EB000F22B8 /* NetbookInstallerCLI.app */; };
-		2725E7B20FEDAF56005869F8 /* bootMakerFiles in Resources */ = {isa = PBXBuildFile; fileRef = 2725E7B00FEDAF56005869F8 /* bootMakerFiles */; };
-		272EAD360FF7278800274B67 /* NetbookInstaller.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* NetbookInstaller.app */; };
-		272EAD450FF7FD1E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
+		272C33D710EA7E6F00659296 /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
+		272C33D810EA7E6F00659296 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		272C33D910EA7E6F00659296 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
+		272C33DB10EA7E6F00659296 /* bootmaker.icns in Resources */ = {isa = PBXBuildFile; fileRef = A1544D2E0FFEEBBE004B05AB /* bootmaker.icns */; };
+		272C33DE10EA7E6F00659296 /* main_bootmake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725E3D90FED88A8005869F8 /* main_bootmake.m */; };
+		272C33E110EA7E6F00659296 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
+		272C33E210EA7E6F00659296 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
+		272C33E610EA7E6F00659296 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		272C37CE10EA870500659296 /* NetbookBootMakerWin32.m in Sources */ = {isa = PBXBuildFile; fileRef = 272C37CD10EA870500659296 /* NetbookBootMakerWin32.m */; };
+		272C38E310EA88BC00659296 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272C38E210EA88BC00659296 /* AppKit.framework */; };
 		272EAD530FF7FD7E00274B67 /* main_bless.m in Sources */ = {isa = PBXBuildFile; fileRef = 272EAD440FF7FD1E00274B67 /* main_bless.m */; };
-		272EAD560FF7FDA300274B67 /* bless in Resources */ = {isa = PBXBuildFile; fileRef = 272EAD4E0FF7FD5F00274B67 /* bless */; };
-		273CA9FF0FD420D30060FE60 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
-		273CAA000FD420E10060FE60 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
-		2741B26D102DFD47008876DE /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 2741B26C102DFD47008876DE /* SupportFiles */; };
-		2748C3780FEB0319000F22B8 /* dell_mini_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */; };
-		2748C3790FEB0319000F22B8 /* DellMini9.png in Resources */ = {isa = PBXBuildFile; fileRef = 661B389A0FBE6957004007B6 /* DellMini9.png */; };
-		2748C37A0FEB0319000F22B8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		2748C37B0FEB0319000F22B8 /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
-		2748C37C0FEB0319000F22B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		2748C37D0FEB0319000F22B8 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 668FFA740FC11400007E4E75 /* SupportFiles */; };
-		2748C37E0FEB0319000F22B8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
+		27449EDD10EAA9900085A155 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27449EDC10EAA9900085A155 /* Foundation.framework */; };
 		2748C37F0FEB036B000F22B8 /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
 		2748C3800FEB036B000F22B8 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
 		2748C3810FEB036B000F22B8 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
@@ -58,7 +64,6 @@
 		2748C4A30FEB037C000F22B8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
 		2748C4A40FEB037C000F22B8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
 		2748C4A60FEB03C0000F22B8 /* main_cli.m in Sources */ = {isa = PBXBuildFile; fileRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */; };
-		274B11E80FF458D4009BFF80 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 668FFA740FC11400007E4E75 /* SupportFiles */; };
 		27848F1D0FF1ACD500BF23A5 /* UpdateExtra.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27848F1C0FF1ACD500BF23A5 /* UpdateExtra.xib */; };
 		27848F1F0FF1AD8B00BF23A5 /* UpdateExtra.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27848F1E0FF1AD8B00BF23A5 /* UpdateExtra.icns */; };
 		27848F240FF1ADCB00BF23A5 /* main_updateextra.m in Sources */ = {isa = PBXBuildFile; fileRef = 27848F230FF1ADCB00BF23A5 /* main_updateextra.m */; };
@@ -67,70 +72,41 @@
 		278490890FF1B09A00BF23A5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		2784908A0FF1B09A00BF23A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
 		2784908B0FF1B09A00BF23A5 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */; };
-		2784908C0FF1B09A00BF23A5 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
-		2784908D0FF1B09A00BF23A5 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
 		278490D70FF1B21200BF23A5 /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
 		278490D90FF1B21700BF23A5 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
 		278490DC0FF1B21F00BF23A5 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
 		279665750FD4206400EBF41B /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
+		27A76DE210EA8C1E00BB6357 /* NetbookBootMaker-windows.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A76DE010EA8C1E00BB6357 /* NetbookBootMaker-windows.xib */; };
 		27CA342B0FD47303006E14C4 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
-		27CA342D0FD4731C006E14C4 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
-		27CA342E0FD47324006E14C4 /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
+		27CD29C610EADC3300503E0D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD29C510EADC3300503E0D /* AppKit.framework */; };
+		27CD29CA10EADC4000503E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD29C910EADC4000503E0D /* Foundation.framework */; };
+		27CD29DD10EAEF9600503E0D /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
+		27CD29E510EAF02700503E0D /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD29E410EAF02700503E0D /* IOKit.framework */; };
+		27CD2A1310EB10FD00503E0D /* BootMakerSupport in Resources */ = {isa = PBXBuildFile; fileRef = 27CD2A1010EB10E600503E0D /* BootMakerSupport */; };
+		27CD2D7210EB145400503E0D /* NetbookInstaller.app in Resources */ = {isa = PBXBuildFile; fileRef = 8D1107320486CEB800E47090 /* NetbookInstaller.app */; };
+		27CD2D7310EB145700503E0D /* bless in Resources */ = {isa = PBXBuildFile; fileRef = 272EAD4E0FF7FD5F00274B67 /* bless */; };
+		27CD2F1010EBD6D400503E0D /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
+		27CD2F1610EBD6E400503E0D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD2F1510EBD6E400503E0D /* Security.framework */; };
+		27CD2F1D10EBD6FA00503E0D /* HexEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 27CA342A0FD47303006E14C4 /* HexEditor.m */; };
 		27D2EA54103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
-		27D2EA55103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
 		27D2EA56103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
-		27D2EA57103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
-		27D2EA58103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
 		27D2EA59103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
+		27E8A6D710E5E388000137F7 /* kext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8A6D610E5E388000137F7 /* kext.m */; };
 		27EC0B470FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
-		27EC0B480FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
-		27EC0B490FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
 		27EC0BC00FD7698C006740DB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
-		27EC0BC10FD7698C006740DB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
-		27EC0BC20FD7698C006740DB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
 		27EC0C2A0FD76DC0006740DB /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
-		27EC0C2B0FD76DC0006740DB /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
-		27EC0C2C0FD76DC0006740DB /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
+		27F3CE6A10D75EB8004F21D0 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 272B48111066E3B900621DC7 /* SupportFiles */; };
+		27FC5ED210A5CC0800C86299 /* PCI.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5ED110A5CC0800C86299 /* PCI.m */; };
+		27FC5ED310A5CC0800C86299 /* PCI.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5ED110A5CC0800C86299 /* PCI.m */; };
 		661B35C90FBE01E5004007B6 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
 		661B368E0FBE2C50004007B6 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661B368D0FBE2C50004007B6 /* CoreFoundation.framework */; };
 		661B38290FBE5091004007B6 /* NetbookInstallerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */; };
 		661B389B0FBE6957004007B6 /* dell_mini_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */; };
 		661B389C0FBE6957004007B6 /* DellMini9.png in Resources */ = {isa = PBXBuildFile; fileRef = 661B389A0FBE6957004007B6 /* DellMini9.png */; };
-		66363E990FC3A90A00BF0516 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
 		66363E9A0FC3A90A00BF0516 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
-		66363E9B0FC3A90A00BF0516 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66363E980FC3A90A00BF0516 /* CoreServices.framework */; };
-		668FF7530FC0D038007E4E75 /* dell_mini_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */; };
-		668FF7540FC0D038007E4E75 /* DellMini9.png in Resources */ = {isa = PBXBuildFile; fileRef = 661B389A0FBE6957004007B6 /* DellMini9.png */; };
-		668FF7560FC0D038007E4E75 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		668FF7580FC0D038007E4E75 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		668FF75A0FC0D04C007E4E75 /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
-		668FF75B0FC0D04C007E4E75 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
-		668FF75C0FC0D04C007E4E75 /* NetbookInstallerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */; };
-		668FF75D0FC0D04C007E4E75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		668FF78B0FC0D05E007E4E75 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661B368D0FBE2C50004007B6 /* CoreFoundation.framework */; };
-		668FF78C0FC0D05E007E4E75 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		668FFA750FC11400007E4E75 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 668FFA740FC11400007E4E75 /* SupportFiles */; };
-		668FFA760FC11400007E4E75 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 668FFA740FC11400007E4E75 /* SupportFiles */; };
-		668FFA770FC11400007E4E75 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 668FFA740FC11400007E4E75 /* SupportFiles */; };
 		668FFC490FC13B2B007E4E75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
-		668FFC4A0FC13B2B007E4E75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
-		668FFC4B0FC13B2B007E4E75 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
 		668FFC6C0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */; };
-		668FFC6D0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */; };
-		668FFC6E0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */; };
-		668FFD0C0FC280D8007E4E75 /* DSDTPatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */; };
-		668FFD0D0FC280D8007E4E75 /* DSDTPatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */; };
 		668FFD0E0FC280D8007E4E75 /* DSDTPatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */; };
-		66E5B6160FC04108000F2A93 /* dell_mini_icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 661B38990FBE6957004007B6 /* dell_mini_icon.icns */; };
-		66E5B6170FC04108000F2A93 /* DellMini9.png in Resources */ = {isa = PBXBuildFile; fileRef = 661B389A0FBE6957004007B6 /* DellMini9.png */; };
-		66E5B6190FC04108000F2A93 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		66E5B61B0FC04108000F2A93 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		66E5B61C0FC04118000F2A93 /* NetbookInstallerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B38280FBE5091004007B6 /* NetbookInstallerController.m */; };
-		66E5B61D0FC0411E000F2A93 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
-		66E5B61E0FC04126000F2A93 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
-		66E5B61F0FC0412C000F2A93 /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
-		66E5B64D0FC04133000F2A93 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661B368D0FBE2C50004007B6 /* CoreFoundation.framework */; };
-		66E5B64E0FC04133000F2A93 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		66EC09540FBF3E9C00D3B55B /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
@@ -139,26 +115,54 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		2725E74F0FED9EC2005869F8 /* PBXContainerItemProxy */ = {
+		272C61A51049DD180031FF97 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27848F130FF1AC8B00BF23A5;
+			remoteInfo = UpdateExtra;
+		};
+		27764BDC104648BF007B9B3C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2748C2130FEB02EB000F22B8;
 			remoteInfo = NetbookInstallerCLI;
 		};
-		272EAD240FF7253C00274B67 /* PBXContainerItemProxy */ = {
+		27A5C4D4108CC62B00AE5720 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 271A58B91082F04000B5E39B;
+			remoteInfo = NetbookBootMakerCLI;
+		};
+		27A8660C10573BFF00A8E274 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8D1107260486CEB800E47090;
 			remoteInfo = NetbookInstaller;
 		};
-		272EAD540FF7FD8400274B67 /* PBXContainerItemProxy */ = {
+		27CD27D010EAD0E000503E0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 272EAD4D0FF7FD5F00274B67;
+			remoteGlobalIDString = 272C33CB10EA7E6F00659296 /* NetbookBootMaker-windows */;
+			remoteInfo = "NetbookBootMaker-windows";
+		};
+		27CD2CDD10EB133900503E0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 272EAD4D0FF7FD5F00274B67 /* bless */;
 			remoteInfo = bless;
+		};
+		27CD2CDF10EB134300503E0D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* NetbookInstaller */;
+			remoteInfo = NetbookInstaller;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -166,7 +170,10 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		270AF2DE0FF443640085AD97 /* kext_whitelist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = kext_whitelist; sourceTree = "<group>"; };
+		271A58BA1082F04000B5E39B /* NetbookBootMakerCLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookBootMakerCLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		271A58BC1082F04000B5E39B /* NetbookBootMakerCLI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookBootMakerCLI-Info.plist"; sourceTree = "<group>"; };
+		271A58CA1082F08600B5E39B /* main_bootmakercli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_bootmakercli.h; sourceTree = "<group>"; };
+		271A58CB1082F08600B5E39B /* main_bootmakercli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_bootmakercli.m; sourceTree = "<group>"; };
 		2725E3D80FED88A8005869F8 /* main_bootmake.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_bootmake.pch; sourceTree = "<group>"; };
 		2725E3D90FED88A8005869F8 /* main_bootmake.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_bootmake.m; sourceTree = "<group>"; };
 		2725E3E60FED88C0005869F8 /* NetbookBootMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookBootMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,11 +181,20 @@
 		2725E70B0FED96A9005869F8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NetbookBootMaker.xib; sourceTree = "<group>"; };
 		2725E73C0FED989D005869F8 /* NetbookBootMakerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetbookBootMakerController.h; sourceTree = "<group>"; };
 		2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetbookBootMakerController.m; sourceTree = "<group>"; };
-		2725E7B00FEDAF56005869F8 /* bootMakerFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bootMakerFiles; sourceTree = "<group>"; };
+		272B48111066E3B900621DC7 /* SupportFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SupportFiles; sourceTree = "<group>"; };
+		272C33F010EA7E6F00659296 /* NetbookBootMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookBootMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		272C33F210EA7E6F00659296 /* NetbookBootMaker-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookBootMaker-Info copy.plist"; sourceTree = "<group>"; };
+		272C37CC10EA870500659296 /* NetbookBootMakerWin32.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetbookBootMakerWin32.h; sourceTree = "<group>"; };
+		272C37CD10EA870500659296 /* NetbookBootMakerWin32.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetbookBootMakerWin32.m; sourceTree = "<group>"; };
+		272C38E210EA88BC00659296 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		272C61751049DB940031FF97 /* Extensions.mkext */ = {isa = PBXFileReference; lastKnownFileType = file; path = Extensions.mkext; sourceTree = "<group>"; };
+		272C61761049DB940031FF97 /* mach_kernel.10.5.6 */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mach_kernel.10.5.6; sourceTree = "<group>"; };
+		272C61771049DB940031FF97 /* postinstall */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = postinstall; sourceTree = "<group>"; };
 		272EAD430FF7FD1E00274B67 /* main_bless.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_bless.h; sourceTree = "<group>"; };
 		272EAD440FF7FD1E00274B67 /* main_bless.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_bless.m; sourceTree = "<group>"; };
 		272EAD4E0FF7FD5F00274B67 /* bless */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = bless; sourceTree = BUILT_PRODUCTS_DIR; };
-		2741B26C102DFD47008876DE /* SupportFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SupportFiles; path = UpdateExtraSupportFiles/SupportFiles; sourceTree = "<group>"; };
+		2732451110EA7A83008DD29C /* NetbookBootMaker-win32-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookBootMaker-win32-Info.plist"; sourceTree = "<group>"; };
+		27449EDC10EAA9900085A155 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		2748C2140FEB02EB000F22B8 /* NetbookInstallerCLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookInstallerCLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookInstallerCLI-Info.plist"; sourceTree = "<group>"; };
 		2748C4A50FEB03C0000F22B8 /* main_cli.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main_cli.m; sourceTree = "<group>"; };
@@ -192,12 +208,27 @@
 		27848F4D0FF1AF6800BF23A5 /* UpdateExtraController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateExtraController.h; sourceTree = "<group>"; };
 		27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateExtraController.m; sourceTree = "<group>"; };
 		279665740FD4206400EBF41B /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
+		27A76DE110EA8C1E00BB6357 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = "English.lproj/NetbookBootMaker-windows.xib"; sourceTree = "<group>"; };
+		27A864281056FBDB00A8E274 /* xxdExtract.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = xxdExtract.sh; sourceTree = "<group>"; };
+		27C6AD5110AA5EC6009BD2E7 /* pci_device_ids.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pci_device_ids.h; sourceTree = "<group>"; };
 		27CA34290FD47303006E14C4 /* HexEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HexEditor.h; sourceTree = "<group>"; };
 		27CA342A0FD47303006E14C4 /* HexEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HexEditor.m; sourceTree = "<group>"; };
+		27CD29C510EADC3300503E0D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		27CD29C910EADC4000503E0D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		27CD29E410EAF02700503E0D /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		27CD2A1010EB10E600503E0D /* BootMakerSupport */ = {isa = PBXFileReference; lastKnownFileType = folder; path = BootMakerSupport; sourceTree = "<group>"; };
+		27CD2E1710EBD67D00503E0D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		27CD2E1D10EBD68E00503E0D /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		27CD2E2210EBD69900503E0D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		27CD2F1510EBD6E400503E0D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		27D2EA53103CBC5C006C97CE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
+		27E8A6D510E5E388000137F7 /* kext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kext.h; sourceTree = "<group>"; };
+		27E8A6D610E5E388000137F7 /* kext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kext.m; sourceTree = "<group>"; };
 		27EC0B450FD7312F006740DB /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		27EC0B460FD7312F006740DB /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		27EC0BB90FD7696F006740DB /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
+		27FC5ED010A5CC0800C86299 /* PCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCI.h; sourceTree = "<group>"; };
+		27FC5ED110A5CC0800C86299 /* PCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCI.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* NetbookInstaller_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetbookInstaller_Prefix.pch; sourceTree = "<group>"; };
 		661B35C70FBE01E5004007B6 /* SystemInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemInformation.h; sourceTree = "<group>"; };
@@ -210,15 +241,10 @@
 		661B389A0FBE6957004007B6 /* DellMini9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DellMini9.png; sourceTree = "<group>"; };
 		661B38E30FBE76F8004007B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/about.xib; sourceTree = "<group>"; };
 		66363E980FC3A90A00BF0516 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
-		668FF6C50FC0D004007E4E75 /* LenovoInstaller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LenovoInstaller.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		668FF6C70FC0D004007E4E75 /* LenovoInstaller-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LenovoInstaller-Info.plist"; sourceTree = "<group>"; };
-		668FFA740FC11400007E4E75 /* SupportFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SupportFiles; sourceTree = "<group>"; };
 		668FFC480FC13B2B007E4E75 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		668FFC6B0FC13C7C007E4E75 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = /System/Library/Frameworks/SecurityFoundation.framework; sourceTree = "<absolute>"; };
 		668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSDTPatcher.h; sourceTree = "<group>"; };
 		668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSDTPatcher.m; sourceTree = "<group>"; };
-		66E5B5F50FC040CD000F2A93 /* DellEFI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DellEFI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DellEFI-Info.plist"; sourceTree = "<group>"; };
 		66EC09520FBF3E9C00D3B55B /* Installer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Installer.h; sourceTree = "<group>"; };
 		66EC09530FBF3E9C00D3B55B /* Installer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Installer.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -227,17 +253,38 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		271A58B81082F04000B5E39B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271A5D371082F15800B5E39B /* Cocoa.framework in Frameworks */,
+				271A5D381082F15800B5E39B /* CoreFoundation.framework in Frameworks */,
+				271A5D391082F15800B5E39B /* Security.framework in Frameworks */,
+				271A5D3A1082F15800B5E39B /* SecurityFoundation.framework in Frameworks */,
+				271A5D3B1082F15800B5E39B /* CoreServices.framework in Frameworks */,
+				271A5D3C1082F15800B5E39B /* libcrypto.dylib in Frameworks */,
+				271A5D3D1082F15800B5E39B /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2725E3E40FED88C0005869F8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2725E6D50FED9417005869F8 /* CoreFoundation.framework in Frameworks */,
-				2725E6D60FED9417005869F8 /* Cocoa.framework in Frameworks */,
-				2725E6D70FED9417005869F8 /* Security.framework in Frameworks */,
-				2725E6D80FED9417005869F8 /* SecurityFoundation.framework in Frameworks */,
-				2725E6D90FED9417005869F8 /* CoreServices.framework in Frameworks */,
-				2725E6DA0FED9417005869F8 /* libcrypto.dylib in Frameworks */,
-				27D2EA55103CBC5C006C97CE /* IOKit.framework in Frameworks */,
+				27CD29C610EADC3300503E0D /* AppKit.framework in Frameworks */,
+				27CD29CA10EADC4000503E0D /* Foundation.framework in Frameworks */,
+				27CD29E510EAF02700503E0D /* IOKit.framework in Frameworks */,
+				27CD2F1610EBD6E400503E0D /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		272C33E410EA7E6F00659296 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272C33E610EA7E6F00659296 /* Cocoa.framework in Frameworks */,
+				272C38E310EA88BC00659296 /* AppKit.framework in Frameworks */,
+				27449EDD10EAA9900085A155 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,37 +317,7 @@
 				278490890FF1B09A00BF23A5 /* Cocoa.framework in Frameworks */,
 				2784908A0FF1B09A00BF23A5 /* Security.framework in Frameworks */,
 				2784908B0FF1B09A00BF23A5 /* SecurityFoundation.framework in Frameworks */,
-				2784908C0FF1B09A00BF23A5 /* CoreServices.framework in Frameworks */,
-				2784908D0FF1B09A00BF23A5 /* libcrypto.dylib in Frameworks */,
 				27D2EA54103CBC5C006C97CE /* IOKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		668FF6C30FC0D004007E4E75 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				668FF78B0FC0D05E007E4E75 /* CoreFoundation.framework in Frameworks */,
-				668FF78C0FC0D05E007E4E75 /* Cocoa.framework in Frameworks */,
-				668FFC4B0FC13B2B007E4E75 /* Security.framework in Frameworks */,
-				668FFC6E0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */,
-				66363E990FC3A90A00BF0516 /* CoreServices.framework in Frameworks */,
-				273CAA000FD420E10060FE60 /* libcrypto.dylib in Frameworks */,
-				27D2EA57103CBC5C006C97CE /* IOKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		66E5B5F30FC040CD000F2A93 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66E5B64D0FC04133000F2A93 /* CoreFoundation.framework in Frameworks */,
-				66E5B64E0FC04133000F2A93 /* Cocoa.framework in Frameworks */,
-				668FFC4A0FC13B2B007E4E75 /* Security.framework in Frameworks */,
-				668FFC6D0FC13C7C007E4E75 /* SecurityFoundation.framework in Frameworks */,
-				66363E9B0FC3A90A00BF0516 /* CoreServices.framework in Frameworks */,
-				273CA9FF0FD420D30060FE60 /* libcrypto.dylib in Frameworks */,
-				27D2EA58103CBC5C006C97CE /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,13 +341,17 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				27FC5ED110A5CC0800C86299 /* PCI.m */,
 				66EC09530FBF3E9C00D3B55B /* Installer.m */,
+				27E8A6D510E5E388000137F7 /* kext.h */,
+				27E8A6D610E5E388000137F7 /* kext.m */,
 				668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */,
 				27CA342A0FD47303006E14C4 /* HexEditor.m */,
 				661B35C80FBE01E5004007B6 /* SystemInformation.m */,
-				661B38280FBE5091004007B6 /* NetbookInstallerController.m */,
 				27EC0B460FD7312F006740DB /* AboutWindowController.m */,
+				661B38280FBE5091004007B6 /* NetbookInstallerController.m */,
 				2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */,
+				272C37CD10EA870500659296 /* NetbookBootMakerWin32.m */,
 				27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */,
 			);
 			name = Classes;
@@ -359,40 +380,61 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* NetbookInstaller.app */,
-				66E5B5F50FC040CD000F2A93 /* DellEFI.app */,
-				668FF6C50FC0D004007E4E75 /* LenovoInstaller.app */,
 				2748C2140FEB02EB000F22B8 /* NetbookInstallerCLI.app */,
+				8D1107320486CEB800E47090 /* NetbookInstaller.app */,
 				2725E3E60FED88C0005869F8 /* NetbookBootMaker.app */,
 				27848F140FF1AC8B00BF23A5 /* UpdateExtra.app */,
 				272EAD4E0FF7FD5F00274B67 /* bless */,
+				271A58BA1082F04000B5E39B /* NetbookBootMakerCLI.app */,
+				272C33F010EA7E6F00659296 /* NetbookBootMaker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2741B251102DFD34008876DE /* UpdateExtraSupportFiles */ = {
+		272C61741049DB940031FF97 /* bootMakerFiles */ = {
 			isa = PBXGroup;
 			children = (
-				2741B26C102DFD47008876DE /* SupportFiles */,
+				27A864281056FBDB00A8E274 /* xxdExtract.sh */,
+				272C61751049DB940031FF97 /* Extensions.mkext */,
+				272C61761049DB940031FF97 /* mach_kernel.10.5.6 */,
+				272C61771049DB940031FF97 /* postinstall */,
 			);
-			name = UpdateExtraSupportFiles;
+			path = bootMakerFiles;
+			sourceTree = "<group>";
+		};
+		27CD2D7110EB143F00503E0D /* Plists */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* Info.plist */,
+				2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */,
+				2725E3E80FED88C0005869F8 /* NetbookBootMaker-Info.plist */,
+				27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */,
+				271A58BC1082F04000B5E39B /* NetbookBootMakerCLI-Info.plist */,
+				2732451110EA7A83008DD29C /* NetbookBootMaker-win32-Info.plist */,
+				272C33F210EA7E6F00659296 /* NetbookBootMaker-Info copy.plist */,
+			);
+			name = Plists;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* NetbookInstaller */ = {
 			isa = PBXGroup;
 			children = (
+				27CD2D7110EB143F00503E0D /* Plists */,
 				668FFAE60FC1146C007E4E75 /* Headers */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				8D1107310486CEB800E47090 /* Info.plist */,
-				66E5B5F70FC040CD000F2A93 /* DellEFI-Info.plist */,
-				668FF6C70FC0D004007E4E75 /* LenovoInstaller-Info.plist */,
-				2748C2160FEB02EB000F22B8 /* NetbookInstallerCLI-Info.plist */,
-				2725E3E80FED88C0005869F8 /* NetbookBootMaker-Info.plist */,
-				27848F160FF1AC8B00BF23A5 /* UpdateExtra-Info.plist */,
+				272C38E210EA88BC00659296 /* AppKit.framework */,
+				27449EDC10EAA9900085A155 /* Foundation.framework */,
+				27CD29C510EADC3300503E0D /* AppKit.framework */,
+				27CD29C910EADC4000503E0D /* Foundation.framework */,
+				27CD29E410EAF02700503E0D /* IOKit.framework */,
+				27CD2E1710EBD67D00503E0D /* Cocoa.framework */,
+				27CD2E1D10EBD68E00503E0D /* CoreServices.framework */,
+				27CD2E2210EBD69900503E0D /* CoreFoundation.framework */,
+				27CD2F1510EBD6E400503E0D /* Security.framework */,
 			);
 			name = NetbookInstaller;
 			sourceTree = "<group>";
@@ -406,11 +448,14 @@
 				2725E3D80FED88A8005869F8 /* main_bootmake.pch */,
 				27848F220FF1ADCB00BF23A5 /* main_updateextra.pch */,
 				272EAD430FF7FD1E00274B67 /* main_bless.h */,
+				271A58CA1082F08600B5E39B /* main_bootmakercli.h */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				2748C4A50FEB03C0000F22B8 /* main_cli.m */,
+				271A58CB1082F08600B5E39B /* main_bootmakercli.m */,
 				2725E3D90FED88A8005869F8 /* main_bootmake.m */,
 				27848F230FF1ADCB00BF23A5 /* main_updateextra.m */,
 				272EAD440FF7FD1E00274B67 /* main_bless.m */,
+				27C6AD5110AA5EC6009BD2E7 /* pci_device_ids.h */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -418,20 +463,20 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2741B251102DFD34008876DE /* UpdateExtraSupportFiles */,
+				27CD2A1010EB10E600503E0D /* BootMakerSupport */,
+				27A76DE010EA8C1E00BB6357 /* NetbookBootMaker-windows.xib */,
+				272B48111066E3B900621DC7 /* SupportFiles */,
+				272C61741049DB940031FF97 /* bootMakerFiles */,
 				A1544D2E0FFEEBBE004B05AB /* bootmaker.icns */,
-				2725E7B00FEDAF56005869F8 /* bootMakerFiles */,
 				661B38990FBE6957004007B6 /* dell_mini_icon.icns */,
 				27848F1E0FF1AD8B00BF23A5 /* UpdateExtra.icns */,
 				661B389A0FBE6957004007B6 /* DellMini9.png */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				27EC0C290FD76DC0006740DB /* about.xib */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
-				668FFA740FC11400007E4E75 /* SupportFiles */,
 				27EC0BBF0FD7698C006740DB /* Localizable.strings */,
 				2725E7340FED9702005869F8 /* NetbookBootMaker.xib */,
 				27848F1C0FF1ACD500BF23A5 /* UpdateExtra.xib */,
-				270AF2DE0FF443640085AD97 /* kext_whitelist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -449,6 +494,8 @@
 		668FFAE60FC1146C007E4E75 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
+				272C37CC10EA870500659296 /* NetbookBootMakerWin32.h */,
+				27FC5ED010A5CC0800C86299 /* PCI.h */,
 				66EC09520FBF3E9C00D3B55B /* Installer.h */,
 				668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */,
 				27CA34290FD47303006E14C4 /* HexEditor.h */,
@@ -464,6 +511,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		271A58B91082F04000B5E39B /* NetbookBootMakerCLI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 271A58BF1082F04200B5E39B /* Build configuration list for PBXNativeTarget "NetbookBootMakerCLI" */;
+			buildPhases = (
+				271A58B61082F04000B5E39B /* Resources */,
+				271A58B71082F04000B5E39B /* Sources */,
+				271A58B81082F04000B5E39B /* Frameworks */,
+				27A5C223108CC41700AE5720 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				27CD2CDE10EB133900503E0D /* PBXTargetDependency */,
+				27CD2CE010EB134300503E0D /* PBXTargetDependency */,
+			);
+			name = NetbookBootMakerCLI;
+			productName = NetbookBootMakerCLI;
+			productReference = 271A58BA1082F04000B5E39B /* NetbookBootMakerCLI.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2725E3E50FED88C0005869F8 /* NetbookBootMaker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2725E3EB0FED88C1005869F8 /* Build configuration list for PBXNativeTarget "NetbookBootMaker" */;
@@ -471,17 +538,34 @@
 				2725E3E20FED88C0005869F8 /* Resources */,
 				2725E3E30FED88C0005869F8 /* Sources */,
 				2725E3E40FED88C0005869F8 /* Frameworks */,
+				27764BEB104649D3007B9B3C /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2725E7500FED9EC2005869F8 /* PBXTargetDependency */,
-				272EAD250FF7253C00274B67 /* PBXTargetDependency */,
-				272EAD550FF7FD8400274B67 /* PBXTargetDependency */,
+				27CD27D110EAD0E000503E0D /* PBXTargetDependency */,
 			);
 			name = NetbookBootMaker;
 			productName = NetbookBootMaker;
 			productReference = 2725E3E60FED88C0005869F8 /* NetbookBootMaker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		272C33CB10EA7E6F00659296 /* NetbookBootMaker-windows */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 272C33ED10EA7E6F00659296 /* Build configuration list for PBXNativeTarget "NetbookBootMaker-windows" */;
+			buildPhases = (
+				272C33D210EA7E6F00659296 /* Resources */,
+				272C33DD10EA7E6F00659296 /* Sources */,
+				272C33E410EA7E6F00659296 /* Frameworks */,
+				272C38F310EA8B7600659296 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NetbookBootMaker-windows";
+			productName = NetbookBootMaker;
+			productReference = 272C33F010EA7E6F00659296 /* NetbookBootMaker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		272EAD4D0FF7FD5F00274B67 /* bless */ = {
@@ -504,7 +588,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2748C2190FEB02EC000F22B8 /* Build configuration list for PBXNativeTarget "NetbookInstallerCLI" */;
 			buildPhases = (
-				2748C2100FEB02EB000F22B8 /* Resources */,
 				2748C2110FEB02EB000F22B8 /* Sources */,
 				2748C2120FEB02EB000F22B8 /* Frameworks */,
 			);
@@ -524,6 +607,7 @@
 				27848F100FF1AC8B00BF23A5 /* Resources */,
 				27848F110FF1AC8B00BF23A5 /* Sources */,
 				27848F120FF1AC8B00BF23A5 /* Frameworks */,
+				272C618A1049DBB40031FF97 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -534,40 +618,6 @@
 			productReference = 27848F140FF1AC8B00BF23A5 /* UpdateExtra.app */;
 			productType = "com.apple.product-type.application";
 		};
-		668FF6C40FC0D004007E4E75 /* LenovoInstaller */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 668FF6CA0FC0D007007E4E75 /* Build configuration list for PBXNativeTarget "LenovoInstaller" */;
-			buildPhases = (
-				668FF6C10FC0D004007E4E75 /* Resources */,
-				668FF6C20FC0D004007E4E75 /* Sources */,
-				668FF6C30FC0D004007E4E75 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = LenovoInstaller;
-			productName = LenovoInstaller;
-			productReference = 668FF6C50FC0D004007E4E75 /* LenovoInstaller.app */;
-			productType = "com.apple.product-type.application";
-		};
-		66E5B5F40FC040CD000F2A93 /* DellEFI */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 66E5B5FA0FC040D0000F2A93 /* Build configuration list for PBXNativeTarget "DellEFI" */;
-			buildPhases = (
-				66E5B5F10FC040CD000F2A93 /* Resources */,
-				66E5B5F20FC040CD000F2A93 /* Sources */,
-				66E5B5F30FC040CD000F2A93 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DellEFI;
-			productName = DellEFI;
-			productReference = 66E5B5F50FC040CD000F2A93 /* DellEFI.app */;
-			productType = "com.apple.product-type.application";
-		};
 		8D1107260486CEB800E47090 /* NetbookInstaller */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "NetbookInstaller" */;
@@ -575,10 +625,13 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
+				2733D3A810CDFE21004387BA /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				272C61A61049DD180031FF97 /* PBXTargetDependency */,
+				27764BDD104648BF007B9B3C /* PBXTargetDependency */,
 			);
 			name = NetbookInstaller;
 			productInstallPath = "$(HOME)/Applications";
@@ -591,57 +644,60 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = NO;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "NetbookInstaller" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 29B97314FDCFA39411CA2CEA /* NetbookInstaller */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* NetbookInstaller */,
-				66E5B5F40FC040CD000F2A93 /* DellEFI */,
-				668FF6C40FC0D004007E4E75 /* LenovoInstaller */,
 				2748C2130FEB02EB000F22B8 /* NetbookInstallerCLI */,
+				271A58B91082F04000B5E39B /* NetbookBootMakerCLI */,
 				2725E3E50FED88C0005869F8 /* NetbookBootMaker */,
 				27848F130FF1AC8B00BF23A5 /* UpdateExtra */,
 				272EAD4D0FF7FD5F00274B67 /* bless */,
+				27A8660910573BF600A8E274 /* NetbookBootCD */,
+				272C33CB10EA7E6F00659296 /* NetbookBootMaker-windows */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		271A58B61082F04000B5E39B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27CD2D7210EB145400503E0D /* NetbookInstaller.app in Resources */,
+				27CD2D7310EB145700503E0D /* bless in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2725E3E20FED88C0005869F8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274B11E80FF458D4009BFF80 /* SupportFiles in Resources */,
-				2725E7580FED9EE5005869F8 /* NetbookInstallerCLI.app in Resources */,
-				272EAD560FF7FDA300274B67 /* bless in Resources */,
-				272EAD360FF7278800274B67 /* NetbookInstaller.app in Resources */,
+				27CD2A1310EB10FD00503E0D /* BootMakerSupport in Resources */,
 				2725E7350FED9702005869F8 /* NetbookBootMaker.xib in Resources */,
 				2725E6670FED89D3005869F8 /* about.xib in Resources */,
-				2725E6640FED89D3005869F8 /* dell_mini_icon.icns in Resources */,
-				2725E6650FED89D3005869F8 /* DellMini9.png in Resources */,
 				2725E6680FED89D3005869F8 /* InfoPlist.strings in Resources */,
 				2725E66A0FED89D3005869F8 /* Localizable.strings in Resources */,
-				2725E7B20FEDAF56005869F8 /* bootMakerFiles in Resources */,
-				270AF2E00FF443640085AD97 /* kext_whitelist in Resources */,
 				A1544D2F0FFEEBBE004B05AB /* bootmaker.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2748C2100FEB02EB000F22B8 /* Resources */ = {
+		272C33D210EA7E6F00659296 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2748C3780FEB0319000F22B8 /* dell_mini_icon.icns in Resources */,
-				2748C3790FEB0319000F22B8 /* DellMini9.png in Resources */,
-				2748C37A0FEB0319000F22B8 /* MainMenu.xib in Resources */,
-				2748C37B0FEB0319000F22B8 /* about.xib in Resources */,
-				2748C37C0FEB0319000F22B8 /* InfoPlist.strings in Resources */,
-				2748C37D0FEB0319000F22B8 /* SupportFiles in Resources */,
-				2748C37E0FEB0319000F22B8 /* Localizable.strings in Resources */,
-				270AF2E10FF443640085AD97 /* kext_whitelist in Resources */,
+				27A76DE210EA8C1E00BB6357 /* NetbookBootMaker-windows.xib in Resources */,
+				272C33D710EA7E6F00659296 /* about.xib in Resources */,
+				272C33D810EA7E6F00659296 /* InfoPlist.strings in Resources */,
+				272C33D910EA7E6F00659296 /* Localizable.strings in Resources */,
+				272C33DB10EA7E6F00659296 /* bootmaker.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,38 +707,6 @@
 			files = (
 				27848F1D0FF1ACD500BF23A5 /* UpdateExtra.xib in Resources */,
 				27848F1F0FF1AD8B00BF23A5 /* UpdateExtra.icns in Resources */,
-				270AF2DF0FF443640085AD97 /* kext_whitelist in Resources */,
-				2741B26D102DFD47008876DE /* SupportFiles in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		668FF6C10FC0D004007E4E75 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				668FFA770FC11400007E4E75 /* SupportFiles in Resources */,
-				668FF7530FC0D038007E4E75 /* dell_mini_icon.icns in Resources */,
-				668FF7540FC0D038007E4E75 /* DellMini9.png in Resources */,
-				668FF7560FC0D038007E4E75 /* MainMenu.xib in Resources */,
-				27EC0C2C0FD76DC0006740DB /* about.xib in Resources */,
-				668FF7580FC0D038007E4E75 /* InfoPlist.strings in Resources */,
-				27EC0BC20FD7698C006740DB /* Localizable.strings in Resources */,
-				270AF2E20FF443640085AD97 /* kext_whitelist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		66E5B5F10FC040CD000F2A93 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				668FFA760FC11400007E4E75 /* SupportFiles in Resources */,
-				66E5B6160FC04108000F2A93 /* dell_mini_icon.icns in Resources */,
-				66E5B6170FC04108000F2A93 /* DellMini9.png in Resources */,
-				66E5B6190FC04108000F2A93 /* MainMenu.xib in Resources */,
-				27EC0C2B0FD76DC0006740DB /* about.xib in Resources */,
-				66E5B61B0FC04108000F2A93 /* InfoPlist.strings in Resources */,
-				27EC0BC10FD7698C006740DB /* Localizable.strings in Resources */,
-				270AF2E30FF443640085AD97 /* kext_whitelist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,30 +714,132 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F3CE6A10D75EB8004F21D0 /* SupportFiles in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				661B389B0FBE6957004007B6 /* dell_mini_icon.icns in Resources */,
 				661B389C0FBE6957004007B6 /* DellMini9.png in Resources */,
 				27EC0C2A0FD76DC0006740DB /* about.xib in Resources */,
-				668FFA750FC11400007E4E75 /* SupportFiles in Resources */,
 				27EC0BC00FD7698C006740DB /* Localizable.strings in Resources */,
-				270AF2E40FF443640085AD97 /* kext_whitelist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		272C38F310EA8B7600659296 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Developer/Cocotron/1.0/bin/retargetBundle -framework Foundation -framework AppKit -destination $TARGET_BUILD_DIR\"/\"$EXECUTABLE_FOLDER_PATH";
+		};
+		272C618A1049DBB40031FF97 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Copying in machine.plist\"\nmkdir -p ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/\n/bin/cp ${TARGET_BUILD_DIR}/../../SupportFiles/machine.plist ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/";
+		};
+		2733D3A810CDFE21004387BA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Copying in NetbookInstallerCLI\"\n\ncp -rf ${TARGET_BUILD_DIR}/../../SupportFiles ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\n\n/bin/cp ${TARGET_BUILD_DIR}/NetbookInstallerCLI.app/Contents/MacOS/NetbookInstallerCLI ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/MacOS/\n/bin/cp -rf ${TARGET_BUILD_DIR}/UpdateExtra.app ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\n\n\nVERSION=`defaults read ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info CFBundleVersion`\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\n\ncd ${TARGET_BUILD_DIR}\nzip -9 -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\" \"${PRODUCT_NAME} $VERSION.app\"\n";
+		};
+		27764BEB104649D3007B9B3C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "VERSION=`defaults read ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info CFBundleVersion`\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\n\ncd ${TARGET_BUILD_DIR}\nzip -9 -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\" \"${PRODUCT_NAME} $VERSION.app\"\n";
+		};
+		27A5C223108CC41700AE5720 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy in support files\n#cp -rf ${TARGET_BUILD_DIR}/../../SupportFiles ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\n\n# remove support files form NBI\nmv  ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/NetbookInstaller.app/Contents/Resources/SupportFiles ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\n\n# copy in UpdateExtra.app\n#/bin/cp -rf ${TARGET_BUILD_DIR}/UpdateExtra.app ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\n\n#Copy in BootMakerCLIFiles\nrm -rf  ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles \nmkdir ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles\n\ncp -rf ${TARGET_BUILD_DIR}/../../bootMakerFiles/* ${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles/\n";
+		};
+		27A8660810573BF600A8E274 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\nset -o xtrace\n\n###### Postboot ramdisk\n\n\nrm -rf ${TARGET_BUILD_DIR}/Postboot/\nrm -rf ${TARGET_BUILD_DIR}/PostbootTmp/\nrm -rf ${TARGET_BUILD_DIR}/Postboot.img\n\nmkdir -p ${TARGET_BUILD_DIR}/Postboot/\nmkdir -p ${TARGET_BUILD_DIR}/PostbootTmp/\n\n#mkdir -p ${TARGET_BUILD_DIR}/PostbootTmp/dev/\n#mkdir -p ${TARGET_BUILD_DIR}/PostbootTmp/tmp/\n\ncd ${TARGET_BUILD_DIR}/\n#tar -c  NetbookBootMakerCLI.app > ${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\n#bzip2 --compress --best ${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\ncp -rf ${TARGET_BUILD_DIR}/NetbookBootMakerCLI.app ${TARGET_BUILD_DIR}/PostbootTmp/\n\ncp -rf ${TARGET_BUILD_DIR}/../../Postboot/10.6/* ${TARGET_BUILD_DIR}/PostbootTmp/\ncp -rf /usr/sbin/pkgutil ${TARGET_BUILD_DIR}/PostbootTmp/\nchmod +x ${TARGET_BUILD_DIR}/PostbootTmp/pkgutil\n\n\n\nSIZE=`du -s ${TARGET_BUILD_DIR}/PostbootTmp`\nSIZE=${SIZE%%$'\\t'*}\nSIZE=$(( $SIZE + 5048 ))\necho $SIZE\nRAMDISK=`hdiutil attach -nomount ram://$SIZE`\n\nnewfs_hfs -v Postboot $RAMDISK\nmkdir ${TARGET_BUILD_DIR}/Postboot\ndiskutil mount -mountPoint ${TARGET_BUILD_DIR}/Postboot $RAMDISK\ncp -rf ${TARGET_BUILD_DIR}/PostbootTmp/* ${TARGET_BUILD_DIR}/Postboot\nsync\ndiskutil umount $RAMDISK\ndd if=$RAMDISK of=${TARGET_BUILD_DIR}/Postboot.img\ndiskutil eject $RAMDISK\n\n##### End postboot ramdiks\n\n\n\n\n\nrm -rf ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/*\nmkdir -p ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra\nmkdir -p ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\nmkdir -p ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.5\nmkdir -p ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.6\n\n\ncp -rf ${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/*  ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/\n\nrm -rf ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/UpdateExtra.app\nrm -rf ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/bin\nrm -rf ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/com.apple.Boot.plist\nrm -rf ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/Preboot.dmg\n\n#cp -rf ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/ ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra\n\ncp -rf ${TARGET_BUILD_DIR}/Postboot.img ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/Postboot.img\n\ncp -rf  ${TARGET_BUILD_DIR}/../../bootcd/10.6/Extensions.mkext ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\n#cp -rf  ${TARGET_BUILD_DIR}/../../bootcd/10.5/Extensions.mkext ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.5\n\ncp -rf  ${TARGET_BUILD_DIR}/../../bootcd/ ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/\nrm -rf  ${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/10.6\n\n\n\n## Add rescan option\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/com.apple.Boot\" \"Scan Singe Drive\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/com.apple.Boot\" \"Rescan\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/com.apple.Boot\" \"Instant Menu\" \"yes\"\ncp  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/com.apple.Boot.plist\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot.plist\"\n\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/RAMDisk\" \"BTAlias\" \"no\"\n\n\n\n## Make DMG ##\nDMG=\"Preboot.dmg\"\n\nhdiutil create -srcfolder \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\" -layout GPTSPUD -fs HFS+ -format UDRW -volname Preboot \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/$DMG\"\n\n#hdiutil create \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" -srcfolder \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\"\n#hdiutil convert \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" -format UDRO -o \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/$DMG\" \n\n\nhdiutil makehybrid -o \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/NetbookCD.iso\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/\" -iso -hfs -eltorito-boot \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/cdboot\" -no-emul-boot -hfs-volume-name \"NetbookCD\"\n\nexit 0";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		271A58B71082F04000B5E39B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271A5D401082F16300B5E39B /* HexEditor.m in Sources */,
+				271A5B5E1082F0FD00B5E39B /* Installer.m in Sources */,
+				271A5B5D1082F0FA00B5E39B /* SystemInformation.m in Sources */,
+				271A58CC1082F08600B5E39B /* main_bootmakercli.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2725E3E30FED88C0005869F8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27CD29DD10EAEF9600503E0D /* SystemInformation.m in Sources */,
+				27CD2F1D10EBD6FA00503E0D /* HexEditor.m in Sources */,
 				2725E6DC0FED9435005869F8 /* main_bootmake.m in Sources */,
-				2725E66B0FED8A07005869F8 /* SystemInformation.m in Sources */,
-				2725E66D0FED8A07005869F8 /* Installer.m in Sources */,
-				2725E66F0FED8A07005869F8 /* HexEditor.m in Sources */,
 				2725E6700FED8A07005869F8 /* AboutWindowController.m in Sources */,
+				27CD2F1010EBD6D400503E0D /* Installer.m in Sources */,
 				2725E73E0FED989D005869F8 /* NetbookBootMakerController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		272C33DD10EA7E6F00659296 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				272C33DE10EA7E6F00659296 /* main_bootmake.m in Sources */,
+				272C33E110EA7E6F00659296 /* HexEditor.m in Sources */,
+				272C33E210EA7E6F00659296 /* AboutWindowController.m in Sources */,
+				272C37CE10EA870500659296 /* NetbookBootMakerWin32.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +859,7 @@
 				2748C3800FEB036B000F22B8 /* SystemInformation.m in Sources */,
 				2748C3810FEB036B000F22B8 /* HexEditor.m in Sources */,
 				2748C4A60FEB03C0000F22B8 /* main_cli.m in Sources */,
+				27FC5ED310A5CC0800C86299 /* PCI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,35 +875,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		668FF6C20FC0D004007E4E75 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27CA342E0FD47324006E14C4 /* HexEditor.m in Sources */,
-				668FF75A0FC0D04C007E4E75 /* Installer.m in Sources */,
-				668FF75B0FC0D04C007E4E75 /* SystemInformation.m in Sources */,
-				668FF75C0FC0D04C007E4E75 /* NetbookInstallerController.m in Sources */,
-				668FF75D0FC0D04C007E4E75 /* main.m in Sources */,
-				668FFD0C0FC280D8007E4E75 /* DSDTPatcher.m in Sources */,
-				27EC0B490FD7312F006740DB /* AboutWindowController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		66E5B5F20FC040CD000F2A93 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				66E5B61D0FC0411E000F2A93 /* main.m in Sources */,
-				66E5B61E0FC04126000F2A93 /* SystemInformation.m in Sources */,
-				66E5B61F0FC0412C000F2A93 /* Installer.m in Sources */,
-				66E5B61C0FC04118000F2A93 /* NetbookInstallerController.m in Sources */,
-				668FFD0D0FC280D8007E4E75 /* DSDTPatcher.m in Sources */,
-				27CA342D0FD4731C006E14C4 /* HexEditor.m in Sources */,
-				27EC0B480FD7312F006740DB /* AboutWindowController.m in Sources */,
-				272EAD450FF7FD1E00274B67 /* main_bless.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -788,26 +886,48 @@
 				668FFD0E0FC280D8007E4E75 /* DSDTPatcher.m in Sources */,
 				27CA342B0FD47303006E14C4 /* HexEditor.m in Sources */,
 				27EC0B470FD7312F006740DB /* AboutWindowController.m in Sources */,
+				27FC5ED210A5CC0800C86299 /* PCI.m in Sources */,
+				27E8A6D710E5E388000137F7 /* kext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2725E7500FED9EC2005869F8 /* PBXTargetDependency */ = {
+		272C61A61049DD180031FF97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27848F130FF1AC8B00BF23A5 /* UpdateExtra */;
+			targetProxy = 272C61A51049DD180031FF97 /* PBXContainerItemProxy */;
+		};
+		27764BDD104648BF007B9B3C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2748C2130FEB02EB000F22B8 /* NetbookInstallerCLI */;
-			targetProxy = 2725E74F0FED9EC2005869F8 /* PBXContainerItemProxy */;
+			targetProxy = 27764BDC104648BF007B9B3C /* PBXContainerItemProxy */;
 		};
-		272EAD250FF7253C00274B67 /* PBXTargetDependency */ = {
+		27A5C4D5108CC62B00AE5720 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 271A58B91082F04000B5E39B /* NetbookBootMakerCLI */;
+			targetProxy = 27A5C4D4108CC62B00AE5720 /* PBXContainerItemProxy */;
+		};
+		27A8660D10573BFF00A8E274 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* NetbookInstaller */;
-			targetProxy = 272EAD240FF7253C00274B67 /* PBXContainerItemProxy */;
+			targetProxy = 27A8660C10573BFF00A8E274 /* PBXContainerItemProxy */;
 		};
-		272EAD550FF7FD8400274B67 /* PBXTargetDependency */ = {
+		27CD27D110EAD0E000503E0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 272C33CB10EA7E6F00659296 /* NetbookBootMaker-windows */;
+			targetProxy = 27CD27D010EAD0E000503E0D /* PBXContainerItemProxy */;
+		};
+		27CD2CDE10EB133900503E0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 272EAD4D0FF7FD5F00274B67 /* bless */;
-			targetProxy = 272EAD540FF7FD8400274B67 /* PBXContainerItemProxy */;
+			targetProxy = 27CD2CDD10EB133900503E0D /* PBXContainerItemProxy */;
+		};
+		27CD2CE010EB134300503E0D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* NetbookInstaller */;
+			targetProxy = 27CD2CDF10EB134300503E0D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -844,6 +964,14 @@
 			name = UpdateExtra.xib;
 			sourceTree = "<group>";
 		};
+		27A76DE010EA8C1E00BB6357 /* NetbookBootMaker-windows.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				27A76DE110EA8C1E00BB6357 /* English */,
+			);
+			name = "NetbookBootMaker-windows.xib";
+			sourceTree = "<group>";
+		};
 		27EC0BBF0FD7698C006740DB /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -863,6 +991,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		271A58BD1082F04100B5E39B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = main_cli.pch;
+				INFOPLIST_FILE = "NetbookBootMakerCLI-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NetbookBootMakerCLI;
+				SDKROOT = macosx10.5;
+			};
+			name = Debug;
+		};
+		271A58BE1082F04100B5E39B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = main_cli.pch;
+				INFOPLIST_FILE = "NetbookBootMakerCLI-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = NetbookBootMakerCLI;
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		2725E3E90FED88C1005869F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -899,13 +1077,85 @@
 				GCC_PREFIX_HEADER = main_bootmake.pch;
 				INFOPLIST_FILE = "NetbookBootMaker-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = NetbookBootMaker;
+				SDKROOT = macosx10.5;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		272C33EE10EA7E6F00659296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				COPY_PHASE_STRIP = YES;
+				EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Windows";
+				EXECUTABLE_SUFFIX = .exe;
+				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Windows/i386/Frameworks;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_FAST_OBJC_DISPATCH = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_THREADSAFE_STATICS = YES;
+				GCC_VERSION = org.cocotron.1.0.windows.i386.gcc.4.3.1;
+				INFOPLIST_FILE = "NetbookBootMaker-Info copy.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACH_O_TYPE = mh_bundle;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
+					"-mwindows",
+					"-Wl,--enable-auto-import",
+				);
+				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = NO;
+				PRODUCT_NAME = NetbookBootMaker;
+				SDKROOT = "";
+				STRIP_STYLE = all;
+				SYMROOT = build;
+				VALID_ARCHS = i386;
+			};
+			name = Debug;
+		};
+		272C33EF10EA7E6F00659296 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EXECUTABLE_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Windows";
+				EXECUTABLE_SUFFIX = .exe;
+				FRAMEWORK_SEARCH_PATHS = /Developer/Cocotron/1.0/Windows/i386/Frameworks;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_FAST_OBJC_DISPATCH = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GCC_THREADSAFE_STATICS = YES;
+				GCC_VERSION = org.cocotron.1.0.windows.i386.gcc.4.3.1;
+				GENERATE_PKGINFO_FILE = NO;
+				INFOPLIST_EXPAND_BUILD_SETTINGS = NO;
+				INFOPLIST_FILE = "NetbookBootMaker-Info copy.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				MACH_O_TYPE = mh_bundle;
+				OTHER_LDFLAGS = (
+					"-mwindows",
+					"-Wl,--enable-auto-import",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = NetbookBootMaker;
-				SDKROOT = macosx10.4;
+				SDKROOT = "";
+				STRIP_STYLE = all;
+				VALID_ARCHS = i386;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1050,98 +1300,23 @@
 			};
 			name = Release;
 		};
-		668FF6C80FC0D007007E4E75 /* Debug */ = {
+		27A8660A10573BF600A8E274 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "LenovoInstaller-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = LenovoInstaller;
+				PRODUCT_NAME = BootCD;
 			};
 			name = Debug;
 		};
-		668FF6C90FC0D007007E4E75 /* Release */ = {
+		27A8660B10573BF600A8E274 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = NetbookInstaller_Prefix.pch;
-				INFOPLIST_FILE = "LenovoInstaller-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = LenovoInstaller;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		66E5B5F80FC040CF000F2A93 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
-				INFOPLIST_FILE = "DellEFI-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = DellEFI;
-			};
-			name = Debug;
-		};
-		66E5B5F90FC040CF000F2A93 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_MODEL_TUNING = G5;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = NetbookInstaller_Prefix.pch;
-				INFOPLIST_FILE = "DellEFI-Info.plist";
-				INSTALL_PATH = "$(HOME)/Applications";
-				OTHER_LDFLAGS = (
-					"-framework",
-					Foundation,
-					"-framework",
-					AppKit,
-				);
-				PREBINDING = NO;
-				PRODUCT_NAME = DellEFI;
+				PRODUCT_NAME = BootCD;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1187,39 +1362,69 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					ppc64,
+					ppc,
+					x86_64,
+					i386,
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_VERSION = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
-				VALID_ARCHS = i386;
+				VALID_ARCHS = "ppc64 ppc x86_64 i386";
 			};
 			name = Debug;
 		};
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					ppc64,
+					ppc,
+					i386,
+					x86_64,
+				);
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = 4.0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.5;
-				VALID_ARCHS = "ppc64 ppc i386";
+				VALID_ARCHS = "ppc64 x86_64 ppc i386";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		271A58BF1082F04200B5E39B /* Build configuration list for PBXNativeTarget "NetbookBootMakerCLI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271A58BD1082F04100B5E39B /* Debug */,
+				271A58BE1082F04100B5E39B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2725E3EB0FED88C1005869F8 /* Build configuration list for PBXNativeTarget "NetbookBootMaker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2725E3E90FED88C1005869F8 /* Debug */,
 				2725E3EA0FED88C1005869F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		272C33ED10EA7E6F00659296 /* Build configuration list for PBXNativeTarget "NetbookBootMaker-windows" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				272C33EE10EA7E6F00659296 /* Debug */,
+				272C33EF10EA7E6F00659296 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1251,20 +1456,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		668FF6CA0FC0D007007E4E75 /* Build configuration list for PBXNativeTarget "LenovoInstaller" */ = {
+		27A8660E10573C1D00A8E274 /* Build configuration list for PBXAggregateTarget "NetbookBootCD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				668FF6C80FC0D007007E4E75 /* Debug */,
-				668FF6C90FC0D007007E4E75 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		66E5B5FA0FC040D0000F2A93 /* Build configuration list for PBXNativeTarget "DellEFI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				66E5B5F80FC040CF000F2A93 /* Debug */,
-				66E5B5F90FC040CF000F2A93 /* Release */,
+				27A8660A10573BF600A8E274 /* Debug */,
+				27A8660B10573BF600A8E274 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
