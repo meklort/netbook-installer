@@ -47,7 +47,12 @@
 
 - (NSString*) getMachineString
 {
-	return [machineInfo objectForKey:@"Long Name"];
+	NSString* retString = [machineInfo objectForKey:@"Long Name"];
+	if(!retString) 
+	{
+		retString = [[NSString alloc] initWithString:@"General"];
+	}
+	return retString;
 }
 
 - (BOOL) remoteCDEnabled
@@ -61,6 +66,7 @@
 }
 - (NSDictionary*) machineInfo
 {
+	// TODO: double check that machineInfo is not null
 	return machineInfo;
 }
 
@@ -90,11 +96,6 @@
 	return bluetoothPatched;
 }
 
-- (BOOL) mirrorFriendlyGMA
-{
-	return mirrorFriendlyGMA;
-}
-
 -(BOOL) efiHidden
 {
 	return efiHidden;
@@ -111,6 +112,7 @@
 
 - (NSDictionary*) installedBootloader
 {
+	if(!installedBootloader) return @"None";
 	return installedBootloader;
 }
 
@@ -158,8 +160,7 @@
 	[self determineHiddenState];
 	//NSLog(@"Determine gma");
 
-	[self determineGMAVersion];
-	//NSLog(@"Done");
+	[self determineArchitecture];
 
 
 	//	//NSLog(@"state");
@@ -177,7 +178,7 @@
 	installPath = [[NSString alloc] initWithString:@"/"];
 
 	
-	NSLog(@"Root Device: %@\n", bootPartition);
+	//NSLog(@"Root Device: %@\n", bootPartition);
 	
 	
 	
@@ -202,7 +203,7 @@
 	bootPartition = [[NSString alloc] initWithString:[[info objectForKey:@"Mounted From"] substringFromIndex:[@"/dev/" length]]];
 	installPath = [[NSString alloc] initWithString:path];
 
-	NSLog(@"Target Device: %@\n", bootPartition);
+	//NSLog(@"Target Device: %@\n", bootPartition);
 	
 	
 	[self determineTargetOS];
@@ -217,17 +218,18 @@
 	[self determineHibernateState];
 	[self determineQuiteBootState];
 	[self determineHiddenState];
-	[self determineGMAVersion];
 
 
 }
 
 - (void) determineMachineType
 {
-//	//NSLog(@"machine type");
+	//NSLog(@"machine type");
 	NSDictionary*	machineplist= [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]];	
 	NSEnumerator *enumerator = [machineplist objectEnumerator];
 	NSDictionary* currentModel;
+
+	
 	
 	int mib[2];
 	char* model;
@@ -239,6 +241,9 @@
 	model = malloc(len);
 	sysctl(mib, 2, model, &len, NULL, 0);
 	
+	//NSLog(@"Model: %s", model);
+	//NSLog(@"machinePlist: %@", machineplist);
+
 	
 	machineInfo = nil;
 	//NSLog(@"Searching for %@", [NSString stringWithCString: model]);
@@ -256,13 +261,75 @@
 	}
 	
 	if(!machineInfo) {
-		//NSLog(@"Unable to determine machine information, failing");
+		NSLog(@"Unable to determine machine information. General machine does not exist");
 		exit(-1);	// ALERT / FAIL
 	} else {
 		//NSLog(@"%@", machineInfo);
 	}
+	
+	// validate machineInfo
+	// TODO: make this a loop
+	if(![machineInfo objectForKey:@"Support Files"])
+	{
+		NSLog(@"Error: Support Files not defined for machine");
+	}
+	
+	if(![machineInfo objectForKey:@"Extensions Directory"])
+	{
+		NSLog(@"Error: Extensions Directory not defined for machine");
+	}
+	
+	if(![machineInfo objectForKey:@"Long Name"])
+	{
+		NSLog(@"Error: Extensions Directory not defined for machine");
+	}
+	if(![machineInfo objectForKey:@"Bluetooth Vendor ID"])
+	{
+		NSLog(@"Error: Bluetooth Vendor ID not defined for machine");
+	}
+	if(![machineInfo objectForKey:@"Bluetooth Device ID"])
+	{
+		NSLog(@"Error: Bluetooth Device ID not defined for machine");
+	}
+	
+	if(![[self machineInfo] objectForKey:@"Kext Blacklist"])
+	{
+		NSLog(@"Error: EFI Strings not defined for machine");
+	}
+	
+	if(![machineInfo objectForKey:@"Kext Blacklist"])
+	{
+		NSLog(@"Error: EFI Strings not defined for machine");
+	}	
 
+	if(![machineInfo objectForKey:@"DSDT Patches"])
+	{
+		NSLog(@"Error: DSDT Patches not defined for machine");
+	}	
+	
+	if(![machineInfo objectForKey:@"Install Paths"])
+	{
+		NSLog(@"Error: Install Paths not defined for machine");
+	}
+	
+	
+	NSLog(@"Current Model: %@", [machineInfo objectForKey:@"Long Name"]);
 	free(model);
+}
+
+- (void) determineArchitecture
+{
+	int x86_64;
+	size_t x86_64_size = sizeof(x86_64);
+	if (!sysctlbyname("hw.optional.x86_64", &x86_64, &x86_64_size, NULL, 0)) {
+		is64bit = x86_64;
+	}
+	else 	is64bit = 0;
+}
+
+- (BOOL) is64bit
+{
+	return is64bit;
 }
 
 - (void) determineDSDTState
@@ -328,18 +395,6 @@
 
 }
 
-- (void) determineGMAVersion
-{
-	if([machineInfo count])	// If plist exists (not the case when we are using netbookInstallerHelper
-	{
-		NSBundle*	gmaFramebuffer = [[NSBundle alloc] initWithPath:[installPath stringByAppendingString:[@"/Extra/" stringByAppendingString:[[machineInfo objectForKey:@"Extensions Directory"] stringByAppendingString:@"/AppleIntelIntegratedFramebuffer.kext/"]]]];
-		mirrorFriendlyGMA = [[[gmaFramebuffer infoDictionary] valueForKey:@"CFBundleVersion"] isEqualToString:@"5.3.0"];
-	} else
-	{
-		mirrorFriendlyGMA = false;
-	}
-}
-
 - (void) determineBluetoothState
 {
 	NSFileManager* fileManager;
@@ -395,6 +450,8 @@
 
 - (void) determineBootloader
 {
+	return;
+	
 	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
 
 	NSDictionary* booter;
@@ -402,7 +459,8 @@
 
 	NSData* bootloader = [[NSData alloc] initWithContentsOfFile:[installPath stringByAppendingString:@"/boot"]];
 	NSRange replaceByte;
-	NSMutableData* md5 =			[[NSMutableData alloc] initWithLength:16];
+	
+	//NSMutableData* md5 =			[[NSMutableData alloc] initWithLength:16];
 
 	
 	unsigned char *digest;
@@ -416,25 +474,25 @@
 	{
 		return;
 	}	
-	digest = MD5([bootloader bytes], [bootloader length], NULL);
+	digest = 0; //MD5([bootloader bytes], [bootloader length], NULL);
 
 	
 	// Convert the string into an NSData type
 	while(digest[i] != 0) {
 		replaceByte.location = 16 - (i + 1);
 		replaceByte.length = 1;
-		[md5 replaceBytesInRange:replaceByte withBytes:&(digest[i]) length:1];
+		//[md5 replaceBytesInRange:replaceByte withBytes:&(digest[i]) length:1];
 		i++;
 	}
 
 	while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
 	{
-		if([md5 isEqualToData:[[[bootloaderDict objectForKey:@"Bootloaders"] objectForKey:booter] objectForKey:@"MD5"]]) installedBootloader = [[NSDictionary alloc] initWithDictionary:booter copyItems:YES];
+		//if([md5 isEqualToData:[[[bootloaderDict objectForKey:@"Bootloaders"] objectForKey:booter] objectForKey:@"MD5"]]) installedBootloader = [[NSDictionary alloc] initWithDictionary:booter copyItems:YES];
 	}
 	
 	
 	[bootloader release];
-	[md5 release];
+	//[md5 release];
 	
 }
 
@@ -460,7 +518,8 @@
 
 - (NSArray*) installableVolumes: (int) minVersions
 {
-	NSMutableArray* volumes = (NSMutableArray*) [[NSFileManager defaultManager] directoryContentsAtPath:@"/Volumes"];
+	NSError* err;
+	NSMutableArray* volumes = (NSMutableArray*) [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/Volumes" error: &err];
 	
 	// TODO: verify that the media is read / write
 	
@@ -495,8 +554,10 @@
 	
 }
 	
-- (int) getKernelVersion: (NSString*) kernelPath
+- (NSInteger) getKernelVersion: (NSString*) kernelPath
 {
+	//NSLog(@"Get kernel version for %@", kernelPath);
+	// Legacy support, remove this
 	NSString* path = [kernelPath stringByReplacingOccurrencesOfString:@"/mach_kernel" withString:@"/"];
 
 	int majorVersion = 0, minorVersion = 0, bugfixVersion = 0;
@@ -506,8 +567,7 @@
 	if(!versionString)
 	{
 		[systemVersion release];
-		return 0;
-		//return KERNEL_VERSION(10,5,8);
+		return 0;	// no kernel
 	}
 	
 	versionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@" "];
@@ -656,7 +716,6 @@
 	NSLog(@"RemoteCD Enabled: %s", ([self remoteCDEnabled]? "Yes" : "No"));
 	NSLog(@"Hibernation Disabled: %s", ([self hibernationDissabled]? "Yes" : "No"));
 	NSLog(@"QuietBoot Enabled: %s", ([self quietBoot]? "Yes" : "No"));
-	NSLog(@"MirrorFriendlyGMA Installed: %s", ([self mirrorFriendlyGMA]? "Yes" : "No"));
 	NSLog(@"/Extra Hidden: %s", ([self efiHidden]? "Yes" : "No"));
 	NSLog(@"Force Generic: %s", (generic? "Yes" : "No"));
 	

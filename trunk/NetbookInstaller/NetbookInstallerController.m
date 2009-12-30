@@ -117,11 +117,11 @@
 - (void) updateCheckboxes
 {
 	
-	if([systemInfo installedBootloader] != nil) {
-		[bootloaderCheckbox setState: false];
-		[bootloaderVersion setEnabled:false];
-	} 
-	else
+	//if([systemInfo installedBootloader] != nil) {
+	//	[bootloaderCheckbox setState: false];
+	//	[bootloaderVersion setEnabled:false];
+	//} 
+	//else
 	{
 		[bootloaderCheckbox setState: true];
 		[bootloaderVersion setEnabled:true];
@@ -136,18 +136,24 @@
 	if([systemInfo efiHidden])
 	{
 		[showhideFilesCheckbox setState:NO];
-		[showhideFilesCheckbox setTitle:[[@"Show " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
+		//[showhideFilesCheckbox setTitle:[[@"Show " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
+		[showhideFilesCheckbox setTitle:NSLocalizedString(@"Show NetbookInstaller files", nil)];
+
 	} 
 	else
 	{
 		[showhideFilesCheckbox setState:YES];
-		[showhideFilesCheckbox setTitle:[[@"Hide " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
+		//[showhideFilesCheckbox setTitle:[[@"Hide " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
+		[showhideFilesCheckbox setTitle:NSLocalizedString(@"Hide NetbookInstaller files", nil)];
+
 		
 	}
 	[extensionsCheckbox setTitle:[[@"Install " stringByAppendingString:[systemInfo getMachineString]] stringByAppendingString:@" Extensions"]];
 	 
 		//[dsdtCheckbox setState:![systemInfo dsdtInstalled]];
 	[dsdtCheckbox setState:YES];
+	if([systemInfo dsdtInstalled]) [dsdtCheckbox setTitle:@"Regenerate a system specific DSDT.aml file"];
+	else [dsdtCheckbox setTitle:@"Generate a system specific DSDT.aml file"];
 
 	if([systemInfo remoteCDEnabled])
 	{
@@ -373,12 +379,7 @@
 {
 	// Dissable / enable all checkboxes
 	[bootloaderCheckbox			setEnabled: state];
-	//if(state) 	[oldGMACheckbox setEnabled: [oldGMACheckbox state]];
-	//else		[oldGMACheckbox setEnabled: false];
-	
 	[extensionsCheckbox			setEnabled: state];
-	[oldGMACheckbox				setEnabled: state && [extensionsCheckbox state]];
-
 	[showhideFilesCheckbox		setEnabled: state];
 	[dsdtCheckbox				setEnabled: state];
 	[remoteCDCheckbox			setEnabled: state];
@@ -400,7 +401,7 @@
 
 - (IBAction) extensionsModified: (id) sender
 {
-	[oldGMACheckbox setEnabled: [sender state]];
+	//[oldGMACheckbox setEnabled: [sender state]];
 	// Dissable / enable GMA checbox
 }
 
@@ -468,11 +469,6 @@
 	return [bluetoothCheckbox state];
 }
 
-- (BOOL) mirrorFriendlyGMA
-{
-	return [oldGMACheckbox state];
-}
-
 - (BOOL) regenerateDSDT
 {
 	return [dsdtCheckbox state];
@@ -519,7 +515,7 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 5, 6)];
+	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 6, 0)];
 	//	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [targetVolume selectedItem];
@@ -652,20 +648,13 @@
 		[installer installLocalExtensions];
 		[self updatePorgressBar: [NSNumber numberWithInt: 14]];
 		
-		if([self mirrorFriendlyGMA]) 
-		{
-			[installer installMirrorFriendlyGraphics];
-		}
-		else 
-		{
-			[self updateStatus:NSLocalizedString(@"Patching GMA950 Extension", nil)];
-			[installer patchGMAkext];
-			[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+		[self updateStatus:NSLocalizedString(@"Patching GMA950 Extension", nil)];
+		[installer patchGMAkext];
+		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
 			
-			[self updateStatus:NSLocalizedString(@"Patching Framebuffer Extension", nil)];
-			[installer patchFramebufferKext];
-			[self updatePorgressBar: [NSNumber numberWithInt: 5]];
-		}
+		[self updateStatus:NSLocalizedString(@"Patching Framebuffer Extension", nil)];
+		[installer patchFramebufferKext];
+		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
 		
 		[self updateStatus:NSLocalizedString(@"Patching Wireless Extension", nil)];
 		[installer patchIO80211kext];

@@ -17,8 +17,8 @@
 }
 
 /***
- ** closeAboutWindows
- **		This funciton closes teh key window and probably should be renamed as such
+ ** closeAboutWindow
+ **		This funciton closes the key window and probably should be renamed as such
  **		It does not specifical close the about window because when you press the
  **		close button, it will always be the key window (theoreticaly...)
  **

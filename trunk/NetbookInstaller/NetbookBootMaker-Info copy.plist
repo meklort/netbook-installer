@@ -4,18 +4,14 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
-	<key>CFBundleDocumentTypes</key>
-	<array/>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
-	<string>dell_mini_icon.icns</string>
+	<string>bootmaker.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.meklort.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -24,10 +20,8 @@
 	<string>0.8.4a1</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009, Evan Lojewski.</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>NetbookBootMaker</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

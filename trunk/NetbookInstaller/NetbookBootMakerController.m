@@ -8,7 +8,6 @@
 
 #import "NetbookBootMakerController.h"
 
-
 @implementation NetbookBootMakerController
 
 - (void) awakeFromNib {	
@@ -17,10 +16,9 @@
 	[notificationCenter addObserver:self selector:@selector(mountChange:) name:NSWorkspaceDidMountNotification object:nil];
 	[notificationCenter addObserver:self selector:@selector(mountChange:) name:NSWorkspaceDidUnmountNotification object:nil];
 
-
-	installing = false;
+	installer = [[Installer alloc] init];
 	systemInfo = [[SystemInformation alloc] init];
-	[systemInfo genericMachineType];	// We dont know our target netbook, assume generic
+	installing = false;
 
 	// This is run whenever ANY nib file is loaded
 	[self updateVolumeMenu];
@@ -57,7 +55,7 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 5, 0)];	// Any Leopard and beyond  (0.0.0 = no kernel required)
+	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 6, 0)];	// Any Leopard and beyond  (0.0.0 = no kernel required)
 //	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [volumeList selectedItem];
@@ -69,276 +67,120 @@
 	
 	
 }
-
-- (BOOL) patchDVDPartition: (NSString*) partition;
-{
-
-	
-	[systemInfo determineInstallState];
-	NSLog(@"%@", partition);
-	[systemInfo determinePartitionFromPath: partition];
-	
-
-	
-	[installer systemInfo: systemInfo];
-	[self updateStatus:@"Remounting target"];
-	[installer remountTargetWithPermissions];
-	[self updatePorgressBar:[[NSNumber alloc] initWithInt: 5]];
-	
-	// remove the previos /Extra directory
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Extra"]];
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/mach_kernel_10_5_6"]];
-	
-	// Copy the CLI and GUI installer
-	[self updateStatus:NSLocalizedString(@"Installing NetbookInstaller Applications", nil)];	
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app"]];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"]];
-	[installer setPermissions:@"755" onPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/setActive.sh"] recursivly:NO];
-	[installer setPermissions:@"755" onPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/gdisk"] recursivly:NO];
-
-		
-		//[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/gptsync"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/gptsync"]];
-
-
-	
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
-	
-	// Patch OS Install
-	[self updateStatus:NSLocalizedString(@"Adding post install commands", nil)];	
-	[self patchOSInstall];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
-	
-	[self updateStatus:NSLocalizedString(@"Fixing bless errors", nil)];	
-	[self removePostInstallError];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
-	
-	[self updateStatus:NSLocalizedString(@"Updating Utility menu", nil)];	
-	[self patchUtilitMenu];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];	
-	/// Time to actualy do the install
-	
-	[self updateStatus:NSLocalizedString(@"Creating /Extra", nil)];	
-	[installer removePrevExtra];
-	[installer installExtraFiles];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
-	
-	// Install and patch extensions
-	
-	[installer makeDir: [systemInfo extensionsFolder]];
-	
-
-	[self updateStatus:NSLocalizedString(@"Installing dependencies files", nil)];	
-	// This is ONLY untill I port at least dsdt retriever to objective c (should be relatively easy).
-	
-	// FIXME: Fix this
-	/*
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/xxd"]];
-	[installer makeDir:@"/Volumes/ramdisk/usr"];
-	[installer makeDir:@"/Volumes/ramdisk/usr/bin"];
-
-	[installer setPermissions:@"777" onPath:@"/Volumes/ramdisk/usr/" recursivly:YES];
-
-
-	NSLog(@"Running %s", (char*)[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxdExtract.sh"] cStringUsingEncoding:NSASCIIStringEncoding]);
-
-	
-	[installer setPermissions:@"755" onPath:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxdExtract.sh"] recursivly:NO];
-
-	[installer runCMD:(char*)[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxdExtract.sh"] cStringUsingEncoding:NSASCIIStringEncoding] withArgs: [NSArray arrayWithObjects:[systemInfo installPath], nil]];
-	[installer copyFrom:@"/Volumes/ramdisk/usr/bin/xxd" toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/"]];
-	*/
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxd"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/bin/"]];
-
-	// END FIXME
-	
-	// First run pm set? (this could be moved to the cli / installer
-	[installer copyFrom:@"/Library/Preferences/SystemConfiguration/com.apple.PowerManagement.plist" toDir:[[systemInfo installPath] stringByAppendingString:@"/Library/Preferences/SystemConfiguration/"]];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];
-	
-	//[installer installDSDT];
-	
-	
-	
-	[self updateStatus:NSLocalizedString(@"Setting up bootloader ", nil)];	
-
-	[installer setQuietBoot:	NO];
-
-	[installer disableHibernation:	YES];
-
-	NSString* bootloader = [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"];
-
-	[installer installBootloader: [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]];
-	//[installer installBootloader: DEFAULT_BOOTLOADER];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:10]];	
-
-	[installer setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/Extra"] recursivly: YES];
-	[installer setPermissions: @"755" onPath: [[systemInfo installPath] stringByAppendingString:@"/boot"] recursivly: NO];
-	
-	[installer setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/Extra"] recursivly: YES];
-	[installer setOwner:@"root" andGroup:@"wheel" onPath: [[systemInfo installPath] stringByAppendingString:@"/boot"] recursivly: NO];
-	
-	[self updateStatus:NSLocalizedString(@"Creating extensions cache", nil)];	
-	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
-	{
-		// This is ONLY going to be run from the install dvd, so we can copy these from the /
-		[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/Extensions.mkext"] toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/"]];
-		[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/mach_kernel.10.5.6"] toDir:[[systemInfo installPath] stringByAppendingString:@"/"]];
-		[installer useLatestKernel];
-		
-	} else // any other vesion is officialy supported
-	{
-		[installer copyDependencies];
-		[installer installExtensions];
-		[installer installLocalExtensions];
-
-		[installer patchGMAkext];
-		[installer patchFramebufferKext];
-		[installer patchIO80211kext];
-		[installer patchBluetooth];
-		[installer patchAppleUSBEHCI];
-			//[installer patchAppleHDA];
-
-		[installer generateExtensionsCache];
-		[installer useSystemKernel];
-	}
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:20]];
-		
-	
-	
-	[installer hideFiles];
-
-	[installer unmountRamDisk];
-	
-	[self updateStatus:NSLocalizedString(@"Done", nil)];	
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:100]];
-
-	
-	[self performSelectorOnMainThread:@selector(installFinished) withObject: nil waitUntilDone:NO];
-
-	return YES;
-}
-
-- (BOOL) patchmpkg
-{
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
-	[nsargs addObject: @"-x"];	
-	[nsargs addObject: @"-f"];	
-
-	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.mpkg"]];
-	[nsargs addObject: @"-c"];	
-	[nsargs addObject: @"/Volumes/ramdisk/OSInstallMPKG"];	
-	
-	
-	[installer runCMD:"/usr/bin/xar" withArgs:nsargs];
-	
-	
-		//NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/Volumes/ramdisk/OSInstallMPKG/Distribution"];
-	
-	
-	return NO;
-	
-}
-
-- (BOOL) patchPrivateFramework
-{
-	return NO;
-}
-
-- (BOOL) patchOSInstall
-{
-	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
-	//NSMutableArray* nsargs2 = [[NSMutableArray alloc] init];
-	NSMutableArray* nsargs3 = [[NSMutableArray alloc] init];
-
-	// Expand the package
-	[nsargs addObject: @"--expand"];	
-	[nsargs addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.pkg"]];
-	[nsargs addObject: @"/Volumes/ramdisk/OSInstall"];	
-	
-	[installer runCMD:"/usr/sbin/pkgutil" withArgs:nsargs];
-	
-	// Add NetbookInstallerCLI as a postinstaller script
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/postinstall"] toDir:@"/Volumes/ramdisk/OSInstall/Scripts/postinstall_actions/"];
-	[installer setPermissions:@"755" onPath:@"/Volumes/ramdisk/OSInstall/Scripts/postinstall_actions/" recursivly:YES];
-	// Backup the origional file.
-	[installer moveFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.pkg"] to: [[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.pkg.orig"]];
-
-	
-	// Create the patched package
-	[nsargs3 addObject: @"--flatten"];	
-	[nsargs3 addObject: @"/Volumes/ramdisk/OSInstall/"];	
-	[nsargs3 addObject:[[systemInfo installPath] stringByAppendingString: @"/System/Installation/Packages/OSInstall.pkg"]];
-	
-	[installer runCMD:"/usr/sbin/pkgutil" withArgs:nsargs3];
-		
-	
-
-	return YES;
-}
-
-- (BOOL) removePostInstallError
-{
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/usr/sbin/bless"]];
-	return [installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bless"] toDir:[[systemInfo installPath] stringByAppendingString:@"/usr/sbin/"]];
-
-	/*
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/OSXInstallAssistant.bundle/Contents/Resources/English.lproj/OSIPanel_PostInstallError.nib"]];
-	return [installer copyFrom:[[systemInfo installPath] stringByAppendingString:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/OSXInstallAssistant.bundle/Contents/Resources/English.lproj/OSIPanel_PostInstallSuccess.nib"] \
-				  toDir: [[systemInfo installPath] stringByAppendingString:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/OSXInstallAssistant.bundle/Contents/Resources/English.lproj/OSIPanel_PostInstallError.nib"]];
-	 */
-}
-
-- (BOOL) patchUtilitMenu
-{
-	NSMutableArray* utilityMenu = [[NSMutableArray alloc] initWithContentsOfFile: [[systemInfo installPath] stringByAppendingString:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/InstallerMenuAdditions.plist"]];
-	NSMutableDictionary* netbookInstallerItem = [[NSMutableDictionary alloc] init];
-		
-	[netbookInstallerItem setObject:@"/Applications/NetbookInstaller.app" forKey:@"Path"];
-	
-	[utilityMenu removeObject:netbookInstallerItem];	/// Delete any previos, we *could* just no add it tooo (woulld be better)
-	[utilityMenu insertObject:netbookInstallerItem atIndex:0];
-	
-	[utilityMenu writeToFile:[[systemInfo installPath] stringByAppendingString:@"/tmp/InstallerMenuAdditions.plist"] atomically:NO];
-	[installer deleteFile:[[systemInfo installPath] stringByAppendingString:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/InstallerMenuAdditions.plist"]];
-	return [installer copyFrom: [[systemInfo installPath] stringByAppendingString:@"/tmp/InstallerMenuAdditions.plist"] toDir: [[systemInfo installPath] stringByAppendingString:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/"]];
-	
-}
-
-
-- (void) mountChange:(NSNotification *)notification 
-{
-	[self updateVolumeMenu];
-	NSString *devicePath = [[notification userInfo] objectForKey:@"NSDevicePath"];
-	
-	
-	NSLog(@"Device did mount: %@", devicePath);
-}
-
-
-
 - (void) patchUSBDrive
 {
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 
-	installer = [[Installer alloc] init];
-	
-	
 	if(![installer getAuthRef]) 
 	{
 		[self performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
+		[pool release];
 
 		return;
 	}
-	[self updateStatus:NSLocalizedString(@"Creating ramdisk", nil)];	
-	[installer mountRamDisk];
-	[self updatePorgressBar: [[NSNumber alloc] initWithInt:5]];
-	
-	[self patchDVDPartition: [@"/Volumes/" stringByAppendingString: [[volumeList selectedItem] title]]];
-	
-	[installer unmountRamDisk];
-	[pool release];
 
+	[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[volumeList titleOfSelectedItem]]];
+	 [installer systemInfo: systemInfo];
+
+	if(![self installBootlaoder: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/BootMakerSupport/NetbookBootLoader.img"] toDrive: [@"/Volumes/" stringByAppendingString:[volumeList titleOfSelectedItem]]])
+	{
+		[self performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
+		[pool release];
+		return;
+	}
+	
+	[self performSelectorOnMainThread:@selector(installFinished) withObject: nil waitUntilDone:NO];
+
+
+	[pool release];
+}
+
+- (BOOL) installBootlaoder: (NSString*) image toDrive: (NSString*) drive
+{
+	NSMutableArray* nsargs;
+	
+	if(![[NSFileManager defaultManager] fileExistsAtPath: image]) return NO;
+	
+	NSScanner* scanner = [[NSScanner alloc] initWithString:[systemInfo bootPartition]];
+	[scanner setCharactersToBeSkipped: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
+	[scanner scanInteger: NULL];	// scan past disk number
+	
+	NSString* bsdDisk = [[systemInfo bootPartition] substringToIndex:[scanner scanLocation]];		// strip off partition number
+
+	[self updateStatus:@"Installer..."];
+
+	// Image volume name is "NetbookInstaller USB", unmount it if it exists
+	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookInstaller USB", nil];
+	[installer runCMD:"/sbin/umount" withArgs:nsargs];
+	[nsargs release];
+	
+	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
+	
+	// Install bootloader
+	[self updateStatus:@"Installing Bootloader (boot0)"];
+
+	nsargs = [[NSMutableArray alloc] init];
+	
+	[nsargs addObject: @"-f"];
+	[nsargs addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/BootMakerSupport/boot0"]];
+	[nsargs addObject: @"-u"];
+	[nsargs addObject: @"-y"];
+	
+	[nsargs addObject:[@"/dev/r" stringByAppendingString: bsdDisk]];
+	[installer runCMD:"/usr/sbin/fdisk" withArgs:nsargs];		// Lets not overwrite the disk bootsect, we really don't need it anyways since we set thepartition as active	
+	[nsargs release];
+	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
+
+	[self updateStatus:@"Installing Bootloader (boot1h)"];
+
+	// Install boot1h using dd
+	nsargs = [[NSMutableArray alloc] init];
+	[nsargs addObject:[@"if=" stringByAppendingString:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/BootMakerSupport/boot1h"]]];
+	[nsargs addObject:[@"of=/dev/r" stringByAppendingString: [systemInfo bootPartition]]];
+	[installer runCMD:"/bin/dd" withArgs:nsargs];
+	[nsargs release];
+	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
+
+	
+	[self updateStatus:@"Mounting Installer Image"];
+
+	
+	
+	// Mount the Installer Image
+	nsargs = [[NSArray alloc] initWithObjects:@"mount", image, nil];
+	[installer runCMD:"/usr/bin/hdiutil" withArgs:nsargs];
+	[nsargs release];
+	[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+
+	[self updateStatus:@"Installing bootloader (boot)"];
+
+	// Copy in /Extra and /boot from the installer image
+	[installer copyFrom:@"/Volumes/NetbookInstaller USB/boot" toDir:[NSString stringWithFormat:@"%@/boot", drive]];
+	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
+	
+	[self updateStatus:@"Installing Extra"];
+
+
+	[installer copyFrom:@"/Volumes/NetbookInstaller USB/Extra" toDir:[NSString stringWithFormat:@"%@/", drive]];
+	[installer hideFiles];
+	[self updatePorgressBar: [NSNumber numberWithInt: 35]];
+
+	[self updateStatus:@"Cleaning up..."];
+
+	 
+	// Unmount the installer image, then we are done
+	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookInstaller USB", nil];
+	[installer runCMD:"/sbin/umount" withArgs:nsargs];
+	[nsargs release];
+	[self updatePorgressBar: [NSNumber numberWithInt: 30]];
+	[self updateStatus:@"Done"];
+
+	
+	
+	
+
+	
+	return YES;
 }
 
 - (BOOL) updatePorgressBar: (NSNumber*) percent
@@ -417,6 +259,18 @@
 	if(installing) return NSTerminateCancel;
 	else return NSTerminateNow;
 }
+
+
+- (void) mountChange:(NSNotification *)notification 
+{
+	[self updateVolumeMenu];
+	// TOOD: update the volume list.
+	//NSString *devicePath = [[notification userInfo] objectForKey:@"NSDevicePath"];
+	
+	
+	//	NSLog(@"Device did mount: %@", devicePath);
+}
+
 
 
 @end

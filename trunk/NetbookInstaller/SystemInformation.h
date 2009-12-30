@@ -18,8 +18,6 @@ struct uint128 {
 };
 
 
-enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
-
 
 
 @interface SystemInformation : NSObject {
@@ -41,9 +39,10 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 	BOOL		hibernationDissabled;
 	BOOL		quietBoot;
 	BOOL		bluetoothPatched;
-	BOOL		mirrorFriendlyGMA;
 	BOOL		efiHidden;
 	BOOL		generic;
+	
+	BOOL		is64bit;
 	
 //	NSString*	extensionsFolder;
 	NSString*	bootPartition;
@@ -68,8 +67,9 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 - (NSString*) installPath;
 - (BOOL) quietBoot;
 - (BOOL) bluetoothPatched;
-- (BOOL) mirrorFriendlyGMA;
 - (BOOL) efiHidden;
+- (BOOL) is64bit;
+
 - (NSDictionary*) installedBootloader;
 //- (enum machine) machineType;
 //- (void) machineType: (enum machine) newMachineType;
@@ -87,7 +87,7 @@ enum scrollMethod { MEKLORT, VOODOO, FFSCROLL };
 - (void) determineRemoteCDState;
 - (void) determineHibernateState;
 - (void) determineQuiteBootState;
-- (void) determineGMAVersion;
+- (void) determineArchitecture;
 - (void) determineHiddenState;
 - (BOOL) hiddenStateOfPath: (NSString*) path;
 - (void) determineBluetoothState;

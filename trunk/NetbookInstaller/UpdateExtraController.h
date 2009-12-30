@@ -12,8 +12,15 @@
 
 @interface UpdateExtraController : NSObject {
 	IBOutlet NSProgressIndicator*	progressBar;
+	
+	IBOutlet NSButton*		installButton;
+
+	IBOutlet NSWindow*			mainWindow;
+
+	BOOL installing;
 }
+- (IBAction) updateExtra: (id) sender;
 
-- (IBAction) performInstall: (id) sender;
-
+- (BOOL) performInstall: (id) sender;
+- (BOOL) performThreadedInstall;
 @end

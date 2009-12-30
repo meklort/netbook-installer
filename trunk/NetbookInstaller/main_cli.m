@@ -20,7 +20,9 @@ int main(int argc, char *argv[])
 	SystemInformation* systemInfo = [[SystemInformation alloc] init];
 	Installer*	installer	= [[Installer alloc] init];
 
-	[installer mountRamDisk];
+	
+	
+	
 	infoDict = [[NSBundle mainBundle] infoDictionary];
 	NSLog(@"Determine Install State");
 	[systemInfo determineInstallState];
@@ -39,6 +41,13 @@ int main(int argc, char *argv[])
 
 
 	[installer systemInfo: systemInfo];
+
+	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
+	{
+		NSLog(@"Unsupported operating system target. Must be at least 10.6\n");
+	}
+	
+	[installer mountRamDisk];	
 	[installer remountTargetWithPermissions];
 	[installer removePrevExtra];
 	
@@ -72,14 +81,15 @@ int main(int argc, char *argv[])
 
 
 	
-	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
-	{
-		// This is ONLY going to be run from the install dvd, so we can copy these from the /
-		[installer copyFrom:@"/Extra/Extensions.mkext" toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/"]];
-		[installer copyFrom:@"/mach_kernel.10.5.6" toDir:[[systemInfo installPath] stringByAppendingString:@"/"]];
-		[installer useLatestKernel];
-		
-	} else
+//	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
+//	{
+//		// This is ONLY going to be run from the install dvd, so we can copy these from the /
+//		[installer copyFrom:@"/Extra/Extensions.mkext" toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/"]];
+		//[installer copyFrom:@"/mach_kernel.10.5.6" toDir:[[systemInfo installPath] stringByAppendingString:@"/"]];
+		//[installer useLatestKernel];
+//		[installer useSystemKernel];
+//		
+//	} else
 	{
 		[installer copyDependencies];
 		

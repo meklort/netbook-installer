@@ -21,14 +21,12 @@
 	
 	IBOutlet NSButton*		bootloaderCheckbox;
 	IBOutlet NSButton*		extensionsCheckbox;
-	IBOutlet NSButton*		oldGMACheckbox;
 	IBOutlet NSButton*		showhideFilesCheckbox;
 	IBOutlet NSButton*		dsdtCheckbox;
 	IBOutlet NSButton*		remoteCDCheckbox;
 	IBOutlet NSButton*		hibernateChecbox;
 	IBOutlet NSButton*		quietBootCheckbox;
-	IBOutlet NSButton*		bluetoothCheckbox;
-	
+	IBOutlet NSButton*		bluetoothCheckbox;		/// TODO: remove this when the bluetooth dev id / vendor id is determiend automaticaly.
 	
 	IBOutlet NSProgressIndicator*	progressBar;
 	IBOutlet NSTextField*	warningLabel;
@@ -72,7 +70,6 @@
 
 - (BOOL) isMachineSupported;
 /*
- - (IBAction) oldGMAModified: (id) sender;
  - (IBAction) showHideFilesModified: (id) sender;
  - (IBAction) dsdtModified: (id) sender;
 - (IBAction) keyboardPrefPaneModified: (id) sender;
@@ -92,7 +89,6 @@
 - (NSDictionary*) bootloaderType;
 
 - (BOOL) fixBluetooth;
-- (BOOL) mirrorFriendlyGMA;
 - (BOOL) regenerateDSDT;
 - (BOOL) fixBluetooth;
 - (BOOL) toggleVisibility;
