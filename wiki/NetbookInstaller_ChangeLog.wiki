@@ -1,6 +1,9 @@
 #summary ChangeLog for each release.
 #labels Featured
 <wiki:toc max_depth="2" />
+= NetbookInstaller 0.8.4 =
+== a1 ==
+ * Initial 64bit support
 
 = NetbookInstaller 0.8.3 =
 == RC 1 ==
