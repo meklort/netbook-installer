@@ -105,7 +105,13 @@
 
 // Kext support (patching and copying) -- TODO: make this a generic function / plist configurable / etc
 - (BOOL) patchGMAkext;
+- (BOOL) patchGMA950kext;
+- (BOOL) patchGMAX3100kext;
+
 - (BOOL) patchFramebufferKext;
+- (BOOL) patch950FramebufferKext;
+- (BOOL) patchX3100FramebufferKext;
+
 - (BOOL) patchIO80211kext;
 - (BOOL) patchBluetooth;
 - (BOOL) patchAppleUSBEHCI;

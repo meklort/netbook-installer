@@ -26,6 +26,10 @@
 	<string>Copyright © 2009, Evan Lojewski.</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<key>CFBundleHelpBookFolder</key>
+	<string>NetbookInstaller Help</string>
+	<key>CFBundleHelpBookName</key>
+	<string>NetbookInstaller</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>

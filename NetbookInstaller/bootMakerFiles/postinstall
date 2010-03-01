@@ -21,8 +21,19 @@ if [ -e "./Tools/notice.txt" ]; then
 cp ./Tools/notice.txt "$3"/tmp/ImportantInformation.txt
 fi
 
+#run gptsync, TODO: check ig gptsync exists first
+PARTITION=`mount | grep "$3"`
+PARTITION=${PARTITION%% *}
+PARTITION=${PARTITION%s*}
+
+#yes | /usr/bin/gptsync $PARTITION
+
+
 logger -p install.info "Running NetbookInstaller"
-/Applications/NetbookInstallerCLI.app/Contents/MacOS/NetbookInstallerCLI "$3"
+/Applications/NetbookInstaller.app/Contents/MacOS/NetbookInstallerCLI "$3" | logger -p install.info
+
+
+
 
 logger -p install.info "Running kextcache -k $3/System/Library/Extensions"
 /usr/bin/touch "$3/System/Library/Extensions"

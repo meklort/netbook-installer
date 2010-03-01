@@ -96,7 +96,7 @@
 
 int main(int argc, char *argv[])
 {	
-	NSLog(@"NetbookBootMakerCLI: Patches read only root file systems.\n");
+	ExtendedLog(@"NetbookBootMakerCLI: Patches read only root file systems.\n");
 		// TODO: make sure everything is realeased properly... (It's not)
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	Installer* installer = [[Installer alloc] init];
@@ -131,7 +131,7 @@ int main(int argc, char *argv[])
 	
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
 	{
-		NSLog(@"Unsupported operating system target. Must be at least 10.6, not patching installer\n");
+		ExtendedLog(@"Unsupported operating system target. Must be at least Mac OS X Snow Leoaprd.\n");
 	}
 	else
 	{

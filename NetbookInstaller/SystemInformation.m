@@ -10,7 +10,7 @@
 #import <IOKit/IOKitLib.h>
 #import <Foundation/NSPropertyList.h>
 
-#define KERNEL_VERSION( __major__, __minor__, __bugfix__ )			(__major__ << 8 | __minor__ << 4 | __bugfix__)
+//#define KERNEL_VERSION( __major__, __minor__, __bugfix__ )			(__major__ << 8 | __minor__ << 4 | __bugfix__)
 
 
 #import <sys/sysctl.h>
@@ -20,7 +20,7 @@
 #import <sys/param.h>
 
 #import <openssl/md5.h>
-#import "checksum.h"
+//#import "checksum.h"
 
 
 @implementation SystemInformation
@@ -77,8 +77,8 @@
 
 - (NSString*) installPath
 {
-	//NSLog(@"Retuning install path");
-	//NSLog(installPath);
+	//ExtendedLog(@"Retuning install path");
+	//ExtendedLog(installPath);
 	return installPath;
 }
 
@@ -129,41 +129,41 @@
 - (void) determineInstallState;
 {
 
-	//NSLog(@"Determine boot");
+	//ExtendedLog(@"Determine boot");
 	bootloaderDict =  [[NSDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
 	[self determinebootPartition];
-	//NSLog(@"Determine machine type");
+	//ExtendedLog(@"Determine machine type");
 
 	[self determineMachineType];
-	//NSLog(@"Determine dsdt type");
+	//ExtendedLog(@"Determine dsdt type");
 
 	[self determineDSDTState];
 	
-	//NSLog(@"Determine remotecd");
+	//ExtendedLog(@"Determine remotecd");
 
 	[self determineRemoteCDState];
 	
-	//NSLog(@"Determine bluetooth");
+	//ExtendedLog(@"Determine bluetooth");
 
 	[self determineBluetoothState];
 
-	//NSLog(@"Determine hibernate");
+	//ExtendedLog(@"Determine hibernate");
 
 	[self determineHibernateState];
 	
-	//NSLog(@"Determine quiet boot");
+	//ExtendedLog(@"Determine quiet boot");
 
 	[self determineQuiteBootState];
 	
-	//NSLog(@"Determine hidden state");
+	//ExtendedLog(@"Determine hidden state");
 
 	[self determineHiddenState];
-	//NSLog(@"Determine gma");
+	//ExtendedLog(@"Determine gma");
 
 	[self determineArchitecture];
 
 
-	//	//NSLog(@"state");
+	//	//ExtendedLog(@"state");
 	
 }
 
@@ -178,15 +178,15 @@
 	installPath = [[NSString alloc] initWithString:@"/"];
 
 	
-	//NSLog(@"Root Device: %@\n", bootPartition);
+	//ExtendedLog(@"Root Device: %@\n", bootPartition);
 	
 	
 	
-//	//NSLog(@"Information about /: %@", [fileManager attributesOfFileSystemForPath: @"/" error:&errs]);
+//	//ExtendedLog(@"Information about /: %@", [fileManager attributesOfFileSystemForPath: @"/" error:&errs]);
 	
 	
 	
-//	//NSLog(@"Info %@", [self getFileSystemInformation: @"/"]);
+//	//ExtendedLog(@"Info %@", [self getFileSystemInformation: @"/"]);
 
 	
 	[self determineTargetOS];
@@ -203,7 +203,7 @@
 	bootPartition = [[NSString alloc] initWithString:[[info objectForKey:@"Mounted From"] substringFromIndex:[@"/dev/" length]]];
 	installPath = [[NSString alloc] initWithString:path];
 
-	//NSLog(@"Target Device: %@\n", bootPartition);
+	//ExtendedLog(@"Target Device: %@\n", bootPartition);
 	
 	
 	[self determineTargetOS];
@@ -224,7 +224,7 @@
 
 - (void) determineMachineType
 {
-	//NSLog(@"machine type");
+	//ExtendedLog(@"machine type");
 	NSDictionary*	machineplist= [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]];	
 	NSEnumerator *enumerator = [machineplist objectEnumerator];
 	NSDictionary* currentModel;
@@ -241,12 +241,12 @@
 	model = malloc(len);
 	sysctl(mib, 2, model, &len, NULL, 0);
 	
-	//NSLog(@"Model: %s", model);
-	//NSLog(@"machinePlist: %@", machineplist);
+	//ExtendedLog(@"Model: %s", model);
+	//ExtendedLog(@"machinePlist: %@", machineplist);
 
 	
 	machineInfo = nil;
-	//NSLog(@"Searching for %@", [NSString stringWithCString: model]);
+	//ExtendedLog(@"Searching for %@", [NSString stringWithCString: model]);
 	while ((currentModel = [enumerator nextObject])) {
 		if([[currentModel objectForKey:@"Model Name"] length] <= strlen(model) && [[currentModel objectForKey:@"Model Name"] isEqualToString:[[NSString stringWithCString: model encoding: NSASCIIStringEncoding] substringToIndex:[[currentModel objectForKey:@"Model Name"] length]]])
 		{
@@ -261,59 +261,59 @@
 	}
 	
 	if(!machineInfo) {
-		NSLog(@"Unable to determine machine information. General machine does not exist");
+		ExtendedLog(@"Unable to determine machine information. General machine does not exist");
 		exit(-1);	// ALERT / FAIL
 	} else {
-		//NSLog(@"%@", machineInfo);
+		//ExtendedLog(@"%@", machineInfo);
 	}
 	
 	// validate machineInfo
 	// TODO: make this a loop
 	if(![machineInfo objectForKey:@"Support Files"])
 	{
-		NSLog(@"Error: Support Files not defined for machine");
+		ExtendedLog(@"Error: Support Files not defined for machine");
 	}
 	
 	if(![machineInfo objectForKey:@"Extensions Directory"])
 	{
-		NSLog(@"Error: Extensions Directory not defined for machine");
+		ExtendedLog(@"Error: Extensions Directory not defined for machine");
 	}
 	
 	if(![machineInfo objectForKey:@"Long Name"])
 	{
-		NSLog(@"Error: Extensions Directory not defined for machine");
+		ExtendedLog(@"Error: Extensions Directory not defined for machine");
 	}
 	if(![machineInfo objectForKey:@"Bluetooth Vendor ID"])
 	{
-		NSLog(@"Error: Bluetooth Vendor ID not defined for machine");
+		ExtendedLog(@"Error: Bluetooth Vendor ID not defined for machine");
 	}
 	if(![machineInfo objectForKey:@"Bluetooth Device ID"])
 	{
-		NSLog(@"Error: Bluetooth Device ID not defined for machine");
+		ExtendedLog(@"Error: Bluetooth Device ID not defined for machine");
 	}
 	
 	if(![[self machineInfo] objectForKey:@"Kext Blacklist"])
 	{
-		NSLog(@"Error: EFI Strings not defined for machine");
+		ExtendedLog(@"Error: EFI Strings not defined for machine");
 	}
 	
 	if(![machineInfo objectForKey:@"Kext Blacklist"])
 	{
-		NSLog(@"Error: EFI Strings not defined for machine");
+		ExtendedLog(@"Error: EFI Strings not defined for machine");
 	}	
 
 	if(![machineInfo objectForKey:@"DSDT Patches"])
 	{
-		NSLog(@"Error: DSDT Patches not defined for machine");
+		ExtendedLog(@"Error: DSDT Patches not defined for machine");
 	}	
 	
 	if(![machineInfo objectForKey:@"Install Paths"])
 	{
-		NSLog(@"Error: Install Paths not defined for machine");
+		ExtendedLog(@"Error: Install Paths not defined for machine");
 	}
 	
 	
-	NSLog(@"Current Model: %@", [machineInfo objectForKey:@"Long Name"]);
+	ExtendedLog(@"Current Model: %@", [machineInfo objectForKey:@"Long Name"]);
 	free(model);
 }
 
@@ -338,7 +338,7 @@
 	fileManager = [NSFileManager defaultManager];
 
 	dsdtInstalled = [fileManager fileExistsAtPath: [installPath stringByAppendingString: @"/Extra/DSDT.aml"]];
-//	//NSLog(@"DSDT");
+//	//ExtendedLog(@"DSDT");
 }
 
 - (void) determineRemoteCDState
@@ -368,8 +368,8 @@
 	NSDictionary* battPowerState = [powerStates objectForKey:@"Battery Power"];
 
 	
-	//NSLog(@"%@", [acPowerState valueForKey:@"Hibernate Mode"]);
-	//NSLog(@"%@", [battPowerState valueForKey:@"Hibernate Mode"]);
+	//ExtendedLog(@"%@", [acPowerState valueForKey:@"Hibernate Mode"]);
+	//ExtendedLog(@"%@", [battPowerState valueForKey:@"Hibernate Mode"]);
 
 	// If hibernation is enabled
 	if(  [[acPowerState valueForKey:@"Hibernate Mode"] intValue] == 0 && 
@@ -556,7 +556,7 @@
 	
 - (NSInteger) getKernelVersion: (NSString*) kernelPath
 {
-	//NSLog(@"Get kernel version for %@", kernelPath);
+	//ExtendedLog(@"Get kernel version for %@", kernelPath);
 	// Legacy support, remove this
 	NSString* path = [kernelPath stringByReplacingOccurrencesOfString:@"/mach_kernel" withString:@"/"];
 
@@ -601,7 +601,7 @@
 	// ApplePS2MouseDevice is our parent in the I/O Registry
 	dictRef = IOServiceMatching("IOSDHCIBlockDevice"); 
 	if (!dictRef) {
-		//NSLog(@"IOServiceMatching returned NULL.\n");
+		//ExtendedLog(@"IOServiceMatching returned NULL.\n");
 		return false;
 	} 
 	
@@ -610,7 +610,7 @@
 	// This consumes a reference on dictRef.
 	kr = IOServiceGetMatchingServices(kIOMasterPortDefault, dictRef, &iter);
 	if (KERN_SUCCESS != kr) {
-		//NSLog(@"IOServiceGetMatchingServices returned 0x%08x.\n", kr);
+		//ExtendedLog(@"IOServiceGetMatchingServices returned 0x%08x.\n", kr);
 		return false;
 	}
 	
@@ -620,14 +620,14 @@
 	
 	// Iterate across all instances of IOBlockStorageServices.
 	while ((service = IOIteratorNext(iter))) {
-		//NSLog([[NSString alloc] initWithCString:"Iterating...\n" encoding:NSASCIIStringEncoding]);
+		//ExtendedLog([[NSString alloc] initWithCString:"Iterating...\n" encoding:NSASCIIStringEncoding]);
 		
 		io_registry_entry_t child;
 		
 		// Now that our parent has been found we can traverse the I/O Registry to find our driver.
 		kr = IORegistryEntryGetChildEntry(service, kIOServicePlane, &child);
 		if (KERN_SUCCESS != kr) {
-			//NSLog(@"IORegistryEntryGetParentEntry returned 0x%08x.\n", kr);
+			//ExtendedLog(@"IORegistryEntryGetParentEntry returned 0x%08x.\n", kr);
 		} else {
 			// We're only interested in the parent object if it's our driver class.
 			if (IOObjectConformsTo(child, "ApplePS2SynapticsTouchPad")) {
@@ -636,12 +636,12 @@
 				
 				
 				//kr = IORegistryEntrySetCFProperties(child, dictRef);
-				//NSLog([[NSString alloc] initWithCString:"Sent message to kext" encoding:NSASCIIStringEncoding]);
+				//ExtendedLog([[NSString alloc] initWithCString:"Sent message to kext" encoding:NSASCIIStringEncoding]);
 				//if (KERN_SUCCESS != kr) {
-				//	//NSLog(@"IORegistryEntrySetCFProperties returned an error.\n", kr);
+				//	//ExtendedLog(@"IORegistryEntrySetCFProperties returned an error.\n", kr);
 				//}
 			} else {
-				//NSLog(@"%s: Unable to locate Touchpad kext.\n", APP_ID);
+				//ExtendedLog(@"%s: Unable to locate Touchpad kext.\n", APP_ID);
 				//				IOObjectRelease(parent);
 				//				IOObjectRelease(service);
 				
@@ -702,22 +702,22 @@
 
 - (void) printStatus		// Status of target / system
 {
-	NSLog(@"Mountpoint Statistics: %@\n", [self getFileSystemInformation: [self installPath]]);
-	NSLog(@"HostOS: %d\n", [self hostOS]);
-	NSLog(@"TargetOS: %d\n", [self targetOS]);
-	NSLog(@"InstallPath: %@\n", [self installPath]);
-	NSLog(@"Boot Partition: %@\n", [self bootPartition]);
+	ExtendedLog(@"Mountpoint Statistics: %@\n", [self getFileSystemInformation: [self installPath]]);
+	ExtendedLog(@"HostOS: %d\n", [self hostOS]);
+	ExtendedLog(@"TargetOS: %d\n", [self targetOS]);
+	ExtendedLog(@"InstallPath: %@\n", [self installPath]);
+	ExtendedLog(@"Boot Partition: %@\n", [self bootPartition]);
 
-	NSLog(@"InstalledBootloader: %@\n", [self installedBootloader]);
-	NSLog(@"BluetoothVendorID: %d\n", [self bluetoothVendorId]); 
-	NSLog(@"BluetoothDeviceID: %d\n", [self bluetoothDeviceId]);
-	NSLog(@"BluetoothPatched: %s\n", (bluetoothPatched ? "Yes" : "No"));
-	NSLog(@"DSDT Installed: %s\n", ([self dsdtInstalled]? "Yes" : "No"));
-	NSLog(@"RemoteCD Enabled: %s", ([self remoteCDEnabled]? "Yes" : "No"));
-	NSLog(@"Hibernation Disabled: %s", ([self hibernationDissabled]? "Yes" : "No"));
-	NSLog(@"QuietBoot Enabled: %s", ([self quietBoot]? "Yes" : "No"));
-	NSLog(@"/Extra Hidden: %s", ([self efiHidden]? "Yes" : "No"));
-	NSLog(@"Force Generic: %s", (generic? "Yes" : "No"));
+	ExtendedLog(@"InstalledBootloader: %@\n", [self installedBootloader]);
+	ExtendedLog(@"BluetoothVendorID: %d\n", [self bluetoothVendorId]); 
+	ExtendedLog(@"BluetoothDeviceID: %d\n", [self bluetoothDeviceId]);
+	ExtendedLog(@"BluetoothPatched: %s\n", (bluetoothPatched ? "Yes" : "No"));
+	ExtendedLog(@"DSDT Installed: %s\n", ([self dsdtInstalled]? "Yes" : "No"));
+	ExtendedLog(@"RemoteCD Enabled: %s", ([self remoteCDEnabled]? "Yes" : "No"));
+	ExtendedLog(@"Hibernation Disabled: %s", ([self hibernationDissabled]? "Yes" : "No"));
+	ExtendedLog(@"QuietBoot Enabled: %s", ([self quietBoot]? "Yes" : "No"));
+	ExtendedLog(@"/Extra Hidden: %s", ([self efiHidden]? "Yes" : "No"));
+	ExtendedLog(@"Force Generic: %s", (generic? "Yes" : "No"));
 	
 	//NSDictionary* machineInfo;
 }

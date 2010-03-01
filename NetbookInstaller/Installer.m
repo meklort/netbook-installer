@@ -46,11 +46,11 @@
 	// replace with runCMDasUser
 	//system("/usr/sbin/diskutil eraseVolume HFS+ ramdisk `hdid -nomount ram://523648`");
 
-		//	NSLog(@"Remounting ramdisk");
+		//	ExtendedLog(@"Remounting ramdisk");
 
 		//	system([@"/sbin/mount -u -o owners /Volumes/ramdisk" cStringUsingEncoding:NSASCIIStringEncoding]);
 
-		//	NSLog(@"Permissions fixed");
+		//	ExtendedLog(@"Permissions fixed");
 }
 
 /***
@@ -97,14 +97,14 @@
 		[self makeDir:path];
 		if(![[NSFileManager defaultManager] fileExistsAtPath:path])
 		{
-			NSLog(@"Mountpoint does not exist, exiting\n");
+			ExtendedLog(@"Mountpoint does not exist, exiting\n");
 			return nil;	// Unable to create mountpoint
 		}
 	}
 	
 	if(!size) 
 	{
-		NSLog(@"Unable to determine ramdisk size, exiting\n");
+		ExtendedLog(@"Unable to determine ramdisk size, exiting\n");
 		return nil;	// unable to create a ramdisk with no size
 	}
 
@@ -152,7 +152,7 @@
 	}
 
 	[self runCMD:"/sbin/mount" withArgs:nsargs];
-		//	NSLog(@"RAMDisk %@ (size: %d) mounted at %@\n", device, size / 512, path);
+		//	ExtendedLog(@"RAMDisk %@ (size: %d) mounted at %@\n", device, size / 512, path);
 
 	
 	[nsargs release];
@@ -224,7 +224,7 @@
 	status = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, flags, &authorizationRef);
 	if (status != errAuthorizationSuccess)
 	{
-		//NSLog(@"RDPPFramework NSFileManager+RDPPFrameworkAdditions secureCopy:toPath:authenticate: failed to create AuthorizationRef.  Return code was %d", status);
+		//ExtendedLog(@"RDPPFramework NSFileManager+RDPPFrameworkAdditions secureCopy:toPath:authenticate: failed to create AuthorizationRef.  Return code was %d", status);
 		return NO;
 	}	
 	
@@ -233,7 +233,7 @@
 
 	if (status!=errAuthorizationSuccess)
 	{
-		//NSLog(@"RDPPFramework NSFileManager+RDPPFrameworkAdditions secureCopy:toPath:authenticate: failed to authorize.  Return code was %d", status);
+		//ExtendedLog(@"RDPPFramework NSFileManager+RDPPFrameworkAdditions secureCopy:toPath:authenticate: failed to authorize.  Return code was %d", status);
 		return NO;
 	}
 	
@@ -298,8 +298,8 @@
 		
 	}
 	
-		//NSLog(@"RunCMD: %s returned %@", command, returnString);
-		//NSLog(@"RunCMD %s arguments: %@", command, nsargs);
+		//ExtendedLog(@"RunCMD: %s returned %@", command, returnString);
+		//ExtendedLog(@"RunCMD %s arguments: %@", command, nsargs);
 	
 	return returnString;
 }
@@ -353,9 +353,9 @@
 		
 		i++;
 	}
-		//NSLog(@"Executing: %@", run);
+		//ExtendedLog(@"Executing: %@", run);
 	// TODO: change away from system and twards one of teh exec commands. We also may need to catch the output or return codes of any command we run (instead of retuning YES)
-		//	NSLog(@"Executing %@ as current user\n", run);
+		//	ExtendedLog(@"Executing %@ as current user\n", run);
 
 	pipe = popen([run cStringUsingEncoding:NSASCIIStringEncoding], "r");	
 		//	sleep(2);
@@ -403,7 +403,7 @@
 		i++;
 	}
 	args[i] = NULL;
-		//	NSLog(@"Executing %s as root with args %@\n", command, nsargs);
+		//	ExtendedLog(@"Executing %s as root with args %@\n", command, nsargs);
 	status = AuthorizationExecuteWithPrivileges(authRef, command, kAuthorizationFlagDefaults, args, &pipe);
 		//	sleep(2);
 	char string[10];
@@ -550,14 +550,17 @@
 	
 	
 	if(!bootloaderType) {
-		NSLog(@"Unable to install bootlaoder: no value passed");
+		ExtendedLog(@"Unable to install bootlaoder: no value passed");
 		[scanner release];
 		return NO;
 	} else {
-		NSLog(@"Installing booter to /dev/r%@", [systemInfo bootPartition]);
+		ExtendedLog(@"Installing booter to /dev/r%@", [systemInfo bootPartition]);
 	}
 	NSString* bootPath;
-	if([[systemInfo installedBootloader] isEqualToDictionary:bootloaderType]) NSLog(@"Bootloader already installed, insatlling anyways");
+	if(bootloaderType && 
+	   [systemInfo installedBootloader] &&
+	   [[systemInfo installedBootloader] isEqualToDictionary:bootloaderType]) ExtendedLog(@"Bootloader already installed, insatlling anyways");
+	
 	bootPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat: @"/%s/%s/%@/", nbiSupportFilesPath, nbiBootloaderPath, [bootloaderType objectForKey:@nbiMachineVisibleName] ];
 //	bootPath = [[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @nbiSupportFilesPath] stringByAppendingString: @nbiBootloaderPath] stringByAppendingString:[bootloaderType objectForKey:@nbiMachineVisibleName]];
 	
@@ -712,7 +715,7 @@
 		
 		if(![[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key] ])
 		{
-			NSLog(@"Unable to locate %@, skipping", [@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key]);
+			ExtendedLog(@"Unable to locate %@, skipping", [@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key]);
 			continue; // file doesn't exist, skipping
 		}
 
@@ -835,7 +838,7 @@
 	//}
 	
 	if(!bootSettings) {
-		NSLog(@"Unable to sett boot plist\n");
+		ExtendedLog(@"Unable to sett boot plist\n");
 	}
 	
 	NSString* setting = [bootSettings objectForKey: @"Quiet Boot"];
@@ -933,19 +936,69 @@
 {
 	return NO;
 }
-
-
-// Kext support (patching and copying)
 - (BOOL) patchGMAkext
 {
-	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMA950.kext"] toDir:[systemInfo extensionsFolder]];	
+	bool returnVal = 0;
+	returnVal |= [self patchGMA950kext];
+	
+	return returnVal;
+}
+
+// Kext support (patching and copying)
+- (BOOL) patchGMAX3100kext
+{
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100.kext"] toDir:[systemInfo extensionsFolder]];	
 	// Find: 8680A227
 	// Replace: 8680AE72
 	
 	HexEditor* editor = [HexEditor alloc];
 	
+	UInt32 findBytes =    0x2A028086;
+	UInt32 replaceBytes = 0xA0118086;
+	char findString[] =    {'0', 'x', '2', 'A', '0', '2', '8', '0', '8', '6'};
+	char replaceString[] = {'0', 'x', 'A', '0', '1', '1', '8', '0', '8', '6'};
+
+	
+	// Patch the binary file
+	NSData* find = [[NSData alloc] initWithBytes:&findBytes length:4];
+	NSData* replace = [[NSData alloc] initWithBytes:&replaceBytes length:4];
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100.kext"] toDir:[systemInfo extensionsFolder]];
+	editor = [editor initWithData:[[NSData alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100.kext/Contents/MacOS/AppleIntelGMAX3100"]]];
+	[editor find: find andReplace: replace];
+	[[editor data] writeToFile: @"/Volumes/ramdisk/AppleIntelGMAX3100" atomically: NO];
+	[self copyFrom: @"/Volumes/ramdisk/AppleIntelGMAX3100" toDir:[[systemInfo extensionsFolder] stringByAppendingString: @"/AppleIntelGMAX3100.kext/Contents/MacOS/"]];	
+	
+	[find release];
+	[replace release];
+	
+
+	// Patch the Info.plist, and NSDictionary would have worked as well.
+	find = [[NSData alloc] initWithBytes:findString length:10];
+	replace = [[NSData alloc] initWithBytes:replaceString length:10];
+
+	editor = [editor initWithData:[[NSData alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100.kext/Contents/Info.plist"]]];
+	[editor find: find andReplace: replace];
+	[[editor data] writeToFile: @"/Volumes/ramdisk/Info.plist" atomically: NO];
+	[self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir:[[systemInfo extensionsFolder] stringByAppendingString: @"/AppleIntelGMAX3100.kext/Contents/"]];	
+	
+	[find release];
+	[replace release];
+	[editor release];
+	return YES;
+}
+
+- (BOOL) patchGMA950kext
+{
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMA950.kext"] toDir:[systemInfo extensionsFolder]];	
+	// Find: 8680A227
+	// Replace: 8680AE27
+	
+	HexEditor* editor = [HexEditor alloc];
+	
 	UInt32 findBytes =    0x27A28086;
 	UInt32 replaceBytes = 0x27AE8086;
+	//UInt32 replaceBytes = 0xA0118086;
+
 	char findString[] =    {'0', 'x', '2', '7', 'A', '2', '8', '0', '8', '6'};
 	char replaceString[] = {'0', 'x', '2', '7', 'A', 'E', '8', '0', '8', '6'};
 
@@ -962,11 +1015,11 @@
 	[find release];
 	[replace release];
 	
-
+	
 	// Patch the Info.plist, and NSDictionary would have worked as well.
 	find = [[NSData alloc] initWithBytes:findString length:10];
 	replace = [[NSData alloc] initWithBytes:replaceString length:10];
-
+	
 	editor = [editor initWithData:[[NSData alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMA950.kext/Contents/Info.plist"]]];
 	[editor find: find andReplace: replace];
 	[[editor data] writeToFile: @"/Volumes/ramdisk/Info.plist" atomically: NO];
@@ -980,6 +1033,15 @@
 
 - (BOOL) patchFramebufferKext
 {
+	bool status = 0;
+	status |= [self patch950FramebufferKext];
+	//status |= [self patchX3100FramebufferKext];
+	return status;
+}
+
+
+- (BOOL) patch950FramebufferKext
+{
 	// Find: 8680A227
 	// Replace: 8680AE27
 	
@@ -987,9 +1049,14 @@
 	
 	UInt32 findBytes =    0x27A28086;
 	UInt32 replaceBytes = 0x27AE8086;
+	//UInt32 replaceBytes = 0xA0118086;
 	char findString[] =    {'0', 'x', '2', '7', 'A', '2', '8', '0', '8', '6'};
+	//char replaceString[] = {'0', 'x', 'A', '0', '1', '1', '8', '0', '8', '6'};
+
 	char replaceString[] = {'0', 'x', '2', '7', 'A', 'E', '8', '0', '8', '6'};
 	
+	
+		
 	
 	// Patch the binary file
 	NSData* find = [[NSData alloc] initWithBytes:&findBytes length:4];
@@ -1019,6 +1086,48 @@
 	return YES;
 }
 
+- (BOOL) patchX3100FramebufferKext
+{
+	// Find: 8680A227
+	// Replace: 8680AE27
+	
+	HexEditor* editor = [HexEditor alloc];
+	
+	UInt32 findBytes =    0x2A028086;
+	UInt32 replaceBytes = 0xA0118086;
+	char findString[] =    {'0', 'x', '2', 'A', '0', '2', '8', '0', '8', '6'};
+	char replaceString[] = {'0', 'x', 'A', '0', '1', '1', '8', '0', '8', '6'};
+	
+	
+	// Patch the binary file
+	NSData* find = [[NSData alloc] initWithBytes:&findBytes length:4];
+	NSData* replace = [[NSData alloc] initWithBytes:&replaceBytes length:4];
+	[self copyFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100FB.kext"] toDir:[systemInfo extensionsFolder]];
+	editor = [editor initWithData:[[NSData alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100FB.kext/AppleIntelGMAX3100FB"]]];
+	[editor find: find andReplace: replace];
+	[[editor data] writeToFile: @"/Volumes/ramdisk/AppleIntelGMAX3100FB" atomically: NO];
+	[self copyFrom: @"/Volumes/ramdisk/AppleIntelGMAX3100FB" toDir:[[systemInfo extensionsFolder] stringByAppendingString: @"/AppleIntelGMAX3100FB.kext/"]];	
+	
+	[find release];
+	[replace release];
+	
+	
+	// Patch the Info.plist, and NSDictionary would have worked as well.
+	find = [[NSData alloc] initWithBytes:findString length:10];
+	replace = [[NSData alloc] initWithBytes:replaceString length:10];
+	
+	editor = [editor initWithData:[[NSData alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleIntelGMAX3100FB.kext/Info.plist"]]];
+	[editor find: find andReplace: replace];
+	[[editor data] writeToFile: @"/Volumes/ramdisk/Info.plist" atomically: NO];
+	[self copyFrom: @"/Volumes/ramdisk/Info.plist" toDir:[[systemInfo extensionsFolder] stringByAppendingString: @"/AppleIntelGMAX3100FB.kext/"]];	
+	
+	[find release];
+	[replace release];
+	[editor release];
+	return YES;
+}
+
+
 - (BOOL) patchIO80211kext
 {
 	NSMutableDictionary* plist = [[NSMutableDictionary alloc] initWithContentsOfFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/IO80211Family.kext/Contents/PlugIns/AppleAirPortBrcm4311.kext/Contents/Info.plist"]];
@@ -1038,6 +1147,7 @@
 	[ids addObject: @"pci14e4,4324"];
 	[ids addObject: @"pci14e4,4329"];
 	[ids addObject: @"pci14e4,432a"];
+	[ids addObject: @"pci14e4,432b"];
 	[ids addObject: @"pci14e4,4353"];
 
 	
@@ -1229,7 +1339,7 @@
 		[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Caches/com.apple.kext.caches/Startup/Extensions.mkext"]];
 		
 		
-		NSLog(@"Copied /System/Library/Extensions");	
+		ExtendedLog(@"Copied /System/Library/Extensions");	
 		
 		// Copy /Extra/Extensions/* to /Volumes/ramdisk/Extensions, overwriting any /S/L/E kexts previously copied there in [self copyDep]
 		[self copyFrom: [[systemInfo extensionsFolder] stringByAppendingString:@"/../AdditionalExtensions/"] toDir:@"/Volumes/ramdisk/Extensions/"];
@@ -1301,7 +1411,7 @@
 		*/
 		
 		
-		NSLog(@"Generating extensions Cache");
+		ExtendedLog(@"Generating extensions Cache");
 		setenv("_com_apple_kextd_skiplocks", "1", 1);	    // This let kexts cache run before the 5 minute delay imposed by kextd
 		
 		
@@ -1436,7 +1546,7 @@
 		} 
 		else {
 			[bootSettings release];
-			NSLog(@"Unable to revert to system kernel, keeping mach_kernel_10_5_6");
+			ExtendedLog(@"Unable to revert to system kernel, keeping mach_kernel_10_5_6");
 			return NO;
 		}
 
@@ -1482,7 +1592,7 @@
 
 - (BOOL) removeBlacklistedKexts
 {
-	NSLog(@"Remove blacklisted items");
+	ExtendedLog(@"Remove blacklisted items");
 	NSDictionary*	machineplist= [[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]] objectForKey:@"General"];	
 
 	NSArray* blacklist = [[systemInfo machineInfo] objectForKey:@"Kext Blacklist"];
@@ -1492,7 +1602,7 @@
 	NSString* kext;
 	while((kext = [kexts nextObject]))
 	{
-		NSLog(@"Removing %@", kext);
+		ExtendedLog(@"Removing %@", kext);
 		if(![kext isEqualToString:@""])
 		{
 			// TODO: verify kext does not go below root. (aka Security issue)
@@ -1510,7 +1620,7 @@
 	kexts = [[machineplist objectForKey:@"Kext Blacklist"] objectEnumerator];
 	while(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]] && ((kext = [kexts nextObject])))
 	{
-		NSLog(@"Removing %@", kext);
+		ExtendedLog(@"Removing %@", kext);
 		if(![kext isEqualToString:@""])
 		{
 			// TODO: verify kext does not go below root. (aka Security issue)

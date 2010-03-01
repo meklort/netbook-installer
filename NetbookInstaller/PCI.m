@@ -76,7 +76,7 @@
 	{
 		
 		kr = IORegistryCreateIterator(masterPort, kIOServicePlane, kIORegistryIterateRecursively, &iterator);
-		if(kr) NSLog(@"IORegistryCreateIterator Returned %d", kr);	//kIOReturnNoDevice
+		if(kr) ExtendedLog(@"IORegistryCreateIterator Returned %d", kr);	//kIOReturnNoDevice
 
 	}
 	
@@ -164,7 +164,7 @@
 - (void) printProperties
 {
 
-	NSLog(@"AppleACPIPCI properties: %@", deviceProperties);
+	ExtendedLog(@"AppleACPIPCI properties: %@", deviceProperties);
 }
 
 
