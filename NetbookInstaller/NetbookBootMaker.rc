@@ -1,0 +1,6 @@
+#include <winuser.h>
+#define MANIFEST_RESOURCE_ID 1
+MANIFEST_RESOURCE_ID RT_MANIFEST "NetbookBootMaker.manifest"
+
+app      ICON    dell_mini_icon.ico
+ICONS1   ICON    dell_mini_icon.ico
