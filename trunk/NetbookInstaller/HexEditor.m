@@ -7,14 +7,14 @@
 //
 
 #import "HexEditor.h"
-
+#import "NetbookInstaller_Prefix.pch"
 
 @implementation HexEditor
 
 - (id) initWithData: (NSData*) initialData
 {
 	data = [[NSMutableData alloc] initWithData: initialData];
-	if(!data) NSLog(@"HexEditor: incalid data passed");
+	if(!data) ExtendedLog(@"HexEditor: incalid data passed");
 	return self;
 }
 
@@ -32,12 +32,12 @@
 	{
 		range.location = index;
 		[data getBytes: bytes range: range];
-		//NSLog(@"%d", index);
+		//ExtendedLog(@"%d", index);
 
 		compare = [[NSData alloc] initWithBytes: bytes length: range.length];
 		if([compare isEqualToData:needle])
 		{
-			//NSLog(@"Found byte sequence, replacing\n");
+			//ExtendedLog(@"Found byte sequence, replacing\n");
 			[data replaceBytesInRange:range withBytes:[replace bytes] length:[replace length]];
 		}
 		[compare release];

@@ -8,16 +8,11 @@
 #endif
 
 
-//#define NUM_SUPPORTED_BOOTLOADERS		2
-
-//extern const char *bootLoaderName[];
-
-
-
-//#define KERNEL_VERSION_NONE		-2
-//#define KERNEL_VERSION_UNKNOWN		-1
-
 #define KERNEL_VERSION( __major__, __minor__, __bugfix__ )			(__major__ << 8 | __minor__ << 4 | __bugfix__)
+
+#define MIN_VERSION KERNEL_VERSION(10, 6, 0)
+
+#define ExtendedLog( s, ... ) NSLog( @"<%@:%s:(%d)> %@ \t", [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __PRETTY_FUNCTION__, __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 
 // Example
 //#define KERNEL_VERSION_10_5_0		KERNEL_VERSION( 10, 5, 0) 

@@ -22,7 +22,7 @@
 }
 - (IBAction) volumeChanged: (id) sender
 {
-//	NSLog(@"Selected target: %@", [@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]);
+//	ExtendedLog(@"Selected target: %@", [@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]);
 	[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]];
  
 	// TODO: enable this
@@ -35,7 +35,7 @@
 {
 	NSMutableArray* bootOptions = [[NSMutableArray alloc] init];
 	NSArray* bootloaders = [systemInfo supportedBootloaders];
-//	NSLog(@"bootloaders: %@", bootloaders);
+//	ExtendedLog(@"bootloaders: %@", bootloaders);
 
 	NSEnumerator* enumerator = [bootloaders objectEnumerator];
 	NSDictionary* bootloader;
@@ -44,7 +44,7 @@
 		[bootOptions addObject:[bootloader objectForKey:@"Visible Name"]];
 
 	}
-//	NSLog(@"bootOptions: %@", bootOptions);
+//	ExtendedLog(@"bootOptions: %@", bootOptions);
 	[bootloaderVersion removeAllItems];
 	[bootloaderVersion addItemsWithTitles:bootOptions];
 	
@@ -239,7 +239,7 @@
 			if(!isDir) supported = NO;			break;
 		case UNKNOWN:
 		default:
-			//NSLog(@"Unknown");
+			//ExtendedLog(@"Unknown");
 			supported = NO;
 			break;
 	}
@@ -447,15 +447,15 @@
 	NSDictionary* returnDict = nil;
 	if(![bootloaderVersion titleOfSelectedItem]) return nil;
 	if([bootloaderCheckbox state] == NO) return nil;
-	//NSLog(@"verifying bootlaoder");
+	//ExtendedLog(@"verifying bootlaoder");
 
 	NSEnumerator* bootloaders = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] keyEnumerator];
 	NSDictionary* bootloader;
 	while(bootloader = [bootloaders nextObject])
 	{
-		NSLog(@"Testing against %@", bootloader);
+		ExtendedLog(@"Testing against %@", bootloader);
 		if([[bootloaderVersion titleOfSelectedItem] isEqualToString:[[[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader] objectForKey:@"Visible Name"]]) {
-//			NSLog(@"Found %@", [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]);
+//			ExtendedLog(@"Found %@", [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]);
 			returnDict = [[NSDictionary alloc] initWithDictionary: [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader] copyItems:YES];
 			break;
 		}
@@ -501,7 +501,7 @@
 
 	}
 	else {
-		NSLog(@"%@", status);
+		ExtendedLog(@"%@", status);
 		[statusLabel setStringValue:status];		
 	}
 	return YES;
@@ -515,7 +515,7 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 6, 0)];
+	NSArray* options = [systemInfo installableVolumes: MIN_VERSION];
 	//	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [targetVolume selectedItem];
@@ -575,7 +575,7 @@
 	//NSString *devicePath = [[notification userInfo] objectForKey:@"NSDevicePath"];
 	
 	
-//	NSLog(@"Device did mount: %@", devicePath);
+//	ExtendedLog(@"Device did mount: %@", devicePath);
 }
 
 
@@ -686,7 +686,7 @@
 	[self updatePorgressBar: [NSNumber numberWithInt: 5]];
 	
 	[self updateStatus:NSLocalizedString(@"Verifying Bootloader", nil)];
-	NSLog(@"Installing bootloader %@", [self bootloaderType]);
+	ExtendedLog(@"Installing bootloader %@", [self bootloaderType]);
 	if([self bootloaderType]) [installer installBootloader: [[NSDictionary alloc] initWithDictionary:[self bootloaderType] copyItems:YES]];
 	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
 	

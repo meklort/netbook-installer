@@ -24,27 +24,27 @@ int main(int argc, char *argv[])
 	
 	
 	infoDict = [[NSBundle mainBundle] infoDictionary];
-	NSLog(@"Determine Install State");
+	ExtendedLog(@"Determine Install State");
 	[systemInfo determineInstallState];
 	
 	
 	if(argc > 1)
 	{
-		NSLog(@"Determine partition from path");
+		ExtendedLog(@"Determine partition from path");
 
-		NSLog(@"%s", argv[1]);
+		ExtendedLog(@"%s", argv[1]);
 		[systemInfo determinePartitionFromPath: [[NSString alloc] initWithCString:argv[1] encoding: NSASCIIStringEncoding]];
 		// Else we use the default of /
 	}
 	
-	NSLog(@"Initialize installer State");
+	ExtendedLog(@"Initialize installer State");
 
 
 	[installer systemInfo: systemInfo];
 
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
 	{
-		NSLog(@"Unsupported operating system target. Must be at least 10.6\n");
+		ExtendedLog(@"Unsupported operating system target. Must be at least 10.6\n");
 	}
 	
 	[installer mountRamDisk];	
@@ -116,7 +116,7 @@ int main(int argc, char *argv[])
 	[installer hideFiles];
 	[installer unmountRamDisk];
 
-	NSLog(@"Done");
+	ExtendedLog(@"Done");
 	
 	[pool release];
 }

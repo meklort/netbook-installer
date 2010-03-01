@@ -55,7 +55,7 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: KERNEL_VERSION(10, 6, 0)];	// Any Leopard and beyond  (0.0.0 = no kernel required)
+	NSArray* options = [systemInfo installableVolumes: MIN_VERSION];	// Any Leopard and beyond  (0.0.0 = no kernel required)
 //	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [volumeList selectedItem];
@@ -169,7 +169,7 @@
 
 	 
 	// Unmount the installer image, then we are done
-	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookInstaller USB", nil];
+	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookBootLoader", nil];
 	[installer runCMD:"/sbin/umount" withArgs:nsargs];
 	[nsargs release];
 	[self updatePorgressBar: [NSNumber numberWithInt: 30]];
@@ -199,7 +199,7 @@
 {
 	if([NSThread isMainThread])
 	{
-		NSLog(@"%@", status);
+		ExtendedLog(@"%@", status);
 		[statusLabel setStringValue:status];
 	}
 	else
@@ -268,7 +268,7 @@
 	//NSString *devicePath = [[notification userInfo] objectForKey:@"NSDevicePath"];
 	
 	
-	//	NSLog(@"Device did mount: %@", devicePath);
+	//	ExtendedLog(@"Device did mount: %@", devicePath);
 }
 
 

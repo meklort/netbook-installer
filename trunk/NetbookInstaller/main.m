@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	{
 	
 		//[tempDevice printProperties];
-		NSLog(@"Found vendorID: 0x%X deviceID: 0x%X ClassID: 0x%X SubClassID: 0x%X", [tempDevice vendorID], [tempDevice deviceID], [tempDevice PCIClass], [tempDevice PCISubClass]);
+		ExtendedLog(@"Found vendorID: 0x%X deviceID: 0x%X ClassID: 0x%X SubClassID: 0x%X", [tempDevice vendorID], [tempDevice deviceID], [tempDevice PCIClass], [tempDevice PCISubClass]);
 	
 
 		[tempDevice release];
