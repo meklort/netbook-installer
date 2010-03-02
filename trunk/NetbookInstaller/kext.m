@@ -6,7 +6,7 @@
 //  Copyright 2009. All rights reserved.
 //
 
-#import "kext.h"
+#import "Kext.h"
 
 
 @implementation kext
