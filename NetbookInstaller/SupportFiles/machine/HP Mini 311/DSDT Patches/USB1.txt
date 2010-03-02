@@ -1,0 +1,112 @@
+            Device (USB1)
+            {
+                Name (_ADR, 0x00040001)
+                OperationRegion (P020, PCI_Config, 0x49, One)
+                Field (P020, AnyAcc, NoLock, Preserve)
+                {
+                    U0WK,   1
+                }
+
+                Method (_PSW, 1, NotSerialized)
+                {
+                    If (Arg0)
+                    {
+                        Store (One, U0WK)
+                    }
+                    Else
+                    {
+                        Store (Zero, U0WK)
+                    }
+                }
+
+                Method (_S1D, 0, NotSerialized)
+                {
+                    Return (One)
+                }
+
+                Method (_S3D, 0, NotSerialized)
+                {
+                    Return (One)
+                }
+
+                Name (_PRW, Package (0x02)
+                {
+                    0x05, 
+                    Zero
+                })
+                Device (RHUB)
+                {
+                    Name (_ADR, Zero)
+                    Device (PRT0)
+                    {
+                        Name (_ADR, One)
+                        Name (_UPC, Package (0x04)
+                        {
+                            0xFF, 
+                            Zero, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT2)
+                    {
+                        Name (_ADR, 0x02)
+                        Name (_UPC, Package (0x04)
+                        {
+                            0xFF, 
+                            Zero, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT4)
+                    {
+                        Name (_ADR, 0x03)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT6)
+                    {
+                        Name (_ADR, 0x04)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT8)
+                    {
+                        Name (_ADR, 0x05)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PT10)
+                    {
+                        Name (_ADR, 0x06)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+                }
+            }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Boot Graphics</key>
+	<string>Yes</string>
+	<key>SMBIOSdefaults</key>
+	<string>No</string>
+	<key>Kernel</key>
+	<string>mach_kernel</string>
+	<key>Instant Menu</key>
+	<string>Yes</string>
+	<key>Legacy Logo</key>
+	<string>Yes</string>
+	<key>Rescan</key>
+	<string>Yes</string>
+	<key>UHCIreset</key>
+	<string>Yes</string>
+	<key>device-properties</key>
+	<string>c60000000100000002000000610000000200000002 010c00d041030a000000000101060000027fff040010000000 6d006f00640065006c0000000b000000474d41203935302000 00004100410050004c002c00480061007300500061006e0065 006c0000000800000001000000590000000200000002010c00 d041030a0000000001010600001b7fff0400180000006c0061 0079006f00750074002d00690064000000080000000c000000 160000006200750069006c0074002d0069006e000000050000 0001</string>
+</dict>
+</plist>

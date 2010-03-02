@@ -1,0 +1,27 @@
+                Device (PXS2)				// Built in airport 
+                {
+                    Name (_ADR, Zero)
+                    Name (_PRW, Package (0x02)
+                    {
+                        0x09, 
+                        0x04
+                    })
+                    Name (_EJD, "\\_SB.PCI0.USB7.HUB7.PRT7")
+                    Method (_DSM, 4, NotSerialized)
+                    {
+                        Store (Package (0x04)
+                        {
+                        	"AAPL,slot-name",
+                        	"Airport",
+                        	
+                            "built-in", 
+                            Buffer (One)
+                            {
+                                0x01
+                            }, 
+
+                        }, Local0)
+                        Return (Local0)
+                    }
+
+                }

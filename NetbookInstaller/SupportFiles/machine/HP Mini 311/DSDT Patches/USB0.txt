@@ -1,0 +1,94 @@
+            Device (USB0)
+            {
+                Name (_ADR, 0x00040000)
+                Method (_S1D, 0, NotSerialized)
+                {
+                    Return (One)
+                }
+
+                Method (_S3D, 0, NotSerialized)
+                {
+                    Return (0x03)
+                }
+
+                Name (_PRW, Package (0x02)
+                {
+                    0x0D, 
+                    Zero
+                })
+                Device (RHUB)
+                {
+                    Name (_ADR, Zero)
+                    Device (PRT0)
+                    {
+                        Name (_ADR, One)
+                        Name (_UPC, Package (0x04)
+                        {
+                            0xFF, 
+                            Zero, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT2)
+                    {
+                        Name (_ADR, 0x02)
+                        Name (_UPC, Package (0x04)
+                        {
+                            0xFF, 
+                            Zero, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT4)
+                    {
+                        Name (_ADR, 0x03)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT6)
+                    {
+                        Name (_ADR, 0x04)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PRT8)
+                    {
+                        Name (_ADR, 0x05)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+
+                    Device (PT10)
+                    {
+                        Name (_ADR, 0x06)
+                        Name (_UPC, Package (0x04)
+                        {
+                            Zero, 
+                            0xFF, 
+                            Zero, 
+                            Zero
+                        })
+                    }
+                }
+            }

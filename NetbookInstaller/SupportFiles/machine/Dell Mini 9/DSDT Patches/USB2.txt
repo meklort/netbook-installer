@@ -1,0 +1,62 @@
+            Device (USB2)
+            {
+                Name (_ADR, 0x001D0001)
+                Name (_PSC, Zero)
+                Method (_PS0, 0, NotSerialized)
+                {
+                    Store (Zero, _PSC)
+                }
+
+                Method (_PS2, 0, NotSerialized)
+                {
+                    Store (0x03, _PSC)
+                }
+
+                Method (_PS3, 0, NotSerialized)
+                {
+                    Store (0x03, _PSC)
+                }
+
+                OperationRegion (U2CS, PCI_Config, 0xC4, 0x04)
+                Field (U2CS, DWordAcc, NoLock, Preserve)
+                {
+                    U2EN,   2
+                }
+
+                Name (_PRW, Package (0x02)
+                {
+                    0x04, 
+                    Zero
+                })
+
+                Method (_PSW, 1, NotSerialized)
+                {
+                    If (Arg0)
+                    {
+                        Store (^^LPCB.EC0.SYS7, Local0)
+                        If (Local0)
+                        {
+                            Store (0x02, U2EN)
+                            Store (One, ^^LPCB.EC0.UWAK)
+                        }
+                        Else
+                        {
+                            Store (Zero, U2EN)
+                        }
+                    }
+                    Else
+                    {
+                        Store (Zero, U2EN)
+                    }
+                }
+
+                Method (_S3D, 0, NotSerialized)
+                {
+                    Return (0x03)
+                }
+
+                Method (_S4D, 0, NotSerialized)
+                {
+                    Return (0x03)
+                }
+            }

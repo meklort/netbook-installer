@@ -1,0 +1,29 @@
+            Device (C103)
+            {
+                Name (_ADR, 0x001D0002)
+                Method (_STA, 0, NotSerialized)
+                {
+                    Return (C0A2 (0x0400))
+                }
+
+                OperationRegion (C0FC, PCI_Config, 0xC4, One)
+                Field (C0FC, AnyAcc, NoLock, Preserve)
+                {
+                    C0FD,   1, 
+                    C0FE,   1
+                }
+
+                Device (C0FF)
+                {
+                    Name (_ADR, Zero)
+                    Device (C100)
+                    {
+                        Name (_ADR, One)
+                    }
+
+                    Device (C101)
+                    {
+                        Name (_ADR, 0x02)
+                    }
+                }
+            }

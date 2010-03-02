@@ -1,0 +1,292 @@
+                Device (BAT1)
+                {
+                    Name (_HID, EisaId ("PNP0C0A"))
+                    Name (_UID, One)
+                    Name (_PCL, Package (0x01)
+                    {
+                        _SB
+                    })
+                    Method (_STA, 0, NotSerialized)
+                    {
+                        If (LAnd (ECOK (), LEqual (ECDY, Zero)))
+                        {
+                            If (^^EC0.BAL0)
+                            {
+                                Sleep (0x14)
+                                Return (0x1F)
+                            }
+                            Else
+                            {
+                                Sleep (0x14)
+                                Return (0x0F)
+                            }
+                        }
+                        Else
+                        {
+                            Sleep (0x14)
+                            Return (0x1F)
+                        }
+                    }
+
+                    Method (_BIF, 0, NotSerialized)
+                    {
+                        Name (STAT, Package (0x0E)
+                        {
+                            One, 		// Power UNit (0 = mWh, 1 = mAh)			Not read anywhere, we decide which to do (os x wants mAh)
+                            Zero,	 	// Design Capacity				   			EC0.BDC0 (batt provides in mWh)
+                            Zero,	 	// Last full capacity						EC0.BFC0 (batt provides in mWh)
+                            One, 		// Battery technology (1 = rechargeable) 	EC0.BTY0 
+                            Zero,	 	// Battery Voltage				 			EC0.BDV0
+                            0x01A4, 	// Design capacity of warning	UNKNOWN, these are from before I edited (aka, whatever the bios people had it at)
+                            0x9C, 		// Design capacity of low		UNKNOWN
+                            0x0108, 	// Granuility 1					UNKNOWN
+                            0x0EC4, 	// ï		ï 2					UNKNOWN	
+                            "W953G", 	// Model Number					UNKNOWN
+                            "", 		// Serial Number							EC0.BSN0
+                            "Lion", 	// Battery Type					UNKNOWN		(Mini 9 uses Lion batteries, so default works)
+                            "Unknown",	// OEM, read from 							EC0.BMF0
+                            Zero		// Cycle Count
+                        })
+                        if(ECOK())
+                        {
+
+							// We decide the power unit, in our case (OS X) we shall use mAh
+                        	//Sleep (0x14)
+                        	//Store (One, Index (STAT, 0x00))	// Power Unit = BFC1
+                      		Sleep (0x14)
+                      		Store (^^EC0.CYC0, Index (STAT, 0x0D))	// Cycle count, not a part of the ACPI spec
+                      		
+                      		// The Design capacity goes here
+                        	Sleep (0x14)
+                        	Store (^^EC0.BDC0, Local1)	// Batter design capacity = BDC0 in mWh
+                        	Sleep (0x14)
+                        	Store (^^EC0.BFC0, Local2)	// Last full charce = BFC0 in mWh
+                        	Sleep (0x14)
+                        
+                        	// Battery type, should be one for rechargeable
+                        	Store (^^EC0.BTY0, Index (STAT, 0x03))
+                        	Sleep (0x14)
+                        
+                        	// Get the voltag
+                        	//Store (^^EC0.BDV0, Index (STAT, 0x04))	// Voltage
+                        	//Sleep (0x14)
+                        
+                        	Store (^^EC0.BDV0, Local4) // Design voltage
+                        	Sleep (0x14)
+                        
+	
+                        	// Now that we know the design voltage, let calculate the design capacity in mAh
+				Store (Divide(Multiply(Local1, 0x2710), Local4), Index (STAT, 0x01))
+                        	
+
+
+                        	// And the Last full capacity in mAh
+                        	Store (Divide(Multiply(Local2, 0x2710), Local4), Index (STAT, 0x02))
+                        
+                        
+                        	Store (Local4, Index (STAT, 0x04))	// Stored Design voltage (Probably used to calculate if battery is good or not
+                        
+                        	Sleep (0x14)
+                        
+                        	//Store (^^EC0.BDC0, Index (STAT, 0x05))	// Warning = BFC1
+                        	//Sleep (0x14)                        
+                        	//Store (^^EC0.BDC0, Index (STAT, 0x06))	// Low (Critical) ?Warning = BFC1
+                        	//Sleep (0x14)
+                        	//Store (^^EC0.BDC0, Index (STAT, 0x07))	//  Capacity Granularity 1
+                        	//Sleep (0x14)
+                        	//Store (^^EC0.BDC0, Index (STAT, 0x08))	//  Capacity Granularity 2
+                        	//Sleep (0x14)
+                        	//Store (^^EC0.BDC0, Index (STAT, 0x09))	// Model Number
+                        	//Sleep (0x14)
+                        	
+                        	Store (^^EC0.BSN0, Index (STAT, 0x0A))	// Serial number
+                        	Sleep (0x14)
+                        	//Store (^^EC0.BTY0, Index (STAT, 0x0B))	// Battery Type
+                        	//Sleep (0x14)
+                        	Store (^^EC0.BMF0, Local1)				// oem
+                        	Sleep (0x14)
+                        	
+                        	
+                        	If (LEqual (Local1, One))
+                        	{
+                        	    Store ("Sanyo", Index (STAT, 0x0C))
+                        	}
+                        	Else
+                        	{
+                        	    If (LEqual (Local1, 0x02))
+                        	    {
+                        	        Store ("Sony", Index (STAT, 0x0C))
+                            	}
+                            	Else
+                            	{
+                                	If (LEqual (Local1, 0x04))
+                                	{
+                                    	Store ("Panasonic", Index (STAT, 0x0C))
+                                	}
+                                	Else
+                                	{
+                                    	If (LEqual (Local1, 0x05))
+                                    	{
+                                        	Store ("Samsung", Index (STAT, 0x0C))
+                                    	}
+                                    	Else
+                                    	{
+                                        	If (LEqual (Local1, 0x07))	// According to dell, my battery is form Dynapack
+                                        	{
+                                            	Store ("Dynapack", Index (STAT, 0x0C))
+                                        	}
+                                    		Else
+                                        	{
+                                            	Store ("Compal", Index (STAT, 0x0C))
+                                        	}
+                                    	}
+                                	}
+                            	}
+                        	}
+
+                        	//Getting the model number???
+                            Store (^^EC0.BDN0, Local0)
+                            If (LEqual (BRAD, One))
+                            {
+                                If (LEqual (Local0, 0x02))
+                                {
+                                    Store ("PA3421U ", Index (STAT, 0x09))
+                                }
+
+                                If (LEqual (Local0, 0x08))
+                                {
+                                    Store ("PA3395U ", Index (STAT, 0x09))
+                                }
+                            }
+                            Else
+                            {
+                                If (LEqual (Local0, 0x02))
+                                {
+                                    Store ("PA3421U ", Index (STAT, 0x09))
+                                }
+
+                                If (LEqual (Local0, 0x08))
+                                {
+                                    Store ("PA3395U ", Index (STAT, 0x09))
+                                }
+                            }
+                        }
+                        Else
+                        {
+                            Store ("Li-Ion", Index (STAT, 0x0B))
+                        }
+
+                        Return (STAT)
+                    }
+
+                                       
+                    Method (_BST, 0, NotSerialized)
+                    {
+                    	Name (PSTS, Package (0x04)
+                    	{
+                    		Zero,	// Batery State
+                    		Zero,	// Discharge / Charge Rate
+                    		Zero,	// Int Charge (aka Remaining)
+                    		Zero, 	// Inst Voltage
+                    		
+                    	})
+                    	
+                    	If(ECOK())
+                        {
+                        
+                        	Sleep (0x14)
+                        	Store (^^EC0.BST0, Index (PSTS, 0x00))	// Battery State
+                        	Sleep (0x14)
+                        
+                        	Store (^^EC0.BAC0, Index (PSTS, 0x01))					// Instant
+                        	Sleep (0x14)
+                        	
+                        	Store (^^EC0.BPV0, Index (PSTS, 0x03))	// Present Voltage
+                        	Sleep (0x14)
+                        
+                        	Store (^^EC0.BRC0, Local2) //Index (PSTS, 0x02))	// Remaining Capacity
+                        	Sleep (0x14)
+  							Store (^^EC0.BDV0, Local4) 	// Design Voltage, used to convert mWh to mAh
+							Sleep (0x14)
+                        
+                        	// Convert to mAh
+                        	Store (Divide(Multiply(Local2, 0x2710), Local4), Index (PSTS, 0x02))
+                        }
+						
+                        If (LGreater (ECDY, Zero))
+                        {
+                            Decrement (ECDY)
+                            If (LEqual (ECDY, Zero))
+                            {
+                                Notify (BAT1, 0x81)			// Notify OSPM of status change
+                            }
+                        }
+
+                    	
+                    	Return (PSTS)
+                    }
+                    
+                      
+                    Method (BRAW, 0, NotSerialized)
+                    {
+                        Name (EBIF, Package (0x10)
+                        {
+                            Zero,           //	BMF0,   3, 			// Manyfacturer bitcode
+                        	Zero,			//  BTY0,   1, 			// Type (1 = recharable)
+                        	Zero,			//	BST0,   8, 			// Battery Status
+                        	Zero,			//	BRC0,   16, 		// Remaining Capacity in mWh
+                        	Zero,			//	BSN0,   16, 		// Serial Number?
+                        	Zero,			//	BPV0,   16, 		// Current / Inst Voltage in mV
+                        	Zero,			//	BDV0,   16, 		// Design Voltage in mV
+                        	Zero,			//	BDC0,   16, 		// Design Capacity (in mWh)
+                        	Zero,			//	BFC0,   16, 		// Last full capacity in mWh
+                        	Zero,			//	GAU0,   8, 			// Percentage full
+                        	Zero,			//	CYC0,   8, 			// Cycle Count
+                        	Zero,			//	BPC0,   16, 
+                        	Zero,			//	BAC0,   16, 
+                        	Zero,			//	BAT0,   8, 
+                        	Zero,			//	BTW0,   16, 
+                        	Zero,			//	BDN0,   8, 
+                        })
+                        
+                        if(ECOK())
+                        {
+                        	Sleep (0x14)
+                        	Store (^^EC0.BMF0, Index (EBIF, 0x00))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BTY0, Index (EBIF, 0x01))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BST0, Index (EBIF, 0x02))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BRC0, Index (EBIF, 0x03))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BSN0, Index (EBIF, 0x04))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BPV0, Index (EBIF, 0x05))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BDV0, Index (EBIF, 0x06))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BDC0, Index (EBIF, 0x07))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BFC0, Index (EBIF, 0x08))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.GAU0, Index (EBIF, 0x09))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.CYC0, Index (EBIF, 0x0A))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BPC0, Index (EBIF, 0x0B))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BAC0, Index (EBIF, 0x0C))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BAT0, Index (EBIF, 0x0D))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BTW0, Index (EBIF, 0x0E))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	Store (^^EC0.BDN0, Index (EBIF, 0xF))	// BAT in BDV = BDC1
+                        	Sleep (0x14)
+                        	
+                        }
+                        
+                        Return(EBIF)
+                    }
+                }
