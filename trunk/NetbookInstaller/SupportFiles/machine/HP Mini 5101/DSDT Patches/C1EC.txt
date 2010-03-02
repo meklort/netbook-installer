@@ -1,0 +1,9 @@
+                Device (ARPT)
+                {
+                    Name (_ADR, Zero)
+                    Name (_PRW, Package (0x02)
+                    {
+                        0x09, 
+                        0x05
+                    })
+                }

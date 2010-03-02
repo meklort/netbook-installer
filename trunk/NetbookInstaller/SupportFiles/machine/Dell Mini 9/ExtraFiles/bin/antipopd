@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# default to enabled on AC and Battery
+AC_ONLY="0";
+
+# check for our dir/flag
+if [[ -f /usr/local/share/antipop/ac_only ]]; then
+	AC_ONLY=`cut -c 1 /usr/local/share/antipop/ac_only 2> /dev/null`
+fi
+
+if [[ $AC_ONLY == "1" ]]; then
+	while true; do
+		if [[ `pmset -g | grep "AC Power.*\\*"` != "" ]]; then
+			say " "
+		fi
+		sleep 10
+	done
+else
+	while true; do
+		say " "
+		sleep 10
+	done
+fi

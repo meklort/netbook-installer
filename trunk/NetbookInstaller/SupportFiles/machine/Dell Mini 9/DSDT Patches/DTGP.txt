@@ -1,0 +1,135 @@
+    Method (_WAK, 1, NotSerialized)
+    {
+        P8XH (Zero, 0xAB)
+        If (LOr (LEqual (Arg0, 0x03), LEqual (Arg0, 0x04)))
+        {
+            If (And (CFGD, 0x01000000))
+            {
+                If (LAnd (And (CFGD, 0xF0), LEqual (OSYS, 0x07D1)))
+                {
+                    TRAP (0x3D)
+                }
+            }
+        }
+
+        If (LEqual (RP1D, Zero))
+        {
+            Notify (\_SB.PCI0.RP01, Zero)
+        }
+
+        If (LEqual (RP2D, Zero))
+        {
+            Notify (\_SB.PCI0.RP02, Zero)
+        }
+
+        If (LEqual (RP3D, Zero))
+        {
+            Notify (\_SB.PCI0.RP03, Zero)
+        }
+
+        If (LEqual (RP4D, Zero))
+        {
+            Notify (\_SB.PCI0.RP04, Zero)
+        }
+
+        If (LEqual (RP5D, Zero))
+        {
+            Notify (\_SB.PCI0.RP05, Zero)
+        }
+
+        If (LEqual (RP6D, Zero))
+        {
+            Notify (\_SB.PCI0.RP06, Zero)
+        }
+
+        If (LEqual (Arg0, 0x03))
+        {
+            P8XH (Zero, 0xE3)
+            TRAP (0x46)
+            Notify (\_SB.PCI0.RP01, Zero)
+        }
+
+        If (LEqual (Arg0, 0x04))
+        {
+            Notify (\_SB.PWRB, 0x02)
+            P8XH (Zero, 0xE4)
+            \_SB.PCI0.LPCB.PHSS (0x0F)
+            If (LOr (LEqual (OSYS, 0x07D6), LEqual (LINX, One)))
+            {
+                Store (One, \_SB.PCI0.LPCB.EC0.OSTY)
+            }
+            Else
+            {
+                Store (Zero, \_SB.PCI0.LPCB.EC0.OSTY)
+            }
+
+            If (DTSE)
+            {
+                TRAP (0x47)
+            }
+
+            Notify (\_TZ.TZ01, 0x80)
+        }
+
+        If (LEqual (OSYS, 0x07D2))
+        {
+            If (And (CFGD, One))
+            {
+                If (LGreater (\_PR.CPU0._PPC, Zero))
+                {
+                    Subtract (\_PR.CPU0._PPC, One, \_PR.CPU0._PPC)
+                    PNOT ()
+                    Add (\_PR.CPU0._PPC, One, \_PR.CPU0._PPC)
+                    PNOT ()
+                }
+                Else
+                {
+                    Add (\_PR.CPU0._PPC, One, \_PR.CPU0._PPC)
+                    PNOT ()
+                    Subtract (\_PR.CPU0._PPC, One, \_PR.CPU0._PPC)
+                    PNOT ()
+                }
+            }
+        }
+
+        P8XH (One, 0xCD)
+        Return (Package (0x02)
+        {
+            Zero, 
+            Zero
+        })
+    }
+
+
+    Method (DTGP, 5, NotSerialized)
+    {
+        If (LEqual (Arg0, Buffer (0x10)
+                {
+                    /* 0000 */    0xC6, 0xB7, 0xB5, 0xA0, 0x18, 0x13, 0x1C, 0x44, 
+                    /* 0008 */    0xB0, 0xC9, 0xFE, 0x69, 0x5E, 0xAF, 0x94, 0x9B
+                }))
+        {
+            If (LEqual (Arg1, One))
+            {
+                If (LEqual (Arg2, Zero))
+                {
+                    Store (Buffer (One)
+                        {
+                            0x03
+                        }, Arg4)
+                    Return (One)
+                }
+
+                If (LEqual (Arg2, One))
+                {
+                    Return (One)
+                }
+            }
+        }
+
+        Store (Buffer (One)
+            {
+                0x00
+            }, Arg4)
+        Return (Zero)
+    }

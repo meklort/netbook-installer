@@ -1,0 +1,63 @@
+            Device (USB7)
+            {
+                Name (_ADR, 0x001D0007)
+                Device (HUB7)
+                {
+                    Name (_ADR, Zero)
+                    Device (PRT1)
+                    {
+                        Name (_ADR, One)
+                    }
+
+                    Device (PRT2)
+                    {
+                        Name (_ADR, 0x02)
+                    }
+
+                    Device (PRT3)
+                    {
+                        Name (_ADR, 0x03)
+                    }
+
+                    Device (PRT4)
+                    {
+                        Name (_ADR, 0x04)
+                    }
+
+                    Device (PRT5)
+                    {
+                        Name (_ADR, 0x05)
+                    }
+
+                    Device (PRT6)
+                    {
+                        Name (_ADR, 0x06)
+                    }
+
+                    Device (PRT7)
+                    {
+                        Name (_ADR, 0x07)
+                    }
+
+                    Device (PRT8)
+                    {
+                        Name (_ADR, 0x08)
+                    }
+                }
+
+                Name (_PRW, Package (0x02)
+                {
+                    0x0D, 
+                    Zero
+                })
+
+                Method (_S3D, 0, NotSerialized)
+                {
+                    Return (0x03)
+                }
+
+                Method (_S4D, 0, NotSerialized)
+                {
+                    Return (0x03)
+                }
+            }

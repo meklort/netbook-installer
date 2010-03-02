@@ -1,0 +1,55 @@
+            Device (USB4)
+            {
+                Name (_ADR, 0x001D0003)
+                OperationRegion (U4CS, PCI_Config, 0xC4, 0x04)
+                Field (U4CS, DWordAcc, NoLock, Preserve)
+                {
+                    U4EN,   2
+                }
+
+                Name (_PRW, Package (0x02)
+                {
+                    0x0E, 
+                    Zero
+                })
+
+                Method (_PSW, 1, NotSerialized)
+                {
+                    If (Arg0)
+                    {
+                        Store (^^LPCB.EC0.SYS7, Local0)
+                        If (Local0)
+                        {
+                            Store (0x02, U4EN)
+                            Store (One, ^^LPCB.EC0.UWAK)
+                        }
+                        Else
+                        {
+                            Store (Zero, U4EN)
+                        }
+                    }
+                    Else
+                    {
+                        Store (Zero, U4EN)
+                    }
+                }
+
+                Method (_S3D, 0, NotSerialized)
+                {
+                    Return (0x03)
+                }
+
+                Method (_S4D, 0, NotSerialized)
+                {
+                    Return (0x02)
+                }
+
+                Method (_PS0, 0, NotSerialized)
+                {
+                }
+
+                Method (_PS3, 0, NotSerialized)
+                {
+                    Sleep (0x03E8)
+                }
+            }
