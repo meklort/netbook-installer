@@ -12,12 +12,12 @@ The following list are the requirements for each major release version.
 
 == 0.9.x (Beta) ==
 The main requirement for the beta versions of NetbookInstaller and NetbookBootMaker is for a finalized interface to add more machine support.
- * NetbookCD and NetbookBootMaker should share same codebase.
- * No restrictions on the host OS. 0.9.x (boot maker) should be able to run on Tiger, Linux, or Windows.
+ * ~~NetbookCD and NetbookBootMaker should share same codebase.~~
+ * (WIP) No restrictions on the host OS. 0.9.x (boot maker) should be able to run on Tiger, Linux, or Windows.
  * Semi-stable interface / api 
  * Error checking in all major functions.
  * All functions and methods should have a valid return value. At the moment, many return YES even when an error occurs.
- * --Proper memory management. NetbookInstaller must release appropriate variables once it's done with them.--
+ * ~~Proper memory management. NetbookInstaller must release appropriate variables once it's done with them.~~
  * Proper privilege escalation. Th 0.8.x versions currently use an insecure method of privilege escalation. A helper application should be used instead.
  * better runCMD methods. Currently, runCMD runs each command by escalating privileges. Instead, it should ask the helper to run a command for it, which will in turn use the NSFileManager over system() to copy / delete / move files. NetbookInstaller should not make calls to system() and the helper application should use try to avoid using the system call.
 
