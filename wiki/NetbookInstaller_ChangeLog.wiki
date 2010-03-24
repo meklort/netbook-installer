@@ -2,15 +2,15 @@
 #labels Featured
 <wiki:toc max_depth="2" />
 = NetbookInstaller 0.8.4 =
-== pre2 (Name subject to change) ==
+== RC1 ==
+ * SMBIOS model information is read at boot time, allowing a machine specific dsdt to be loaded using the boot disk.
+ * Chameleon now has a recovery options. Use the boot argument "recovery=y" to load a known good mkext (/Extra/UpdateExtensions/)
+ * NBI is automatically run when a system update is detected. A NBI logo will be shown to signify this (*DONT* reboot).
  * OS X Installation vs Install DVD detection. NBI nolonger will give the user the option to run on an Install DVD, while NetbookBootMaker (and BootMakerCLI) won't run on an Installed partition.
  * Ramdisks now have meaningful names.
  * NBBMcli should now clean up after itself (at least it'll clean up better than before).
-
-== pre ==
  * 10.6.3 Support
  * Build script bugfixes
-== a1 ==
  * Initial 64bit support
 
 = NetbookInstaller 0.8.3 =
