@@ -7,6 +7,40 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
+		27553C861142E52A00B5F76E /* NetbookInstaller.img */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27553C891142E54900B5F76E /* Build configuration list for PBXAggregateTarget "NetbookInstaller.img" */;
+			buildPhases = (
+				27553C851142E52A00B5F76E /* ShellScript */,
+			);
+			dependencies = (
+				27553CA61142E57C00B5F76E /* PBXTargetDependency */,
+			);
+			name = NetbookInstaller.img;
+			productName = NetbookInstaller.img;
+		};
+		27553C8A1142E55200B5F76E /* All */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 27553CA71142E59A00B5F76E /* Build configuration list for PBXAggregateTarget "All" */;
+			buildPhases = (
+			);
+			dependencies = (
+				27553CA21142E55A00B5F76E /* PBXTargetDependency */,
+				27553CA41142E55A00B5F76E /* PBXTargetDependency */,
+				27553CA01142E55A00B5F76E /* PBXTargetDependency */,
+				27553C9E1142E55A00B5F76E /* PBXTargetDependency */,
+				27553C961142E55A00B5F76E /* PBXTargetDependency */,
+				27553C9C1142E55A00B5F76E /* PBXTargetDependency */,
+				27553C9A1142E55A00B5F76E /* PBXTargetDependency */,
+				27553C981142E55A00B5F76E /* PBXTargetDependency */,
+				27553C941142E55A00B5F76E /* PBXTargetDependency */,
+				27553C921142E55A00B5F76E /* PBXTargetDependency */,
+				27553C901142E55A00B5F76E /* PBXTargetDependency */,
+				27553C8E1142E55A00B5F76E /* PBXTargetDependency */,
+			);
+			name = All;
+			productName = All;
+		};
 		277B5A0910EDBC4C00EAF05F /* Postboot.img */ = {
 			isa = PBXAggregateTarget;
 			buildConfigurationList = 277B5A0D10EDBC4C00EAF05F /* Build configuration list for PBXAggregateTarget "Postboot.img" */;
@@ -60,6 +94,7 @@
 
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		270B19E71154789E00834110 /* NetbookBootMakerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 270B19E61154789E00834110 /* NetbookBootMakerController.m */; };
 		271A58CC1082F08600B5E39B /* main_bootmakercli.m in Sources */ = {isa = PBXBuildFile; fileRef = 271A58CB1082F08600B5E39B /* main_bootmakercli.m */; };
 		271A5B5D1082F0FA00B5E39B /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
 		271A5B5E1082F0FD00B5E39B /* Installer.m in Sources */ = {isa = PBXBuildFile; fileRef = 66EC09530FBF3E9C00D3B55B /* Installer.m */; };
@@ -74,7 +109,6 @@
 		2725E6700FED8A07005869F8 /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
 		2725E6DC0FED9435005869F8 /* main_bootmake.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725E3D90FED88A8005869F8 /* main_bootmake.m */; };
 		2725E7350FED9702005869F8 /* NetbookBootMaker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2725E7340FED9702005869F8 /* NetbookBootMaker.xib */; };
-		2725E73E0FED989D005869F8 /* NetbookBootMakerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */; };
 		2727DBB410EFC3ED00B9BBC6 /* NetbookBootMaker.rc in Sources */ = {isa = PBXBuildFile; fileRef = 27CD3E5510EC42C500503E0D /* NetbookBootMaker.rc */; };
 		272C33D710EA7E6F00659296 /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
 		272C33D810EA7E6F00659296 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -95,6 +129,8 @@
 		2748C4A10FEB037C000F22B8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 668FFC480FC13B2B007E4E75 /* Security.framework */; };
 		2748C4A40FEB037C000F22B8 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 279665740FD4206400EBF41B /* libcrypto.dylib */; };
 		2748C4A60FEB03C0000F22B8 /* main_cli.m in Sources */ = {isa = PBXBuildFile; fileRef = 2748C4A50FEB03C0000F22B8 /* main_cli.m */; };
+		27553FD51142E73E00B5F76E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		27553FD61142E74900B5F76E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
 		2759797A10EEB257009671B1 /* NetbookInstaller Help in Resources */ = {isa = PBXBuildFile; fileRef = 2759797810EEB257009671B1 /* NetbookInstaller Help */; };
 		27848F1D0FF1ACD500BF23A5 /* UpdateExtra.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27848F1C0FF1ACD500BF23A5 /* UpdateExtra.xib */; };
 		27848F1F0FF1AD8B00BF23A5 /* UpdateExtra.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27848F1E0FF1AD8B00BF23A5 /* UpdateExtra.icns */; };
@@ -121,15 +157,13 @@
 		27CD3CE210EC344E00503E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD29C910EADC4000503E0D /* Foundation.framework */; };
 		27CD3D6410EC348E00503E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD29C910EADC4000503E0D /* Foundation.framework */; };
 		27CD3E1510EC34AB00503E0D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CD29C910EADC4000503E0D /* Foundation.framework */; };
-		27CD3E5A10EC455800503E0D /* NetbookBootMaker.manifest in Resources */ = {isa = PBXBuildFile; fileRef = 27CD3E5910EC455800503E0D /* NetbookBootMaker.manifest */; };
 		27D2EA54103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
 		27D2EA56103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
 		27D2EA59103CBC5C006C97CE /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27D2EA53103CBC5C006C97CE /* IOKit.framework */; };
-		27E8A6D710E5E388000137F7 /* kext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8A6D610E5E388000137F7 /* kext.m */; };
+		27E8A6D710E5E388000137F7 /* Kext.m in Sources */ = {isa = PBXBuildFile; fileRef = 27E8A6D610E5E388000137F7 /* Kext.m */; };
 		27EC0B470FD7312F006740DB /* AboutWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EC0B460FD7312F006740DB /* AboutWindowController.m */; };
 		27EC0BC00FD7698C006740DB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0BBF0FD7698C006740DB /* Localizable.strings */; };
 		27EC0C2A0FD76DC0006740DB /* about.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27EC0C290FD76DC0006740DB /* about.xib */; };
-		27F3CE6A10D75EB8004F21D0 /* SupportFiles in Resources */ = {isa = PBXBuildFile; fileRef = 272B48111066E3B900621DC7 /* SupportFiles */; };
 		27FC5ED210A5CC0800C86299 /* PCI.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5ED110A5CC0800C86299 /* PCI.m */; };
 		27FC5ED310A5CC0800C86299 /* PCI.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5ED110A5CC0800C86299 /* PCI.m */; };
 		661B35C90FBE01E5004007B6 /* SystemInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661B35C80FBE01E5004007B6 /* SystemInformation.m */; };
@@ -167,6 +201,104 @@
 			remoteGlobalIDString = 27848F130FF1AC8B00BF23A5;
 			remoteInfo = UpdateExtra;
 		};
+		27553C8D1142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27553C861142E52A00B5F76E;
+			remoteInfo = NetbookInstaller.img;
+		};
+		27553C8F1142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 277B5A0910EDBC4C00EAF05F;
+			remoteInfo = Postboot.img;
+		};
+		27553C911142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27CD3BA410EC338100503E0D;
+			remoteInfo = Preboot.dmg;
+		};
+		27553C931142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27CD328010EBFBD700503E0D;
+			remoteInfo = NetbookBootLoader;
+		};
+		27553C951142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 272C33CB10EA7E6F00659296;
+			remoteInfo = "NetbookBootMaker-windows";
+		};
+		27553C971142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27A8660910573BF600A8E274;
+			remoteInfo = NetbookBootCD;
+		};
+		27553C991142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 272EAD4D0FF7FD5F00274B67;
+			remoteInfo = bless;
+		};
+		27553C9B1142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27848F130FF1AC8B00BF23A5;
+			remoteInfo = UpdateExtra;
+		};
+		27553C9D1142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2725E3E50FED88C0005869F8;
+			remoteInfo = NetbookBootMaker;
+		};
+		27553C9F1142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 271A58B91082F04000B5E39B;
+			remoteInfo = NetbookBootMakerCLI;
+		};
+		27553CA11142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2748C2130FEB02EB000F22B8;
+			remoteInfo = NetbookInstallerCLI;
+		};
+		27553CA31142E55A00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = NetbookInstaller;
+		};
+		27553CA51142E57C00B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2748C2130FEB02EB000F22B8;
+			remoteInfo = NetbookInstallerCLI;
+		};
+		275540281142EE7900B5F76E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27553C861142E52A00B5F76E;
+			remoteInfo = NetbookInstaller.img;
+		};
 		27764BDC104648BF007B9B3C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -188,12 +320,12 @@
 			remoteGlobalIDString = 277B5A0910EDBC4C00EAF05F;
 			remoteInfo = Postboot.img;
 		};
-		27CD27D010EAD0E000503E0D /* PBXContainerItemProxy */ = {
+		27C9108711488A5F00E83ABC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 272C33CB10EA7E6F00659296;
-			remoteInfo = "NetbookBootMaker-windows";
+			remoteGlobalIDString = 2725E3E50FED88C0005869F8;
+			remoteInfo = NetbookBootMaker;
 		};
 		27CD2CDD10EB133900503E0D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -243,6 +375,7 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		270B19E61154789E00834110 /* NetbookBootMakerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetbookBootMakerController.m; sourceTree = "<group>"; };
 		271A58BA1082F04000B5E39B /* NetbookBootMakerCLI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookBootMakerCLI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		271A58BC1082F04000B5E39B /* NetbookBootMakerCLI-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookBootMakerCLI-Info.plist"; sourceTree = "<group>"; };
 		271A58CA1082F08600B5E39B /* main_bootmakercli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = main_bootmakercli.h; sourceTree = "<group>"; };
@@ -253,7 +386,6 @@
 		2725E3E80FED88C0005869F8 /* NetbookBootMaker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookBootMaker-Info.plist"; sourceTree = "<group>"; };
 		2725E70B0FED96A9005869F8 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NetbookBootMaker.xib; sourceTree = "<group>"; };
 		2725E73C0FED989D005869F8 /* NetbookBootMakerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetbookBootMakerController.h; sourceTree = "<group>"; };
-		2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetbookBootMakerController.m; sourceTree = "<group>"; };
 		272B48111066E3B900621DC7 /* SupportFiles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SupportFiles; sourceTree = "<group>"; };
 		272C33F010EA7E6F00659296 /* NetbookBootMaker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetbookBootMaker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		272C33F210EA7E6F00659296 /* NetbookBootMaker-Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NetbookBootMaker-Info copy.plist"; sourceTree = "<group>"; };
@@ -295,8 +427,8 @@
 		27CD3E5510EC42C500503E0D /* NetbookBootMaker.rc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetbookBootMaker.rc; sourceTree = "<group>"; };
 		27CD3E5910EC455800503E0D /* NetbookBootMaker.manifest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetbookBootMaker.manifest; sourceTree = "<group>"; };
 		27D2EA53103CBC5C006C97CE /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		27E8A6D510E5E388000137F7 /* kext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kext.h; sourceTree = "<group>"; };
-		27E8A6D610E5E388000137F7 /* kext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kext.m; sourceTree = "<group>"; };
+		27E8A6D510E5E388000137F7 /* Kext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Kext.h; sourceTree = "<group>"; };
+		27E8A6D610E5E388000137F7 /* Kext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Kext.m; sourceTree = "<group>"; };
 		27EC0B450FD7312F006740DB /* AboutWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutWindowController.h; sourceTree = "<group>"; };
 		27EC0B460FD7312F006740DB /* AboutWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutWindowController.m; sourceTree = "<group>"; };
 		27EC0BB90FD7696F006740DB /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -407,17 +539,13 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				27FC5ED110A5CC0800C86299 /* PCI.m */,
+				2748079D11554C140019EEFC /* Controllers */,
+				2748079C11554C070019EEFC /* Devices */,
 				66EC09530FBF3E9C00D3B55B /* Installer.m */,
-				27E8A6D510E5E388000137F7 /* kext.h */,
-				27E8A6D610E5E388000137F7 /* kext.m */,
+				27E8A6D610E5E388000137F7 /* Kext.m */,
 				668FFD0B0FC280D8007E4E75 /* DSDTPatcher.m */,
 				27CA342A0FD47303006E14C4 /* HexEditor.m */,
 				661B35C80FBE01E5004007B6 /* SystemInformation.m */,
-				27EC0B460FD7312F006740DB /* AboutWindowController.m */,
-				661B38280FBE5091004007B6 /* NetbookInstallerController.m */,
-				2725E73D0FED989D005869F8 /* NetbookBootMakerController.m */,
-				27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -465,6 +593,44 @@
 				272C61771049DB940031FF97 /* postinstall */,
 			);
 			path = bootMakerFiles;
+			sourceTree = "<group>";
+		};
+		2748079C11554C070019EEFC /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				27FC5ED110A5CC0800C86299 /* PCI.m */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		2748079D11554C140019EEFC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				270B19E61154789E00834110 /* NetbookBootMakerController.m */,
+				661B38280FBE5091004007B6 /* NetbookInstallerController.m */,
+				27848F4E0FF1AF6800BF23A5 /* UpdateExtraController.m */,
+				27EC0B460FD7312F006740DB /* AboutWindowController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		27480ADC11554C410019EEFC /* Devices */ = {
+			isa = PBXGroup;
+			children = (
+				27FC5ED010A5CC0800C86299 /* PCI.h */,
+			);
+			name = Devices;
+			sourceTree = "<group>";
+		};
+		27480ADD11554C470019EEFC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				661B38270FBE5091004007B6 /* NetbookInstallerController.h */,
+				27EC0B450FD7312F006740DB /* AboutWindowController.h */,
+				2725E73C0FED989D005869F8 /* NetbookBootMakerController.h */,
+				27848F4D0FF1AF6800BF23A5 /* UpdateExtraController.h */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		27CD2D7110EB143F00503E0D /* Plists */ = {
@@ -569,15 +735,13 @@
 		668FFAE60FC1146C007E4E75 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
-				27FC5ED010A5CC0800C86299 /* PCI.h */,
+				27480ADD11554C470019EEFC /* Controllers */,
+				27480ADC11554C410019EEFC /* Devices */,
+				27E8A6D510E5E388000137F7 /* Kext.h */,
 				66EC09520FBF3E9C00D3B55B /* Installer.h */,
 				668FFD0A0FC280D8007E4E75 /* DSDTPatcher.h */,
 				27CA34290FD47303006E14C4 /* HexEditor.h */,
 				661B35C70FBE01E5004007B6 /* SystemInformation.h */,
-				661B38270FBE5091004007B6 /* NetbookInstallerController.h */,
-				27EC0B450FD7312F006740DB /* AboutWindowController.h */,
-				2725E73C0FED989D005869F8 /* NetbookBootMakerController.h */,
-				27848F4D0FF1AF6800BF23A5 /* UpdateExtraController.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -617,7 +781,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				27CD27D110EAD0E000503E0D /* PBXTargetDependency */,
 				27CD328410EBFBE100503E0D /* PBXTargetDependency */,
 			);
 			name = NetbookBootMaker;
@@ -638,6 +801,7 @@
 				2757ED08113B130000BB5657 /* PBXBuildRule */,
 			);
 			dependencies = (
+				27C9108811488A5F00E83ABC /* PBXTargetDependency */,
 			);
 			name = "NetbookBootMaker-windows";
 			productName = NetbookBootMaker;
@@ -664,6 +828,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2748C2190FEB02EC000F22B8 /* Build configuration list for PBXNativeTarget "NetbookInstallerCLI" */;
 			buildPhases = (
+				27553FD71142E76700B5F76E /* Resources */,
 				2748C2110FEB02EB000F22B8 /* Sources */,
 				2748C2120FEB02EB000F22B8 /* Frameworks */,
 				277B5A6410EDCAA500EAF05F /* ShellScript */,
@@ -709,6 +874,7 @@
 			dependencies = (
 				272C61A61049DD180031FF97 /* PBXTargetDependency */,
 				27764BDD104648BF007B9B3C /* PBXTargetDependency */,
+				275540291142EE7900B5F76E /* PBXTargetDependency */,
 			);
 			name = NetbookInstaller;
 			productInstallPath = "$(HOME)/Applications";
@@ -731,6 +897,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				27553C8A1142E55200B5F76E /* All */,
 				8D1107260486CEB800E47090 /* NetbookInstaller */,
 				2748C2130FEB02EB000F22B8 /* NetbookInstallerCLI */,
 				271A58B91082F04000B5E39B /* NetbookBootMakerCLI */,
@@ -742,6 +909,7 @@
 				27CD328010EBFBD700503E0D /* NetbookBootLoader */,
 				27CD3BA410EC338100503E0D /* Preboot.dmg */,
 				277B5A0910EDBC4C00EAF05F /* Postboot.img */,
+				27553C861142E52A00B5F76E /* NetbookInstaller.img */,
 			);
 		};
 /* End PBXProject section */
@@ -780,6 +948,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27553FD71142E76700B5F76E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27553FD61142E74900B5F76E /* Localizable.strings in Resources */,
+				27553FD51142E73E00B5F76E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27848F100FF1AC8B00BF23A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -793,14 +970,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27F3CE6A10D75EB8004F21D0 /* SupportFiles in Resources */,
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				661B389B0FBE6957004007B6 /* dell_mini_icon.icns in Resources */,
 				661B389C0FBE6957004007B6 /* DellMini9.png in Resources */,
 				27EC0C2A0FD76DC0006740DB /* about.xib in Resources */,
 				27EC0BC00FD7698C006740DB /* Localizable.strings in Resources */,
-				27CD3E5A10EC455800503E0D /* NetbookBootMaker.manifest in Resources */,
 				2759797A10EEB257009671B1 /* NetbookInstaller Help in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -819,7 +994,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf {} \\;\n\n/Developer/Cocotron/1.0/bin/retargetBundle -framework Foundation -framework AppKit -destination \"$TARGET_BUILD_DIR/$EXECUTABLE_FOLDER_PATH\"";
+			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n\n/Developer/Cocotron/1.0/bin/retargetBundle -framework Foundation -framework AppKit -destination \"$TARGET_BUILD_DIR/$EXECUTABLE_FOLDER_PATH\"";
 		};
 		272C618A1049DBB40031FF97 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -832,7 +1007,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf {} \\;\n\n\necho \"Copying in machine.plist\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/\"\n/bin/cp \"${TARGET_BUILD_DIR}/../../SupportFiles/machine.plist\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/\"";
+			shellScript = "echo \"Copying in machine.plist\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/\"\n/bin/cp \"${TARGET_BUILD_DIR}/../../SupportFiles/machine.plist\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/\"\nfind \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n";
 		};
 		2733D3A810CDFE21004387BA /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -844,8 +1019,22 @@
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "set -o xtrace\n\necho \"Copying in NetbookInstallerCLI\"\n\n/bin/cp -rf \"${TARGET_BUILD_DIR}/../../SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\"\ncp -rf  \"${TARGET_BUILD_DIR}/../../Postboot/10.6/Extensions.mkext\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/UpdateExtensions/\" >& /dev/null\n\n/bin/cp -rf \"${TARGET_BUILD_DIR}/NetbookInstallerCLI.app/Contents/MacOS/NetbookInstallerCLI\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/MacOS/\"\n/bin/cp -rf \"${TARGET_BUILD_DIR}/UpdateExtra.app\"      \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\"\n/bin/cp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.img\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\"\n\nfind \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n\nVERSION=`defaults read \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info\" CFBundleVersion`\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\n\n\nDATE=`date \"+%Y%m%d%H%M%S\"`\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info\" CFBundleVersion $DATE\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app\"\n\n\n\ncd \"${TARGET_BUILD_DIR}\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\"\nzip -x \\*.svn\\* -9 -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\" \"${PRODUCT_NAME} $VERSION.app\" &> /dev/null\n\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app.zip\"\nzip -x \\*.svn\\* -9 -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app.zip\" \"${PRODUCT_NAME} $DATE.app\" &> /dev/null\n\ncd \"${TARGET_BUILD_DIR}/../../\"\ntar -zcf /tmp/NetbookInstaller.$DATE.src.tgz --exclude='*.svn' --exclude='build' .\ncd \"${TARGET_BUILD_DIR}\"\ncp /tmp/NetbookInstaller.$DATE.src.tgz .\nrm /tmp/NetbookInstaller.$DATE.src.tgz\n";
+			showEnvVarsInLog = 0;
+		};
+		27553C851142E52A00B5F76E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf {} \\;\n\necho \"Copying in NetbookInstallerCLI\"\n\n/bin/cp -rf \"${TARGET_BUILD_DIR}/../../SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\"\n\n/bin/cp -rf \"${TARGET_BUILD_DIR}/NetbookInstallerCLI.app/Contents/MacOS/NetbookInstallerCLI\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/MacOS/\"\n/bin/cp -rf \"${TARGET_BUILD_DIR}/UpdateExtra.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\"\n\n\nVERSION=`defaults read \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info\" CFBundleVersion`\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\n\ncd \"${TARGET_BUILD_DIR}\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\"\nzip -9 -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\" \"${PRODUCT_NAME} $VERSION.app\"\n";
+			shellScript = "#!/bin/sh\n\nAVAIL=6000\nPREVSIZE=6000\nBUFFER=800\ncd \"${TARGET_BUILD_DIR}/\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookInstaller/\"\n\n#tar -c  NetbookBootMakerCLI.app > \"${TARGET_BUILD_DIR}/NetbookInstallerCLI.tar\"\n#bzip2 --compress --best \"${TARGET_BUILD_DIR}/NetbookInstallerCLI.tar\"\n\n\n###### Postboot ramdisk\nwhile [ $AVAIL -gt 850 ]\ndo\n\nrm -rf \"${TARGET_BUILD_DIR}/NetbookInstaller/\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.img\"\n\nmkdir -p \"${TARGET_BUILD_DIR}/NetbookInstaller/\"\nmkdir -p \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"\n\n# Copy in helper applicaiton(s)\n#cp -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar.bz2\" \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"\ncp -rf \"${TARGET_BUILD_DIR}/../../NetbookInstallerRamdisk/IMG/\"* \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstallerCLI.app\" \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"\n\n\nfind \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n\n\nSIZE=`du -s \"${TARGET_BUILD_DIR}/NetbookInstallerTmp\"`\nSIZE=${SIZE%%$'\\t'*}\nSIZE=$(( $SIZE + $PREVSIZE ))\necho $SIZE\nRAMDISK=`hdiutil attach -nomount ram://$SIZE`\nRAMDISK=`echo -e $RAMDISK`\n\nnewfs_hfs -v NetbookInstaller \"$RAMDISK\"\ndiskutil mount -mountPoint \"${TARGET_BUILD_DIR}/NetbookInstaller\" $RAMDISK\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"* \"${TARGET_BUILD_DIR}/NetbookInstaller/\"\n\n# make executable\nchmod +x \"${TARGET_BUILD_DIR}/NetbookInstaller/WindowServer\"\n\nsync\nAVAIL=`df | grep \"${TARGET_BUILD_DIR}/NetbookInstaller\"`\nAVAIL=${AVAIL%%\\%*}\nAVAIL=${AVAIL% *}\nAVAIL=$(echo \"${AVAIL}\" | sed -e 's/^ *//g;s/ *$//g')\nAVAIL=${AVAIL##* }\nAVAIL=$((AVAIL + 0))\nPREVSIZE=$(($PREVSIZE - $AVAIL + $BUFFER))\n\n\necho \"Available blocks = $AVAIL\"\ndiskutil unmount \"$RAMDISK\"\ndd if=\"$RAMDISK\" of=\"${TARGET_BUILD_DIR}/NetbookInstaller.img\"\ndiskutil eject \"$RAMDISK\"\n\nrm -rf \"${TARGET_BUILD_DIR}/NetbookInstaller/\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookInstallerTmp/\"\n\ndone\n##### End postboot ramdiks\n\n\nexit 0";
 		};
 		27764BEB104649D3007B9B3C /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -858,7 +1047,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf {} \\;\n\n\nVERSION=`defaults read \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/\"Contents/Info CFBundleVersion`\n\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookBootLoader/NetbookBootLoader.dmg\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/NetbookBootLoader.img\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot0\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/\"\ncp -rf  \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot1h\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/\"\n\n\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\n\ncd \"${TARGET_BUILD_DIR}\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\"\nzip -9 -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\" \"${PRODUCT_NAME} $VERSION.app\"\n";
+			shellScript = "VERSION=`defaults read \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/\"Contents/Info CFBundleVersion`\n\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookBootLoader/NetbookBootLoader.dmg\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/NetbookBootLoader.img\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot0\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/\"\ncp -rf  \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot1h\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/BootMakerSupport/\"\n\nfind \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n\nVERSION=`defaults read \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info\" CFBundleVersion`\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app\"\n\n\nDATE=`date \"+%Y%m%d%H%M%S\"`\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Info\" CFBundleVersion $DATE\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.zip.app\"\ncp -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app\"\n\n\n\ncd \"${TARGET_BUILD_DIR}\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\"\nzip -x \\*.svn\\* -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $VERSION.app.zip\" \"${PRODUCT_NAME} $VERSION.app\" &> /dev/null\n\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app.zip\"\nzip -x \\*.svn\\* -r \"${TARGET_BUILD_DIR}/${PRODUCT_NAME} $DATE.app.zip\" \"${PRODUCT_NAME} $DATE.app\" &> /dev/null\n\n";
 		};
 		277B5A0C10EDBC4C00EAF05F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -871,7 +1060,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/sh\n\nAVAIL=5000\nPREVSIZE=5000\n\ncd \"${TARGET_BUILD_DIR}/\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar.bz2\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookBootMaker.app\"\n\n#tar -c  NetbookBootMakerCLI.app > \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\"\n#bzip2 --compress --best \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\"\n\n###### Postboot ramdisk\nwhile [ $AVAIL -gt 300 ]\ndo\n\nrm -rf \"${TARGET_BUILD_DIR}/Postboot/\"\nrm -rf \"${TARGET_BUILD_DIR}/PostbootTmp/\"\nrm -rf \"${TARGET_BUILD_DIR}/Postboot.img\"\n\nmkdir -p \"${TARGET_BUILD_DIR}/Postboot/\"\nmkdir -p \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\n#mkdir -p \"${TARGET_BUILD_DIR}/PostbootTmp/dev/\"\n#mkdir -p \"${TARGET_BUILD_DIR}/PostbootTmp/tmp/\"\n\n\n# Copy in helper applicaiton(s)\n#cp -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar.bz2\" \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf \"${TARGET_BUILD_DIR}/../../Postboot/IMG/\"* \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.app\" \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\n\nfind \"${TARGET_BUILD_DIR}/PostbootTmp/\" -name .svn -exec rm -rf {} \\;\n\n# Copy in pkgutil, bzip2\ncp -rf `which pkgutil` \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf `which bzip2` \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\n\n\nSIZE=`du -s \"${TARGET_BUILD_DIR}/PostbootTmp\"`\nSIZE=${SIZE%%$'\\t'*}\nSIZE=$(( $SIZE + $PREVSIZE ))\necho $SIZE\nRAMDISK=`hdiutil attach -nomount ram://$SIZE`\nRAMDISK=`echo -e $RAMDISK`\n\nnewfs_hfs -v Postboot \"$RAMDISK\"\ndiskutil mount -mountPoint \"${TARGET_BUILD_DIR}/Postboot\" $RAMDISK\ncp -rf \"${TARGET_BUILD_DIR}/PostbootTmp/\"* \"${TARGET_BUILD_DIR}/Postboot\"\n\n# make pkgutil executable\nchmod +x \"${TARGET_BUILD_DIR}/Postboot/pkgutil\"\nchmod +x \"${TARGET_BUILD_DIR}/Postboot/bzip2\"\nchmod +x \"${TARGET_BUILD_DIR}/Postboot/WindowServer\"\n\nsync\nAVAIL=`df | grep \"${TARGET_BUILD_DIR}/Postboot\"`\nAVAIL=${AVAIL%%\\%*}\nAVAIL=${AVAIL% *}\nAVAIL=$(echo \"${AVAIL}\" | sed -e 's/^ *//g;s/ *$//g')\nAVAIL=${AVAIL##* }\nAVAIL=$((AVAIL + 100))\nPREVSIZE=$(($PREVSIZE - $AVAIL))\n\n\necho \"Available blocks = $AVAIL\"\ndiskutil unmount \"$RAMDISK\"\ndd if=\"$RAMDISK\" of=\"${TARGET_BUILD_DIR}/Postboot.img\"\ndiskutil eject \"$RAMDISK\"\n\nrm -rf \"${TARGET_BUILD_DIR}/Postboot/\"\nrm -rf \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\ndone\n##### End postboot ramdiks\n\n\nexit 0";
+			shellScript = "#!/bin/sh\n\nAVAIL=5000\nPREVSIZE=5000\nBUFFER=300\ncd \"${TARGET_BUILD_DIR}/\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar.bz2\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\"\nrm -rf \"${TARGET_BUILD_DIR}/NetbookBootMaker.app\"\n\n#tar -c  NetbookBootMakerCLI.app > \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\"\n#bzip2 --compress --best \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar\"\n\n###### Postboot ramdisk\nwhile [ $AVAIL -gt $BUFFER ]\ndo\n\nrm -rf \"${TARGET_BUILD_DIR}/Postboot/\"\nrm -rf \"${TARGET_BUILD_DIR}/PostbootTmp/\"\nrm -rf \"${TARGET_BUILD_DIR}/Postboot.img\"\n\nmkdir -p \"${TARGET_BUILD_DIR}/Postboot/\"\nmkdir -p \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\n#mkdir -p \"${TARGET_BUILD_DIR}/PostbootTmp/dev/\"\n#mkdir -p \"${TARGET_BUILD_DIR}/PostbootTmp/tmp/\"\n\n\n# Copy in helper applicaiton(s)\n#cp -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.tar.bz2\" \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf \"${TARGET_BUILD_DIR}/../../Postboot/IMG/\"* \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookBootMakerCLI.app\" \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\n\nfind \"${TARGET_BUILD_DIR}/PostbootTmp/\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n\n# Copy in pkgutil, bzip2\ncp -rf `which pkgutil` \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf `which bzip2` \"${TARGET_BUILD_DIR}/PostbootTmp/\"\ncp -rf `which xxd` \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\n\n\nSIZE=`du -s \"${TARGET_BUILD_DIR}/PostbootTmp\"`\nSIZE=${SIZE%%$'\\t'*}\nSIZE=$(( $SIZE + $PREVSIZE ))\necho $SIZE\nRAMDISK=`hdiutil attach -nomount ram://$SIZE`\nRAMDISK=`echo -e $RAMDISK`\n\nnewfs_hfs -v Postboot \"$RAMDISK\"\ndiskutil mount -mountPoint \"${TARGET_BUILD_DIR}/Postboot\" $RAMDISK\ncp -rf \"${TARGET_BUILD_DIR}/PostbootTmp/\"* \"${TARGET_BUILD_DIR}/Postboot\"\n\n# make pkgutil executable\nchmod +x \"${TARGET_BUILD_DIR}/Postboot/pkgutil\"\nchmod +x \"${TARGET_BUILD_DIR}/Postboot/bzip2\"\nchmod +x \"${TARGET_BUILD_DIR}/Postboot/WindowServer\"\n\nsync\nAVAIL=`df | grep \"${TARGET_BUILD_DIR}/Postboot\"`\nAVAIL=${AVAIL%%\\%*}\nAVAIL=${AVAIL% *}\nAVAIL=$(echo \"${AVAIL}\" | sed -e 's/^ *//g;s/ *$//g')\nAVAIL=${AVAIL##* }\nAVAIL=$((AVAIL + 0))\nPREVSIZE=$(($PREVSIZE - $AVAIL + $BUFFER))\n\n\necho \"Available blocks = $AVAIL\"\ndiskutil unmount \"$RAMDISK\"\ndd if=\"$RAMDISK\" of=\"${TARGET_BUILD_DIR}/Postboot.img\"\ndiskutil eject \"$RAMDISK\"\n\nrm -rf \"${TARGET_BUILD_DIR}/Postboot/\"\nrm -rf \"${TARGET_BUILD_DIR}/PostbootTmp/\"\n\ndone\n##### End postboot ramdiks\n\n\nexit 0";
 		};
 		277B5A6410EDCAA500EAF05F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -884,7 +1073,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf {} \\;\nexit 0;";
+			shellScript = "\n/bin/cp -rf \"${TARGET_BUILD_DIR}/../../SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\"\ncp -rf  \"${TARGET_BUILD_DIR}/../../Postboot/10.6/Extensions.mkext\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/UpdateExtensions/\" >& /dev/null\n\nfind \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n\nexit 0;";
 		};
 		27A5C223108CC41700AE5720 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -897,7 +1086,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "find \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf {} \\;\n\n# Copy in support files\n#cp -rf \"${TARGET_BUILD_DIR}/../../SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\"\n\n# remove support files form NBI\ncp -rf  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/NetbookInstaller.app/Contents/Resources/SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\" >& /dev/null\nrm -rf  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/NetbookInstaller.app/Contents/Resources/SupportFiles\"\n\n# copy in UpdateExtra.app\n#/bin/cp -rf \"${TARGET_BUILD_DIR}/UpdateExtra.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\"\n\n#Copy in BootMakerCLIFiles\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles\"\nmkdir \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles\"\n\ncp -rf \"${TARGET_BUILD_DIR}/../../bootMakerFiles/\"* \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles/\"\n";
+			shellScript = "\n# Copy in support files\n#cp -rf \"${TARGET_BUILD_DIR}/../../SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\"\n\n# remove support files form NBI\ncp -rf  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/NetbookInstaller.app/Contents/Resources/SupportFiles\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/\" >& /dev/null\nrm -rf  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/NetbookInstaller.app/Contents/Resources/SupportFiles\"\n\n# copy in UpdateExtra.app\n#/bin/cp -rf \"${TARGET_BUILD_DIR}/UpdateExtra.app\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/\"\n\n#Copy in BootMakerCLIFiles\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles\"\nmkdir \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles\"\n\ncp -rf \"${TARGET_BUILD_DIR}/../../bootMakerFiles/\"* \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app/Contents/Resources/bootMakerFiles/\"\n\nfind \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}.app\" -name .svn -exec rm -rf \\\"{}\\\" \\;\n";
 		};
 		27A8660810573BF600A8E274 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -923,7 +1112,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "rm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"\n\n\nNAME=NetbookBootLoader\ndd if=/dev/zero of=\"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}.dmg\" bs=1m count=32\nfdisk -e \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}.dmg\" >& /dev/null << EOF\ny\n\na boothfs\nw\nq\nEOF\n\nDISK=`hdid -nomount \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}.dmg\"`\nDISK=${DISK%% *}\n\n\n\nnewfs_hfs -v \"$NAME\" ${DISK}s2 \necho  ${DISK}s2\nmkdir \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$NAME\"\nmount -t hfs ${DISK}s2 \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$NAME\"\n\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$NAME/Extra\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/Themes\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/\"\n\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/\"\nfdisk -f \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot0\" -u -y ${DISK}\ndd if=\"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot1h\" of=${DISK}s2\n\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Scan Singe Drive\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Rescan\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Instant Menu\" \"yes\"\n\n\ncp \"${TARGET_BUILD_DIR}/Preboot.dmg\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/\"\nsync\n#diskutil eject \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}\"\numount -f \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}\"\n\nexit 0;";
+			shellScript = "setenv -o xtrace\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"\n\n\nNAME=NetbookBootLoader\ndd if=/dev/zero of=\"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}.dmg\" bs=1m count=70\nfdisk -e \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}.dmg\" >& /dev/null << EOF\ny\n\na boothfs\nw\nq\nEOF\n\nDISK=`hdid -nomount \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}.dmg\"`\nDISK=${DISK%% *}\n\n\n\nnewfs_hfs -v \"$NAME\" ${DISK}s2 \necho  ${DISK}s2\nmkdir \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$NAME\"\nmount -t hfs ${DISK}s2 \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$NAME\"\n\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$NAME/Extra\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/Themes\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/\"\n\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/\"\ndd if=\"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot1h\" of=${DISK}s2\nfdisk -f \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/bootloader/Chameleon 2 NBI/boot0\" -u -y ${DISK}\n\n#defaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Scan Singe Drive\" \"Yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Rescan\" \"Yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Instant Menu\" \"Yes\"\ndefaults delete \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Timeout\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot\" \"Kernel Flags\" \"arch=i386\"\n\nplutil -convert xml1 \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/com.apple.Boot.plist\"\n\n\ncp \"${TARGET_BUILD_DIR}/Preboot.dmg\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}/Extra/\"\nsync\n#diskutil eject \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}\"\numount -f \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/${NAME}\"\n\nexit 0;";
 		};
 		27CD3BA310EC338100503E0D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -936,7 +1125,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -o xtrace\n\n#### preboot.dmg \nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"*\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.5\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.6\"\n\n\ncp -rf  \"${TARGET_BUILD_DIR}/Postboot.img\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/Postboot.img\"\ncp -rf  \"${TARGET_BUILD_DIR}/../../Postboot/10.6/Extensions.mkext\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.6/\" >& /dev/null\ncp -rf  \"${TARGET_BUILD_DIR}/../../Postboot/10.5/Extensions.mkext\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.5/\" >& /dev/null\n\n\n\n## Add rescan option\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Scan Singe Drive\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Rescan\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Instant Menu\" \"yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/RAMDisk\" \"BTAlias\" \"no\"\n\n\n\nPREVSIZE=5000\nAVAIL=$PREVSIZE\nBUFFER=400\nLOOP=1\nwhile [ $AVAIL -gt $BUFFER ]\ndo\n\n## Make DMG ##\nDMG=\"Preboot.dmg\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" >& /dev/null\n\n\n\nSIZE=`du -s \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\"`\nSIZE=${SIZE%%$'\\t'*}\nSIZE=$(( $SIZE + $PREVSIZE ))\n\necho \"Sectors: $SIZE\"\n\nhdiutil create -sectors $SIZE \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG.raw.dmg\" -srcfolder \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\" -layout MBRSPUD -noautostretch\nhdiutil convert \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG.raw.dmg\"  -format UDRW -o \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\"\nrm \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG.raw.dmg\"\nhdiutil mount \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\"\n\nAVAIL=`df | grep /Volumes/Preboot`\nAVAIL=${AVAIL%%\\%*}\nAVAIL=${AVAIL% *}\nAVAIL=$(echo \"${AVAIL}\" | sed -e 's/^ *//g;s/ *$//g')\nAVAIL=${AVAIL##* }\n##umount -f /Volumes/Preboot\ndiskutil eject /Volumes/Preboot\n\nPREVSIZE=$(( $PREVSIZE - ($AVAIL - $BUFFER) ))\n\ndone\n\n\ncp \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" \"${TARGET_BUILD_DIR}/$DMG\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}\"\nexit 0;\n\n#hdiutil create \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" -srcfolder \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\"\n#format must be UDRW\n#hdiutil convert \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" -format UDRW -o \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/$DMG\" \n";
+			shellScript = "set -o xtrace\n\n#### preboot.dmg \nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"*\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.5\"\nmkdir -p \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.6\"\n\n\ncp -rf  \"${TARGET_BUILD_DIR}/Postboot.img\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/Postboot.img\"\ncp -rf  \"${TARGET_BUILD_DIR}/../../Postboot/10.6/Extensions.mkext\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.6/\" >& /dev/null\ncp -rf  \"${TARGET_BUILD_DIR}/../../Postboot/10.5/Extensions.mkext\" \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/10.5/\" >& /dev/null\n\n\n\n## Add rescan option\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/com.apple.Boot.plist\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\"\ncp -rf \"${TARGET_BUILD_DIR}/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/1201N.DSDT.aml\"  \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/\"\n\n#defaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Scan Singe Drive\" \"Yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Rescan\" \"Yes\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Instant Menu\" \"Yes\"\ndefaults delete \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Timeout\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot\" \"Kernel Flags\" \"arch=i386\"\n\nplutil -convert xml1 \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/Extra/com.apple.Boot.plist\"\ndefaults write \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/RAMDisk\" \"BTAlias\" \"No\"\nplutil -convert xml1 \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/RAMDisk.plist\"\n\n\n\nPREVSIZE=5000\nAVAIL=$PREVSIZE\nBUFFER=500\nLOOP=1\nwhile [ $AVAIL -gt $BUFFER ]\ndo\n\n## Make DMG ##\nDMG=\"Preboot.dmg\"\nrm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" >& /dev/null\n\n\n\nSIZE=`du -s \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\"`\nSIZE=${SIZE%%$'\\t'*}\nSIZE=$(( $SIZE + $PREVSIZE + 200))\n\necho \"Sectors: $SIZE\"\nchmod +w \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/\"\nhdiutil create -sectors $SIZE \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG.raw.dmg\" -srcfolder \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\" -layout MBRSPUD -noautostretch\nhdiutil convert \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG.raw.dmg\"  -format UDRW -o \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\"\nrm \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG.raw.dmg\"\nhdiutil mount \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\"\n\nAVAIL=`df | grep /Volumes/Preboot`\nAVAIL=${AVAIL%%\\%*}\nAVAIL=${AVAIL% *}\nAVAIL=$(echo \"${AVAIL}\" | sed -e 's/^ *//g;s/ *$//g')\nAVAIL=${AVAIL##* }\n##umount -f /Volumes/Preboot\ndiskutil eject /Volumes/Preboot\n\nPREVSIZE=$(( $PREVSIZE - ($AVAIL - $BUFFER - 100) ))\n\ndone\n\n\ncp \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" \"${TARGET_BUILD_DIR}/$DMG\"\n#rm -rf \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}\"\nexit 0;\n\n#hdiutil create \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" -srcfolder \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/Preboot/\"\n#format must be UDRW\n#hdiutil convert \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/$DMG\" -format UDRW -o \"${TARGET_BUILD_DIR}/${PRODUCT_NAME}/iso/Extra/$DMG\" \n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -961,7 +1150,7 @@
 				2725E6DC0FED9435005869F8 /* main_bootmake.m in Sources */,
 				2725E6700FED8A07005869F8 /* AboutWindowController.m in Sources */,
 				27CD2F1010EBD6D400503E0D /* Installer.m in Sources */,
-				2725E73E0FED989D005869F8 /* NetbookBootMakerController.m in Sources */,
+				270B19E71154789E00834110 /* NetbookBootMakerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,7 +1210,7 @@
 				27CA342B0FD47303006E14C4 /* HexEditor.m in Sources */,
 				27EC0B470FD7312F006740DB /* AboutWindowController.m in Sources */,
 				27FC5ED210A5CC0800C86299 /* PCI.m in Sources */,
-				27E8A6D710E5E388000137F7 /* kext.m in Sources */,
+				27E8A6D710E5E388000137F7 /* Kext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1221,76 @@
 			isa = PBXTargetDependency;
 			target = 27848F130FF1AC8B00BF23A5 /* UpdateExtra */;
 			targetProxy = 272C61A51049DD180031FF97 /* PBXContainerItemProxy */;
+		};
+		27553C8E1142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27553C861142E52A00B5F76E /* NetbookInstaller.img */;
+			targetProxy = 27553C8D1142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C901142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 277B5A0910EDBC4C00EAF05F /* Postboot.img */;
+			targetProxy = 27553C8F1142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C921142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27CD3BA410EC338100503E0D /* Preboot.dmg */;
+			targetProxy = 27553C911142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C941142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27CD328010EBFBD700503E0D /* NetbookBootLoader */;
+			targetProxy = 27553C931142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C961142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 272C33CB10EA7E6F00659296 /* NetbookBootMaker-windows */;
+			targetProxy = 27553C951142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C981142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27A8660910573BF600A8E274 /* NetbookBootCD */;
+			targetProxy = 27553C971142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C9A1142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 272EAD4D0FF7FD5F00274B67 /* bless */;
+			targetProxy = 27553C991142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C9C1142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27848F130FF1AC8B00BF23A5 /* UpdateExtra */;
+			targetProxy = 27553C9B1142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553C9E1142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2725E3E50FED88C0005869F8 /* NetbookBootMaker */;
+			targetProxy = 27553C9D1142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553CA01142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 271A58B91082F04000B5E39B /* NetbookBootMakerCLI */;
+			targetProxy = 27553C9F1142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553CA21142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2748C2130FEB02EB000F22B8 /* NetbookInstallerCLI */;
+			targetProxy = 27553CA11142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553CA41142E55A00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* NetbookInstaller */;
+			targetProxy = 27553CA31142E55A00B5F76E /* PBXContainerItemProxy */;
+		};
+		27553CA61142E57C00B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2748C2130FEB02EB000F22B8 /* NetbookInstallerCLI */;
+			targetProxy = 27553CA51142E57C00B5F76E /* PBXContainerItemProxy */;
+		};
+		275540291142EE7900B5F76E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27553C861142E52A00B5F76E /* NetbookInstaller.img */;
+			targetProxy = 275540281142EE7900B5F76E /* PBXContainerItemProxy */;
 		};
 		27764BDD104648BF007B9B3C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1048,10 +1307,10 @@
 			target = 277B5A0910EDBC4C00EAF05F /* Postboot.img */;
 			targetProxy = 277B5A2210EDBC5C00EAF05F /* PBXContainerItemProxy */;
 		};
-		27CD27D110EAD0E000503E0D /* PBXTargetDependency */ = {
+		27C9108811488A5F00E83ABC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 272C33CB10EA7E6F00659296 /* NetbookBootMaker-windows */;
-			targetProxy = 27CD27D010EAD0E000503E0D /* PBXContainerItemProxy */;
+			target = 2725E3E50FED88C0005869F8 /* NetbookBootMaker */;
+			targetProxy = 27C9108711488A5F00E83ABC /* PBXContainerItemProxy */;
 		};
 		27CD2CDE10EB133900503E0D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1206,6 +1465,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1228,9 +1491,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = (
+					x86_64,
+					i386,
+				);
 				CODE_SIGN_IDENTITY = "Don't Code Sign";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = main_bootmake.pch;
@@ -1239,7 +1510,8 @@
 				OTHER_LDFLAGS = "";
 				PREBINDING = NO;
 				PRODUCT_NAME = NetbookBootMaker;
-				SDKROOT = macosx10.5;
+				SDKROOT = "";
+				VALID_ARCHS = "x86_64 i386";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1417,6 +1689,48 @@
 			};
 			name = Release;
 		};
+		27553C871142E52A00B5F76E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = NetbookInstaller.img;
+			};
+			name = Debug;
+		};
+		27553C881142E52A00B5F76E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = NetbookInstaller.img;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		27553C8B1142E55200B5F76E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = All;
+			};
+			name = Debug;
+		};
+		27553C8C1142E55200B5F76E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = All;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		277B5A0E10EDBC4C00EAF05F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1558,6 +1872,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = YES;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
@@ -1581,6 +1899,10 @@
 					x86_64,
 				);
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
 				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
@@ -1682,6 +2004,24 @@
 			buildConfigurations = (
 				2748C2170FEB02EB000F22B8 /* Debug */,
 				2748C2180FEB02EB000F22B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27553C891142E54900B5F76E /* Build configuration list for PBXAggregateTarget "NetbookInstaller.img" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27553C871142E52A00B5F76E /* Debug */,
+				27553C881142E52A00B5F76E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27553CA71142E59A00B5F76E /* Build configuration list for PBXAggregateTarget "All" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27553C8B1142E55200B5F76E /* Debug */,
+				27553C8C1142E55200B5F76E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
