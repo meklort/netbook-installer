@@ -3,7 +3,7 @@
 //  NetbookInstaller
 //
 //  Created by Evan Lojewski on 5/18/09.
-//  Copyright 2009. All rights reserved.
+//  Copyright 2009-2010. All rights reserved.
 //
 
 
@@ -45,8 +45,9 @@ int main(int argc, char *argv[])
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
 	{
 		ExtendedLog(@"Unsupported operating system target. Must be at least 10.6\n");
+		exit(-1);
 	}
-	
+
 	[installer mountRamDisk];	
 	[installer remountTargetWithPermissions];
 	[installer removePrevExtra];
@@ -68,44 +69,38 @@ int main(int argc, char *argv[])
 		
 
 			
-			
-	[installer setQuietBoot:	NO];
-	[installer disableHibernation:	YES];
+	if(strlen(argv[1]) == 1 && argv[1][0] == '/' && (argc == 1))
+	{
+		// preserve hibernation and quietboot settings
+	}
+	else {
+		[installer setQuietBoot:	NO];
+		[installer disableHibernation:	YES];
+		[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
+
+	}
+
 
 	//	[installer setRemoteCD:			YES]; // This is not possilbe when running as root.
 	
 	// Install default bootlaoder
 		
 	// Install the gui
-	[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
-
-
 	
-//	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.6
-//	{
-//		// This is ONLY going to be run from the install dvd, so we can copy these from the /
-//		[installer copyFrom:@"/Extra/Extensions.mkext" toDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/"]];
-		//[installer copyFrom:@"/mach_kernel.10.5.6" toDir:[[systemInfo installPath] stringByAppendingString:@"/"]];
-		//[installer useLatestKernel];
-//		[installer useSystemKernel];
-//		
-//	} else
-	{
-		[installer copyDependencies];
-		
-		[installer installExtensions];
-		[installer installLocalExtensions];
-		
-		[installer patchGMAkext];
-		[installer patchFramebufferKext];
-		[installer patchIO80211kext];
-		[installer patchBluetooth];
-		[installer patchAppleUSBEHCI];
-		
-		
-		[installer generateExtensionsCache];
-		[installer useSystemKernel];
-	}	
+	[installer copyDependencies];
+	
+	[installer installExtensions];
+	[installer installLocalExtensions];
+	
+	[installer patchGMAkext];
+	[installer patchFramebufferKext];
+	[installer patchIO80211kext];
+	[installer patchBluetooth];
+	[installer patchAppleUSBEHCI];
+	
+	
+	[installer generateExtensionsCache];
+	[installer useSystemKernel];
 	
 	//[installer makeDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/Applications"]];
 

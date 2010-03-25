@@ -14,7 +14,7 @@
 
 
 #define nbiRamdiskPath			"/Volumes/ramdisk"
-
+#define nbiRamdiskName			"NetbookInstaller"
 #define nbiAuthorizationRight	"com.meklort.netbookinstaller"
 
 // Internal paths
@@ -105,12 +105,8 @@
 
 // Kext support (patching and copying) -- TODO: make this a generic function / plist configurable / etc
 - (BOOL) patchGMAkext;
-- (BOOL) patchGMA950kext;
-- (BOOL) patchGMAX3100kext;
 
 - (BOOL) patchFramebufferKext;
-- (BOOL) patch950FramebufferKext;
-- (BOOL) patchX3100FramebufferKext;
 
 - (BOOL) patchIO80211kext;
 - (BOOL) patchBluetooth;
@@ -126,7 +122,7 @@
 
 - (void) systemInfo: (SystemInformation*) info;
 - (BOOL) remountDiskFrom:(NSString*) source to: (NSString*) dest;
-- (NSString*) mountRamDiskAt: (NSString*) path withSize: (UInt64) size andOptions: (NSString*) options;
+- (NSString*) mountRamDiskAt: (NSString*) path withName: (NSString*) name andSize: (UInt64) size andOptions: (NSString*) options;
 - (void) mountRamDisk;
 - (void) unmountRamDisk;
 - (void)remountTargetWithPermissions;

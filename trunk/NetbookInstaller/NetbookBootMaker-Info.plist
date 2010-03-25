@@ -17,11 +17,9 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.8.4a1</string>
-	<key>LSMinimumSystemVersion</key>
-	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
+	<string>0.8.4 RC1</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2009, Evan Lojewski.</string>
+	<string>Copyright © 2009-2010, Evan Lojewski.</string>
 	<key>NSMainNibFile</key>
 	<string>NetbookBootMaker</string>
 	<key>NSPrincipalClass</key>

@@ -3,7 +3,7 @@
 //  NetbookInstaller
 //
 //  Created by Evan Lojewski on 6/20/09.
-//  Copyright 2009 __MyCompanyName__. All rights reserved.
+//  Copyright 2009. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

@@ -3,15 +3,12 @@
 //  NetbookInstaller
 //
 //  Created by Evan Lojewski on 5/15/09.
-//  Copyright 2009. All rights reserved.
+//  Copyright 2009-2010. All rights reserved.
 //
 
 #import "SystemInformation.h"
 #import <IOKit/IOKitLib.h>
 #import <Foundation/NSPropertyList.h>
-
-//#define KERNEL_VERSION( __major__, __minor__, __bugfix__ )			(__major__ << 8 | __minor__ << 4 | __bugfix__)
-
 
 #import <sys/sysctl.h>
 
@@ -20,7 +17,6 @@
 #import <sys/param.h>
 
 #import <openssl/md5.h>
-//#import "checksum.h"
 
 
 @implementation SystemInformation
@@ -112,7 +108,7 @@
 
 - (NSDictionary*) installedBootloader
 {
-	if(!installedBootloader) return @"None";
+	//if(!installedBootloader) //return [NSDictionary dictionaryWithObject:@"ERROR" forKey:@"Bootloader"];
 	return installedBootloader;
 }
 
@@ -450,12 +446,13 @@
 
 - (void) determineBootloader
 {
+	installedBootloader = nil;
 	return;
 	
-	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
+//	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
 
-	NSDictionary* booter;
-	NSEnumerator* bootloaders = [allbootloaders keyEnumerator];
+//	NSDictionary* booter;
+//	NSEnumerator* bootloaders = [allbootloaders keyEnumerator];
 
 	NSData* bootloader = [[NSData alloc] initWithContentsOfFile:[installPath stringByAppendingString:@"/boot"]];
 	NSRange replaceByte;
@@ -485,10 +482,10 @@
 		i++;
 	}
 
-	while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
+	/*while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
 	{
 		//if([md5 isEqualToData:[[[bootloaderDict objectForKey:@"Bootloaders"] objectForKey:booter] objectForKey:@"MD5"]]) installedBootloader = [[NSDictionary alloc] initWithDictionary:booter copyItems:YES];
-	}
+	}*/
 	
 	
 	[bootloader release];
@@ -516,7 +513,7 @@
 	return YES;
 }
 
-- (NSArray*) installableVolumes: (int) minVersions
+- (NSArray*) installableVolumesWithKernel: (int) minVersions andInstallDVD: (BOOL) dvdonly
 {
 	NSError* err;
 	NSMutableArray* volumes = (NSMutableArray*) [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/Volumes" error: &err];
@@ -540,7 +537,18 @@
 			}
 			else
 			{
-				i++;
+				BOOL isDir = NO;
+				if([[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/" stringByAppendingString:[[volumes objectAtIndex:i] stringByAppendingString:@"/System/Installation/"]] isDirectory:&isDir] && isDir)
+				{
+					// /System/Installation exists, this is an install DVD
+					if(!dvdonly) [volumes removeObjectAtIndex:i];
+					else i++;
+				}
+				else {
+					// /System/Installation does not exists, this is an full install
+					if(dvdonly) [volumes removeObjectAtIndex:i];
+					else i++;
+				}
 			}
 		}
 	}
