@@ -94,7 +94,9 @@ struct uint128 {
 - (void) determineBootloader;
 - (BOOL) determineTargetOS;
 
-- (NSArray*) installableVolumes: (int) minVersions;
+//- (NSArray*) installableVolumes: (int) minVersions;
+- (NSArray*) installableVolumesWithKernel: (int) minVersions andInstallDVD: (BOOL) dvdonly;
+
 - (BOOL) needsHelperPartition;
 
 - (NSDictionary*) getFileSystemInformation: (NSString*) mountPoint;

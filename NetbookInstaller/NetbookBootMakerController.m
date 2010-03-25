@@ -3,7 +3,7 @@
 //  NetbookInstaller
 //
 //  Created by Evan Lojewski on 6/20/09.
-//  Copyright 2009. All rights reserved.
+//  Copyright 2009-2010. All rights reserved.
 //
 
 #import "NetbookBootMakerController.h"
@@ -49,21 +49,29 @@
 
 - (NSArray*) getMountedVolumes
 {
+	NSError *err = [NSError alloc];
 	// TODO: do some error checking to verify that that volume actualy exists.
-	return [[NSFileManager defaultManager] directoryContentsAtPath:@"/Volumes"];
+	return [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/Volumes" error:&err];
 }
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: MIN_VERSION];	// Any Leopard and beyond  (0.0.0 = no kernel required)
+	NSArray* options = [systemInfo installableVolumesWithKernel: MIN_VERSION andInstallDVD: YES];	// Any Leopard and beyond  (0.0.0 = no kernel required)
 //	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [volumeList selectedItem];
-
 	
 	[volumeList removeAllItems];
 	[volumeList addItemsWithTitles:options];
-	[volumeList selectItemWithTitle:[current title]];
+	if([options count] == 1)
+	{
+		[volumeList selectItemWithTitle:[options lastObject]];
+	}
+	else if(current)
+	{
+		[volumeList selectItemWithTitle:[current title]];
+	}
+	
 	
 	
 }
@@ -109,8 +117,8 @@
 
 	[self updateStatus:@"Installer..."];
 
-	// Image volume name is "NetbookInstaller USB", unmount it if it exists
-	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookInstaller USB", nil];
+	// Image volume name is "NetbookBootLoader", unmount it if it exists
+	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookBootLoader", nil];
 	[installer runCMD:"/sbin/umount" withArgs:nsargs];
 	[nsargs release];
 	
@@ -155,13 +163,13 @@
 	[self updateStatus:@"Installing bootloader (boot)"];
 
 	// Copy in /Extra and /boot from the installer image
-	[installer copyFrom:@"/Volumes/NetbookInstaller USB/boot" toDir:[NSString stringWithFormat:@"%@/boot", drive]];
+	[installer copyFrom:@"/Volumes/NetbookBootLoader/boot" toDir:[NSString stringWithFormat:@"%@/boot", drive]];
 	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
 	
 	[self updateStatus:@"Installing Extra"];
 
 
-	[installer copyFrom:@"/Volumes/NetbookInstaller USB/Extra" toDir:[NSString stringWithFormat:@"%@/", drive]];
+	[installer copyFrom:@"/Volumes/NetbookBootLoader/Extra" toDir:[NSString stringWithFormat:@"%@/", drive]];
 	[installer hideFiles];
 	[self updatePorgressBar: [NSNumber numberWithInt: 35]];
 

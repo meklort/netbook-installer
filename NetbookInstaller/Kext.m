@@ -12,10 +12,13 @@
 @implementation Kext
 
 
-//- (kext*) initWithKext: (NSString*)
-//{
-//	return self;
-//}
+- (Kext*) initWithKextPath: (NSString*) path;
+{
+	kextDictionary = [[NSDictionary alloc] initWithContentsOfFile:path];
+	
+	if(!kextDictionary) return nil;
+	return self;
+}
 
 /*- (UInt8)kextFlags
 {

@@ -94,7 +94,7 @@
 - (BOOL) toggleVisibility;
 - (BOOL) hideFiles;
 
-- (BOOL) updatePorgressBar: (NSNumber*) percent;
+- (BOOL) updateProgressBar: (NSNumber*) percent;
 - (BOOL) updateStatus: (NSString*) status;
 - (BOOL) installFinished;
 

@@ -17,7 +17,7 @@
 	UInt8			kextFlags;
 }
 
-//- (kext*) initWithKext: (NSString*);
+- (Kext*) initWithKextPath: (NSString*) path;
 
 //- (UInt8)kextFlags;
 - (BOOL) is32bitCapable;

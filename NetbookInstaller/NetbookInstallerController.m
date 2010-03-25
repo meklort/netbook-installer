@@ -3,7 +3,7 @@
 //  NetbookInstaller
 //
 //  Created by Evan Lojewski on 5/15/09.
-//  Copyright 2009. All rights reserved.
+//  Copyright 2009-2010. All rights reserved.
 //
 
 #import "NetbookInstallerController.h"
@@ -479,31 +479,31 @@
 }
 
 
-- (BOOL) updatePorgressBar: (NSNumber*) percent
+- (BOOL) updateProgressBar: (NSNumber*) percent
 {
 	// This is often called from a secondary thread, if so, we need to call it on the main thread
-	if(![[NSThread currentThread] isMainThread])
+	/*if(![[NSThread currentThread] isMainThread])
 	{
-		[self performSelectorOnMainThread:@selector(updatePorgressBar:) withObject: percent waitUntilDone:NO];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: percent waitUntilDone:NO];
 		
 	}
-	else {
+	else {*/
 		[progressBar incrementBy: [percent intValue]];
-	}
+	//}
 	return YES;
 }
 - (BOOL) updateStatus: (NSString*) status
 {
 	// This is often called from a secondary thread, if so, we need to call it on the main thread
-	if(![[NSThread currentThread] isMainThread])
+	/*if(![[NSThread currentThread] isMainThread])
 	{
 		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: status waitUntilDone:NO];
 
-	}
-	else {
+	}*/
+	//else {
 		ExtendedLog(@"%@", status);
 		[statusLabel setStringValue:status];		
-	}
+	//}
 	return YES;
 }	
 
@@ -515,15 +515,23 @@
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumes: MIN_VERSION];
+	NSArray* options = [systemInfo installableVolumesWithKernel: MIN_VERSION andInstallDVD: NO];	// Any Leopard and beyond  (0.0.0 = no kernel required)
 	//	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [targetVolume selectedItem];
 	
-	
 	[targetVolume removeAllItems];
 	[targetVolume addItemsWithTitles:options];
-	[targetVolume selectItemWithTitle:[current title]];	
+	if([options count] == 1)
+	{
+		[targetVolume selectItemWithTitle:[options lastObject]];
+		[self enableOptions];
+
+	}
+	else if(current)
+	{
+		[targetVolume selectItemWithTitle:[current title]];
+	}
 	
 }
 
@@ -592,20 +600,20 @@
 		return NO;
 	}
 	
-	
-	[self updateStatus:NSLocalizedString(@"Remounting target", nil)];
+
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Remounting target", nil) waitUntilDone:NO];
 	[installer remountTargetWithPermissions];
-	[self updatePorgressBar: [NSNumber numberWithInt: 0]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 0] waitUntilDone:NO];
+
 	
-	
-	[self updateStatus:NSLocalizedString(@"Creating ramdisk", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Creating ramdisk", nil) waitUntilDone:NO];
 	[installer mountRamDisk];
-	[self updatePorgressBar: [NSNumber numberWithInt: 7]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 7] waitUntilDone:NO];
 		
 	//[self copyFrom:[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/ExtraFiles//UpdateExtra.app"] toDir:[[systemInfo installPath] stringByAppendingString: @"/Extra/"]];
 	
-	[self updatePorgressBar: [NSNumber numberWithInt: 0]];
-	[self updateStatus:NSLocalizedString(@"Creating /Extra", nil)];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 0] waitUntilDone:NO];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Creating /Extra", nil) waitUntilDone:NO];
 	if([self installExtensions]) 
 	{
 		[installer removePrevExtra];
@@ -613,82 +621,81 @@
 	{
 		[installer installExtraFiles];
 	}
-	[self updatePorgressBar: [NSNumber numberWithInt: 3]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 3] waitUntilDone:NO];
 	
 	
-	[self updateStatus:NSLocalizedString(@"Installing Display Profiles", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Display Profiles", nil) waitUntilDone:NO];
 	[installer installDisplayProfile];
-	[self updatePorgressBar: [NSNumber numberWithInt: 1]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 	
-	[self updateStatus:NSLocalizedString(@"Installing Preference Panes", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Preference Panes", nil) waitUntilDone:NO];
 	[installer installPrefPanes];
 	[installer installLaunchAgents];
-	[self updatePorgressBar: [NSNumber numberWithInt: 1]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 	
-	
-	[self updateStatus:NSLocalizedString(@"Instaling Power Managment bundle", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Instaling Power Managment bundle", nil) waitUntilDone:NO];
 	[installer installSystemConfiguration];
-	[self updatePorgressBar: [NSNumber numberWithInt: 1]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 	
-	[self updateStatus:NSLocalizedString(@"Regenerating DSDT.aml", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Regenerating DSDT.aml", nil) waitUntilDone:NO];
 	if([self regenerateDSDT]) [installer installDSDT]; // modifed version of chameleon ensures origional dsdt is available.
-	[self updatePorgressBar: [NSNumber numberWithInt: 1]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 
 
 	
 	
 	if([self installExtensions]){
 		//[self makeDir:@"/Volumes/ramdisk/Extensions"];
-		[self updateStatus:NSLocalizedString(@"Copying Dependencies", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Copying Dependencies", nil) waitUntilDone:NO];
 		[installer copyDependencies];
-		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 		
-		[self updateStatus:NSLocalizedString(@"Installing Extensions", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Extensions", nil) waitUntilDone:NO];
 		[installer installExtensions];
 		[installer installLocalExtensions];
-		[self updatePorgressBar: [NSNumber numberWithInt: 14]];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 14] waitUntilDone:NO];
 		
-		[self updateStatus:NSLocalizedString(@"Patching GMA950 Extension", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching GMA950 Extension", nil) waitUntilDone:NO];
 		[installer patchGMAkext];
-		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 			
-		[self updateStatus:NSLocalizedString(@"Patching Framebuffer Extension", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Framebuffer Extension", nil) waitUntilDone:NO];
 		[installer patchFramebufferKext];
-		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 		
-		[self updateStatus:NSLocalizedString(@"Patching Wireless Extension", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Wireless Extension", nil) waitUntilDone:NO];
 		[installer patchIO80211kext];
-		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 		
-		[self updateStatus:NSLocalizedString(@"Patching Bluetooth", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Bluetooth", nil) waitUntilDone:NO];
 		[installer patchBluetooth];
-		[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 		
-		[self updateStatus:NSLocalizedString(@"Patching USB", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching USB", nil) waitUntilDone:NO];
 		[installer patchAppleUSBEHCI];
 			//[installer patchAppleHDA];
 		
-		[self updateStatus:NSLocalizedString(@"Generating Extension Caches", nil)];
+		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Generating Extension Caches", nil) waitUntilDone:NO];
 		[installer generateExtensionsCache];
 		[installer useSystemKernel];
 		
 	}
 	
-	[self updateStatus:NSLocalizedString(@"Verifying Quiet Boot state", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying Quiet Boot state", nil) waitUntilDone:NO];
 	[installer setQuietBoot:			[self enableQuietBoot]];
 	
 	
-	[self updateStatus:NSLocalizedString(@"Verifying Hibernation state", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying Hibernation state", nil) waitUntilDone:NO];
 	[installer disableHibernation:	[self dissableHibernation]];
 	
-	[self updateStatus:NSLocalizedString(@"Verifying RemoteCD State", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying RemoteCD State", nil) waitUntilDone:NO];
 	[installer setRemoteCD:			[self enableRemoteCD]];
-	[self updatePorgressBar: [NSNumber numberWithInt: 5]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 	
-	[self updateStatus:NSLocalizedString(@"Verifying Bootloader", nil)];
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying Bootloader", nil) waitUntilDone:NO];
 	ExtendedLog(@"Installing bootloader %@", [self bootloaderType]);
 	if([self bootloaderType]) [installer installBootloader: [[NSDictionary alloc] initWithDictionary:[self bootloaderType] copyItems:YES]];
-	[self updatePorgressBar: [NSNumber numberWithInt: 10]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 10] waitUntilDone:NO];
 	
 	
 	if([self hideFiles]) {
@@ -698,16 +705,14 @@
 
 	
 	if([self fixBluetooth]) [installer fixBluetooth];
-	[self updatePorgressBar: [NSNumber numberWithInt: 30]];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 30] waitUntilDone:NO];
 	
 	[installer unmountRamDisk];
 
 	
 	[installer release];
 
-	[self updateStatus:NSLocalizedString(@"Done", nil)];
-
-	
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Done", nil) waitUntilDone:NO];
 	[self performSelectorOnMainThread:@selector(installFinished) withObject: nil waitUntilDone:NO];
 	
 	

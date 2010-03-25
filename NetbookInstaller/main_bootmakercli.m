@@ -88,17 +88,28 @@
 - (BOOL) removePostInstallError
 {
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bless"] toDir:@"/tmp/bless/bless"];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxd"] toDir:@"/tmp/bless/"];
-	return [[NSFileManager defaultManager] fileExistsAtPath:@"/tmp/bless/bless"];
+	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxd"] toDir:@"/tmp/xxd/xxd"];
+
+	return [[NSFileManager defaultManager] fileExistsAtPath:@"/tmp/bless/bless"] & [[NSFileManager defaultManager] fileExistsAtPath:@"/tmp/xxd/xxd"];
+	
 }
 
 @end
 
 int main(int argc, char *argv[])
 {	
-	ExtendedLog(@"NetbookBootMakerCLI: Patches read only root file systems.\n");
-		// TODO: make sure everything is realeased properly... (It's not)
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+	ExtendedLog(@"NetbookBootMakerCLI: Patches read only root file systems.\n");
+	BOOL isDir = NO;
+	if(!([[NSFileManager defaultManager] fileExistsAtPath:@"/System/Installation/" isDirectory:&isDir]) && !isDir)
+	{
+		// We are NOT on an Install DVD, exit out.
+		ExtendedLog(@"NetbookBootMakerCLI: Not on an Install DVD, exiting.\n");
+		exit(0);
+	}
+	
+		// TODO: make sure everything is realeased properly... (It's not)
 	Installer* installer = [[Installer alloc] init];
 	NetbookBootMakerCLI *cli = [[NetbookBootMakerCLI alloc] initWithInstaller: installer];
 	SystemInformation* systemInfo = [[SystemInformation alloc] init];
@@ -106,6 +117,7 @@ int main(int argc, char *argv[])
 	NSString* packages;
 	NSString* menuItems;
 	NSString* bless;
+	NSString* xxd;
 	
 	
 		//UInt64 ramdiskSize;
@@ -114,16 +126,18 @@ int main(int argc, char *argv[])
 	[systemInfo determinePartitionFromPath: @"/"];
 	[installer systemInfo: systemInfo];
 	
+
 	
 	
 	
-	[installer mountRamDiskAt:@"/tmp/" withSize:(10 * 1024 * 1024) andOptions:@"union,owners"];
-	packages =	[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/Packages/" withSize:(10 * 1024 * 1024) andOptions:@"owners"]];
-	menuItems =	[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/MenuItems/" withSize:(10 * 1024 * 1024) andOptions:@"owners"]];
-	bless =		[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/bless/" withSize:(10 *1024 * 1024) andOptions:@"owners"]];
+	[installer mountRamDiskAt:@"/tmp/" withName: @"NBITemp" andSize:(10 * 1024 * 1024) andOptions:@"union,owners"];
+	packages =	[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/Packages/" withName: @"Packages" andSize:(10 * 1024 * 1024) andOptions:@"owners"]];
+	menuItems =	[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/MenuItems/" withName: @"MenuItems" andSize:(10 * 1024 * 1024) andOptions:@"owners"]];
+	bless =		[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/bless/" withName: @"Bless" andSize:(10 *1024 * 1024) andOptions:@"owners"]];
+	xxd =		[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/xxd/" withName: @"dsdtHelper" andSize:(10 *1024 * 1024) andOptions:@"owners"]];
 
 		// ramdiskSize = size of NetbookInstaller
-	[installer mountRamDiskAt:@"/Applications/" withSize:(20 * 1024 * 1024) andOptions:@"union,owners"];
+	[installer mountRamDiskAt:@"/Applications/" withName: @"NBIApplication" andSize:(64 * 1024 * 1024) andOptions:@"union,owners"];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:@"/Applications/"];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"];
 
@@ -132,31 +146,41 @@ int main(int argc, char *argv[])
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
 	{
 		ExtendedLog(@"Unsupported operating system target. Must be at least Mac OS X Snow Leoaprd.\n");
+		[cli removePostInstallError];
+		[installer remountDiskFrom: menuItems to:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/"];
+		[installer remountDiskFrom: xxd to: @"/usr/bin/"];
 	}
 	else
 	{
 		[cli removePostInstallError];
 		[cli patchOSInstall];
+		[installer remountDiskFrom: menuItems to:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/"];
+		[installer remountDiskFrom: bless to: @"/usr/sbin/"];
+		[installer remountDiskFrom: xxd to: @"/usr/bin/"];
+		[installer remountDiskFrom: packages to: @"/System/Installation/Packages/"];
+
 	}
 	
 
 	
-	[installer remountDiskFrom: packages to: @"/System/Installation/Packages/"];
-	[installer remountDiskFrom: menuItems to:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/"];
-	[installer remountDiskFrom: bless to: @"/usr/sbin/"];
+
+	
 
 	// post install umount script.
-	/*unmountScript = [NSFileHandle fileHandleForWritingAtPath: @"/tmp/unmount.sh"];
-	NSMutableString fileString* = [[NSMutableString alloc] init];
-	[fileString appendString:@"umount /usr/sbin/\n"];
-	[fileString appendString:@"umount /System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/\n"];
-	[fileString appendString:@"umount /System/Installation/Packages/\n"];
-	[fileString appendString:@"umount /tmp/\n"];
-	NSData* fileData = [[NSData alloc] initWithBytes:[fileString cString] length:[fileString length]];
-	[unmountScript writeData:fileData];
-	[unmountScript closeFile];
-	[installer setPermissions:@"755" onPath:@"/tmp/unmount.sh" recursivly:NO];
-	*/
+	NSMutableString* fileString = [[NSMutableString alloc] init];
+	[fileString appendFormat:@"umount -f %@\n", bless];
+	[fileString appendFormat:@"umount -f %@\n", xxd];
+	[fileString appendFormat:@"umount -f %@\n", menuItems];
+	[fileString appendFormat:@"umount -f %@\n", packages];
+	[fileString appendString:@"umount -f /Applications/\n"];
+
+	//[fileString appendString:@"umount -f /tmp/\n"];
+
+	//NSError* err;
+	//NSString* unmountScript = @"/tmp/unmount.sh";
+	//[fileString writeToFile:unmountScript atomically:NO encoding:NSASCIIStringEncoding error:&err];
+	//[installer setPermissions:@"755" onPath:unmountScript recursivly:NO];
+	
 	
 	[pool release];
 }
