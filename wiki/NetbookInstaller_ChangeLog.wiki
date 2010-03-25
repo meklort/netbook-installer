@@ -3,6 +3,7 @@
 <wiki:toc max_depth="2" />
 = NetbookInstaller 0.8.4 =
 == RC1 (Released ??/??/2010) ==
+ * Replaced ClamshellDisplay.kext with LidSleep.kext, no longer needs to be located in /S/L/E and works on 10.6.3.
  * Added display profiles from DougA. 
  * SMBIOS model information is read at boot time, allowing a machine specific dsdt to be loaded using the boot disk.
  * Chameleon now has a recovery options. Use the boot argument "recovery=y" to load a known good mkext (/Extra/UpdateExtensions/)
