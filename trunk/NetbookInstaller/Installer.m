@@ -310,8 +310,8 @@
 		
 	}
 	
-	ExtendedLog(@"RunCMD: %s returned %@", command, returnString);
-	ExtendedLog(@"RunCMD %s arguments: %@", command, nsargs);
+	//ExtendedLog(@"RunCMD: %s returned %@", command, returnString);
+	//ExtendedLog(@"RunCMD %s arguments: %@", command, nsargs);
 	
 	return returnString;
 }
@@ -673,8 +673,8 @@
 
 - (BOOL) installDSDT
 {
-	NSMutableDictionary* genPatches;
-	NSDictionary* patches;
+	NSMutableArray* genPatches;
+	NSArray* patches;
 	
 	// Cleanup, delete old dsdt from DelEFI
 	[self deleteFile:[[systemInfo installPath] stringByAppendingString: @"/DSDT.aml"]];
@@ -693,7 +693,7 @@
 		[self copyFrom: [[[NSBundle mainBundle] resourcePath] stringByAppendingFormat: @"/%s/%s/%@/%s/", nbiSupportFilesPath, nbiMachineFilesPath, [[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles], nbiMachineDSDTPath] toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 		//[self copyFrom:[[[[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @nbiSupportFilesPath]  stringByAppendingString: @nbiMachineFilesPath] stringByAppendingString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]] stringByAppendingString:@nbiMachineDSDTPath]  toDir: @"/Volumes/ramdisk/dsdt/patches/"];
 		
-		genPatches = [NSMutableDictionary dictionaryWithDictionary: [[[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@nbiMachinePlist]] objectForKey:@"General"] objectForKey: @"DSDT Patches"]];	
+		genPatches = [NSMutableArray arrayWithArray: [[[NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@nbiMachinePlist]] objectForKey:@"General"] objectForKey: @"DSDT Patches"]];	
 		patches = [[systemInfo machineInfo] objectForKey:@nbiMachineDSDTPatches];
 		
 	} else {
@@ -705,34 +705,39 @@
 	
 	
 	NSMutableString* configFile = [[NSMutableString alloc] initWithString:@""];
-	NSString* key;
-	NSEnumerator* keys;
+	NSString* patchFile;
+	NSString* lookFor;
+	NSDictionary* patchDict;
+
+	NSEnumerator* dictionaries;
 	
 	if(![@nbiMachineGeneric isEqualToString:[[systemInfo machineInfo] objectForKey:@nbiMachineSupportFiles]])
 	{
-		keys = [patches keyEnumerator];
+		dictionaries = [patches objectEnumerator];
 		
-		while(key = [keys nextObject])
+		while(patchDict = [dictionaries nextObject])
 		{
-			[genPatches setObject:[patches objectForKey:key] forKey:key];
+			[genPatches addObject:patchDict];
 		}
 	}
 	
-	keys = [genPatches keyEnumerator];
+	dictionaries = [genPatches objectEnumerator];
 	
-	while(key = [keys nextObject])
+	while(patchDict = [dictionaries nextObject])
 	{
-		
-		if(![[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key] ])
+		patchFile = [[patchDict allKeys] lastObject];
+		lookFor = [[patchDict allValues] lastObject];
+
+		if(![[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt", patchFile] ])
 		{
-			ExtendedLog(@"Unable to locate %@, skipping", [@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt",key]);
+			ExtendedLog(@"Unable to locate %@, skipping", [@"/Volumes/ramdisk/dsdt/patches/" stringByAppendingFormat:@"%@.txt", patchFile]);
 			continue; // file doesn't exist, skipping
 		}
 		
 		[configFile appendString:@":"];
-		[configFile appendString:key];
+		[configFile appendString:patchFile];
 		[configFile appendString:@":"];
-		[configFile appendString:[genPatches objectForKey:key]];
+		[configFile appendString:lookFor];
 		[configFile appendString:@":\r\n"];
 	}
 	if([configFile length])
@@ -764,6 +769,25 @@
 // FIXME: This will not work when run as root
 - (BOOL) setRemoteCD: (BOOL) remoteCD
 {
+	/// defaults write com.apple.NetworkBrowser EnableODiskBrowsing -bool true
+	/// defaults write com.apple.NetworkBrowser ODSSupported -bool true
+
+	
+	NSMutableArray* nsargs = [[NSMutableArray alloc] init];
+	[nsargs addObject:@"write"];
+	[nsargs addObject:@"com.apple.NetworkBrowser"];
+	[nsargs addObject:@"EnableODiskBrowsing"];
+	[nsargs addObject:@"-bool"];
+	[nsargs addObject:remoteCD ? @"true" : @"false"];
+
+	[self runCMD:"defaults" withArgs:nsargs];
+
+	[nsargs replaceObjectAtIndex:2 withObject:@"ODSSupported"];
+	[self runCMD:"defaults" withArgs:nsargs];
+
+	[nsargs release];
+	
+	return YES;
 	
 	NSMutableDictionary *dict;
 	NSDictionary* save;		// TOOD: test as it may not be needed
@@ -1164,6 +1188,13 @@
 	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/LocalExtensions/"]];	
 	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
 	
+	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,2))		// The kext inside is an audio kext from 10.6.2, so well install it over 10.6.2 to fix the 0.8.4pre bug.
+	{
+		// TODO: change kernel version to 10.6.3+ not 10.6.2+ once 0.8.4pre has been replaced from all systems OR once 10.6.3 is out.
+		[self moveFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleHDA.kext"] to:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleHDA.kext.10.6.3"]];
+		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/10.6.3 LocalExtensions/"]];	
+	}
+
 	
 	
 	// An iterator could hav ebeen used too
