@@ -3,6 +3,7 @@
 <wiki:toc max_depth="2" />
 = NetbookInstaller 0.8.4 =
 == RC1 (Released ??/??/2010) ==
+ * Initial Asus 1201N support.
  * Updated to OSXRestart.kext (1.5) speedstepping
  * Added CPUIDOverride.kext (and CPUIDSymbols.kext) so that AppleIntelCPUPowerManagment.kext no longer panics unload. This should allow for native to be implemented. NOTE; This kext loads too late in the bot process for things like About This Mac )and sysctl) to read this change. The sole purpose is so that kexts that require a certain cpuid don't panic. NOTE2: A kernel patch is still *required* cpuid_set_info will always be called before this kext is, meaning that the panic int hat function must be removed.
  * Removed SleepEnabler, no longer needed (AppleIntelCPUPowerManagment.kext takes care of it).
