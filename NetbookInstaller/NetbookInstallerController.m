@@ -75,6 +75,7 @@
 	
 	[systemInfo determineInstallState];
 	
+	[self enableOptions: NO];	// Disable the options menu, updateVolumeMenu will enable it if one device is active
 	[self updateVolumeMenu];
 	[self updateCheckboxes];
 
@@ -86,7 +87,6 @@
 	
 	// Initialize botloader dropdown
 	[self updateBootloaderMenu];
-	[self enableOptions: NO];
 
 	
 	
