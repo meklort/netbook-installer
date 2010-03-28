@@ -2,7 +2,7 @@
 #labels Featured
 <wiki:toc max_depth="2" />
 = NetbookInstaller 0.8.4 =
--- RC2 (Released 04/??/2010) ==
+== RC2 (Released 04/??/2010) ==
 ==== _All Netbooks_ ====
  * NBI Can now work with an smbios.plist
  * Fixed NBI assuming / if only one partition is available (this primarily affects the boot drive);
