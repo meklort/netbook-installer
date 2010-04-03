@@ -4,9 +4,13 @@
 = NetbookInstaller 0.8.4 =
 == RC2 (Released 04/??/2010) ==
 ==== _All Netbooks_ ====
+ * Updated touchpad driver, reads trackpad resolution correctly.
  * NBI Includes a MacbookPro5,1 plist. MacbookAir cannot be used, it doesn't speed step properly (2,1) and (1,1) causes a panic. Thanks to 18seven for the tip.
  * NBI Can now work with an smbios.plist
  * Fixed NBI assuming / if only one partition is available (this primarily affects the boot drive);
+
+=== _Asus EEE 1201N_ ===
+ * Fixed Sleep
 
 == RC1 (Released 03/26/2010) ==
 ==== _All Netbooks_ ====
