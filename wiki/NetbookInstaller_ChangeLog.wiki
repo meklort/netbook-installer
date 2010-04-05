@@ -10,6 +10,7 @@
  * Fixed NBI assuming / if only one partition is available (this primarily affects the boot drive);
 
 === _Asus EEE 1201N_ ===
+ * Added volume up / down / mute support. Initial support for other hotkeys exists, however they are not mapped to a keypress
  * Added play / pause, Skip track, Previous track support.
  * Fixed Sleep
 
