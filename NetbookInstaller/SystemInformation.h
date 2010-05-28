@@ -105,4 +105,6 @@ struct uint128 {
 
 - (void) printStatus;
 
+- (NSString*) getModelString;
+
 @end

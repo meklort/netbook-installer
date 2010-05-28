@@ -66,6 +66,14 @@
 	if([options count] == 1)
 	{
 		[volumeList selectItemWithTitle:[options lastObject]];
+		[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[options lastObject]]];
+		
+		// TODO: enable this
+		//[self updateBootloaderMenu];
+		//[self enableOptions];
+		//[self updateCheckboxes];
+		[systemInfo printStatus];
+		
 	}
 	else if(current)
 	{

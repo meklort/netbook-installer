@@ -1188,16 +1188,15 @@
 	[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/LocalExtensions/"]];	
 	if(![@"General" isEqualToString:[[systemInfo machineInfo] objectForKey:@"Support Files"]]) [sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/LocalExtensions/"]];
 	
-	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,2))		// The kext inside is an audio kext from 10.6.2, so well install it over 10.6.2 to fix the 0.8.4pre bug.
+	if([systemInfo targetOS] >= KERNEL_VERSION(10,6,3))		// The kext inside is an audio kext from 10.6.2, install it over 10.6.3's.
 	{
-		// TODO: change kernel version to 10.6.3+ not 10.6.2+ once 0.8.4pre has been replaced from all systems OR once 10.6.3 is out.
 		[self moveFrom:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleHDA.kext"] to:[[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/AppleHDA.kext.10.6.3"]];
-		[sourceExtensions addObject: [[[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/"] stringByAppendingString: [[systemInfo machineInfo] objectForKey:@"Support Files"]] stringByAppendingString: @"/10.6.3 LocalExtensions/"]];	
+		[sourceExtensions addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/machine/General/10.6.3 LocalExtensions/"]];	
 	}
 
 	
 	
-	// An iterator could hav ebeen used too
+	// An iterator could have been used too...
 	while([sourceExtensions count] > 0) {
 		NSString* current = [sourceExtensions objectAtIndex: 0];
 		[sourceExtensions removeObjectAtIndex: 0];
@@ -1207,7 +1206,7 @@
 	[sourceExtensions release];
 	
 	// ClamshellDisplay.kext is nolonger used.
-	// TODO: have a way to clean up between versions (if even just a revisioner)
+	// TODO: have a way to clean up between versions
 	[self deleteFile:  [[systemInfo installPath] stringByAppendingString: @"/System/Library/Extensions/ClamshellDisplay.kext"]];
 	
 	return status;

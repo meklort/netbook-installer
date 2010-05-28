@@ -225,26 +225,17 @@
 	NSEnumerator *enumerator = [machineplist objectEnumerator];
 	NSDictionary* currentModel;
 
-	
-	
-	int mib[2];
-	char* model;
-	size_t len;
-	mib[0] = CTL_HW;
-	mib[1] = HW_MODEL;
-	len = sizeof(model);
-	sysctl(mib, 2, NULL, &len, NULL, 0);
-	model = malloc(len);
-	sysctl(mib, 2, model, &len, NULL, 0);
+
 	
 	//ExtendedLog(@"Model: %s", model);
 	//ExtendedLog(@"machinePlist: %@", machineplist);
-
+	
+	NSString* modelString = [self getModelString];
 	
 	machineInfo = nil;
 	//ExtendedLog(@"Searching for %@", [NSString stringWithCString: model]);
 	while ((currentModel = [enumerator nextObject])) {
-		if([[currentModel objectForKey:@"Model Name"] length] <= strlen(model) && [[currentModel objectForKey:@"Model Name"] isEqualToString:[[NSString stringWithCString: model encoding: NSASCIIStringEncoding] substringToIndex:[[currentModel objectForKey:@"Model Name"] length]]])
+		if([[currentModel objectForKey:@"Model Name"] isEqualToString:modelString])
 		{
 			machineInfo = [[NSDictionary alloc] initWithDictionary:currentModel copyItems:YES];
 			break;
@@ -310,7 +301,6 @@
 	
 	
 	ExtendedLog(@"Current Model: %@", [machineInfo objectForKey:@"Long Name"]);
-	free(model);
 }
 
 - (void) determineArchitecture
@@ -728,6 +718,38 @@
 	ExtendedLog(@"Force Generic: %s", (generic? "Yes" : "No"));
 	
 	//NSDictionary* machineInfo;
+}
+
+- (NSString*) getModelString
+{
+	io_registry_entry_t			root;
+	//kern_return_t			kr;
+	//CFDictionaryRef	dictRef;
+	
+	
+	root = IORegistryEntryFromPath(kIOMasterPortDefault, kIODeviceTreePlane ":/");
+	
+	if (!root) {
+		ExtendedLog(@"IORegistryEntryFromPath returned NULL.\n");
+		return nil;
+	} 
+	
+	io_struct_inband_t buffer;
+	((char*) buffer)[0] = 0;
+	
+	unsigned int size=4096;
+
+	
+	IORegistryEntryGetProperty(root, "orig-model", buffer, &size);
+	if(((char*)buffer)[0] == 0) IORegistryEntryGetProperty(root, "model", buffer, &size);
+	((char*)buffer)[size] = 0;	// Ensure a null terminating char exists.
+
+	
+	IOObjectRelease(root);
+	
+	NSString* retString = [[NSString alloc] initWithCString:buffer];
+	
+	return retString;
 }
 
 @end
