@@ -1,0 +1,19 @@
+#!/bin/sh
+###
+# execute
+###
+
+#patch the dvd
+# TODO: extract NBICLI.app
+/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/NetbookInstallerCLI.app/Contents/MacOS/NetbookInstallerCLI /
+
+# remove the modified windowserver, due to the way Union works on Mac, the orig file will be exposed
+#rm /System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/WindowServer
+
+# run the original windowserver
+#/System/Library/Frameworks/ApplicationServices.framework/Frameworks/CoreGraphics.framework/Resources/WindowServer -daemon
+
+# Unmount ramdisk made by netbook installer. They should be listed here:
+/tmp/unmount.sh
+
+reboot
