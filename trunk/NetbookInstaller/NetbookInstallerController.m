@@ -525,7 +525,15 @@
 	if([options count] == 1)
 	{
 		[targetVolume selectItemWithTitle:[options lastObject]];
+		//[self enableOptions];
+		//	ExtendedLog(@"Selected target: %@", [@"/Volumes/" stringByAppendingString:[[targetVolume selectedItem] title]]);
+		[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[targetVolume selectedItem] title]]];
+		
+		// TODO: enable this
+		[self updateBootloaderMenu];
 		[self enableOptions];
+		[self updateCheckboxes];
+		[systemInfo printStatus];
 
 	}
 	else if(current)
