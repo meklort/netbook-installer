@@ -21,11 +21,11 @@ struct uint128 {
 
 
 @interface SystemInformation : NSObject {
-	NSDictionary*		installedBootloader;
 	NSDictionary*		bootloaderDict;
 	UInt32 installedKernel;
 	UInt32 hostKernel;
 
+	NSString*	sourcePath;
 
 	
 	//int		efiVersion;
@@ -70,7 +70,6 @@ struct uint128 {
 - (BOOL) efiHidden;
 - (BOOL) is64bit;
 
-- (NSDictionary*) installedBootloader;
 //- (enum machine) machineType;
 //- (void) machineType: (enum machine) newMachineType;
 
@@ -79,7 +78,6 @@ struct uint128 {
 
 - (NSInteger) getKernelVersion: (NSString*) kernelPath;
 
-- (void) determineInstallState;
 - (void) determineMachineType;
 - (void) determinebootPartition;
 - (void) determinePartitionFromPath: (NSString*) path;
@@ -91,11 +89,14 @@ struct uint128 {
 - (void) determineHiddenState;
 - (BOOL) hiddenStateOfPath: (NSString*) path;
 - (void) determineBluetoothState;
-- (void) determineBootloader;
 - (BOOL) determineTargetOS;
 
+- (BOOL) isInstallDVD: (NSString*) path;
+- (BOOL) isInstall: (NSString*) path;
+
+
 //- (NSArray*) installableVolumes: (int) minVersions;
-- (NSArray*) installableVolumesWithKernel: (int) minVersions andInstallDVD: (BOOL) dvdonly;
+- (NSArray*) installableVolumesWithKernel: (int) minVersions;
 
 - (BOOL) needsHelperPartition;
 
@@ -107,4 +108,5 @@ struct uint128 {
 
 - (NSString*) getModelString;
 
+- (void) setSourcePath: (NSString*) path;
 @end

@@ -39,6 +39,7 @@
 #define nbiMachineExtensions	"Extensions Directory"
 #define nbiMachineSupportFiles	"Support Files"
 #define nbiMachineDSDTPatches	"DSDT Patches"
+#define nbiMachineKextBlacklist	"Kext Blacklist"
 
 
 // other paths
@@ -52,6 +53,7 @@
 	AuthorizationRef	authRef;
 	id					sender;
 
+	NSString*			sourcePath;
 	
 }
 
@@ -72,12 +74,6 @@
 
 
 // TODO: make a BOM or similar to do this automaticaly... there really is no need for specific function
-- (BOOL) installDisplayProfile;
-- (BOOL) installPrefPanes;
-- (BOOL) installLaunchAgents;
-- (BOOL) installSystemPrefPanes;
-- (BOOL) installSystemConfiguration;
-- (BOOL) installExtraFiles;
 
 
 					
@@ -85,7 +81,7 @@
 - (BOOL) setOwner: (NSString*) owner andGroup: (NSString*) group onPath: (NSString*) path recursivly: (BOOL) recursiv;
 
 // Installer Options
-- (BOOL) installBootloader: (NSDictionary*) bootloaderType;
+- (BOOL) installBootloader;
 - (BOOL) installExtensions;
 - (BOOL) hideFiles;
 - (BOOL) showFiles;
@@ -95,27 +91,11 @@
 - (BOOL) setQuietBoot: (BOOL) quietBoot;
 - (BOOL) fixBluetooth;
 
-- (BOOL) installMirrorFriendlyGraphics;
-
 
 // DSDT patch routines
 - (BOOL) getDSDT;
 - (BOOL) patchDSDT;
 - (BOOL) patchDSDT: (BOOL) forcePatch;
-
-// Kext support (patching and copying) -- TODO: make this a generic function / plist configurable / etc
-- (BOOL) patchGMAkext;
-
-- (BOOL) patchFramebufferKext;
-
-- (BOOL) patchIO80211kext;
-- (BOOL) patchBluetooth;
-- (BOOL) patchAppleUSBEHCI;
-- (BOOL) patchAppleHDA;
-
-
-- (BOOL) installLocalExtensions;
-- (BOOL) copyDependencies;
 
 - (BOOL) generateExtensionsCache;
 
@@ -125,16 +105,13 @@
 - (NSString*) mountRamDiskAt: (NSString*) path withName: (NSString*) name andSize: (UInt64) size andOptions: (NSString*) options;
 - (void) mountRamDisk;
 - (void) unmountRamDisk;
-- (void)remountTargetWithPermissions;
+- (void) remountTargetWithPermissions;
 
-- (BOOL) useSystemKernel;
-//- (BOOL) useLatestKernel;
 
 - (BOOL) removePrevExtra;
 
 - (BOOL) copyMachineFilesFrom: (NSString*) source toDir: (NSString*) destination;
 
-- (BOOL) removeBlacklistedKexts;
 //- (BOOL) patchPre1056mkext;
 
 - (BOOL) repairExtensionPermissions;
@@ -143,6 +120,34 @@
 - (BOOL) failGracefully;
 
 - (BOOL) setPartitionActive;
+
+- (void) setSourcePath: (NSString*) path;
+
+- (BOOL) copyNBIImage;
+
+- (BOOL) installLocalExtensions;
+- (BOOL) disableptmd;
+/********** Depreciated *************/
+#if 0
+// Kext support (patching and copying) -- TODO: make this a generic function / plist configurable / etc
+- (BOOL) patchGMAkext;
+- (BOOL) patchFramebufferKext;
+- (BOOL) patchIO80211kext;
+- (BOOL) patchBluetooth;
+- (BOOL) patchAppleUSBEHCI;
+- (BOOL) patchAppleHDA;
+
+- (BOOL) useSystemKernel;
+//- (BOOL) useLatestKernel;
+
+
+- (BOOL) copyDependencies;
+- (BOOL) removeBlacklistedKexts;
+
+ss
+
+
+#endif
 
 @end
 

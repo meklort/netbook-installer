@@ -16,27 +16,29 @@ int main(int argc, char *argv[])
 	
 	// TODO: make sure everything is realeased properly... (It's not)
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-	NSDictionary* infoDict;
 	SystemInformation* systemInfo = [[SystemInformation alloc] init];
 	Installer*	installer	= [[Installer alloc] init];
 
+	[systemInfo setSourcePath: [[NSBundle mainBundle] resourcePath]];
+	[installer setSourcePath: [[NSBundle mainBundle] resourcePath]];
+
+	[systemInfo determineMachineType];
 	
-	
-	
-	infoDict = [[NSBundle mainBundle] infoDictionary];
-	ExtendedLog(@"Determine Install State");
-	[systemInfo determineInstallState];
-	
-	
+	ExtendedLog(@"Determine Install State");	
 	if(argc > 1)
 	{
 		ExtendedLog(@"Determine partition from path");
 
 		ExtendedLog(@"%s", argv[1]);
 		[systemInfo determinePartitionFromPath: [[NSString alloc] initWithCString:argv[1] encoding: NSASCIIStringEncoding]];
-		// Else we use the default of /
 	}
-	
+	else
+	{
+		[systemInfo determinePartitionFromPath: @"/"];
+		
+	}
+	[systemInfo printStatus];
+
 	ExtendedLog(@"Initialize installer State");
 
 
@@ -48,23 +50,24 @@ int main(int argc, char *argv[])
 		exit(-1);
 	}
 
-	[installer mountRamDisk];	
+	[installer mountRamDisk];
 	[installer remountTargetWithPermissions];
 	[installer removePrevExtra];
-	
+	[installer makeDir:[NSString stringWithFormat:@"%@/Extra/", [systemInfo installPath]]];	
+
 	/// Time to actualy do the install
-	[installer installExtraFiles];
+	[installer copyMachineFilesFrom: @"ExtraFiles/" toDir: @nbiExtrasPath];
 	// Install and patch extensions
 	
 	[installer makeDir: [systemInfo extensionsFolder]];
 	
 
-	[installer installDisplayProfile];
-	[installer installPrefPanes];
-	[installer installLaunchAgents];
-		
-	[installer installSystemConfiguration];
-		
+	[installer copyMachineFilesFrom: @"DisplayProfiles/" toDir: @"/Library/ColorSync/Profiles/"];
+	[installer copyMachineFilesFrom: @"3rdPartyPrefPanes/" toDir: @"/Library/PreferencePanes/"];
+	[installer copyMachineFilesFrom: @"LaunchAgents/" toDir: @"/Library/LaunchAgents/"];
+	[installer copyMachineFilesFrom: @"LaunchDaemons/" toDir: @"/Library/LaunchDaemons/"];
+	[installer copyMachineFilesFrom: @"SystemConfiguration/" toDir: @"/System/Library/SystemConfiguration/"];		
+
 	[installer installDSDT];
 		
 
@@ -73,11 +76,10 @@ int main(int argc, char *argv[])
 	{
 		// preserve hibernation and quietboot settings
 	}
-	else {
-		[installer setQuietBoot:	NO];
-		[installer disableHibernation:	YES];
-		[installer copyFrom:@"/Applications/NetbookInstaller.app" toDir:[[systemInfo installPath] stringByAppendingString:@"/Applications/"]];
-
+	else
+	{
+		//[installer setQuietBoot:	YES];
+		//[installer disableHibernation:	YES];
 	}
 
 
@@ -87,31 +89,28 @@ int main(int argc, char *argv[])
 		
 	// Install the gui
 	
-	[installer copyDependencies];
+	//[installer copyDependencies];
 	
 	[installer installExtensions];
 	[installer installLocalExtensions];
 	
-	[installer patchGMAkext];
-	[installer patchFramebufferKext];
-	[installer patchIO80211kext];
-	[installer patchBluetooth];
-	[installer patchAppleUSBEHCI];
-	
+	//[installer patchGMAkext];
+	//[installer patchFramebufferKext];
+	//[installer patchIO80211kext];
+	//[installer patchBluetooth];
+	//[installer patchAppleUSBEHCI];
+	[installer disableptmd];
 	
 	[installer generateExtensionsCache];
-	[installer useSystemKernel];
 	
-	//[installer makeDir:[[systemInfo installPath] stringByAppendingString:@"/Extra/Applications"]];
+	[installer copyNBIImage];
 
-	
-	// If no bootloader, we dont want to overwrite the bootloder on a current install unless requested
-	if(![systemInfo installedBootloader]) [installer installBootloader: 	[[[systemInfo bootloaderDict] objectForKey: @"Bootloaders"] objectForKey: [[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]]];
+	[installer installBootloader];
 
 	[installer hideFiles];
 	[installer unmountRamDisk];
 
-	ExtendedLog(@"Done");
+	ExtendedLog(@"NetbookInstallerCLI Done");
 	
 	[pool release];
 }

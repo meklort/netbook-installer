@@ -132,6 +132,8 @@
 - (UInt32)		PCIClass;		// read from "class-code"
 - (UInt32)		PCISubClass;	// read from "class code"
 
+- (io_service_t) getIORegisteryEntry;
+
 - (BOOL)		driverAvailable;
 
 - (void) printProperties;

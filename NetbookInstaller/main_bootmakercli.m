@@ -87,6 +87,7 @@
 
 - (BOOL) removePostInstallError
 {
+	
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bless"] toDir:@"/tmp/bless/bless"];
 	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/bootMakerFiles/xxd"] toDir:@"/tmp/xxd/xxd"];
 
@@ -120,14 +121,13 @@ int main(int argc, char *argv[])
 	NSString* xxd;
 	
 	
-		//UInt64 ramdiskSize;
-	
-	[systemInfo determineInstallState];
+	[systemInfo setSourcePath:[[NSBundle mainBundle] resourcePath]];
+	[installer setSourcePath:[[NSBundle mainBundle] resourcePath]];
+
 	[systemInfo determinePartitionFromPath: @"/"];
 	[installer systemInfo: systemInfo];
 	
 
-	
 	
 	
 	[installer mountRamDiskAt:@"/tmp/" withName: @"NBITemp" andSize:(10 * 1024 * 1024) andOptions:@"union,owners"];
@@ -136,16 +136,18 @@ int main(int argc, char *argv[])
 	bless =		[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/bless/" withName: @"Bless" andSize:(10 *1024 * 1024) andOptions:@"owners"]];
 	xxd =		[NSString stringWithString: [installer mountRamDiskAt:@"/tmp/xxd/" withName: @"dsdtHelper" andSize:(10 *1024 * 1024) andOptions:@"owners"]];
 
-		// ramdiskSize = size of NetbookInstaller
+	// ramdiskSize = size of NetbookInstaller
 	[installer mountRamDiskAt:@"/Applications/" withName: @"NBIApplication" andSize:(64 * 1024 * 1024) andOptions:@"union,owners"];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/NetbookInstaller.app"] toDir:@"/Applications/"];
-	[installer copyFrom:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/SupportFiles/"] toDir:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/"];
+	[installer copyFrom:[[NSBundle mainBundle] bundlePath] toDir:@"/Applications/"];	
+	[installer copyFrom:@"/Extra/Postboot.img" toDir:@"/Applications/NetbookInstaller.app/Contents/Resources/SupportFiles/machine/General/ExtraFiles/NetbookInstaller.img"];	
 
+	
+	
 	[cli patchUtilitMenu];
 	
 	if([systemInfo targetOS] < KERNEL_VERSION(10, 6, 0))	
 	{
-		ExtendedLog(@"Unsupported operating system target. Must be at least Mac OS X Snow Leoaprd.\n");
+		ExtendedLog(@"Unsupported operating system target. Must be at least Mac OS X 10.6.\n");
 		[cli removePostInstallError];
 		[installer remountDiskFrom: menuItems to:@"/System/Installation/CDIS/Mac OS X Installer.app/Contents/Resources/"];
 		[installer remountDiskFrom: xxd to: @"/usr/bin/"];
@@ -182,6 +184,8 @@ int main(int argc, char *argv[])
 	//[installer setPermissions:@"755" onPath:unmountScript recursivly:NO];
 	
 	
+	
+	ExtendedLog(@"NetbookBootMakerCLI done.");
 	[pool release];
 }
 
