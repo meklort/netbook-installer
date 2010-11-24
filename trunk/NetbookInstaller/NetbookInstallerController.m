@@ -16,51 +16,20 @@
  **		It obtains the system info and sets the checkboxes and labels
  **
  ***/
-- (void) awakeFromNib {	
+- (void) awakeFromNib
+{	
 	// This is run whenever ANY nib file is loaded
 	if(!initialized) [self initializeApplication];
 }
+
+
 - (IBAction) volumeChanged: (id) sender
 {
 //	ExtendedLog(@"Selected target: %@", [@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]);
-	[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[sender selectedItem] title]]];
- 
-	// TODO: enable this
-	[self updateBootloaderMenu];
-	[self enableOptions];
-	[self updateCheckboxes];
-	[systemInfo printStatus];
+	[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[systemInfo installableVolumesWithKernel: MIN_VERSION] objectAtIndex:[targetVolume indexOfSelectedItem]]]];
+ 	[systemInfo printStatus];
 }
-- (void) updateBootloaderMenu
-{
-	NSMutableArray* bootOptions = [[NSMutableArray alloc] init];
-	NSArray* bootloaders = [systemInfo supportedBootloaders];
-//	ExtendedLog(@"bootloaders: %@", bootloaders);
 
-	NSEnumerator* enumerator = [bootloaders objectEnumerator];
-	NSDictionary* bootloader;
-	// TODO: read these from the plist
-	while(bootloader = [enumerator nextObject]) {
-		[bootOptions addObject:[bootloader objectForKey:@"Visible Name"]];
-
-	}
-//	ExtendedLog(@"bootOptions: %@", bootOptions);
-	[bootloaderVersion removeAllItems];
-	[bootloaderVersion addItemsWithTitles:bootOptions];
-	
-	// TODO: select default bootloader
-		
-	/*if([systemInfo installedBootloader] != nil)
-		// TODO: follow upgrade path and determine if we need to upgrade to a new bootloader
-		[bootloaderVersion selectItemWithTitle:[[systemInfo installedBootloader] objectForKey:@"Support Files"]];
-
-	else
-	{
-		// No bootloader is installed, default to the latest version available
-		[bootloaderVersion selectItemWithTitle:[[systemInfo bootloaderDict] objectForKey:@"Default Bootloader"]];
-		[bootloaderVersion setState:true];
-	}*/
-}
 
 - (void) initializeApplication
 {
@@ -72,126 +41,19 @@
 	
 	[notificationCenter addObserver:self selector:@selector(mountChange:) name:NSWorkspaceDidMountNotification object:nil];
 	[notificationCenter addObserver:self selector:@selector(mountChange:) name:NSWorkspaceDidUnmountNotification object:nil];
-	
-	[systemInfo determineInstallState];
-	
-	[self enableOptions: NO];	// Disable the options menu, updateVolumeMenu will enable it if one device is active
+		
 	[self updateVolumeMenu];
-	[self updateCheckboxes];
 
 	
 	
 	// Set the version lable and window title (does not fully rebrand, but it's good enough)
-	[mainWindow	  setTitle:		  [infoDict objectForKey:@"CFBundleExecutable"]];	// Bundle Name would work as well
-	[versionLabel setStringValue: [infoDict objectForKey:@"CFBundleVersion"]];
+	[mainWindow	  setTitle:		  [[infoDict objectForKey:@"CFBundleExecutable"] stringByAppendingFormat:@" %@", [infoDict objectForKey:@"CFBundleVersion"]]];	// Bundle Name would work as well
+	 //[versionLabel setStringValue: [infoDict objectForKey:@"CFBundleVersion"]];
 	
 	// Initialize botloader dropdown
-	[self updateBootloaderMenu];
+	
 
-	
-	
-	
-	// Initialize warning label
-	// TODO: machine specific labels
-	[warningLabel setStringValue:NSLocalizedString(@"Warning Label", nil)];
-	/*switch([systemInfo machineType]) {
-		case MINI9: [warningLabel setStringValue:NSLocalizedString(@"Mini 9 Warning", nil)];
-			break;
-		case MINI10V: [warningLabel setStringValue:NSLocalizedString(@"Mini 10v Warning", nil)];
-			break;
-		case VOSTRO_A90: [warningLabel setStringValue:NSLocalizedString(@"Vostro A90 Warning", nil)];
-			break;
-		case LENOVO_S10: [warningLabel setStringValue:NSLocalizedString(@"S10 Warning", nil)];
-			break;
-		case EEE_1000H: [warningLabel setStringValue:NSLocalizedString(@"EEE 1000H Warning", nil)];
-		case UNKNOWN:
-		default: [warningLabel setStringValue:NSLocalizedString(@"Unknown Warning", nil)];
-			break;
-	}*/
-	
-	[self updateCheckboxes];
-
-	[targetVolume setStringValue:[systemInfo bootPartition]];
-}
-
-- (void) updateCheckboxes
-{
-	
-	//if([systemInfo installedBootloader] != nil) {
-	//	[bootloaderCheckbox setState: false];
-	//	[bootloaderVersion setEnabled:false];
-	//} 
-	//else
-	{
-		[bootloaderCheckbox setState: true];
-		[bootloaderVersion setEnabled:true];
-
-		
-	}
-	
-	// Initialize checkboxes (TODO: commented checkboxes need to be initialized
-	//extensionsCheckbox;
-	//oldGMACheckbox;
-	
-	if([systemInfo efiHidden])
-	{
-		[showhideFilesCheckbox setState:NO];
-		//[showhideFilesCheckbox setTitle:[[@"Show " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
-		[showhideFilesCheckbox setTitle:NSLocalizedString(@"Show NetbookInstaller files", nil)];
-
-	} 
-	else
-	{
-		[showhideFilesCheckbox setState:YES];
-		//[showhideFilesCheckbox setTitle:[[@"Hide " stringByAppendingString:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleExecutable"]] stringByAppendingString:@" Files"]];
-		[showhideFilesCheckbox setTitle:NSLocalizedString(@"Hide NetbookInstaller files", nil)];
-
-		
-	}
-	[extensionsCheckbox setTitle:[[@"Install " stringByAppendingString:[systemInfo getMachineString]] stringByAppendingString:@" Extensions"]];
-	 
-		//[dsdtCheckbox setState:![systemInfo dsdtInstalled]];
-	[dsdtCheckbox setState:YES];
-	if([systemInfo dsdtInstalled]) [dsdtCheckbox setTitle:@"Regenerate a system specific DSDT.aml file"];
-	else [dsdtCheckbox setTitle:@"Generate a system specific DSDT.aml file"];
-
-	if([systemInfo remoteCDEnabled])
-	{
-		[remoteCDCheckbox setState:NO];
-		[remoteCDCheckbox setTitle:NSLocalizedString(@"Disable Remote CD", nil)];
-	} 
-	else
-	{
-		[remoteCDCheckbox setState:YES];
-		[remoteCDCheckbox setTitle:NSLocalizedString(@"Enable Remote CD", nil)];
-		
-	}
-	
-	if([systemInfo hibernationDissabled])
-	{
-		[hibernateChecbox setState:NO];
-		[hibernateChecbox setTitle:NSLocalizedString(@"Enable hibernation", nil)];
-	} 
-	else
-	{
-		[hibernateChecbox setState:YES];
-		[hibernateChecbox setTitle:NSLocalizedString(@"Disable hibernation", nil)];
-		
-	}
-	
-	if([systemInfo quietBoot])
-	{
-		[quietBootCheckbox setState:NO];
-		[quietBootCheckbox setTitle:NSLocalizedString(@"Disable Quiet Boot", nil)];
-	} 
-	else
-	{
-		[quietBootCheckbox setState:NO];
-		[quietBootCheckbox setTitle:NSLocalizedString(@"Enable Quiet Boot", nil)];
-		
-	}
-	[bluetoothCheckbox setState:![systemInfo bluetoothPatched]];
-
+	 //[targetVolume setStringValue:[systemInfo bootPartition]];
 }
 
 /***
@@ -203,49 +65,14 @@
  ***/
 - (BOOL) isMachineSupported
 {
-	if([[systemInfo getMachineString] isEqualToString:@"General"]) return NO;
-	else return YES;
-	
-	// TODO: verify the machine's directory exists. If it doesnt, then the machine isn't supported
-	/*BOOL			supported, isDir = YES;
-	NSFileManager* fileManager;
-	NSString		*path, *fullPath;
-	
-	fileManager = [NSFileManager defaultManager];
-	path = [appBundle resourcePath];
-	
-	switch([systemInfo machineType]) {
-		case MINI9:
-		case VOSTRO_A90:
-			
-			fullPath = [NSString stringWithFormat:@"%@/SupportFiles/Extensions/Mini 9 Extensions/",path];
-			supported = [fileManager fileExistsAtPath: fullPath isDirectory: &isDir];
-			if(!isDir) supported = NO;
-			break;
-		
-		case MINI10V:
-			fullPath = [NSString stringWithFormat:@"%@/SupportFiles/Extensions/Mini 10v Extensions/",path];
-			supported = [fileManager fileExistsAtPath: fullPath isDirectory: &isDir];
-			if(!isDir) supported = NO;
-			break;
-			
-		case LENOVO_S10:
-			fullPath = [NSString stringWithFormat:@"%@/SupportFiles/Extensions/S10 Extensions/",path];
-			supported = [fileManager fileExistsAtPath: fullPath isDirectory: &isDir];
-			if(!isDir) supported = NO;			break;
-		case EEE_1000H:
-			fullPath = [NSString stringWithFormat:@"%@/SupportFiles/Extensions/EEE 1000H Extensions/",path];
-			supported = [fileManager fileExistsAtPath: fullPath isDirectory: &isDir];
-			if(!isDir) supported = NO;			break;
-		case UNKNOWN:
-		default:
-			//ExtendedLog(@"Unknown");
-			supported = NO;
-			break;
+	if([[systemInfo getMachineString] isEqualToString:@"General"])
+	{
+		return NO;
 	}
-	
-	if(!supported) [systemInfo machineType: UNKNOWN];
-	return supported;*/
+	else
+	{
+		return YES;
+	}
 }
 
 /***
@@ -259,7 +86,8 @@
 {
 	
 	initialized = YES;
-	if(![self isMachineSupported]) {
+	if(![self isMachineSupported])
+	{
 		// Look into NSRunAlertPanel
 		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
 		[alert addButtonWithTitle:NSLocalizedString(@"Continue", nil)];
@@ -276,7 +104,8 @@
  **		This funciton tells Mac OS X to terminate the program when the windows close
  **
  ***/
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{
 	return YES;
 }
 
@@ -289,7 +118,7 @@
 
 /***
  ** unknownMachineAlert
- **		This function handles the alert and exit's if the user selects cancle
+ **		This function handles the alert and exit's if the user selects cancel
  **
  ***/
 - (void) unknownMachineAlert:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo
@@ -322,19 +151,25 @@
 	
 	
 	installing = YES;	// Dissable applicaiton closing while it's doing stuff
+	[targetVolume setEnabled:false];
 	[installButton setEnabled:false];
 	[progressBar setHidden:false];
 	[progressBar startAnimation: sender];
 	
-	[NSThread detachNewThreadSelector:@selector(performThreadedInstall) toTarget: self withObject: nil];
+	NSString* target = [[systemInfo installableVolumesWithKernel: MIN_VERSION] objectAtIndex:[targetVolume indexOfSelectedItem]];
+	if([self bootLoaderImagePath] && [systemInfo isInstallDVD:target])	
+	{
+		ExtendedLog(@"Install DVD detected");
+		[NSThread detachNewThreadSelector:@selector(performThreadedBootdiskCreation) toTarget: self withObject: nil];
 		
+	}
+	else
+	{	
+		ExtendedLog(@"Full Install detected");
+
+		[NSThread detachNewThreadSelector:@selector(performThreadedInstall) toTarget: self withObject: nil];
 		
-	
-	// TODO:  Force a restart if needed
-	
-	//[progressBar setHidden:true];
-	//[progressBar stopAnimation: sender];
-		
+	}
 }
 
 /***
@@ -365,46 +200,6 @@
 	[NSBundle loadNibNamed:@"about" owner:self];
 }
 
-/***
- ** installationMethodModified
- **		This is called when the installation method checkbox is chaned, enables
- **		or disabled all of the checkboxes
- **		
- ***/
-- (void) enableOptions
-{
-	[self enableOptions: YES];
-}
-- (void) enableOptions: (BOOL) state
-{
-	// Dissable / enable all checkboxes
-	[bootloaderCheckbox			setEnabled: state];
-	[extensionsCheckbox			setEnabled: state];
-	[showhideFilesCheckbox		setEnabled: state];
-	[dsdtCheckbox				setEnabled: state];
-	[remoteCDCheckbox			setEnabled: state];
-	[hibernateChecbox			setEnabled: state];
-	[quietBootCheckbox			setEnabled: state];
-	[bluetoothCheckbox			setEnabled: state];
-	[bootloaderVersion			setEnabled: state && [bootloaderCheckbox state]];
-
-}
-
-
-- (IBAction) bootloaderModified: (id) sender
-{
-	// Dissable / enable target option
-	[bootloaderVersion setEnabled: [sender state]];
-//	[targetDiskBlah
-}
-
-
-- (IBAction) extensionsModified: (id) sender
-{
-	//[oldGMACheckbox setEnabled: [sender state]];
-	// Dissable / enable GMA checbox
-}
-
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
 	[systemInfo release];
@@ -416,106 +211,49 @@
 	[progressBar setDoubleValue:progress];
 }
 
-////////////////
-
-- (BOOL) enableQuietBoot
-{
-	if(![quietBootCheckbox state]) return [systemInfo quietBoot];
-	else return (![systemInfo quietBoot]);
-}
-
-- (BOOL) dissableHibernation
-{
-	if(![hibernateChecbox state]) return [systemInfo hibernationDissabled];
-	else return (![systemInfo hibernationDissabled]);
-}
-
-- (BOOL) enableRemoteCD
-{
-	if(![remoteCDCheckbox state]) return [systemInfo remoteCDEnabled];
-	else return (![systemInfo remoteCDEnabled]);
-}
-
-
-- (BOOL) installExtensions
-{
-	return [extensionsCheckbox state];
-}
-
-- (NSDictionary*) bootloaderType
-{
-	NSDictionary* returnDict = nil;
-	if(![bootloaderVersion titleOfSelectedItem]) return nil;
-	if([bootloaderCheckbox state] == NO) return nil;
-	//ExtendedLog(@"verifying bootlaoder");
-
-	NSEnumerator* bootloaders = [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] keyEnumerator];
-	NSDictionary* bootloader;
-	while(bootloader = [bootloaders nextObject])
-	{
-		ExtendedLog(@"Testing against %@", bootloader);
-		if([[bootloaderVersion titleOfSelectedItem] isEqualToString:[[[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader] objectForKey:@"Visible Name"]]) {
-//			ExtendedLog(@"Found %@", [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader]);
-			returnDict = [[NSDictionary alloc] initWithDictionary: [[[systemInfo bootloaderDict] objectForKey:@"Bootloaders"] objectForKey:bootloader] copyItems:YES];
-			break;
-		}
-	}
-	
-	return returnDict;
-}
-
-- (BOOL) fixBluetooth
-{
-	return [bluetoothCheckbox state];
-}
-
-- (BOOL) regenerateDSDT
-{
-	return [dsdtCheckbox state];
-}
-- (BOOL) toggleVisibility
-{
-	return [showhideFilesCheckbox state];
-}
 
 
 - (BOOL) updateProgressBar: (NSNumber*) percent
 {
-	// This is often called from a secondary thread, if so, we need to call it on the main thread
-	/*if(![[NSThread currentThread] isMainThread])
-	{
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: percent waitUntilDone:NO];
-		
-	}
-	else {*/
-		[progressBar incrementBy: [percent intValue]];
-	//}
+	[progressBar incrementBy: [percent intValue]];
 	return YES;
 }
 - (BOOL) updateStatus: (NSString*) status
 {
-	// This is often called from a secondary thread, if so, we need to call it on the main thread
-	/*if(![[NSThread currentThread] isMainThread])
-	{
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: status waitUntilDone:NO];
-
-	}*/
-	//else {
-		ExtendedLog(@"%@", status);
-		[statusLabel setStringValue:status];		
-	//}
+	ExtendedLog(@"%@", status);
+	[statusLabel setStringValue:status];		
 	return YES;
 }	
 
-- (BOOL) hideFiles
-{
-	return [showhideFilesCheckbox state];
-}
 
 
 - (void) updateVolumeMenu
 {
-	NSArray* options = [systemInfo installableVolumesWithKernel: MIN_VERSION andInstallDVD: NO];	// Any Leopard and beyond  (0.0.0 = no kernel required)
+	NSMutableArray* options = [[NSMutableArray alloc] initWithArray:[systemInfo installableVolumesWithKernel: MIN_VERSION]];	// Any Leopard and beyond  (0.0.0 = no kernel required)
+
+	int i = 0;
+	while(i < [options count])
+	{
+		if([self bootLoaderImagePath] != nil)
+		{
+			if([systemInfo isInstallDVD: [options objectAtIndex:i]])
+			{
+				[options replaceObjectAtIndex:i withObject:[[options objectAtIndex:i] stringByAppendingString:@" (Create Booter)"]];
+			}
+			else
+			{
+				[options replaceObjectAtIndex:i withObject:[[options objectAtIndex:i] stringByAppendingString:@" (Update Install)"]];
+				
+			}
+		}
+		else if(![systemInfo isInstallDVD: [options objectAtIndex:i]])
+		{
+			[options replaceObjectAtIndex:i withObject:[options objectAtIndex:i]];	
+		}
+		
+		i++;
+	}
+
 	//	NSMutableArray* newOptions;
 	
 	NSMenuItem* current = [targetVolume selectedItem];
@@ -525,14 +263,9 @@
 	if([options count] == 1)
 	{
 		[targetVolume selectItemWithTitle:[options lastObject]];
-		//[self enableOptions];
 		//	ExtendedLog(@"Selected target: %@", [@"/Volumes/" stringByAppendingString:[[targetVolume selectedItem] title]]);
-		[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[targetVolume selectedItem] title]]];
-		
+		[systemInfo determinePartitionFromPath:[@"/Volumes/" stringByAppendingString:[[systemInfo installableVolumesWithKernel: MIN_VERSION] objectAtIndex:[targetVolume indexOfSelectedItem]]]];		
 		// TODO: enable this
-		[self updateBootloaderMenu];
-		[self enableOptions];
-		[self updateCheckboxes];
 		[systemInfo printStatus];
 
 	}
@@ -545,6 +278,7 @@
 
 - (BOOL) installFinished
 {
+	[targetVolume setEnabled:true];
 	[installButton setEnabled:true];
 	[progressBar setHidden:true];
 	[progressBar startAnimation: self];
@@ -565,6 +299,7 @@
 
 - (BOOL) installFailed
 {
+	[targetVolume setEnabled:true];
 	[installButton setEnabled:true];
 	[progressBar setHidden:true];
 	[progressBar startAnimation: self];
@@ -594,6 +329,138 @@
 //	ExtendedLog(@"Device did mount: %@", devicePath);
 }
 
+- (BOOL) performThreadedBootdiskCreation
+{
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+	NSString* target = [[systemInfo installableVolumesWithKernel: MIN_VERSION] objectAtIndex:[targetVolume indexOfSelectedItem]];
+	ExtendedLog(@"Boot image path: %@", [self bootLoaderImagePath]);
+	ExtendedLog(@"Drive: %@", [@"/Volumes/" stringByAppendingString:target]);
+	if(![self installBootdisk: [self bootLoaderImagePath] toDrive: [@"/Volumes/" stringByAppendingString:target]])
+	{
+		[self performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
+		[pool release];
+		return NO;
+	}
+	
+	[self performSelectorOnMainThread:@selector(installFinished) withObject: nil waitUntilDone:NO];
+	[pool release];
+	return YES;
+}
+
+
+- (BOOL) installBootdisk: (NSString*) image toDrive: (NSString*) drive
+{
+	NSMutableArray* nsargs;
+	Installer* installer = [[Installer alloc] init];
+	[installer systemInfo: systemInfo];
+	[installer setSourcePath: [[NSBundle mainBundle] resourcePath]];
+	[systemInfo setSourcePath: [[NSBundle mainBundle] resourcePath]];
+
+	if(!image || ![installer getAuthRef])
+	{
+		return NO;
+	}
+	//	ExtendedLog("installBootDisk: %@ toDrive %@", image, drive);
+
+	[systemInfo determineMachineType];
+
+	
+	NSScanner* scanner = [[NSScanner alloc] initWithString:[systemInfo bootPartition]];
+	[scanner setCharactersToBeSkipped: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
+	[scanner setCharactersToBeSkipped: [[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
+	/*if([systemInfo hostOS] < KERNEL_VERSION(10,5,0))
+	{
+		[scanner scanInt:NULL];			// TODO: use scanInt on 10.4
+	}
+	else
+	{
+		[scanner scanInteger: NULL];	// scan past disk number
+	}
+	*/
+	[scanner scanInt:NULL];			// scan past disk number
+
+	NSString* bsdDisk = [[systemInfo bootPartition] substringToIndex:[scanner scanLocation]];		// strip off partition number
+	
+	[self updateStatus:@"Installing..."];
+	
+	// Image volume name is "NetbookBootLoader", unmount it if it exists
+	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookBootLoader", nil];
+	[installer runCMD:"/sbin/umount" withArgs:nsargs];
+	[nsargs release];
+	
+	[self updateProgressBar: [NSNumber numberWithInt: 10]];
+	
+	// Install bootloader
+	[self updateStatus:@"Installing Bootloader (boot0)"];
+	
+	nsargs = [[NSMutableArray alloc] init];
+	
+	[nsargs addObject: @"-f"];
+	[nsargs addObject: [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/BootMakerSupport/boot0"]];
+	[nsargs addObject: @"-u"];
+	[nsargs addObject: @"-y"];
+	
+	[nsargs addObject:[@"/dev/r" stringByAppendingString: bsdDisk]];
+	
+	ExtendedLog(@"Installing boot0 to /dev/r%@", bsdDisk);
+	[installer runCMD:"/usr/sbin/fdisk" withArgs:nsargs];		// Lets not overwrite the disk bootsect, we really don't need it anyways since we set thepartition as active	
+	[nsargs release];
+	[self updateProgressBar: [NSNumber numberWithInt: 10]];
+	
+	[self updateStatus:@"Installing Bootloader (boot1h)"];
+	
+	// Install boot1h using dd
+	nsargs = [[NSMutableArray alloc] init];
+	[nsargs addObject:[@"if=" stringByAppendingString:[[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/BootMakerSupport/boot1h"]]];
+	[nsargs addObject:[@"of=/dev/r" stringByAppendingString: [systemInfo bootPartition]]];
+	[installer runCMD:"/bin/dd" withArgs:nsargs];
+	[nsargs release];
+	[self updateProgressBar: [NSNumber numberWithInt: 10]];
+	
+	
+	[self updateStatus:@"Mounting Installer Image"];
+	
+	
+	
+	// Mount the Installer Image
+	nsargs = [[NSArray alloc] initWithObjects:@"mount", image, nil];
+	[installer runCMD:"/usr/bin/hdiutil" withArgs:nsargs];
+	[nsargs release];
+	[self updateProgressBar: [NSNumber numberWithInt: 5]];
+	
+	[self updateStatus:@"Installing bootloader (boot)"];
+	
+	// Copy in /Extra and /boot from the installer image
+	[installer copyFrom:@"/Volumes/NetbookBootLoader/boot" toDir:[NSString stringWithFormat:@"%@/boot", drive]];
+	[self updateProgressBar: [NSNumber numberWithInt: 10]];
+	
+	[self updateStatus:@"Installing Extra"];
+	[installer copyFrom:[NSString stringWithFormat:@"%@/Extra", drive] toDir:[NSString stringWithFormat:@"%@/Extra.bak", drive]];
+	[installer deleteFile:[NSString stringWithFormat:@"%@/Extra/", drive]];
+	[installer makeDir:[NSString stringWithFormat:@"%@/Extra/", drive]];	
+	// Preserve AdditionalExtensions, just in case
+	[installer copyFrom:[NSString stringWithFormat:@"%@/Extra.bak/AdditionalExtensions", drive] toDir:[NSString stringWithFormat:@"%@/Extra/", drive]];
+	[self updateProgressBar: [NSNumber numberWithInt: 15]];
+
+	[installer copyFrom:@"/Volumes/NetbookBootLoader/Extra" toDir:[NSString stringWithFormat:@"%@/", drive]];
+	[installer hideFiles];
+	[self updateProgressBar: [NSNumber numberWithInt: 25]];
+	
+	
+	[self updateStatus:@"Cleaning up..."];
+	
+	
+	// Unmount the installer image, then we are done
+	nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookBootLoader", nil];
+	[installer runCMD:"/sbin/umount" withArgs:nsargs];
+	[nsargs release];
+	[self updateProgressBar: [NSNumber numberWithInt: 30]];
+	[self updateStatus:@"Done"];
+	
+	return YES;
+}
+
 
 - (BOOL) performThreadedInstall
 {
@@ -605,10 +472,42 @@
 	if(![installer getAuthRef]) 
 	{
 		[self performSelectorOnMainThread:@selector(installFailed) withObject: nil waitUntilDone:NO];
+		[pool release];
 		return NO;
 	}
 	
-
+	if([self bootLoaderImagePath])
+	{
+		// Cleanup if something is already mounted here.
+		NSMutableArray* nsargs;
+		nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/Postboot", nil];
+		[installer runCMD:"/sbin/umount" withArgs:nsargs];
+		[nsargs release];
+				
+		nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookBootLoader", nil];
+		[installer runCMD:"/sbin/umount" withArgs:nsargs];
+		[nsargs release];
+		
+		[self updateStatus:@"Mounting Installer Image"];
+		// Mount the Installer Image
+		nsargs = [[NSArray alloc] initWithObjects:@"mount", [self bootLoaderImagePath], @"-readonly", nil];
+		[installer runCMD:"/usr/bin/hdiutil" withArgs:nsargs];
+		[nsargs release];
+		
+		nsargs = [[NSArray alloc] initWithObjects:@"mount", @"/Volumes/NetbookBootLoader/Extra/Postboot.img", @"-readonly", nil];
+		[installer runCMD:"/usr/bin/hdiutil" withArgs:nsargs];
+		[nsargs release];
+				
+		[installer setSourcePath: @"/Volumes/Postboot/NetbookInstaller.app/Contents/Resources/"];
+		[systemInfo setSourcePath: @"/Volumes/Postboot/NetbookInstaller.app/Contents/Resources/"];
+	}
+	else
+	{
+		[installer setSourcePath: [[NSBundle mainBundle] resourcePath]];
+		[systemInfo setSourcePath: [[NSBundle mainBundle] resourcePath]];
+	}
+	[systemInfo determineMachineType];
+	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Remounting target", nil) waitUntilDone:NO];
 	[installer remountTargetWithPermissions];
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 0] waitUntilDone:NO];
@@ -622,101 +521,113 @@
 	
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 0] waitUntilDone:NO];
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Creating /Extra", nil) waitUntilDone:NO];
-	if([self installExtensions]) 
-	{
-		[installer removePrevExtra];
-	} else
-	{
-		[installer installExtraFiles];
-	}
+
+	[installer removePrevExtra];
+	//[installer installExtraFiles];
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 3] waitUntilDone:NO];
 	
 	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Display Profiles", nil) waitUntilDone:NO];
-	[installer installDisplayProfile];
+	[installer copyMachineFilesFrom: @"DisplayProfiles/" toDir: @"/Library/ColorSync/Profiles/"];
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Preference Panes", nil) waitUntilDone:NO];
-	[installer installPrefPanes];
-	[installer installLaunchAgents];
+	[installer copyMachineFilesFrom: @"3rdPartyPrefPanes/" toDir: @"/Library/PreferencePanes/"];
+	[installer copyMachineFilesFrom: @"LaunchAgents/" toDir: @"/Library/LaunchAgents/"];
+	[installer copyMachineFilesFrom: @"LaunchDaemons/" toDir: @"/Library/LaunchDaemons/"];
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 	
-	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Instaling Power Managment bundle", nil) waitUntilDone:NO];
-	[installer installSystemConfiguration];
-	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Instaling Power Managment bundle", nil) waitUntilDone:NO];
+	//[installer copyMachineFilesFrom: @"SystemConfiguration/" toDir: @"/System/Library/SystemConfiguration/"];
+	//[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
 	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Regenerating DSDT.aml", nil) waitUntilDone:NO];
-	if([self regenerateDSDT]) [installer installDSDT]; // modifed version of chameleon ensures origional dsdt is available.
+	//if([self regenerateDSDT]) 
+	[installer installDSDT]; // modifed version of chameleon ensures origional dsdt is available.
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 1] waitUntilDone:NO];
+	
+	
+	
+	
+	//[self makeDir:@"/Volumes/ramdisk/Extensions"];
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Copying Dependencies", nil) waitUntilDone:NO];
+	//[installer copyDependencies];
+	//[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
+	
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Extensions", nil) waitUntilDone:NO];
+	[installer installExtensions];
+	[installer installLocalExtensions];
+	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 14] waitUntilDone:NO];
+	
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching GMA950 Extension", nil) waitUntilDone:NO];
+	//[installer patchGMAkext];
+	//[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
+	
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Framebuffer Extension", nil) waitUntilDone:NO];
+	//[installer patchFramebufferKext];
+	//[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
+	
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Wireless Extension", nil) waitUntilDone:NO];
+	//[installer patchIO80211kext];
+	//[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
+	
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Bluetooth", nil) waitUntilDone:NO];
+	//[installer patchBluetooth];
+	//[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
+	
+	//[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching USB", nil) waitUntilDone:NO];
+	//[installer patchAppleUSBEHCI];
+	//[installer patchAppleHDA];
+	
+	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Generating Extension Caches", nil) waitUntilDone:NO];
+	[installer generateExtensionsCache];
+	//[installer useSystemKernel];
 
-
-	
-	
-	if([self installExtensions]){
-		//[self makeDir:@"/Volumes/ramdisk/Extensions"];
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Copying Dependencies", nil) waitUntilDone:NO];
-		[installer copyDependencies];
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
-		
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Installing Extensions", nil) waitUntilDone:NO];
-		[installer installExtensions];
-		[installer installLocalExtensions];
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 14] waitUntilDone:NO];
-		
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching GMA950 Extension", nil) waitUntilDone:NO];
-		[installer patchGMAkext];
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
-			
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Framebuffer Extension", nil) waitUntilDone:NO];
-		[installer patchFramebufferKext];
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
-		
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Wireless Extension", nil) waitUntilDone:NO];
-		[installer patchIO80211kext];
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
-		
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching Bluetooth", nil) waitUntilDone:NO];
-		[installer patchBluetooth];
-		[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
-		
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Patching USB", nil) waitUntilDone:NO];
-		[installer patchAppleUSBEHCI];
-			//[installer patchAppleHDA];
-		
-		[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Generating Extension Caches", nil) waitUntilDone:NO];
-		[installer generateExtensionsCache];
-		[installer useSystemKernel];
-		
-	}
-	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying Quiet Boot state", nil) waitUntilDone:NO];
-	[installer setQuietBoot:			[self enableQuietBoot]];
+	[installer setQuietBoot: YES];
 	
 	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying Hibernation state", nil) waitUntilDone:NO];
-	[installer disableHibernation:	[self dissableHibernation]];
+	[installer disableHibernation: YES];
 	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying RemoteCD State", nil) waitUntilDone:NO];
-	[installer setRemoteCD:			[self enableRemoteCD]];
+	[installer setRemoteCD:YES];
+	
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 5] waitUntilDone:NO];
 	
 	[self performSelectorOnMainThread:@selector(updateStatus:) withObject: NSLocalizedString(@"Verifying Bootloader", nil) waitUntilDone:NO];
-	ExtendedLog(@"Installing bootloader %@", [self bootloaderType]);
-	if([self bootloaderType]) [installer installBootloader: [[NSDictionary alloc] initWithDictionary:[self bootloaderType] copyItems:YES]];
+	ExtendedLog(@"Installing bootloader");
+	[installer installBootloader];
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 10] waitUntilDone:NO];
 	
+	[installer disableptmd];
+
+	[installer copyNBIImage];
 	
-	if([self hideFiles]) {
-		if([systemInfo efiHidden])		[installer showFiles];
-		else							[installer hideFiles];
-	} else if([systemInfo efiHidden])	[installer hideFiles];	// rehide files if previously hidden
+	[installer hideFiles];
 
 	
-	if([self fixBluetooth]) [installer fixBluetooth];
+	//if([self fixBluetooth]) [installer fixBluetooth];
 	[self performSelectorOnMainThread:@selector(updateProgressBar:) withObject: [NSNumber numberWithInt: 30] waitUntilDone:NO];
 	
 	[installer unmountRamDisk];
 
+	
+	// Cleanup.
+	if([self bootLoaderImagePath])
+	{
+		[installer copyFrom:@"/Volumes/NetbookBootLoader/Extra/Postboot.img" toDir:@"/Extra/NetbookInstaller.img"];
+		
+		NSMutableArray* nsargs;
+		nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/Postboot", nil];
+		[installer runCMD:"/sbin/umount" withArgs:nsargs];
+		[nsargs release];
+				
+		nsargs = [[NSMutableArray alloc] initWithObjects:@"-f", @"/Volumes/NetbookBootLoader", nil];
+		[installer runCMD:"/sbin/umount" withArgs:nsargs];
+		[nsargs release];		
+	}	
+	
 	
 	[installer release];
 
@@ -727,6 +638,20 @@
 	[pool release];
 	
 	return YES;
+}
+
+- (NSString*) bootLoaderImagePath
+{
+	NSString* image = [[[NSBundle mainBundle] resourcePath] stringByAppendingString: @"/BootMakerSupport/NetbookBootLoader.img"];
+	if(![[NSFileManager defaultManager] fileExistsAtPath: image])
+	{
+		//ExtendedLog(@"Unable to locate %@", image);
+		return nil;
+	}
+	else
+	{
+		return image;
+	}
 }
 
 

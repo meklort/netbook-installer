@@ -17,7 +17,7 @@
 #import <sys/param.h>
 
 #import <openssl/md5.h>
-
+#import "Installer.h"
 
 @implementation SystemInformation
 
@@ -106,12 +106,6 @@
 	machineType = newMachineType;
 }*/
 
-- (NSDictionary*) installedBootloader
-{
-	//if(!installedBootloader) //return [NSDictionary dictionaryWithObject:@"ERROR" forKey:@"Bootloader"];
-	return installedBootloader;
-}
-
 - (NSUInteger) bluetoothVendorId
 {
 	return bluetoothVendorId;
@@ -121,47 +115,6 @@
 	return bluetoothDeviceId;
 }
 
-
-- (void) determineInstallState;
-{
-
-	//ExtendedLog(@"Determine boot");
-	bootloaderDict =  [[NSDictionary alloc] initWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingString:@"/SupportFiles/bootloader.plist"]];	
-	[self determinebootPartition];
-	//ExtendedLog(@"Determine machine type");
-
-	[self determineMachineType];
-	//ExtendedLog(@"Determine dsdt type");
-
-	[self determineDSDTState];
-	
-	//ExtendedLog(@"Determine remotecd");
-
-	[self determineRemoteCDState];
-	
-	//ExtendedLog(@"Determine bluetooth");
-
-	[self determineBluetoothState];
-
-	//ExtendedLog(@"Determine hibernate");
-
-	[self determineHibernateState];
-	
-	//ExtendedLog(@"Determine quiet boot");
-
-	[self determineQuiteBootState];
-	
-	//ExtendedLog(@"Determine hidden state");
-
-	[self determineHiddenState];
-	//ExtendedLog(@"Determine gma");
-
-	[self determineArchitecture];
-
-
-	//	//ExtendedLog(@"state");
-	
-}
 
 // code example from http://snipplr.com/view/1645/given-a-mount-path-retrieve-a-usb-device-name/
 - (void) determinebootPartition
@@ -186,27 +139,21 @@
 
 	
 	[self determineTargetOS];
-	[self determineBootloader];
-	
-	
 }
 
 //TODO: fix this as it currently crashes when a BAD path is sent
 - (void) determinePartitionFromPath: (NSString*) path
 {
 	NSDictionary* info = [self getFileSystemInformation: path];
-
+	ExtendedLog(@"getFileSystemInformation: %@ -> %@", path, info);
 	bootPartition = [[NSString alloc] initWithString:[[info objectForKey:@"Mounted From"] substringFromIndex:[@"/dev/" length]]];
 	installPath = [[NSString alloc] initWithString:path];
 
-	//ExtendedLog(@"Target Device: %@\n", bootPartition);
+	ExtendedLog(@"Target Device: %@\n", bootPartition);
 	
 	
 	[self determineTargetOS];
 
-	[self determineBootloader];
-
-	[self determineMachineType];
 	[self determineDSDTState];
 	[self determineRemoteCDState];
 	[self determineBluetoothState];
@@ -221,7 +168,7 @@
 - (void) determineMachineType
 {
 	//ExtendedLog(@"machine type");
-	NSDictionary*	machineplist= [NSDictionary dictionaryWithContentsOfFile:[[[NSBundle mainBundle]  resourcePath] stringByAppendingString:@"/SupportFiles/machine.plist"]];	
+	NSDictionary*	machineplist= [NSDictionary dictionaryWithContentsOfFile:[sourcePath stringByAppendingString:@nbiMachinePlist]];	
 	NSEnumerator *enumerator = [machineplist objectEnumerator];
 	NSDictionary* currentModel;
 
@@ -383,10 +330,6 @@
 
 - (void) determineBluetoothState
 {
-	NSFileManager* fileManager;
-	fileManager = [NSFileManager defaultManager];
-	
-	
 	bluetoothPatched = !(([[[self machineInfo] objectForKey:@"Bluetooth Vendor ID"] isEqualToNumber:[NSNumber numberWithInt:0]]) || ([[[self machineInfo] objectForKey:@"Bluetooth Device ID"] isEqualToNumber:[NSNumber numberWithInt:0]]));
 	
 	bluetoothVendorId = [[machineInfo objectForKey:@"Bluetooth Vendor ID"] intValue];
@@ -434,55 +377,6 @@
 	return returnArray;
 }
 
-- (void) determineBootloader
-{
-	installedBootloader = nil;
-	return;
-	
-//	NSDictionary* allbootloaders = [bootloaderDict objectForKey:@"Bootloaders"];
-
-//	NSDictionary* booter;
-//	NSEnumerator* bootloaders = [allbootloaders keyEnumerator];
-
-	NSData* bootloader = [[NSData alloc] initWithContentsOfFile:[installPath stringByAppendingString:@"/boot"]];
-	NSRange replaceByte;
-	
-	//NSMutableData* md5 =			[[NSMutableData alloc] initWithLength:16];
-
-	
-	unsigned char *digest;
-	UInt8 i = 0;
-	installedBootloader = nil;
-
-
-	
-
-	if(!bootloader || [bootloader length] == 0)
-	{
-		return;
-	}	
-	digest = 0; //MD5([bootloader bytes], [bootloader length], NULL);
-
-	
-	// Convert the string into an NSData type
-	while(digest[i] != 0) {
-		replaceByte.location = 16 - (i + 1);
-		replaceByte.length = 1;
-		//[md5 replaceBytesInRange:replaceByte withBytes:&(digest[i]) length:1];
-		i++;
-	}
-
-	/*while((booter = [bootloaders nextObject]) && (installedBootloader == nil))
-	{
-		//if([md5 isEqualToData:[[[bootloaderDict objectForKey:@"Bootloaders"] objectForKey:booter] objectForKey:@"MD5"]]) installedBootloader = [[NSDictionary alloc] initWithDictionary:booter copyItems:YES];
-	}*/
-	
-	
-	[bootloader release];
-	//[md5 release];
-	
-}
-
 - (NSInteger) hostOS
 {
 	return hostKernel;
@@ -503,20 +397,50 @@
 	return YES;
 }
 
-- (NSArray*) installableVolumesWithKernel: (int) minVersions andInstallDVD: (BOOL) dvdonly
+- (BOOL) isInstallDVD: (NSString*) path
 {
-	NSError* err;
-	NSMutableArray* volumes = (NSMutableArray*) [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/Volumes" error: &err];
+	BOOL isDir = NO;
+	if([[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/" stringByAppendingString:[path stringByAppendingString:@"/System/Installation/"]] isDirectory:&isDir] && isDir)
+	{
+		return YES;
+	}
+	else
+	{
+		return NO;
+	}
+}
+
+- (BOOL) isInstall: (NSString*) path
+{
+	return ![self isInstallDVD: path];
+}
+
+- (NSArray*) installableVolumesWithKernel: (int) minVersions
+{	
+	NSMutableArray* volumes;
+#if MAC_OS_X_VERSION_MAX_ALLOWED < MAC_OS_X_VERSION_10_5
+	if([self hostOS] < KERNEL_VERSION(10,5,0))
+	{
+		volumes = (NSMutableArray*) [[NSFileManager defaultManager] directoryContentsAtPath:@"/Volumes"];
+	}
+	else
+#endif
+	{
+		NSError* err;
+		volumes = (NSMutableArray*) [[NSFileManager defaultManager] contentsOfDirectoryAtPath:@"/Volumes" error: &err];
+	}
+
 	
 	// TODO: verify that the media is read / write
 	
 	int i = 0;
 	while(i < [volumes count])
 	{
-		if([self getKernelVersion:[@"/Volumes/" stringByAppendingString:[[volumes objectAtIndex:i] stringByAppendingString:@"/mach_kernel"]]] < minVersions)
+		if([self getKernelVersion:[@"/Volumes/" stringByAppendingString:[[volumes objectAtIndex:i] stringByAppendingString:@"/"]]] < minVersions)
 		{
 			// Boot unsupported, remove volume from the list
 			[volumes removeObjectAtIndex:i];
+			//i++;
 		}
 		else
 		{
@@ -527,18 +451,8 @@
 			}
 			else
 			{
-				BOOL isDir = NO;
-				if([[NSFileManager defaultManager] fileExistsAtPath:[@"/Volumes/" stringByAppendingString:[[volumes objectAtIndex:i] stringByAppendingString:@"/System/Installation/"]] isDirectory:&isDir] && isDir)
-				{
-					// /System/Installation exists, this is an install DVD
-					if(!dvdonly) [volumes removeObjectAtIndex:i];
-					else i++;
-				}
-				else {
-					// /System/Installation does not exists, this is an full install
-					if(dvdonly) [volumes removeObjectAtIndex:i];
-					else i++;
-				}
+				// Return any valid install media, dvd or complete install
+				i++;
 			}
 		}
 	}
@@ -555,12 +469,10 @@
 - (NSInteger) getKernelVersion: (NSString*) kernelPath
 {
 	//ExtendedLog(@"Get kernel version for %@", kernelPath);
-	// Legacy support, remove this
-	NSString* path = [kernelPath stringByReplacingOccurrencesOfString:@"/mach_kernel" withString:@"/"];
 
 	int majorVersion = 0, minorVersion = 0, bugfixVersion = 0;
 	NSScanner* scanner;
-	NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:[path stringByAppendingString:@"/System/Library/CoreServices/SystemVersion.plist"]];
+	NSDictionary* systemVersion = [[NSDictionary alloc] initWithContentsOfFile:[kernelPath stringByAppendingString:@"/System/Library/CoreServices/SystemVersion.plist"]];	// TODO: also read in ServerVersion.plist
 	NSString* versionString = [systemVersion objectForKey:@"ProductVersion"];
 	if(!versionString)
 	{
@@ -568,10 +480,8 @@
 		return 0;	// no kernel
 	}
 	
-	versionString = [versionString stringByReplacingOccurrencesOfString:@"." withString:@" "];
-
 	scanner = [NSScanner scannerWithString:versionString];
-	
+	[scanner setCharactersToBeSkipped:[[NSCharacterSet decimalDigitCharacterSet] invertedSet]];
 	[scanner scanInt:&majorVersion];
 	[scanner scanInt:&minorVersion];
 	[scanner scanInt:&bugfixVersion];
@@ -706,7 +616,6 @@
 	ExtendedLog(@"InstallPath: %@\n", [self installPath]);
 	ExtendedLog(@"Boot Partition: %@\n", [self bootPartition]);
 
-	ExtendedLog(@"InstalledBootloader: %@\n", [self installedBootloader]);
 	ExtendedLog(@"BluetoothVendorID: %d\n", [self bluetoothVendorId]); 
 	ExtendedLog(@"BluetoothDeviceID: %d\n", [self bluetoothDeviceId]);
 	ExtendedLog(@"BluetoothPatched: %s\n", (bluetoothPatched ? "Yes" : "No"));
@@ -751,5 +660,11 @@
 	
 	return retString;
 }
+
+- (void) setSourcePath: (NSString*) path
+{
+	sourcePath = path;
+}
+
 
 @end

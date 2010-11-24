@@ -21,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.8.4 RC1</string>
+	<string>0.8.5pre</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2009-2010, Evan Lojewski.</string>
 	<key>LSMinimumSystemVersion</key>
@@ -31,7 +31,7 @@
 	<key>CFBundleHelpBookName</key>
 	<string>NetbookInstaller Help</string>
 	<key>NSMainNibFile</key>
-	<string>MainMenu</string>
+	<string>NetbookInstaller</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 </dict>

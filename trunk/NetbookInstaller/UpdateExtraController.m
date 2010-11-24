@@ -61,10 +61,13 @@
 {
 	Installer* installer = [[Installer alloc] init];
 	SystemInformation* systemInfo = [[SystemInformation alloc] init];
-
+	[systemInfo setSourcePath: [[NSBundle mainBundle] resourcePath]];
+	[systemInfo determineMachineType];
+	[systemInfo determinePartitionFromPath:@"/"];
 	
-	[systemInfo determineInstallState];
 	[installer systemInfo: systemInfo];
+	[installer setSourcePath: [[NSBundle mainBundle] resourcePath]];
+
 
 
 	if(![installer getAuthRef]) 
@@ -78,24 +81,7 @@
 	
 
 	[installer mountRamDisk];
-	
-//	if([systemInfo targetOS] < KERNEL_VERSION(10, 5, 6))	// Less than Mac OS X 10.5.4
-//	{
-//		NSAlert *alert = [[[NSAlert alloc] init] autorelease];
-//		[alert addButtonWithTitle:NSLocalizedString(@"Continue", nil)];
-//		[alert setMessageText:NSLocalizedString(@"Unsupported Operating System", nil)];
-//		[alert setInformativeText:NSLocalizedString(@"You are running this applicaiton on an unsupported operating system. Please upgrade to Mac OS X 10.5.6 or later.", nil)];
-//		[alert setAlertStyle:NSWarningAlertStyle];
-//		[alert beginSheetModalForWindow:[NSApp mainWindow] modalDelegate:self didEndSelector:nil contextInfo:nil];
-//		
-//		
-//		
-//	} else
-	{
-		[installer copyDependencies];
-		[installer generateExtensionsCache];
-		[installer useSystemKernel];
-	}	
+	[installer generateExtensionsCache];
 	[installer unmountRamDisk];
 	
 	[installer release];

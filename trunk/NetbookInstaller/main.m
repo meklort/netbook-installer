@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 #import "PCI.h"
+#import "USB.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,7 +26,18 @@ int main(int argc, char *argv[])
 	{
 	
 		//[tempDevice printProperties];
+
 		ExtendedLog(@"Found vendorID: 0x%X deviceID: 0x%X ClassID: 0x%X SubClassID: 0x%X", [tempDevice vendorID], [tempDevice deviceID], [tempDevice PCIClass], [tempDevice PCISubClass]);
+		if([tempDevice PCIClass] == PCI_CLASS_SERIAL && [tempDevice PCISubClass] == USB_BUS)
+		{
+			/*ExtendedLog(@"Located USB controller");
+			// USB device
+			io_service_t temp = [tempDevice getIORegisteryEntry];
+			USBDevice* usbDev = [[USBDevice alloc] initWithEntry:temp];
+			[usbDev parseChildren];
+			[usbDev release];
+			 */
+		}
 	
 
 		[tempDevice release];

@@ -89,7 +89,7 @@
 		
 	if(!childEntry) {
 		IOObjectRelease(iterator);
-		iterator = (io_iterator_t) NULL;		// reset. The client should be able to handel a nil correctly...
+		iterator = (io_iterator_t)0;		// reset. The client should be able to handel a nil correctly...
 		[child release];
 		return nil;
 	}
@@ -134,7 +134,7 @@
 	if(deviceProperties && (data = [deviceProperties objectForKey:@"class-code"]))
 	{
 		// NOTE: The data type is actualy a 64 bit number, not 32.
-		return ((UInt32) *((UInt32*)[data bytes]) & 0xFFFF0000) >> 16;
+		return ((UInt32) *((UInt32*)[data bytes]) & 0x00FF0000) >> 16;
 	} else {
 		return 0;
 	}
@@ -142,18 +142,14 @@
 
 - (UInt32)		PCISubClass;	// read from "class code"
 {
-	return 0;
-	/*NSData* data;
-
-	
+	NSData* data;
 	if(deviceProperties && (data = [deviceProperties objectForKey:@"class-code"]))
 	{
 		// NOTE: The data type is actualy a 64 bit number, not 32.
-		return ((UInt32) *((UInt32*)[data bytes]) & 0xFF);
-
+		return ((UInt32) *((UInt32*)[data bytes]) & 0x0000FF00) >> 8;
 	} else {
 		return 0;
-	}*/
+	}
 }
 
 - (BOOL)		driverAvailable
@@ -167,5 +163,9 @@
 	ExtendedLog(@"AppleACPIPCI properties: %@", deviceProperties);
 }
 
+- (io_service_t) getIORegisteryEntry
+{
+	return selfEntry;
+}
 
 @end

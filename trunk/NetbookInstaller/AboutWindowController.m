@@ -26,9 +26,6 @@
 
 
 - (IBAction) closeAboutWindow: (id) sender {
-	//	NSWindow* aboutWindow;
-	//	aboutWindow = NULL;
-
 	[[NSApp keyWindow] close];
 }
 
