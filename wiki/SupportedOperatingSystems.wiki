@@ -1,3 +1,10 @@
+= 0.8.5 =
+==NetbookInstaller 0.8.5 compatibility (Host to target)==
+|| Host OS	||	Target OS		||
+|| 10.4.x        ||     10.6.x ||
+|| 10.5.x		||	10.6.x ||
+|| 10.6.x		||	10.6.x ||
+
 = 0.8.4 =
 
 ==NetbookInstaller 0.8.4 compatibility (Host to target)==
